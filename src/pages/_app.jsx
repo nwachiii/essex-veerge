@@ -58,11 +58,11 @@ function MyApp({Component, pageProps}) {
 
   //   const isAccessibleWithOutToken = pathsCanBeAccessedWithOutToken.includes(router.pathname);
 
-    if (!IS_USER_TOKEN_AVAILABLE && !isAccessibleWithOutToken) {
-      router.push('/account');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [IS_USER_TOKEN_AVAILABLE]);
+  //   if (!IS_USER_TOKEN_AVAILABLE && !isAccessibleWithOutToken) {
+  //     router.push('/account');
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [IS_USER_TOKEN_AVAILABLE]);
 
   return (
     <ChakraProvider theme={theme}>
