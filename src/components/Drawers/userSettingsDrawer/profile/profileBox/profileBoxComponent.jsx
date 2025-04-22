@@ -1,19 +1,23 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import {
   Box,
   HStack,
-  VStack, Container,
+  VStack,
+  Container,
   Grid,
-  GridItem, Text, Spinner, useToast,
-  Center
+  GridItem,
+  Text,
+  Spinner,
+  useToast,
+  Center,
 } from '@chakra-ui/react';
-import { UploadProfilePicture } from 'ui-lib/ui-lib.components';
+import {UploadProfilePicture} from 'ui-lib/ui-lib.components';
 import fallbackSrc from '/src/images/avatar.svg';
-import { UpdateProfileModal } from './updateProfileModal';
-import { useMutation } from '@tanstack/react-query';
-import { updateProfile } from '/src/apis/settings';
-import { toastForError } from 'utils/toastForErrors';
-import { isRoleRestricted } from 'ui-lib/ui-lib.hooks/isRoleRestricted';
+import {UpdateProfileModal} from './updateProfileModal';
+import {useMutation} from '@tanstack/react-query';
+import {updateProfile} from '/src/apis/settings';
+import {toastForError} from 'utils/toastForErrors';
+import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
 
 export const ProfileBox = ({user, refetch}) => {
   const [avatar, setAvatar] = useState([{preview: user?.avatar}]);
@@ -25,10 +29,7 @@ export const ProfileBox = ({user, refetch}) => {
     setProfileModalOpen(false);
   };
 
-  const userInfo =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const userInfo = loggedinUserStatic;
 
   const onOpenProfileModal = () => {
     setProfileModalOpen(true);

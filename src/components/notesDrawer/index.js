@@ -88,10 +88,7 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
     suggestionsQuery.data?.data?.data?.response?.users ?? []
   );
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   const customScrollStyle = {
     overflow: 'auto',

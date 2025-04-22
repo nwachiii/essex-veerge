@@ -45,6 +45,7 @@ import {VeergeLogo} from './navbar/svgs';
 import ProfileMenuInfoCard from './navbar/profileMenuInfoCard';
 import LogOutIcon from '../assets/logOutIcon';
 import {fetchDeveloperProfile} from 'apis/settings';
+import { loggedinUserStatic } from 'apis/requests';
 
 const NavLink = ({link, children}) => (
   <Link
@@ -70,7 +71,8 @@ const NavLink = ({link, children}) => (
   </Link>
 );
 
-export const LayoutNavbar = ({activePage, openmanageApp, isPending}) => {
+export const LayoutNavbar = ({ activePage, openmanageApp }) => {
+  const isPending = false;
   const router = useRouter();
   const [activeLocation, setActiveLocation] = useState('');
   const [showProgress, setShowProgress] = useState(false);
@@ -95,7 +97,7 @@ export const LayoutNavbar = ({activePage, openmanageApp, isPending}) => {
     fetchDeveloperProfile
   );
 
-  const userInfo = data?.data?.develoeper_info;
+  const userInfo = loggedinUserStatic?.develoeper_info;
 
   let user = userInfo;
   try {
@@ -149,7 +151,7 @@ export const LayoutNavbar = ({activePage, openmanageApp, isPending}) => {
           className="header-wrap"
         >
           <HStack alignItems="center" spacing={{base: `26px`, xl: `8px`}}>
-            <Link href="/dashboard">
+            <Link href="/account">
               <VeergeLogo color="#ffffff" />
             </Link>
             <Text

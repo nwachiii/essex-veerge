@@ -3,10 +3,7 @@ import {Badge, Flex, Heading, HStack, Image, Stack, Text, VStack} from '@chakra-
 import welcomeIcon from '../../../images/icons/welcome-icon.png';
 
 export const TopHeader = () => {
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
   return (
     <HStack justify="space-between" mb="13px">
       <Stack zIndex={1000} gap={'0.5px'}>

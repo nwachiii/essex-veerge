@@ -118,10 +118,7 @@ export const ListingDetails = ({subPages, defaultData, handleProgress}) => {
     },
   });
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   const CONSTRUCTION_PERIOD = {
     start_period: startPeriod,

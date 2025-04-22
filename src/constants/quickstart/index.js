@@ -11,10 +11,7 @@ import {UserSettingsDrawer} from '@/components/Drawers/userSettingsDrawer';
 
 let user;
 try {
-  user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  user = loggedinUserStatic;
 } catch (err) {
   console.log(err);
 }
