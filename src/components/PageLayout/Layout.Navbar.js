@@ -387,4 +387,4 @@ export const LayoutNavbar = ({activePage, openmanageApp, isPending}) => {
 
 export default LayoutNavbar;
 
-const links = ['Dashboard', 'Listings', 'Users', 'Account', 'Request', 'Settings'];
+const links = ['Account', 'Communities', 'Residents', 'Request', 'Violations'];
