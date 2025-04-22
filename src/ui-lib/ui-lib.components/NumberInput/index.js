@@ -203,7 +203,7 @@ const extractCountryKey = (key, country) => {
       ? localStorage.getItem('baseCountry')
       : 'United States Of America';
 
-  return countries.find(item => item.name === defaultCountry)?.[key]?.toLowerCase() || 'us';
+  return countries.find(item => item.name === 'Nigeria')?.[key]?.toLowerCase() || 'us';
 };
 
 export const InputPhoneNumber = ({

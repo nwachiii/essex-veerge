@@ -81,7 +81,7 @@ const ForgotPassword = () => {
       const {forgot, ...payload} = values;
       resetPasswordMutation.mutate(payload, {
         onSuccess: () => {
-          return router.push('/auth/onboarding/login');
+          return router.push('/account');
         },
         onError: err => {
           return toastForError(err, true, toast);

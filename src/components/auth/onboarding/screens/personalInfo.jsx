@@ -191,7 +191,7 @@ const PersonalInfo = ({handleScreen, setFormSubmitted, isLoading, formik}) => {
         >
           Already have an account?
         </Text>
-        <Button variant="outline-radius" onClick={() => router.push('/auth/onboarding/login')}>
+        <Button variant="outline-radius" onClick={() => router.push('/account')}>
           Log In!
         </Button>
       </Stack>

@@ -15,13 +15,20 @@ const PasswordResetSuccess = () => {
         </Text>
       </Form.Header>
       <Form.Body>
-        <Text fontFamily="Proxima Nova" color='#DDDDDD' fontSize="14px" lineHeight="24.75px" maxW={300} mx="auto">
+        <Text
+          fontFamily="Proxima Nova"
+          color="#DDDDDD"
+          fontSize="14px"
+          lineHeight="24.75px"
+          maxW={300}
+          mx="auto"
+        >
           You have successfully reset your password. Proceed to Log In
         </Text>
-        <Link href="/auth/onboarding/login">
-        <Button fontSize="18px" fontWeight="400" mt="20px" withoutLoader>
-          Login
-        </Button>
+        <Link href="/account">
+          <Button fontSize="18px" fontWeight="400" mt="20px" withoutLoader>
+            Login
+          </Button>
         </Link>
       </Form.Body>
     </Form>

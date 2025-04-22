@@ -25,7 +25,7 @@ const customScrollbarStyles = {
 const AuthPageLayout = ({children}) => {
   const router = useRouter();
   const handleHome = () => {
-    router.push('/auth/onboarding/login');
+    router.push('/account');
   };
   return (
     <Box
