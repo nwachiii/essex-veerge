@@ -1,4 +1,5 @@
 import {Box, HStack, Heading, Image, Stack, Text, VStack} from '@chakra-ui/react';
+import { loggedinUserStatic } from 'apis/requests';
 import React from 'react';
 
 export const AssigneesDetails = ({info}) => {
@@ -18,10 +19,7 @@ export const AssigneesDetails = ({info}) => {
     },
   };
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   const [expand, setExpand] = React.useState(false);
 

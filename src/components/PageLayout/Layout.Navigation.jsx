@@ -27,9 +27,9 @@ export function LayoutNavigation({
   tabPanelStyle,
   activePage,
   children,
-  isPending,
   ...restProps
 }) {
+  const isPending = false
   const router = useRouter();
   const [activeLocation, setActiveLocation] = useState('');
 
@@ -42,7 +42,7 @@ export function LayoutNavigation({
       : setActiveLocation(activeLink.toLowerCase());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.pathname]);
-  const {data} = useQuery(['customers', 'listings'], fetchSuggestionsData);
+  const {data} = useQuery(['customers', 'Communities'], fetchSuggestionsData);
 
   const handleNav = (linkText, e) => {
     const link = linkText?.toLowerCase();
@@ -50,7 +50,7 @@ export function LayoutNavigation({
     if (link === router.pathname.replace('/', '')) return;
     if (link === 'settings') return;
     !isPending && router.push(`/${link}`);
-    if (link == 'dashboard') {
+    if (link == 'account') {
       router.push(`/${link}`);
     }
   };

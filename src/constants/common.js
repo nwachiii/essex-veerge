@@ -18,24 +18,12 @@ import settings_icon_dark from '/src/images/icons/settings_icon_dark.svg';
 import Settings from 'pages/settings';
 
 export const dashboardTabs = [
-  {
-    linkText: 'Dashboard',
-    iconSrc: dashboard_icon,
-    component: <Dashboard />,
-    dark_iconSrc: dashboard_icon_dark,
-  },
-  {
-    linkText: 'Listings',
-    iconSrc: listing_icon,
-    component: <ManageListing />,
-    dark_iconSrc: listing_icon_dark,
-  },
-  {
-    linkText: 'Users',
-    iconSrc: users_icon,
-    dark_iconSrc: users_icon_dark,
-    component: <ManageCustomers />,
-  },
+  // {
+  //   linkText: 'Dashboard',
+  //   iconSrc: dashboard_icon,
+  //   component: <Dashboard />,
+  //   dark_iconSrc: dashboard_icon_dark,
+  // },
   {
     linkText: 'Account',
     iconSrc: account_icon,
@@ -43,15 +31,27 @@ export const dashboardTabs = [
     dark_iconSrc: account_icon_dark,
   },
   {
+    linkText: 'Communities',
+    iconSrc: listing_icon,
+    component: <ManageListing />,
+    dark_iconSrc: listing_icon_dark,
+  },
+  {
+    linkText: 'Residents',
+    iconSrc: users_icon,
+    dark_iconSrc: users_icon_dark,
+    component: <ManageCustomers />,
+  },
+  {
     linkText: 'Request',
     iconSrc: request_icon,
     component: <Request />,
     dark_iconSrc: request_icon_dark,
   },
-  // {
-  //   linkText: 'Settings',
-  //   iconSrc: settings_icon,
-  //   component: <Settings />,
-  //   dark_iconSrc: settings_icon_dark,
-  // },
+  {
+    linkText: 'Violations',
+    iconSrc: settings_icon,
+    component: <Request />,
+    dark_iconSrc: settings_icon_dark,
+  },
 ];

@@ -20,10 +20,7 @@ const customScrollbarStyles = {
 export const SettlementSummary = ({submitInfo}) => {
   const [expand, setExpand] = useState(false);
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   return (
     <Stack

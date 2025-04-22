@@ -5,6 +5,7 @@ import fallbackSrc from '/src/images/avatar.svg';
 import cameraIcon from '/src/images/icons/cameraIconForProfileIcon.svg';
 import {useMutation, useQuery} from '@tanstack/react-query';
 import {fetchDeveloperProfile, updateProfile} from 'apis/settings';
+import { loggedinUserStatic } from 'apis/requests';
 
 const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
   const [avatar, setAvatar] = useState(() => {
@@ -16,10 +17,7 @@ const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
       setAvatar([{preview: user.avatar}]);
     }
   }, [user?.avatar]);
-  const userInfo =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const userInfo = loggedinUserStatic;
 
   const mutation = useMutation(
     formData => {

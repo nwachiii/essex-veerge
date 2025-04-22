@@ -39,10 +39,7 @@ import Scrolll from '../notes/Scrolll';
 import {fetchMessages, UpdateMessages} from '../../apis/fetchMessage';
 
 export const Messages = () => {
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
   const toast = useToast();
   console.log(user);
   const container = {

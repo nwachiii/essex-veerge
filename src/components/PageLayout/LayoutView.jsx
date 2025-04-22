@@ -32,23 +32,23 @@ export function LayoutView({
   // USER APPROVAL ACTIONS
   const IS_DEVELOPER_APPROVED = developerStatusQuery?.data?.data?.status;
 
-  if (IS_DEVELOPER_APPROVED == false) {
-    typeof window !== 'undefined' &&
-      localStorage.setItem(
-        'IS_DEVELOPER_APPROVED',
-        JSON.stringify({IS_DEVELOPER_APPROVED: IS_DEVELOPER_APPROVED})
-      );
-    queryClient.clear();
-    toast({
-      title:
-        'Your registration was not approved. Please check your email for details regarding the rejection',
-      status: 'error',
-      duration: 2500,
-      isClosable: true,
-      position: 'top-right',
-    });
-    router.push('/auth/onboarding');
-  }
+  // if (IS_DEVELOPER_APPROVED == false) {
+  //   typeof window !== 'undefined' &&
+  //     localStorage.setItem(
+  //       'IS_DEVELOPER_APPROVED',
+  //       JSON.stringify({IS_DEVELOPER_APPROVED: IS_DEVELOPER_APPROVED})
+  //     );
+  //   queryClient.clear();
+  //   toast({
+  //     title:
+  //       'Your registration was not approved. Please check your email for details regarding the rejection',
+  //     status: 'error',
+  //     duration: 2500,
+  //     isClosable: true,
+  //     position: 'top-right',
+  //   });
+  //   router.push('/auth/onboarding');
+  // }
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       if (refetchCount < maxRefetchCount) {
@@ -84,13 +84,13 @@ export function LayoutView({
         <Box w="full">
           <LayoutNavbar
             openmanageApp={openmanageApp}
-            isPending={isStatusPending ? true : false}
+            isPending={false}
             activePage={activePage}
           />
           {noSubNav ? null : (
             <LayoutNavigation
               tabPanelStyle={tabPanelStyle}
-              isPending={isStatusPending ? true : false}
+              isPending={false}
               manageroles
               // children={children}
               activePage={activePage}

@@ -42,10 +42,7 @@ export const ProfileBox = ({user, refetch}) => {
     setProfileModalOpen(false);
   };
 
-  const userInfo =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const userInfo = loggedinUserStatic;
 
   const onOpenProfileModal = () => {
     setProfileModalOpen(true);

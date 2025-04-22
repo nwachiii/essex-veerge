@@ -39,10 +39,7 @@ const AssignTo = ({formik, roles}) => {
   const [searchText, setSearchText] = useState('');
   const [contact, setContact] = useState(defaultContact);
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   const customScrollStyle = {
     overflow: 'auto',

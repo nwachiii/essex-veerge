@@ -34,7 +34,8 @@ export const ListingDetails = ({
   const [docObj, setDocObj] = useState({name: ''});
   const [contractObj, setContractObj] = useState({name: ''});
 
-  const isBuildingTypeSFHandLand = propertyType == 'Detached' || propertyType == 'Semi Detached' || propertyType == 'Land';
+  const isBuildingTypeSFHandLand =
+    propertyType == 'Detached' || propertyType == 'Semi Detached' || propertyType == 'Land';
 
   const getDocumentUrl = useMutation(payload => sendBase64ForUrl(payload), {
     onSuccess: res => {
@@ -65,10 +66,7 @@ export const ListingDetails = ({
     },
   });
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   const handleProjectBrochure = async event => {
     const file = event.currentTarget.files[0];

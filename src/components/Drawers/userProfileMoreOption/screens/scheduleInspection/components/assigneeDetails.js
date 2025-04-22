@@ -18,10 +18,7 @@ export const AssigneesDetails = ({formik}) => {
     },
   };
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   const [expand, setExpand] = React.useState(false);
 

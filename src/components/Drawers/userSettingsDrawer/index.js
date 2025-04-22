@@ -29,6 +29,7 @@ import {useRouter} from 'next/navigation';
 import {ProfileSettingsIcon} from '@/components/PageLayout/navbar/svgs';
 import PaymentControlRoom from './payment';
 import {BusinessInformation} from './compliance/businessInformation';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const UserSettingsDrawer = ({isPending, children}) => {
   const drawerDisclosure = useDisclosure();
@@ -36,10 +37,7 @@ export const UserSettingsDrawer = ({isPending, children}) => {
   const router = useRouter();
   const toast = useToast();
 
-  const isAccountActive = () =>
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'))?.initial_status === 'Accepted';
+  const isAccountActive = () => loggedinUserStatic?.initial_status === 'Accepted';
   const tabsToRestrict = ['teams', 'payment'];
   const isDisabled = tabName => tabsToRestrict.includes(tabName) && !isAccountActive();
 
