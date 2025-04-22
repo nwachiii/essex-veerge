@@ -53,16 +53,16 @@ function MyApp({Component, pageProps}) {
   const IS_USER_TOKEN_AVAILABLE =
     (typeof window !== 'undefined' && JSON?.parse(localStorage?.getItem('devToken'))) ?? null;
 
-  useEffect(() => {
-    const pathsCanBeAccessedWithOutToken = ['/auth/role-signup', '/auth/onboarding'];
+  // useEffect(() => {
+  //   const pathsCanBeAccessedWithOutToken = ['/auth/role-signup', '/auth/onboarding'];
 
-    const isAccessibleWithOutToken = pathsCanBeAccessedWithOutToken.includes(router.pathname);
+  //   const isAccessibleWithOutToken = pathsCanBeAccessedWithOutToken.includes(router.pathname);
 
-    if (!IS_USER_TOKEN_AVAILABLE && !isAccessibleWithOutToken) {
-      router.push('/auth/onboarding/login');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [IS_USER_TOKEN_AVAILABLE]);
+  //   if (!IS_USER_TOKEN_AVAILABLE && !isAccessibleWithOutToken) {
+  //     router.push('/auth/onboarding/login');
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [IS_USER_TOKEN_AVAILABLE]);
 
   return (
     <ChakraProvider theme={theme}>
