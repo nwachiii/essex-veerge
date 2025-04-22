@@ -97,7 +97,7 @@ const InputEmailToResetPassword = ({formik, isLoading, setFormSubmitted, handleS
         >
           Remember your password?
         </Text>
-        <Button variant="outline-radius" onClick={() => router.push('/auth/onboarding/login')}>
+        <Button variant="outline-radius" onClick={() => router.push('/account')}>
           Log In!
         </Button>
       </Stack>

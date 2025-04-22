@@ -75,7 +75,7 @@ export const CreateAppModal = ({
 
     const storeObj = {
       ...(storeName ? {} : {store_name: strName}),
-      ...(storeName ? {} : {business: storeInfo.data?.data?.business_id}),
+      ...(storeName ? {} : {business: 'VM_VE_5C6BAF'}),
       theme_color,
       theme_name,
       theme_mode,

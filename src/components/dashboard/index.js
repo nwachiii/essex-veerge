@@ -25,7 +25,7 @@ export const PendingDashBoardState = ({data, ...restProps}) => {
 
   useEffect(() => {
     if (!IS_USER_TOKEN_AVAILABLE) {
-      router.push('/auth/onboarding/login');
+      router.push('/account');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [IS_USER_TOKEN_AVAILABLE]);
@@ -126,10 +126,9 @@ export const PendingDashBoardState = ({data, ...restProps}) => {
                 }
               />
               {/* Graph Area */}
-    
-                <DashboardApexChart filterValue={filterByVal} />
-                {/* <TransactionsOverview data={DEVELOPER_DASHBOARD_DATA} /> */}
-    
+
+              <DashboardApexChart filterValue={filterByVal} />
+              {/* <TransactionsOverview data={DEVELOPER_DASHBOARD_DATA} /> */}
             </Box>
             <Flex
               gap={`12px`}

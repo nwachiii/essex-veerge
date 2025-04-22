@@ -3,9 +3,7 @@ import {BaseURL_ONE, BaseURL_TWO} from '../constants/routes';
 
 export const fetchFeedBack = async param => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -17,9 +15,7 @@ export const fetchFeedBack = async param => {
 
 export const fetchInspection = async param => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -32,9 +28,7 @@ export const fetchInspection = async param => {
 //POST
 export const respondToFeedback = async (body, bundleId) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/feedback/${bundleId}`, body, BEARER_TOKEN);
@@ -42,9 +36,7 @@ export const respondToFeedback = async (body, bundleId) => {
 
 export const checkOutInspection = async (body, REQUESTID) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(
@@ -56,9 +48,7 @@ export const checkOutInspection = async (body, REQUESTID) => {
 
 export const suggestAFeature = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_ONE}/account/bug-report?developer=true`, body, BEARER_TOKEN);
@@ -66,9 +56,7 @@ export const suggestAFeature = async body => {
 
 export const reportABug = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_ONE}/account/suggestions?developer=true`, body, BEARER_TOKEN);
@@ -76,9 +64,7 @@ export const reportABug = async body => {
 
 export const feedback = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/developer_feedback`, body, BEARER_TOKEN);
@@ -86,9 +72,7 @@ export const feedback = async body => {
 
 export const fetchSuggestionsData = async () => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -98,9 +82,7 @@ export const fetchSuggestionsData = async () => {
 
 export const postBroadcastData = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -110,9 +92,7 @@ export const postBroadcastData = async body => {
 
 export const getBroadcastHistory = async params => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 

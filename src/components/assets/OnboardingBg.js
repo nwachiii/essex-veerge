@@ -9,7 +9,7 @@ import veergeLogo from '/src/images/icons/veergeLogo.svg';
 export const OnboardingBg = () => {
   const router = useRouter();
   const handleHome = () => {
-    router.push('/auth/onboarding/login');
+    router.push('/account');
   };
   return (
     /* 

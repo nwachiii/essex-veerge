@@ -179,7 +179,7 @@ export default function CreateAccount() {
           {`Already have an account?`}
         </Text>
         <Center>
-          <Link href="/auth/onboarding/login">
+          <Link href="/account">
             <Text
               textAlign={'center'}
               mx="auto"

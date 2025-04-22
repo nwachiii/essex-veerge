@@ -27,9 +27,7 @@ import {BaseURL_TWO, BaseURL_ONE, STORE_NAME} from '../constants/routes';
 // GET REQUESTS EXAMPLE
 export const fetchAllRequests = async param => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -45,9 +43,7 @@ export const fetchAllRequests = async param => {
 
 export const fetchCommissionRequest = async query => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   const storeName =
     typeof window !== 'undefined' &&
@@ -63,9 +59,7 @@ export const fetchCommissionRequest = async query => {
 
 export const fetchSingleCommissionRequest = async id => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   const storeName =
     typeof window !== 'undefined' &&
@@ -82,9 +76,7 @@ export const fetchSingleCommissionRequest = async id => {
 
 export const fetchAgentDetails = async id => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   let response = [];
@@ -97,9 +89,7 @@ export const fetchAgentDetails = async id => {
 
 export const fetchCustomerEquity = async id => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   let response = [];
@@ -112,9 +102,7 @@ export const fetchCustomerEquity = async id => {
 
 export const accountVerificationRequests = async () => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   let response = [];
@@ -127,9 +115,7 @@ export const accountVerificationRequests = async () => {
 
 export const accountVerificationAccepted = async () => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   let response = [];
@@ -146,9 +132,7 @@ export const accountVerificationAccepted = async () => {
 
 export const InspectionRequestResponse = (id, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   return axios.patch(
@@ -160,9 +144,7 @@ export const InspectionRequestResponse = (id, body) => {
 
 export const uploadDeedDoc = (id, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   return axios.post(`${BaseURL_TWO}/developers/save-deed/${parseInt(id)}`, body, BEARER_TOKEN);
@@ -170,9 +152,7 @@ export const uploadDeedDoc = (id, body) => {
 
 export const handleRequestCommssion = (requestId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   return axios.post(
@@ -184,9 +164,7 @@ export const handleRequestCommssion = (requestId, body) => {
 
 export const verifyAccount = (accountId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   return axios.patch(`${BaseURL_ONE}/user/id-verify/${parseInt(accountId)}`, body, BEARER_TOKEN);
@@ -196,9 +174,7 @@ export const verifyAccount = (accountId, body) => {
 };
 export const verifyAgent = (accountId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   return axios.patch(`${BaseURL_TWO}/developers/agents/${parseInt(accountId)}`, body, BEARER_TOKEN);
@@ -206,9 +182,7 @@ export const verifyAgent = (accountId, body) => {
 
 export const videoVerification = (accountId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
   return axios.patch(`${BaseURL_ONE}/user/video-verify/${parseInt(accountId)}`, body, BEARER_TOKEN);

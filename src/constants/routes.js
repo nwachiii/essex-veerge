@@ -1,4 +1,3 @@
-
 export const BaseURL_ONE = 'https://api.matadortrust.com/v1';
 export const BaseURL_TWO = 'https://api.matadortrust.com/v2';
 
@@ -37,7 +36,7 @@ export const PAGE_URLS = [
   '/veerge_plus/basic_vs_custom_app',
   '/veerge_menu/application',
   '/auth/onboarding',
-  '/auth/onboarding/login',
+  '/account',
   'auth/role-signup',
   '/listings/create/new-unit',
   '/auth/forgot_password/reset_password',

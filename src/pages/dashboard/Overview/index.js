@@ -31,10 +31,7 @@ export const DashboardOverview = ({data, error, isLoading, refetch, isError, ...
 
   let BILLING_PLAN;
   try {
-    BILLING_PLAN =
-      typeof window !== undefined &&
-      localStorage?.getItem('DEVELOPER_PLAN') !== undefined &&
-      JSON?.parse(localStorage?.getItem('DEVELOPER_PLAN'));
+    BILLING_PLAN = 'subscription'
   } catch (err) {
     console.log(err);
   }

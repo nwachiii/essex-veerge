@@ -4,9 +4,7 @@ import {BaseURL_ONE, BaseURL_TWO} from '../constants/routes';
 // GET REQUESTS
 export const fetchAllCustomers = async () => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -18,9 +16,7 @@ export const fetchAllCustomers = async () => {
 
 export const fetchCustomers = async dynamic_queries => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -32,9 +28,7 @@ export const fetchCustomers = async dynamic_queries => {
 
 export const fetchOneCustomer = async customerId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -46,9 +40,7 @@ export const fetchOneCustomer = async customerId => {
 
 export const fetchCustomersEquity = async customerId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -59,9 +51,7 @@ export const fetchCustomersEquity = async customerId => {
 };
 export const fetchCustomerFractionalInfo = async (equityId, customerEmail) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -76,9 +66,7 @@ export const fetchCustomerFractionalInfo = async (equityId, customerEmail) => {
 };
 export const transferFractionalOwnership = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -90,9 +78,7 @@ export const transferFractionalOwnership = async body => {
 };
 export const suspendTransaction = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -100,9 +86,7 @@ export const suspendTransaction = async body => {
 };
 export const additionalClosingCost = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -110,9 +94,7 @@ export const additionalClosingCost = async body => {
 };
 export const terminateTransaction = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -125,9 +107,7 @@ export const terminateTransaction = async body => {
 };
 export const terminateFractionalTransaction = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -140,9 +120,7 @@ export const terminateFractionalTransaction = async body => {
 };
 export const uploadSubscribersDoc = async (id, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -156,9 +134,7 @@ export const uploadSubscribersDoc = async (id, body) => {
 
 export const fetchCustomersEquityTxns = async equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -169,9 +145,7 @@ export const fetchCustomersEquityTxns = async equityId => {
 };
 export const fetchCustomersFractionalTxns = async (equityId, userId) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -182,9 +156,7 @@ export const fetchCustomersFractionalTxns = async (equityId, userId) => {
 };
 export const fetchCustomerCoOwnershipTxns = async (equityId, userId) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -196,9 +168,7 @@ export const fetchCustomerCoOwnershipTxns = async (equityId, userId) => {
 
 export const fetchPreviousPaymentsForIndividualOwnership = async (equityId, userId) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -210,9 +180,7 @@ export const fetchPreviousPaymentsForIndividualOwnership = async (equityId, user
 
 export const fetchCustomerVirtualAccountNumber = async equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -226,9 +194,7 @@ export const fetchCustomerVirtualAccountNumber = async equityId => {
 };
 export const fetchUserWalletTxns = async (userId, param) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -241,14 +207,9 @@ export const fetchUserWalletTxns = async (userId, param) => {
 export const fetchCustomerViaEmail = async email => {
   let response = [];
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
-  const business_id =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('business_id'));
+  const business_id = 'VM_VE_5C6BAF';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -264,9 +225,7 @@ export const fetchCustomerViaEmail = async email => {
 
 export const fetchCustomerEquityPackets = async equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -277,9 +236,7 @@ export const fetchCustomerEquityPackets = async equityId => {
 };
 export const fetchAllocationsPerUnit = async unitId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -290,9 +247,7 @@ export const fetchAllocationsPerUnit = async unitId => {
 };
 export const fetchAvailableAllocationsPerUnit = async unitId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -303,9 +258,7 @@ export const fetchAvailableAllocationsPerUnit = async unitId => {
 };
 export const fetchSingleEquityInfo = async equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -317,9 +270,7 @@ export const fetchSingleEquityInfo = async equityId => {
 
 export const fetchAllocationForArchiving = async param => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -330,9 +281,7 @@ export const fetchAllocationForArchiving = async param => {
 };
 export const fetchAllocationsImages = async unitId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -344,9 +293,7 @@ export const fetchAllocationsImages = async unitId => {
 
 export const sendAnOfferAccountDetailsAndPacket = async equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -360,9 +307,7 @@ export const sendAnOfferAccountDetailsAndPacket = async equityId => {
 
 export const createCustomer = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/customers/`, body, BEARER_TOKEN);
@@ -370,9 +315,7 @@ export const createCustomer = body => {
 
 export const updateCustomerEquityInfo = (equityId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/customers/equity/`, body, BEARER_TOKEN);
@@ -380,9 +323,7 @@ export const updateCustomerEquityInfo = (equityId, body) => {
 
 export const fetchAllocatedEquityInfo = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/multiple-allocations/`, body, BEARER_TOKEN);
@@ -390,9 +331,7 @@ export const fetchAllocatedEquityInfo = body => {
 
 export const createCustomerEquity = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/customers/equity/`, {...body}, BEARER_TOKEN);
@@ -400,9 +339,7 @@ export const createCustomerEquity = body => {
 
 export const allocateUnitToEquity = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/allocate/`, {...body}, BEARER_TOKEN);
@@ -410,9 +347,7 @@ export const allocateUnitToEquity = body => {
 
 export const deleteAllocationFromEquity = equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.delete(`${BaseURL_TWO}/developers/allocations/remove/${equityId}/`, BEARER_TOKEN);
@@ -420,9 +355,7 @@ export const deleteAllocationFromEquity = equityId => {
 
 export const blacklistCustomer = customerId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(
@@ -433,9 +366,7 @@ export const blacklistCustomer = customerId => {
 };
 export const removeUserFromBlacklist = customerId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(
@@ -447,9 +378,7 @@ export const removeUserFromBlacklist = customerId => {
 
 export const addEquityPackets = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/multiple-equity-packets/`, body, BEARER_TOKEN);
@@ -457,18 +386,14 @@ export const addEquityPackets = body => {
 
 export const transferCustomerEquity = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/equity-transfer`, body, BEARER_TOKEN);
 };
 export const addCustomerEquityPackets = (equityId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/investment/equity/${equityId}/packets/`, body, BEARER_TOKEN);
@@ -476,9 +401,7 @@ export const addCustomerEquityPackets = (equityId, body) => {
 
 export const updatePaymentMilestone = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.patch(`${BaseURL_TWO}/developers/allocations/`, body, BEARER_TOKEN);
@@ -486,9 +409,7 @@ export const updatePaymentMilestone = body => {
 
 export const updateAllocationImages = (unitId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(
@@ -500,9 +421,7 @@ export const updateAllocationImages = (unitId, body) => {
 
 export const updateAllocationValues = (unitId, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(
@@ -514,9 +433,7 @@ export const updateAllocationValues = (unitId, body) => {
 
 export const sendAnOffer = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/customers/equity/offer/`, body, BEARER_TOKEN);
@@ -524,9 +441,7 @@ export const sendAnOffer = body => {
 
 export const updateDeposit = body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/add-manual-payment`, body, BEARER_TOKEN);
@@ -534,9 +449,7 @@ export const updateDeposit = body => {
 
 export const fetchEquityDetails = async (equityId, userId) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -550,9 +463,7 @@ export const fetchEquityDetails = async (equityId, userId) => {
 };
 export const fetchCustomPlanSummary = async planId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -564,9 +475,7 @@ export const fetchCustomPlanSummary = async planId => {
 
 export const fetchManualDepositTransactions = async equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -578,9 +487,7 @@ export const fetchManualDepositTransactions = async equityId => {
 
 export const fetchCommission = async equityId => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   let response = [];
@@ -592,9 +499,7 @@ export const fetchCommission = async equityId => {
 
 export const uploadUsersInformation = async body => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
   return axios.post(`${BaseURL_TWO}/developers/upload-csv/`, body, BEARER_TOKEN);
@@ -602,9 +507,7 @@ export const uploadUsersInformation = async body => {
 
 export const updateCustomerName = async (id, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
@@ -617,9 +520,7 @@ export const updateCustomerName = async (id, body) => {
 
 export const addMaturityDate = async (id, body) => {
   const token =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('devToken') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('devToken'));
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTI3OTI0LCJpYXQiOjE3NDUzMTE5MjQsImp0aSI6IjlkMmRjYTU2NTM1YzQzNzk5MDhhMDQxODc3YTg1NTkyIiwidXNlcl9pZCI6NTMwLCJkZXZpY2VfaWQiOm51bGx9.e-lRE9YQSUJxDSG4orl3cweuEwp0ruRVgdgTfjWgbW0';
 
   const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
 
