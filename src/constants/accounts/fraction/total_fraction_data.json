@@ -1,0 +1,30 @@
+[
+  {
+    "no": "1",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "depositDate": "5th August"
+  },
+  {
+    "no": "2",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "depositDate": "5th August"
+  },
+  {
+    "no": "3",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "depositDate": "5th August"
+  },
+  {
+    "no": "4",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "depositDate": "5th August"
+  }
+]

@@ -1,0 +1,124 @@
+import axios from 'utils/axiosInstance';
+import {BaseURL_ONE, BaseURL_TWO} from '../constants/routes';
+
+export const fetchFeedBack = async param => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+  let response = [];
+  await axios
+    .get(`${BaseURL_TWO}/developers/feedback${param ? '?' : ''}${param}`, BEARER_TOKEN)
+    .then(res => (response = res));
+  return response;
+};
+
+export const fetchInspection = async param => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+  let response = [];
+  await axios
+    .get(`${BaseURL_TWO}/developers/inspection-ticket/${param ? '?' : ''}${param}`, BEARER_TOKEN)
+    .then(res => (response = res));
+  return response;
+};
+
+//POST
+export const respondToFeedback = async (body, bundleId) => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+  return axios.post(`${BaseURL_TWO}/developers/feedback/${bundleId}`, body, BEARER_TOKEN);
+};
+
+export const checkOutInspection = async (body, REQUESTID) => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+  return axios.post(
+    `${BaseURL_TWO}/developers/inspection-ticket/${REQUESTID}/`,
+    body,
+    BEARER_TOKEN
+  );
+};
+
+export const suggestAFeature = async body => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+  return axios.post(`${BaseURL_ONE}/account/bug-report?developer=true`, body, BEARER_TOKEN);
+};
+
+export const reportABug = async body => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+  return axios.post(`${BaseURL_ONE}/account/suggestions?developer=true`, body, BEARER_TOKEN);
+};
+
+export const feedback = async body => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+  return axios.post(`${BaseURL_TWO}/developers/developer_feedback`, body, BEARER_TOKEN);
+};
+
+export const fetchSuggestionsData = async () => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+
+  const response = await axios.get(`${BaseURL_TWO}/developers/suggestion-data/`, BEARER_TOKEN);
+  return response;
+};
+
+export const postBroadcastData = async body => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+
+  const response = await axios.post(`${BaseURL_TWO}/developers/broadcast/`, body, BEARER_TOKEN);
+  return response;
+};
+
+export const getBroadcastHistory = async params => {
+  const token =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('devToken') !== 'undefined' &&
+    JSON.parse(localStorage.getItem('devToken'));
+
+  const BEARER_TOKEN = {headers: {Authorization: `Bearer ${token}`}};
+
+  const response = await axios.get(
+    `${BaseURL_TWO}/developers/broadcast/?channel=${params}`,
+    BEARER_TOKEN
+  );
+  return response;
+};

@@ -1,0 +1,34 @@
+[
+  {
+    "no": "1",
+    "image": "/src/images/avatar.svg",
+    "initiatorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "withdrawalType": "Commision",
+    "withdrawalDate": "10th August 9:00am"
+  },
+  {
+    "no": "2",
+    "image": "/src/images/avatar.svg",
+    "initiatorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "withdrawalType": "Bank Withdrawal",
+    "withdrawalDate": "10th August 9:00am"
+  },
+  {
+    "no": "3",
+    "image": "/src/images/avatar.svg",
+    "initiatorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "withdrawalType": "Refund",
+    "withdrawalDate": "10th August 9:00am"
+  },
+  {
+    "no": "4",
+    "image": "/src/images/avatar.svg",
+    "initiatorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "withdrawalType": "Commision",
+    "withdrawalDate": "10th August 9:00am"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "no": "1",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "paymentType": "Initial Deposit"
+  },
+  {
+    "no": "1",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "paymentType": "Outright"
+  },
+  {
+    "no": "1",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "paymentType": "Last Payment"
+  },
+  {
+    "no": "4",
+    "image": "/src/images/avatar.svg",
+    "depositorsName": "Darrell Stevard",
+    "amount": "N12,000,0000.00",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "paymentType": "Installment"
+  }
+]

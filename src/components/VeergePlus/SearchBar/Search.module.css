@@ -1,0 +1,54 @@
+@media only screen and (max-width: 768px) {
+  .link__ {
+    text-decoration: none;
+    width: 320px;
+    color: #101828;
+    font-size: 18px;
+    font-weight: 500px;
+    line-height: 28px;
+    height: fit-content;
+    min-height: 56px;
+    cursor: pointer;
+    align-self: center;
+    text-align: center;
+    text-justify: auto;
+  }
+
+  .a__ {
+    border: 2px solid #ecf2f7;
+    border-radius: 8px;
+    background-color: #ffffff;
+    text-decoration: none;
+  }
+
+  .a__ :hover {
+    background-color: #ecf2f7;
+  }
+}
+@media only screen and (min-width: 789px) {
+  .link__ {
+    text-decoration: none;
+    width: 400px;
+    color: #101828;
+    font-size: 18px;
+    font-weight: 500px;
+    line-height: 28px;
+    height: fit-content;
+    min-height: 56px;
+    cursor: pointer;
+
+    text-align: center;
+    text-justify: auto;
+  }
+
+  .a__ {
+    border: 2px solid #ecf2f7;
+    border-radius: 8px;
+    background-color: #ffffff;
+    text-decoration: none;
+  }
+
+  .a__ :hover {
+    background-color: #ecf2f7;
+  }
+}

@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: #fbfcfc;
+}
+.prop_container {
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  padding: 10px;
+}
+.prop_container p:nth-of-type(1) {
+  font-family: semiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #4545fe;
+  margin-top: 8px;
+}
+.prop_container p:nth-of-type(2) {
+  font-family: semiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  color: #191919;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.prop_container p:nth-of-type(3) {
+  font-family: euclidRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #606060;
+  margin-top: 0px;
+}
+
+.prop__image {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 300px;
+  width: 100%;
+}
+.prop__image div img {
+  width: 100%;
+}
+
+.prop__image div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+.prop__image div:nth-of-type(2) p:nth-of-type(1) {
+  font-family: semiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  color: #191919;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.prop__image .prop__image > div:nth-child(2) .prop__image > p:nth-child(2),
+.prop__image > p:nth-child(4) {
+  font-family: euclidRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #606060;
+  margin-top: 0px;
+}
+
+/* .prop__image div:nth-of-type(2) p:nth-of-type(3) {
+	font-family: semiBold;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+	color: #12d8a0;
+	margin-top: 1.5em;
+	margin-bottom: 0px;
+} */
+
+/* .prop__image div:nth-of-type(2) button {
+	background: #ffffff;
+	border: 1px solid #12d8a0;
+	border-radius: 12px;
+	color: #12d8a0;
+	max-width: 90px;
+	height: 27px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1em;
+	font-family: euclidMedium;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 13px;
+} */

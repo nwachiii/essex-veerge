@@ -1,0 +1,1 @@
+export {CustomisedModal} from './settingModal';

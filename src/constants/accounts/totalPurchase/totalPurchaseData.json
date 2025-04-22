@@ -1,0 +1,52 @@
+[
+  {
+    "no": "1",
+    "image": "/src/images/avatar.svg",
+    "name": "Darrell Stevard",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "purchasePrice": "N12,000,0000.00",
+    "outstandingBalance": "N8,000,000.00",
+    "action": "View Breakdown"
+  },
+  {
+    "no": "2",
+    "image": "/src/images/avatar.svg",
+    "name": "Darrell Stevard",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "purchasePrice": "N12,000,0000.00",
+    "outstandingBalance": "N8,000,000.00",
+    "action": "View Breakdown"
+  },
+  {
+    "no": "3",
+    "image": "/src/images/avatar.svg",
+    "name": "Darrell Stevard",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "purchasePrice": "N12,000,0000.00",
+    "outstandingBalance": "N8,000,000.00",
+    "action": "View Breakdown"
+  },
+  {
+    "no": "4",
+    "image": "/src/images/avatar.svg",
+    "name": "Darrell Stevard",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "purchasePrice": "N12,000,0000.00",
+    "outstandingBalance": "N8,000,000.00",
+    "action": "View Breakdown"
+  },
+  {
+    "no": "5",
+    "image": "/src/images/avatar.svg",
+    "name": "Darrell Stevard",
+    "listingName": "Astrid 2.0",
+    "unitType": "3 Bedroom",
+    "purchasePrice": "N12,000,0000.00",
+    "outstandingBalance": "N8,000,000.00",
+    "action": "View Breakdown"
+  }
+]

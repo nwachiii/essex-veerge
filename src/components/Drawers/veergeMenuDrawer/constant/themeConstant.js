@@ -1,0 +1,268 @@
+import React from 'react';
+import {formatNumberWithCommas, formatToCurrency} from '../../../../utils/formatAmount';
+import orangestarIcon from '/src/images/icons/orangestarIcon.svg';
+import exclusiveIcon from '/src/images/icons/flash_icon.svg';
+import comingSoonIcon from '/src/images/icons/coming_soon_icon.svg';
+import entryLevelIcon from '/src/images/icons/entry_level_icon.svg';
+import topRatedIcon from '/src/images/icons/top_rated_icon.svg';
+import latestIcon from '/src/images/icons/latest_icon.svg';
+import mostUsedIcon from '/src/images/icons/most_used_icon.svg';
+import {themeColorMode} from './themeColorMode';
+
+export const themeConstant = (route, themeColor, themeName) => {
+  // theme tags display info
+  const exclusive = {
+    name: 'Exclusive',
+    icon: exclusiveIcon,
+    bg: 'rgba(255, 243, 176, 0.10)',
+    borderColor: 'rgba(255, 243, 176, 0.50)',
+    color: '#FF9103',
+  };
+  const topRated = {
+    name: 'Top Rated',
+    bg: 'rgba(255, 223, 186, 0.08)',
+    borderColor: 'rgba(255, 223, 186, 0.5)',
+    color: '#FFF3B0',
+    icon: topRatedIcon,
+  };
+  const latest = {
+    name: 'Latest',
+    bg: 'rgba(3, 255, 209, 0.10)',
+    borderColor: 'rgba(3, 255, 209, 0.50)',
+    color: '#03FFD1',
+    icon: latestIcon,
+  };
+  const entryLevel = {
+    name: 'Entry Level',
+    bg: 'rgba(255, 210, 63, 0.10)',
+    borderColor: 'rgba(255, 210, 63, 0.50)',
+    color: '#FFD23F',
+    icon: entryLevelIcon,
+  };
+  const comingSoon = {
+    name: 'Coming Soon',
+    bg: 'rgba(219, 216, 179, 0.10)',
+    borderColor: 'rgba(219, 216, 179, 0.50)',
+    color: '#DBD8B3',
+    icon: comingSoonIcon,
+  };
+  const mostUsed = {
+    name: 'Most Used',
+    bg: 'rgba(219, 249, 240, 0.10)',
+    borderColor: 'rgba(219, 249, 240, 0.5)',
+    color: '#DBF9F0',
+    icon: mostUsedIcon,
+  };
+
+  return [
+    {
+      name: 'Scandinavian Elegance',
+      themeName: 'retroRevival',
+      subTheme: 'scandinavianElegance',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightScandinavianElegance.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      tag: [topRated],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#5B7D05'],
+      themeColorModes: themeColorMode['scandinavianElegance'],
+    },
+    {
+      name: 'Vintage Charm Monochrome',
+      themeName: 'vintageCharmMonochrome',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/VintageCharmMonochrome.png`,
+      price: formatNumberWithCommas(3500, {style: 'currency', currency: 'USD'}),
+      tag: [latest],
+      themeColorArray: ['#FFFFFF', '#000000'],
+      themeColorModes: themeColorMode['vintageCharmMonochrome'],
+      singleColor: true,
+    },
+    {
+      name: 'Vintage Charm',
+      themeName: 'vintageCharm',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightVinatgeCharm.png`,
+      price: formatNumberWithCommas(3800, {style: 'currency', currency: 'USD'}),
+      tag: [latest],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#FF5F15'],
+      themeColorModes: themeColorMode['vintageCharm'],
+    },
+    {
+      name: 'Modern Minimalism',
+      themeName: 'modernMinimalism',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightModernMinimalism.png`,
+      price: formatNumberWithCommas(3000, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#64D8A4', '#694DC2'],
+      themeColorModes: themeColorMode['modernMinimalism'],
+    },
+    {
+      name: 'Coastal Retreat',
+      themeName: 'retroRevival',
+      subTheme: 'coastalRetreat',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightCoastalRetreat.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#5B7D05'],
+      themeColorModes: themeColorMode['coastalRetreat'],
+    },
+    {
+      name: 'Industrial Loft',
+      themeName: 'retroRevival',
+      subTheme: 'industrialLoft',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightIndustrialLoft.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#5B7D05'],
+      themeColorModes: themeColorMode['industrialLoft'],
+    },
+    {
+      name: 'Rustic Charm',
+      themeName: 'retroRevival',
+      subTheme: 'rusticCharm',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightRusticCharm.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#5B7D05'],
+      themeColorModes: themeColorMode['rusticCharm'],
+    },
+    {
+      name: 'Terracotta',
+      themeName: 'Terracotta',
+      preview: ``,
+      image: `https://elasticbeanstalk-us-east-1-366943739396.s3.amazonaws.com/resources/Screenshot+2024-08-27+at+6.06.44%E2%80%AFPM.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      tag: [mostUsed],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#DAB81E'],
+      themeColorModes: themeColorMode['Terracotta'],
+    },
+    {
+      name: 'Suburban Serenity',
+      themeName: 'suburbanSerenity',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightSuburbanSerenity.png`,
+      price: formatNumberWithCommas(4000, {style: 'currency', currency: 'USD'}),
+      tag: [topRated],
+      themeColorArray: ['#2F2F2F', '#FFFFFF'],
+      themeColorModes: themeColorMode['suburbanSerenity'],
+    },
+    {
+      name: 'Nordic Hygge',
+      themeName: 'nordicHygge',
+      preview: ``,
+      image: `https://d1tfxqgzlmg1r3.cloudfront.net/mobile-themes/nordicHyggeLight.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#FBB600'],
+      themeColorModes: themeColorMode['nordicHygge'],
+    },
+    {
+      name: 'Mountain Lodge',
+      themeName: 'mountainLodge',
+      preview: ``,
+      image: `https://d1tfxqgzlmg1r3.cloudfront.net/mobile-themes/mountainLodgeLight.png`,
+      price: formatNumberWithCommas(4000, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#043399'],
+      themeColorModes: themeColorMode['mountainLodge'],
+    },
+    {
+      name: 'The Brochure',
+      themeName: 'brochure',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightBrochure.png`,
+      price: formatNumberWithCommas(10000, {style: 'currency', currency: 'USD'}),
+      tag: [exclusive],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#FA6400'],
+      themeColorModes: themeColorMode['brochure'],
+    },
+    {
+      name: 'Nandez Urban Chic',
+      themeName: 'urbanChic',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightUrbanChic.png`,
+      price: formatNumberWithCommas(3500, {style: 'currency', currency: 'USD'}),
+      tag: [latest],
+      themeColorArray: ['#2F2F2F', '#FFFFFF'],
+      themeColorModes: themeColorMode['urbanChic'],
+    },
+    {
+      name: 'Bohemian Hideaway',
+      themeName: 'bohemianHideaway',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightBohemianHideaway.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#0A502F'],
+      themeColorModes: themeColorMode['bohemianHideaway'],
+    },
+    {
+      name: 'Art Deco Gem',
+      themeName: 'artDecoGem',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightArtDecoGem.png`,
+      price: formatNumberWithCommas(3300, {style: 'currency', currency: 'USD'}),
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#DA4353'],
+      themeColorModes: themeColorMode['artDecoGem'],
+    },
+    {
+      name: 'Modern Portfolio Theme',
+      themeName: 'portfolioModernMin',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightModernPortfolioTheme.png`,
+      price: formatNumberWithCommas(2000, {style: 'currency', currency: 'USD'}),
+      tag: [entryLevel],
+      themeColorArray: ['#2F2F2F', '#FFFFFF'],
+      themeColorModes: themeColorMode['portfolioModernMin'],
+    },
+    {
+      name: 'Terra Portfolio Theme',
+      themeName: 'portfolioTerracotta',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightTerraPortfolioTheme.png`,
+      price: formatNumberWithCommas(2500, {style: 'currency', currency: 'USD'}),
+      tag: [entryLevel],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#A37E26'],
+      themeColorModes: themeColorMode['portfolioTerracotta'],
+    },
+    {
+      name: 'Desert Oasis',
+      themeName: 'desertOasis',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightDesertOasis.png`,
+      price: formatNumberWithCommas(3500, {style: 'currency', currency: 'USD'}),
+      tag: [comingSoon],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#5B7D05'],
+      themeColorModes: themeColorMode['desertOasis'],
+    },
+    {
+      name: 'Tropical Paradise',
+      themeName: 'tropicalParadise',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightTropicalParadise.png`,
+      price: formatNumberWithCommas(3500, {style: 'currency', currency: 'USD'}),
+      tag: [comingSoon],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#FAA500'],
+      themeColorModes: themeColorMode['tropicalParadise'],
+    },
+    {
+      name: 'Artistic Abode',
+      themeName: 'artisticAbode',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightArtisticAbode.png`,
+      price: formatNumberWithCommas(2500, {style: 'currency', currency: 'USD'}),
+      tag: [comingSoon],
+      themeColorArray: ['#2F2F2F', '#FFFFFF'],
+      themeColorModes: themeColorMode['artisticAbode'],
+    },
+    {
+      name: 'Mediterranean Oasis',
+      themeName: 'mediterraneanOasis',
+      preview: ``,
+      image: `https://d1x2tneac0i3nn.cloudfront.net/LightMediterraneanOasis.png`,
+      price: formatNumberWithCommas(10000, {style: 'currency', currency: 'USD'}),
+      tag: [comingSoon],
+      themeColorArray: ['#2F2F2F', '#FFFFFF', '#AA6755'],
+      themeColorModes: themeColorMode['mediterraneanOasis'],
+    },
+  ];
+};
+
+export default themeConstant;
