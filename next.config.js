@@ -4,6 +4,13 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  async redirects(){
+    return [
+   {   source :'/',
+      destination:'/account',
+      permanent:true}
+    ]
+  },
   images: {
     remotePatterns: [
       {
