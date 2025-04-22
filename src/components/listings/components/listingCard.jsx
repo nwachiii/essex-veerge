@@ -19,7 +19,7 @@ const ListingCard = ({project}) => {
       <Stack
         spacing="none"
         bg="#f5f5f5"
-        borderRadius="12px"
+        borderRadius="19.712px"
         overflow="hidden"
         cursor="pointer"
         onClick={() => router.push(`/listings/manage/?listingId=${project?.id}`)}
@@ -66,6 +66,7 @@ const ListingCard = ({project}) => {
               lineHeight="20.29px"
               fontWeight="400"
               color="#ffffff"
+              fontFamily='Inter'
             >
               {`${formatNumberWithCommas(sold)}/${formatNumberWithCommas(total_available_units)}`}
             </Text>

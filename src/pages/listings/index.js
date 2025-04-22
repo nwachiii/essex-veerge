@@ -8,6 +8,7 @@ import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 import {LayoutView} from '../../components/PageLayout/LayoutView';
 import ListingOverViewHeader from './manage/ListingsTable/Header';
 import ListOfListings from '@/components/listings/listOfListings';
+import { projectData } from 'constants/listListings';
 
 export default function ManageListing() {
   const [limit, setLimit] = useState(10);
@@ -57,9 +58,6 @@ export default function ManageListing() {
   const numberOfListings =
     infiniteData?.pages?.flatMap(projects => projects?.data?.project?.map(() => 0))?.length ?? 0;
 
-  const projectData = infiniteData?.pages?.flatMap(projects =>
-    projects?.data?.project?.map(item => item)
-  );
   const handleAnimation = () => {
     const currentScrollY = document.documentElement.scrollTop;
     if (currentScrollY > 540 && numberOfListings > limit) {
@@ -117,7 +115,7 @@ export default function ManageListing() {
           mt="clamp(52px,calc(11.4vh + 40px),96px)"
         >
           <ListingOverViewHeader />
-          <ListOfListings forFilter={forFilter} isLoading={isLoading} projects={projectData} />
+          <ListOfListings forFilter={forFilter} isLoading={false} projects={projectData} />
         </Box>
 
         <ScrollToTop shouldScroll={shouldScroll} scrollToTop={scrollToTop} />
@@ -158,3 +156,4 @@ export const ScrollToTop = ({shouldScroll, scrollToTop}) => {
     </HStack>
   );
 };
+

@@ -94,20 +94,6 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
 
             <SortBy sortFor="listing" btnStyle={{bg: '#fff'}} sort_params={sort_params} />
 
-            {/* <Box
-              display="flex"
-              bg="#ffffff"
-              p="10px"
-              justifyContent="center"
-              alignItems="center"
-              border="0.5px solid #e4e4e4"
-              boxSize="36px"
-              borderRadius="8.12px"
-              as={CSVLink}
-              data={getDataFromJSON(projects)}
-            >
-              <Image w="16px" minW="16px" h="16px" src={downloadIcon.src} alt="download icon" />
-            </Box> */}
             <DownloadCsv data={getDataFromJSON(projects)} />
           </Flex>
         </Flex>
@@ -143,7 +129,7 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
               onClick={() => router.push('/listings/create')}
               variant="filled-radius"
             >
-              Create New Listing
+              Create Community
             </Button>
           )}
         </VStack>
