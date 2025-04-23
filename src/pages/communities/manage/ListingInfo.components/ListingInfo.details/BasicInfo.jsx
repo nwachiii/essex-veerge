@@ -110,68 +110,6 @@ export const BasicInfo = ({listingDetail, refetch, isCreate}) => {
               aspectRatio={1.618}
               borderRadius="20px"
             />
-
-            {/* <VStack align="flex-start" spacing="38px" mt="28px" w="200px">
-              <Box w="full">
-                <Text
-                  fontSize={{md: '24px', '2xl': '28px'}}
-                  fontWeight={500}
-                  color="#191919"
-                  lineHeight={'38px'}
-                >
-                  {listingDetail?.name}
-                </Text>
-                {BUILDING_TYPE === 'land' || BUILDING_TYPE === 'parcel of land' ? null : (
-                  <Text fontSize="12px" color="#606060">
-                    {listingDetail?.status}
-                  </Text>
-                )}
-              </Box>
-              {listingDetail?.status == 'Post Construction' && (
-                <Box>
-                  <Text fontSize="14px" color="#606060">
-                    Year Built
-                  </Text>
-                  <Text fontSize="14px" fontWeight={500} color="#191919" mt={2}>
-                    {`${listingDetail?.end_period} ${listingDetail?.end_year}`}
-                  </Text>
-                </Box>
-              )}
-              {listingDetail?.status === 'Post Construction' ||
-              BUILDING_TYPE === 'land' ||
-              BUILDING_TYPE === 'parcel of land' ? null : (
-                <Fragment>
-                  <Box>
-                    <Text fontSize="14px" color="#606060">
-                      Start date
-                    </Text>
-                    <Text fontSize="14px" fontWeight={500} color="#191919" mt={2}>
-                      {`${listingDetail?.start_period} ${listingDetail?.start_year}`}
-                    </Text>
-                  </Box>
-                  <Box>
-                    <Text fontSize="14px" color="#606060">
-                      Est. completion date
-                    </Text>
-                    <Text fontSize="14px" fontWeight={500} color="#191919" mt={2}>
-                      {`${listingDetail?.end_period} ${listingDetail?.end_year}`}
-                    </Text>
-                  </Box>
-                </Fragment>
-              )}
-              {listingDetail?.payment_plan_is_available == true && (
-                <Box>
-                  <Text fontSize="14px" color="#606060">
-                    Payment plan
-                  </Text>
-                  <Tag borderRadius="48px" bg="#DBFFF5" mt={2} w="98px" h="36px">
-                    <TagLabel color="teal" mx="auto">
-                      Available
-                    </TagLabel>
-                  </Tag>
-                </Box>
-              )}
-            </VStack> */}
           </Flex>
           {listingDetail?.photo_urls?.length > 1 ? (
             <SimpleGrid columns={1} spacing="18px" pt="8px" w="full">
@@ -183,29 +121,6 @@ export const BasicInfo = ({listingDetail, refetch, isCreate}) => {
                 />
               )}
               <Flex w="full" sx={scrollBar} overflowX="auto">
-                {/* <Carousel
-                  pagination={false}
-                  itemPadding={[0, 0]}
-                  showEmptySlots={true}
-                  breakPoints={breakPoints}
-                  disableArrowsOnEnd={true}
-                  enableAutoPlay={false}
-                  autoPlaySpeed={1500}
-                  renderArrow={props => {
-                    return (
-                      <Image
-                        boxSize={'20px'}
-                        style={{cursor: 'pointer'}}
-                        display={props.isEdge ? 'none' : 'block'}
-                        transform={props.type === 'PREV' ? '' : 'rotate(180deg)'}
-                        onClick={props.onClick}
-                        src={carrouselArrow.src}
-                        alt={props.type === 'PREV' ? 'left arrow' : 'right arrow'}
-                        my={'auto'}
-                      />
-                    );
-                  }}
-                > */}
                 {listingDetail?.photo_urls?.map((item, idx) => (
                   <AnimatePresence key={idx}>
                     <Image
@@ -230,49 +145,6 @@ export const BasicInfo = ({listingDetail, refetch, isCreate}) => {
           ) : null}
         </VStack>
       </LayoutGroup>
-
-      {isCreate ? null : (
-        <HStack
-          w="full"
-          gap={'16px'}
-          alignItems="baseline"
-          justify={{xl: 'space-between'}}
-          maxW={{md: '450px', xl: '650px'}}
-          mt={{md: '20px', lg: '16px'}}
-        >
-          <ContactPersons refetchData={refetch} listingDetail={listingDetail} />
-          <ScheduledInspection />
-        </HStack>
-      )}
-      {isCreate ? (
-        <Commissions
-          handleRemove={handleRemove}
-          checkedContacts={checkedContacts}
-          externalCommission={externalCommission}
-          internalCommission={internalCommission}
-          ADD_CONTACT_PERSONS={ADD_CONTACT_PERSONS}
-          setInternalCommission={setInternalCommission}
-          setExternalCommission={setExternalCommission}
-        />
-      ) : null}
-
-      {isCreate ? (
-        <PublishModal
-          isCreate
-          contact_id={checkedItems}
-          externalCommission={externalCommission}
-          internalCommission={internalCommission}
-          listingInfo={listingDetail}
-        />
-      ) : null}
-      {/* {isCreate ? (
-        <AddContactModal
-          checkedItems={checkedItems}
-          setCheckedItems={setCheckedItems}
-          ADD_CONTACT_PERSONS={ADD_CONTACT_PERSONS}
-          FETCH_ROLES__RESULTS={FETCH_ROLES__RESULTS}
-        />
-      ) : null} */}
       <ViewImage
         modal={VIEW_IMAGE}
         currentImageIndex={currentImageIndex}
@@ -316,19 +188,6 @@ export const AnimateImagePresence = ({
 
   return (
     <AnimatePresence>
-      {/* <motion.div
-        onClick={onClick}
-        variants={variants}
-        transition={{
-          x: {type: 'spring', stiffness: 300, damping: 30},
-          opacity: 1,
-          duration: 1.2,
-        }}
-        drag="x"
-        dragConstraints={{left: 0, right: 0}}
-        dragElastic={1}
-        layoutId={layoutId}
-      > */}
       <Box w="full" position="relative">
         <Image
           onClick={onClick}

@@ -117,8 +117,8 @@ export const theme = extendTheme({
   card_container: {
     p: '8px 20px',
     borderRadius: '8px',
-    border: '0.5px solid #e4e4e4',
-    bg: '#f9fafb',
+    border: '0.5px solid #E4E4E7',
+    bg: '#FBFCFC',
   },
   card_container_white: {
     p: '16px',

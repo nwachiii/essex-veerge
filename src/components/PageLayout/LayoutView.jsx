@@ -25,12 +25,12 @@ export function LayoutView({
   const maxRefetchCount = 5; // Number of times to refetch
   const intervalRef = useRef(null);
 
-  const developerStatusQuery = useQuery(['developerApprovalStatus'], fetchDevelopersStatus, {
-    enabled: false,
-  });
+  // const developerStatusQuery = useQuery(['developerApprovalStatus'], fetchDevelopersStatus, {
+  //   enabled: false,
+  // });
 
   // USER APPROVAL ACTIONS
-  const IS_DEVELOPER_APPROVED = developerStatusQuery?.data?.data?.status;
+  // const IS_DEVELOPER_APPROVED = developerStatusQuery?.data?.data?.status;
 
   // if (IS_DEVELOPER_APPROVED == false) {
   //   typeof window !== 'undefined' &&
@@ -49,34 +49,7 @@ export function LayoutView({
   //   });
   //   router.push('/auth/onboarding');
   // }
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      if (refetchCount < maxRefetchCount) {
-        developerStatusQuery.refetch();
-        setRefetchCount(prevCount => prevCount + 1);
-      } else {
-        clearInterval(intervalRef.current);
-      }
-    }, 10000); // Poll every 10 seconds
 
-    return () => clearInterval(intervalRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [developerStatusQuery.refetch, refetchCount]);
-
-  // USER's PENDING STATE
-  const defaultUserObj = {initial_status: 'Pending'};
-  const [{initial_status}] = useLocalStorage('loggedinUser', defaultUserObj);
-
-  const IS_INITIAL_STATUS_PENDING = initial_status !== 'Accepted' ? true : false;
-
-  // PAGE_MATCTH : THESE PAGES SHOULD BE ACCESSIBLE TO THE USER WHETHER STATUS IS PENDING OR NOT
-  const matchPagesForPendingStatus = ['/veerge_menu/support_center', '/billing#', '/billing'];
-  const IS_ACCESSIBLE_FOR_NEW_USERS = matchPagesForPendingStatus?.includes(router.asPath);
-
-  const isStatusPending =
-    IS_INITIAL_STATUS_PENDING && IS_ACCESSIBLE_FOR_NEW_USERS
-      ? IS_INITIAL_STATUS_PENDING || IS_ACCESSIBLE_FOR_NEW_USERS
-      : IS_INITIAL_STATUS_PENDING;
 
   return (
     <>

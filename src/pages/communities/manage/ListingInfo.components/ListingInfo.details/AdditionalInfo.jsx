@@ -21,6 +21,7 @@ import {useMutation, useQuery} from '@tanstack/react-query';
 import {EditUnitInfo, fetchAllListingBundles} from 'apis/listings';
 import switchIsTrue from '/src/images/icons/switch-icon-true.svg';
 import switchIsFalse from '/src/images/icons/switch-icon-off.svg';
+import { IoMdStar } from 'react-icons/io';
 
 export const AdditionalInfo = ({pageQueryId, refetch, listingDetail}) => {
   const router = useRouter();
@@ -80,12 +81,50 @@ export const AdditionalInfo = ({pageQueryId, refetch, listingDetail}) => {
   const brochureDoc = getDocumentType('brochure')?.document_url;
   const BUILDING_TYPE = listingDetail?.building_type?.toLowerCase();
 
+  const OVERVIEWINFO = [
+    {
+      title: 'Number of Units',
+      value: 180,
+    }, 
+    {
+      title: 'Available for Lease',
+      value: listingDetail?.total_units,
+    },
+    {
+      title: 'Resident Satisfaction Score',
+      component: <Flex gap='1px' align='center'>
+        <Text fontSize='16px' fontWeight={500} color='#191919'>5</Text>
+        <IoMdStar size='20px' color='#FF9103' />
+      </Flex>
+    },
+    {
+      title: 'Assessment Collection Rate',
+      value: '33%',
+    },
+    {
+      title: 'Rental - Cap Remaining',
+      value: listingDetail?.total_units,
+    },
+    {
+      title: 'Total Liveable Square Footage',
+      value: 33
+    },
+    {
+      title: 'Common ‑ Area Acreage / Sq ft',
+      value: 53
+    },
+    {
+      title: 'Average Year Built',
+      value: 2008
+    }
+  ]
+
   return (
     <>
       <VStack w="full" maxW={{base: 'full', lg: 'full'}} spacing="20px">
         <Stack spacing="22.5px" w="full">
           <Flex alignItems="center" flexWrap="wrap" gap="8px">
-            <Text fontSize={'32px'} fontWeight={500} color="#191919" lineHeight={'40.58px'}>
+            <Text fontSize={'32px'} fontWeight={500} color="#191919" textTransform='capitalize' lineHeight={'40.58px'}>
               {listingDetail?.name}
             </Text>
             {isCreate ? null : listingDetail?.payment_plan_is_available ? (
@@ -96,195 +135,28 @@ export const AdditionalInfo = ({pageQueryId, refetch, listingDetail}) => {
               </Tag>
             ) : null}
           </Flex>
-          <Flex
-            p="20px"
-            h="95px"
-            alignItems="center"
-            justify="space-between"
-            {...themeStyles.card_container}
-          >
-            <Stack spacing="1px">
-              <Text
-                fontWeight="600"
-                fontSize="28px"
-                color={themeStyles.color.primary}
-                lineHeight="35.5px"
-              >
-                {formatAmountWithDecimal(STARTING_PRICE)}
-              </Text>
-
-              <Text fontWeight=" 400" fontSize="14px" lineHeight="17.75px" color="#606060">
-                Starting Price
-              </Text>
-            </Stack>
-
-            {isBuildingTypeSingleFamilyResidential || isLand ? (
-              <HStack
-                h="38px"
-                w="141px"
-                justify={'center'}
-                borderRadius={'16px'}
-                bg="rgba(69, 69, 254, 0.1)"
-              >
-                <Text fontSize={'12px'} color="#606060">
-                  Display price
-                </Text>
-                {mutation?.isLoading ? (
-                  <Spinner color="#191919" />
-                ) : listingDetail?.project_display_price == true ? (
-                  <Image
-                    alt=""
-                    h="18px"
-                    w="34px"
-                    cursor={'pointer'}
-                    src={switchIsTrue.src}
-                    onClick={handleDisplayPriceSwitch}
-                  />
-                ) : (
-                  <Image
-                    alt=""
-                    h="18px"
-                    w="34px"
-                    cursor={'pointer'}
-                    justifySelf="flex-end"
-                    src={switchIsFalse.src}
-                    onClick={handleDisplayPriceSwitch}
-                  />
-                )}
-              </HStack>
-            ) : null}
-          </Flex>
         </Stack>
         <Stack w="100%" {...themeStyles.card_container}>
-          {listingDetail?.status === 'Post Construction' ||
-          BUILDING_TYPE === 'land' ||
-          BUILDING_TYPE === 'parcel of land' ? null : (
-            <Fragment>
-              <HStack py="12px" justify="space-between">
-                <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                  Start date
+         {OVERVIEWINFO?.map((item, index) => (
+            <Fragment key={index}>
+              <Flex justify="space-between" alignItems="center" w="full" py="12px">
+                <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#3F3F46">
+                  {item?.title}
                 </Text>
-                <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                  {`${listingDetail?.start_period} ${listingDetail?.start_year}`}
-                </Text>
-              </HStack>
-              <HStack py="12px" justify="space-between">
-                <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                  Estimated completion date
-                </Text>
-                <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                  {`${listingDetail?.end_period} ${listingDetail?.end_year}`}
-                </Text>
-              </HStack>
+                {item?.component ? (
+                  item?.component
+                ) : (
+                  <Text fontSize="16px" lineHeight="20.29px" fontWeight="500" color="#000">
+                    {item?.value}
+                  </Text>
+                )}
+              </Flex>
             </Fragment>
-          )}
-          {listingDetail?.building_type && (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Listing Type
-              </Text>
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                {listingDetail?.building_type}
-              </Text>
-            </HStack>
-          )}
-          {listingDetail?.land_title && (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Land Title
-              </Text>
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                {listingDetail?.land_title}
-              </Text>
-            </HStack>
-          )}
-          <HStack py="12px" justify="space-between">
-            <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-              Land Size
-            </Text>
-            <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-              {listingDetail?.land_size}
-            </Text>
-          </HStack>
-
-          {listingDetail?.units_available && !(isBuildingTypeSingleFamilyResidential || isLand) ? (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Total Units
-              </Text>
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                {formatNumberWithCommas(listingDetail?.units_available)}
-              </Text>
-            </HStack>
-          ) : null}
-          {listingDetail?.total_units && !(isBuildingTypeSingleFamilyResidential || isLand) ? (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Available Units
-              </Text>
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                {formatNumberWithCommas(listingDetail?.total_units)}
-              </Text>
-            </HStack>
-          ) : null}
-          {outrightDoc && (isBuildingTypeSingleFamilyResidential || isLand) ? (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Outright Contract
-              </Text>
-
-              <Button
-                as="a"
-                fontWeight={500}
-                fontSize="14px"
-                lineHeight="18px"
-                target="_blank"
-                variant="link"
-                color="#4545FE"
-                cursor="pointer"
-                href={outrightDoc}
-                rightIcon={<ChevronRightIcon />}
-                iconSpacing="1px"
-              >
-                View
-              </Button>
-            </HStack>
-          ) : null}
-
-          {listingDetail?.units_sold ? (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Sold Units
-              </Text>
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                {listingDetail?.units_sold}
-              </Text>
-            </HStack>
-          ) : null}
-          {listingDetail?.total_archive ? (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Archived
-              </Text>
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                {listingDetail?.total_archive}
-              </Text>
-            </HStack>
-          ) : null}
-          {listingDetail?.total_available_fractions && (
-            <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Total Available Fractions
-              </Text>
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight={500} color="#191919">
-                {listingDetail?.total_available_fractions}
-              </Text>
-            </HStack>
-          )}
+          ))}
           {brochureDoc ? (
             <HStack py="12px" justify="space-between">
-              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#606060">
-                Brochure
+              <Text fontSize="16px" lineHeight="20.29px" fontWeight="400" color="#3F3F46">
+                Community Guideline
               </Text>
 
               <Button
