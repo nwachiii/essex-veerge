@@ -1,15 +1,13 @@
 import {
-  Box,
   Button,
   Flex,
   Grid,
   Heading,
   Icon,
-  IconButton,
   Image,
-  Link,
   Stack,
   Text,
+  useToast,
   VStack,
 } from '@chakra-ui/react';
 import React from 'react';
@@ -20,27 +18,14 @@ import {useRouter} from 'next/router';
 import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
 import ListingCard from './components/listingCard';
 import ListingCardLoadingState from './components/listingCardEmptyState';
-import downloadIcon from '/src/images/icons/download-icon.svg';
-import {FiHome} from 'react-icons/fi';
-import {CSVLink} from 'react-csv';
-import SortBy from '../SortBy';
-import Filter from '/src/pages/listings/manage/ListingsTable/Header/filter/index.js';
+import {FiPlus} from 'react-icons/fi';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
-const sort_params = [
-  'A-Z',
-  'Z-A',
-  'Most sold to least sold',
-  'Least sold  to most sold',
-  'Highest price to lowest price',
-  'Lowest price to highest price',
-  'Highest unit to lowest unit',
-  'Lowest unit to highest unit',
-  'Oldest to Newest',
-  'Newest to oldest',
-];
+import Filter from '/src/pages/communities/manage/ListingsTable/Header/filter/index.js';
+
 
 const ListOfListings = ({projects, forFilter, isLoading}) => {
   const router = useRouter();
+  const toast = useToast();
   const getDataFromJSON = obj => {
     const result = [];
     for (var i = 0; i < obj?.length; i++) {
@@ -57,6 +42,17 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
     }
     return result;
   };
+
+  const handleClick = () => {
+    toast({
+      position: 'top-right',
+      description: 'You do not have permission to create a listing',
+      status: 'info',
+      duration: 3000,
+      isClosable: true,
+    });
+  }
+
   return (
     <Stack h="full" spacing="32px" w="full">
       {' '}
@@ -64,50 +60,31 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
         <Heading fontSize="28px" fontWeight="600" lineHeight="24px" color="#191919">
           Overview
         </Heading>
-        <Flex pos="relative" zIndex={1} gap="32px">
-          {isRoleRestricted('create listings').check ? null : (
-            <Link
-              display="flex"
-              pos="relative"
-              zIndex={1}
-              _hover={{textDecor: 'none'}}
-              gap="8px"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="12px"
-              fontSize="14px"
-              fontWeight="400"
-              color="#191919"
-              w="144px"
-              border="0.5px solid #e4e4e4"
-              h="36px"
-              lineHeight="17.75px"
-              href="/listings/create"
-              bg="#ffffff"
-            >
-              <Icon boxSize={'16px'} as={FiHome} />
-              New Listing
-            </Link>
-          )}
+        <Flex pos="relative" zIndex={1} gap="16px">
+          <Button
+            pos="relative"
+            zIndex={1}
+            onClick={handleClick}
+            _hover={{ opacity: 1 }}
+            gap="8px"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="12px"
+            fontSize="14px"
+            fontWeight="400"
+            color="#191919"
+            w="max-content"
+            px="19px"
+            border="0.5px solid #e4e4e4"
+            h="36px"
+            // href="/listings/create"
+            bg="#ffffff"
+            leftIcon={<Icon boxSize={'16px'} as={FiPlus} />}
+          >
+            Create Community
+          </Button>
           <Flex gap="16px">
             <Filter forFilter={forFilter} />
-
-            <SortBy sortFor="listing" btnStyle={{bg: '#fff'}} sort_params={sort_params} />
-
-            {/* <Box
-              display="flex"
-              bg="#ffffff"
-              p="10px"
-              justifyContent="center"
-              alignItems="center"
-              border="0.5px solid #e4e4e4"
-              boxSize="36px"
-              borderRadius="8.12px"
-              as={CSVLink}
-              data={getDataFromJSON(projects)}
-            >
-              <Image w="16px" minW="16px" h="16px" src={downloadIcon.src} alt="download icon" />
-            </Box> */}
             <DownloadCsv data={getDataFromJSON(projects)} />
           </Flex>
         </Flex>
@@ -143,7 +120,7 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
               onClick={() => router.push('/listings/create')}
               variant="filled-radius"
             >
-              Create New Listing
+              Create Community
             </Button>
           )}
         </VStack>

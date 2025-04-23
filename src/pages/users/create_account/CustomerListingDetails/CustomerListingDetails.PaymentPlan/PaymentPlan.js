@@ -26,7 +26,7 @@ import {theme} from '../../../../../theme';
 import {
   PriceMenu,
   PriceInputWrapperStyle,
-} from '../../../../listings/create/WholeUnits/WholeUnits.Form';
+} from '../../../../customers/create/WholeUnits/WholeUnits.Form';
 import {CalenderMenu} from '@/components/common/Calendar/CalenderMenu';
 import {changeDateFormat} from 'utils/formatDate';
 import {CheckIcon} from 'images/icons/checkForCustomerCreation';

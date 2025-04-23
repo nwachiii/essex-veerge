@@ -6,20 +6,19 @@ import {
   Link,
   Button,
   Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  Center,
-  Image as ChakraImage,
   Icon,
   Text,
+  Image,
+  Stack,
+  Center,
+  MenuItem,
+  MenuList,
   Progress,
+  MenuButton,
   MenuDivider,
+  useDisclosure,
 } from '@chakra-ui/react';
-import {ChevronUpIcon, ChevronRightIcon, ChevronDownIcon} from '@chakra-ui/icons';
+import {ChevronUpIcon, ChevronDownIcon} from '@chakra-ui/icons';
 
 import user_fallback from '/src/images/avatar.svg';
 
@@ -38,14 +37,13 @@ import ChatIcon from '../assets/ChatIcon';
 import SuggestIdea from '../Drawers/SuggestIdea';
 import ReportBug from '../Drawers/ReportBug';
 import Feedback from '../Drawers/feedback';
-import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
-import {UserSettingsDrawer} from '../Drawers/userSettingsDrawer';
-import Image from 'next/image';
 import {VeergeLogo} from './navbar/svgs';
-import ProfileMenuInfoCard from './navbar/profileMenuInfoCard';
 import LogOutIcon from '../assets/logOutIcon';
-import {fetchDeveloperProfile} from 'apis/settings';
 import { loggedinUserStatic } from 'apis/requests';
+import {fetchDeveloperProfile} from 'apis/settings';
+import ProfileMenuInfoCard from './navbar/profileMenuInfoCard';
+import {UserSettingsDrawer} from '../Drawers/userSettingsDrawer';
+import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
 
 const NavLink = ({link, children}) => (
   <Link
@@ -120,25 +118,25 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
   const feedModalHandler = () => {
     suggestModal.onClose();
     reportBugModal.onClose();
-    feedModal.onOpen();
+    // feedModal.onOpen();
   };
 
   const suggestModalHandler = () => {
     feedModal.onClose();
     reportBugModal.onClose();
-    suggestModal.onOpen();
+    // suggestModal.onOpen();
   };
 
   const reportBugModalHandler = () => {
     feedModal.onClose();
     suggestModal.onClose();
-    reportBugModal.onOpen();
+    // reportBugModal.onOpen();
   };
 
   return (
     <Stack position="fixed" zIndex={1800} w="100%">
       <Box
-        bg={useColorModeValue('gray.900', 'gray.100')}
+        bg={'#18230F'}
         px={{base: `32px`, xl: '78px'}}
         py={{base: `13px`, xl: '11px'}}
         pt={{base: '5px', xl: `5px`}}
@@ -150,28 +148,25 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
           justifyContent={'space-between'}
           className="header-wrap"
         >
-          <HStack alignItems="center" spacing={{base: `26px`, xl: `8px`}}>
+          <HStack>
             <Link href="/account">
-              <VeergeLogo color="#ffffff" />
+              <Image
+                fill
+                alt="Essex-Hoa"
+                width={'fit-content'}
+                style={{objectFit: `cover`}}
+                src={'./public_image/essex-logo.svg'}
+              />
             </Link>
-            <Text
-              fontSize={{base: '20px', xl: '24px'}}
-              lineHeight={`150%`}
-              fontWeight="400"
-              fontFamily="Poppins"
-              color="#ffffff"
-            >
-              {user?.team_company_name ?? user?.company_name ?? ''}
-            </Text>
           </HStack>
           <Flex align="center">
             <HStack spacing={'24px'} alignItems={'center'} mx={{base: '0px', xl: `54px`}}>
+              <LayoutNotifications />
               <UserSettingsDrawer isPending={isPending} />
               {isRoleRestricted('create customer and listing').check ? null : (
                 <VeergeQuickAdd isPending={isPending} />
               )}
-              <VeergeFeatureMenu openmanageApp={openmanageApp} isPending={isPending} />
-              <LayoutNotifications />
+              {/* <VeergeFeatureMenu openmanageApp={openmanageApp} isPending={isPending} /> */}
             </HStack>
             <Flex
               sx={{
@@ -217,10 +212,10 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                       overflow={`hidden`}
                     >
                       <Image
-                        alt=""
                         fill
                         style={{objectFit: `cover`}}
-                        src={user?.avatar ?? user_fallback.src}
+                        alt="Dylan_Frank"
+                        src={'./public_image/dylan-frank.png'}
                       />
                     </Center>
                     <Text
@@ -230,7 +225,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                       textTransform="capitalize"
                       display={{base: `none`, xl: `block`}}
                     >
-                      {user?.first_name} {user?.last_name?.slice(0, 1)}
+                      {'Dylan Frank'}
                     </Text>
                   </HStack>
                 </MenuButton>

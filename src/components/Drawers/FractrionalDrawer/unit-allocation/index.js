@@ -20,7 +20,7 @@ import emptyIcon from '/src/images/icons/emptyIcon.png';
 import {useQuery} from '@tanstack/react-query';
 import {fetchAllocationsPerUnit} from 'apis/customers';
 import {fetchFractionalGrouping} from 'apis/listings';
-import AssignAllocationToEquity from 'pages/listings/manage/unit_info/allocations/AssignAllocationToEquity';
+import AssignAllocationToEquity from 'pages/customers/manage/unit_info/allocations/AssignAllocationToEquity';
 import {useState} from 'react';
 import {IoArrowBackSharp} from 'react-icons/io5';
 import backIcon from '/src/images/icons/backArrowForDrawer.svg';

@@ -16,7 +16,7 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import React, {useEffect, useState} from 'react';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
 import minusIcon from '/src/images/icons/substractIcon.svg';

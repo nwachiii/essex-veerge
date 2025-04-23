@@ -24,7 +24,7 @@ import {fetchAllocatedEquityInfo, fetchAllocationsPerUnit} from '../../../../api
 import {FaAngleRight, FaInfoCircle} from 'react-icons/fa';
 import {GoTriangleRight} from 'react-icons/go';
 import {InfoOutlineIcon} from '@chakra-ui/icons';
-import {AllocationStatus} from '../../../listings/manage/unit_info/allocations/manage';
+import {AllocationStatus} from '../../../customers/manage/unit_info/allocations/manage';
 import dropDownIcon from '/src/images/icons/dropDownForRoleSelection.svg';
 import InfoIcon from '@/components/assets/infoIcon';
 

@@ -5,7 +5,7 @@ import luxuryCondo from '/src/images/luxury_condo.png';
 import {formatAmountWithDecimal} from '../../../../utils/formatAmount';
 import {useQuery} from '@tanstack/react-query';
 import {fetchAllocationsPerUnit} from '../../../../apis/customers';
-import {AssignAllocationToEquity} from '../../../listings/manage/unit_info/allocations/AssignAllocationToEquity';
+import {AssignAllocationToEquity} from '../../../customers/manage/unit_info/allocations/AssignAllocationToEquity';
 
 export default function ListingInfo({
   listing,

@@ -51,7 +51,7 @@ export const LayoutNotifications = () => {
   const [runQuery, setRunQuery] = useState(false);
   const [nameId, setNameId] = useState();
   const handleOpenDrawer = item => {
-    modalDisclosure.onOpen();
+    // modalDisclosure.onOpen();
     setNameId(item);
     setRunQuery(true);
   };
@@ -189,7 +189,8 @@ export const LayoutNotifications = () => {
     <Box>
       <Menu isOpen={isOpen} onClose={handleClose} placement="bottom" autoSelect={false}>
         <>
-          <MenuButton onClick={() => (handleNotif(onClose, true), onOpen())} position={'relative'}>
+          <MenuButton>
+          {/* <MenuButton onClick={() => (handleNotif(onClose, true), onOpen())} position={'relative'}> */}
             <VStack position="relative">
               {check_notif_status().hasUnread ? (
                 <Flex

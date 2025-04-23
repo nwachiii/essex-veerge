@@ -91,7 +91,6 @@ const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
             }}
             profileWrapper={{
               overflow: 'hidden',
-
               borderRadius: '50%',
             }}
             setFiles={onAvatarChange}
@@ -109,7 +108,7 @@ const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
           whiteSpace="break-spaces"
           wordBreak="break-all"
         >
-          {user?.first_name || ''} {user?.last_name || ''}
+          {'Dylan Frank'}
         </Text>
         <Text
           fontSize="14px"
