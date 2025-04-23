@@ -13,7 +13,7 @@ import {CUSTOMER_DETAILS} from '../../../../constants/createCustomers';
 import {Box, Button, Container, HStack, Spinner, useToast} from '@chakra-ui/react';
 import {PHONEPREFIX} from 'constants/PHONEPREFIX';
 import capitalizeFirstLetterOfWords from 'utils/capitalizeFirstLetterOfWords';
-import { loggedinUserStatic } from 'apis/requests';
+import {loggedinUserStatic} from 'apis/requests';
 
 export default function CustomerDetails({handleProgress}) {
   const toast = useToast();
@@ -47,7 +47,7 @@ export default function CustomerDetails({handleProgress}) {
 
       setTimeout(() => {
         arg == 'isLead'
-          ? router.push(`/users/profile?userId=${res?.data?.data?.user?.id}`)
+          ? router.push(`/residents/profile?userId=${res?.data?.data?.user?.id}`)
           : handleProgress(val => val + 1);
       }, 2000);
       toast({
@@ -69,7 +69,8 @@ export default function CustomerDetails({handleProgress}) {
       localStorage.setItem('customer', JSON.stringify(res.data.data.id));
       setTimeout(() => {
         arg == 'isLead'
-          ? (formik.resetForm(), router.push(`/users/profile?userId=${res?.data?.data?.user?.id}`))
+          ? (formik.resetForm(),
+            router.push(`/residents/profile?userId=${res?.data?.data?.user?.id}`))
           : handleProgress(val => val + 1);
       }, 2000);
       toast({

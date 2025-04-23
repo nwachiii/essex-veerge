@@ -146,7 +146,7 @@ export const VeergeQuickAdd = ({isPending}) => {
               // borderRadius={'xl'}
               cursor={isPending ? 'not-allowed' : 'pointer'}
             >
-              <Link href={isPending ? '#' : '/users/create_account'}>
+              <Link href={isPending ? '#' : '/residents/create_account'}>
                 <HStack gap="20px" cursor={isPending ? 'not-allowed' : 'pointer'}>
                   <Image src={createCustomerIcon.src} alt="add_icon" />
                   <Text

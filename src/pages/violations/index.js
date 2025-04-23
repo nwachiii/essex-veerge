@@ -6,7 +6,7 @@ import ViolationFilter from '@/components/violations/violationfilter';
 import {Box, Flex} from '@chakra-ui/react';
 import {demoviolationTableData} from 'constants/DEMODATA/violations';
 import {useRouter} from 'next/router';
-import {VIOLATION_COLUMN} from 'pages/users/customer_overview/CustomersTable/Table/violationCOLUMN';
+import {VIOLATION_COLUMN} from 'pages/residents/customer_overview/CustomersTable/Table/violationCOLUMN';
 import React, {useMemo} from 'react';
 import {useSmallerLaptopsBreakpoint} from 'ui-lib';
 

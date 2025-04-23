@@ -3,7 +3,6 @@ import React from 'react';
 import {Container2} from '../../common/containers';
 import {EmptyState} from '../../common/Table';
 import rightArrow from '/src/images/icons/angledArrowRight.svg';
-import {HouseSVG} from 'pages/users/profile/customer_equities';
 import locationIcon from '/src/images/icons/locationAsEmptyState.svg';
 export const NoInspectionRequest = ({id, router, drawerDisclosure, isClosed}) => {
   return (

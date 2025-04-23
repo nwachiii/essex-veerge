@@ -40,7 +40,7 @@ import trashIcon from '/src/images/icons/trash-icon.svg';
 import fileIcon from '/src/images/icons/file-icon.svg';
 import {InputLabel} from '../../../../../ui-lib/ui-lib.components/Input/Input';
 import {truncateLongText} from '../../../../../utils';
-import AddClosingCost from 'pages/users/create_account/CustomerListingDetails/closingCost';
+import AddClosingCost from 'pages/residents/create_account/CustomerListingDetails/closingCost';
 import {changeDateFormat} from 'utils/formatDate';
 import AssignAgentInput from 'ui-lib/ui-lib.components/Input/assignAgent';
 
@@ -80,7 +80,7 @@ export default function DisputedEquityDetails({subPages, setTab, handleProgress}
       // localStorage.setItem('equity', JSON.stringify(res.data.data.map(item => item.id)));
       // localStorage.setItem('equityDetails', JSON.stringify(res.data.data));
 
-      router.push(`/users/profile?userId=${SINGLE_EQUITY_INFO?.equity?.owner?.id}`);
+      router.push(`/residents/profile?userId=${SINGLE_EQUITY_INFO?.equity?.owner?.id}`);
     },
     onError: err => {
       toast({

@@ -66,7 +66,7 @@ const CustomerTableEmptyState = ({router}) => {
               fontWeight="400"
               lineHeight="17.75px"
               fontFamily="Euclid Circular B"
-              onClick={() => router.push('/users/create_account')}
+              onClick={() => router.push('/residents/create_account')}
               variant="filled-radius"
             >
               Create User Account

@@ -1,14 +1,16 @@
 import {
   Box,
   Button,
-  Container, HStack,
-  Image, Stack,
+  Container,
+  HStack,
+  Image,
+  Stack,
   StackDivider,
   Text,
-  VStack
+  VStack,
 } from '@chakra-ui/react';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import {useState} from 'react';
+import {useRouter} from 'next/router';
 import CreateCustomerFooter from '../CustomerDetails/CreateCustomerFooter';
 import UnitAllocation from './UnitAllocation';
 import defaultAvatar from '/src/images/avatar.svg';
@@ -16,14 +18,13 @@ import houseIcon from '/src/images/icons/homeIcon.svg';
 import docIcon from '/src/images/icons/docIcon.svg';
 import rightIcon from '/src/images/icons/rightTriangleArrow.svg';
 
-import { AnimatedLoader } from '../../../../components';
+import {AnimatedLoader} from '../../../../components';
 import EquitySummary from '@/components/Cards/customerCreationSummary';
-import { useSmallerLaptopsBreakpoint } from 'ui-lib/ui-lib.hooks';
-
+import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 
 export default function CustomerAccountSummary({subPages, handleProgress, step}) {
   const router = useRouter();
-    const isSmallerLaptop = useSmallerLaptopsBreakpoint();
+  const isSmallerLaptop = useSmallerLaptopsBreakpoint();
 
   const [showProgress, setShowProgress] = useState(false);
   const customerDetails =
@@ -44,7 +45,7 @@ export default function CustomerAccountSummary({subPages, handleProgress, step})
   const completeCreateCustomerAccount = () => {
     const id = userId;
     setTimeout(() => {
-      router.push(`/users/profile?userId=${id}`);
+      router.push(`/residents/profile?userId=${id}`);
     }, 1500);
     setShowProgress(true);
     window.localStorage.removeItem('customerDetails');

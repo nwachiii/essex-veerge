@@ -21,7 +21,7 @@ import {AnimatedLoader, LayoutView} from '../../../../components';
 import PageHeader from '../../../../components/common/PageHeader';
 import {BackArrowWithText} from '/src/components/assets/BackArrow';
 import {getAccountPastPayments, getUserPaymentBreakdown} from '../../../../apis/account';
-import ListingInfo from '../../../users/create_account/CustomerAccountSummary/ListingInfo';
+// import ListingInfo from '../../../residents/create_account/CustomerAccountSummary/ListingInfo';
 import CoownershipHeader, {UpcomingPaymentsHeader, UserHeader} from './header';
 import UserTransactionSummary from './userTransactionSummary';
 import {Button} from '../../../../ui-lib';
@@ -37,6 +37,7 @@ import emptyIcon from '/src/images/icons/emptyIcon.png';
 import {RxCross1} from 'react-icons/rx';
 import view_packet_icon from '/src/images/icons/view_packeet.svg';
 import HomeOwnersPacket from '../../../../components/Drawers/homeownersPacket.js';
+import ListingInfo from 'pages/residents/create_account/CustomerAccountSummary/ListingInfo';
 
 export const UserPaymentBreakDown = () => {
   const toast = useToast();

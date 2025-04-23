@@ -5,26 +5,24 @@ import {
   Input,
   InputGroup,
   ModalBody,
-  ModalFooter,
-  Spinner,
-  Stack,
+  ModalFooter, Stack,
   Image,
   Text,
   Link,
   Button as ChakraButton,
-  ModalCloseButton,
+  ModalCloseButton
 } from '@chakra-ui/react';
-import React, {useState} from 'react';
-import {Button, useFetchAllListings, useFetchListingBundles} from '../../../../ui-lib';
-import UploadEquityPackets from '../../../../pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
+import { useState } from 'react';
+import { useFetchAllListings, useFetchListingBundles } from '../../../../ui-lib';
 import bulbIcon from '/src/images/icons/bulbBlue.svg';
-import {Field, Form} from 'formik';
-import {DropDownComponent} from '../components/dropDown';
-import {EquityFillingComponent} from '../components/equityFillingComponent';
-import {PriceMenu, PriceInputWrapperStyle} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
+import { Field, Form } from 'formik';
+import { DropDownComponent } from '../components/dropDown';
+import { EquityFillingComponent } from '../components/equityFillingComponent';
+import { PriceMenu, PriceInputWrapperStyle } from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import DisplayClosingCost from '../components/displayClosingCost';
-import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
+import { formatNumberWithCommas } from 'utils/formatAmount';
 import AssignAgentInput from 'ui-lib/ui-lib.components/Input/assignAgent';
+import UploadEquityPackets from 'pages/residents/create_account/UploadEquityPackets';
 
 const formatWithCommaOptions = {
   minimumFractionDigits: 2,

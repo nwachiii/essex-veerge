@@ -103,33 +103,33 @@ export const ContactCard = ({data, agentId}) => {
               {agentsDetails?.gender ?? <BsDashLg />}
             </Text>
           </Stack>
-          <Link href={`/users/manage_agents/${agentId}`}>
-        <Button
-          bg="#F5F5F5"
-          alignSelf="center"
-          fontWeight="400"
-          fontSize="14px"
-          lineHeight="18px"
-          _hover={{
-            bg: '',
-          }}
-          _active={{
-            bg: '',
-          }}
-          color="#191919"
-          width="full"
-          height="48px"
-          border="1px solid #E4E4E4 "
-          borderRadius="12px"
-        >
-          <HStack justify="center" spacing="9px">
-            <Image w="15px" h="15px" src={expand.src} alt="expand icon" fontSize="10px" />
-            <Text fontSize="17.20px" fontWeight={'500'}>
-              View details
-            </Text>
-          </HStack>
-        </Button>
-      </Link>
+          <Link href={`/residents/manage_agents/${agentId}`}>
+            <Button
+              bg="#F5F5F5"
+              alignSelf="center"
+              fontWeight="400"
+              fontSize="14px"
+              lineHeight="18px"
+              _hover={{
+                bg: '',
+              }}
+              _active={{
+                bg: '',
+              }}
+              color="#191919"
+              width="full"
+              height="48px"
+              border="1px solid #E4E4E4 "
+              borderRadius="12px"
+            >
+              <HStack justify="center" spacing="9px">
+                <Image w="15px" h="15px" src={expand.src} alt="expand icon" fontSize="10px" />
+                <Text fontSize="17.20px" fontWeight={'500'}>
+                  View details
+                </Text>
+              </HStack>
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Box>
