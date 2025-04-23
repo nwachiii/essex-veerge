@@ -19,7 +19,7 @@ import {useState} from 'react';
 import selectedIcon from '/src/images/icons/mark_icon.svg';
 import {formatToCurrency} from 'utils/formatAmount';
 import UploadEquityPackets from 'pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 
 export const CommissionForm = ({
   amount,

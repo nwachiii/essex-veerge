@@ -21,7 +21,7 @@ import {encodeFileToBase64} from '../../../utils';
 import {formatNumberWithCommas} from 'utils/formatAmount';
 import {useMutation} from '@tanstack/react-query';
 import {sendBase64ForUrl} from 'apis/listings';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 
 export const EditUnitPriceDrawer = ({
   unitInfo,

@@ -11,7 +11,7 @@ import {EditUnit as EditUnitTwo} from './components/editUnit';
 import Fractionalize from './components/fractionalize';
 import ArchiveUnitDrawer from '../archiveUnitDrawer';
 import mo from '/src/images/icons/moreoptions.svg';
-import EditUnit from 'pages/listings/manage/unit_info/edit_unit';
+import EditUnit from 'pages/communities/manage/unit_info/edit_unit';
 import {EditUnitPriceDrawer} from '../editUnitPriceDrawer';
 import EditUnitQuantityDrawer from '../editUnitQuantityDrawer';
 import {useRouter} from 'next/router';

@@ -16,7 +16,7 @@ import backIcon from '/src/images/icons/backArrowForDrawer.svg';
 import infoIcon from '/src/images/icons/infoIcionForSendOffer.svg';
 import addIcon from '/src/images/icons/addIcon.svg';
 import bulbIcon from '/src/images/icons/bulbBlue.svg';
-import {PriceMenu, PriceInputWrapperStyle} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu, PriceInputWrapperStyle} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 import {Field, FieldArray, Form, Formik} from 'formik';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
 

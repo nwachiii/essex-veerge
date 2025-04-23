@@ -29,7 +29,7 @@ import assignAgentTag from '/src/images/icons/assignAgentTag.svg';
 import paymentBreakdownIcon from '/src/images/icons/paymentBreakdownReceiptIcon.svg';
 import restructureTransactionIcon from '/src/images/icons/restructureTransactionIcon.svg';
 import HomeOwnersPacket from '../../homeownersPacket.js';
-import AssignAllocationToEquity from 'pages/listings/manage/unit_info/allocations/AssignAllocationToEquity.jsx';
+import AssignAllocationToEquity from 'pages/communities/manage/unit_info/allocations/AssignAllocationToEquity.jsx';
 import {useQuery} from '@tanstack/react-query';
 import {fetchAllocationsPerUnit} from 'apis/customers.js';
 

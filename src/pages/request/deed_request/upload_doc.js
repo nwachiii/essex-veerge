@@ -17,8 +17,7 @@ import {Button, Popup2} from '../../../ui-lib/ui-lib.components';
 import uploadIcon from '/src/images/icons/uploadIconReq.svg';
 import imageIcon from '/src/images/icons/image-upload.png';
 
-import {FileUploads} from '../../listings/manage/unit_info/edit_unit/FileUploads';
-import {encodeFileToBase64, extractBase64} from '../../../utils';
+import {encodeFileToBase64} from '../../../utils';
 import {useMutation} from '@tanstack/react-query';
 import {uploadDeedDoc} from '../../../apis/requests';
 

@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import {AddIcon} from '@chakra-ui/icons';
 import trashIcon from '/src/images/icons/redTrashIcon.svg';
-import {PriceMenu, PriceInputWrapperStyle} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu, PriceInputWrapperStyle} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 import {Field, FieldArray} from 'formik';
 import {useState} from 'react';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';

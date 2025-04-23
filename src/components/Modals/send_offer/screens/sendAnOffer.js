@@ -21,7 +21,7 @@ import bulbIcon from '/src/images/icons/bulbBlue.svg';
 import {Field, Form} from 'formik';
 import {DropDownComponent} from '../components/dropDown';
 import {EquityFillingComponent} from '../components/equityFillingComponent';
-import {PriceMenu, PriceInputWrapperStyle} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu, PriceInputWrapperStyle} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 import DisplayClosingCost from '../components/displayClosingCost';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
 import AssignAgentInput from 'ui-lib/ui-lib.components/Input/assignAgent';

@@ -19,7 +19,7 @@ import {Button} from 'ui-lib/ui-lib.components';
 import backIcon from '/src/images/icons/backArrowForDrawer.svg';
 import groupIcon from '/src/images/icons/groupUsers.svg';
 import {MatadorCustomToast} from 'pages/veerge_menu/loop';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 import {LuSend} from 'react-icons/lu';
 import {useState} from 'react';
 

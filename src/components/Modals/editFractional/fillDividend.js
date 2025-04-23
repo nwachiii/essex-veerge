@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Box, Text, HStack, SimpleGrid, InputGroup, Divider, Stack, Input} from '@chakra-ui/react';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
-import PeriodSelect from 'pages/listings/create/ListingDetails/ListingDetails.components/PeriodSelect';
-import YearSelect from 'pages/listings/create/ListingDetails/ListingDetails.components/YearSelect';
+import {PriceMenu} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
+import PeriodSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/PeriodSelect';
+import YearSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/YearSelect';
 import {DropDownComponent} from '../send_offer/components/dropDown';
 import {useEffect} from 'react';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';

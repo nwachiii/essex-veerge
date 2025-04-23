@@ -24,7 +24,7 @@ import downloadIcon from '/src/images/icons/download-icon.svg';
 import {FiHome} from 'react-icons/fi';
 import {CSVLink} from 'react-csv';
 import SortBy from '../SortBy';
-import Filter from '/src/pages/listings/manage/ListingsTable/Header/filter/index.js';
+import Filter from '/src/pages/communities/manage/ListingsTable/Header/filter/index.js';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
 const sort_params = [
   'A-Z',
@@ -64,36 +64,29 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
         <Heading fontSize="28px" fontWeight="600" lineHeight="24px" color="#191919">
           Overview
         </Heading>
-        <Flex pos="relative" zIndex={1} gap="32px">
-          {isRoleRestricted('create listings').check ? null : (
-            <Link
-              display="flex"
-              pos="relative"
-              zIndex={1}
-              _hover={{textDecor: 'none'}}
-              gap="8px"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="12px"
-              fontSize="14px"
-              fontWeight="400"
-              color="#191919"
-              w="144px"
-              border="0.5px solid #e4e4e4"
-              h="36px"
-              lineHeight="17.75px"
-              href="/listings/create"
-              bg="#ffffff"
-            >
-              <Icon boxSize={'16px'} as={FiHome} />
-              New Listing
-            </Link>
-          )}
+        <Flex pos="relative" zIndex={1} gap="16px">
+          <Button
+            pos="relative"
+            zIndex={1}
+            _hover={{textDecor: 'none'}}
+            gap="8px"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="12px"
+            fontSize="14px"
+            fontWeight="400"
+            color="#191919"
+            w="max-content"
+            px="19px"
+            border="0.5px solid #e4e4e4"
+            h="36px"
+            // href="/listings/create"
+            bg="#ffffff"
+            leftIcon={<Icon boxSize={'16px'} as={FiHome} />}
+          >
+            Create Community
+          </Button>
           <Flex gap="16px">
-            <Filter forFilter={forFilter} />
-
-            <SortBy sortFor="listing" btnStyle={{bg: '#fff'}} sort_params={sort_params} />
-
             <DownloadCsv data={getDataFromJSON(projects)} />
           </Flex>
         </Flex>

@@ -1,6 +1,6 @@
 import Account from '../pages/account';
 import Dashboard from '../pages/dashboard';
-import ManageListing from '../pages/listings';
+import ManageListing from '../pages/communities';
 import ManageCustomers from '../pages/users';
 import Request from '../pages/request';
 import users_icon from '/src/images/icons/contact_icon.svg';

@@ -28,7 +28,7 @@ import {Field, FieldArray} from 'formik';
 // } from '../../../../listings/create/WholeUnits/WholeUnits.Form';
 import {CalenderMenu} from '@/components/common/Calendar/CalenderMenu';
 import {changeDateFormat} from 'utils/formatDate';
-import {PriceMenu, PriceInputWrapperStyle} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu, PriceInputWrapperStyle} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 import {DropDownComponent} from './dropDown';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
 import {CalenderMenuAsModal} from './CalendarMenuAsModal';

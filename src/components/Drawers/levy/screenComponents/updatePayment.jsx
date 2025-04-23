@@ -14,7 +14,7 @@ import {
   Text,
   Textarea,
 } from '@chakra-ui/react';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
 import React, {useState} from 'react';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
 import {changeDateFormat} from 'utils/formatDate';
