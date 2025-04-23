@@ -9,30 +9,9 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import ListingsDetailsCard from './component/listingsDetailsCard';
-import {useQuery} from '@tanstack/react-query';
-import {fetchDashboardData} from 'apis';
-import {IoEyeOutline} from 'react-icons/io5';
-import {fetchListingStats} from 'apis/listings';
-import {useRouter} from 'next/router';
 import Image from 'next/image';
 
 const ListingOverViewHeader = ({listingData}) => {
-  const {data} = useQuery(['dashboard', ''], () => fetchDashboardData(''));
-  const fETCH_LISTINGS_STATS = useQuery(['listing_stat'], fetchListingStats);
-  const ListingHeaderStatDATA = fETCH_LISTINGS_STATS?.data?.data?.data;
-
-
-
-  const dataArray = [
-    {
-      heading: 'Most viewed',
-      emptyStateIcon: IoEyeOutline,
-      isEmpty: false,
-      emptyStateSubText: 'Looks like nothing has been viewed yet',
-      ...(listingData?.[0] || {}),
-    },
-  ];
-
   return (
     <Grid
       mb="32px"

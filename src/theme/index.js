@@ -97,11 +97,10 @@ export const theme = extendTheme({
   containerStyles: {
     p: '12',
     maxW: '7xl',
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.02)',
     color: 'gray.900',
     borderRadius: '2xl',
     background: '#FFFFFF',
-    border: '1px solid #E4E4E4',
+    border: '1px solid #E4E4E7',
   },
   xs_Box: {
     bg: '#FFF',
@@ -115,7 +114,7 @@ export const theme = extendTheme({
     justifyContent: 'center',
   },
   card_container: {
-    p: '8px 20px',
+    p: '16px',
     borderRadius: '8px',
     border: '0.5px solid #E4E4E7',
     bg: '#FBFCFC',

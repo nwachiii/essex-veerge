@@ -1057,7 +1057,7 @@ export const listingDetail = {
   amenities: [
     {
       icon: {
-        src: '/_next/static/media/healthicons_security_worker_outline.1cb99168.svg',
+        src: 'https://tests-veerge.myxellia.io/_next/static/media/healthicons_security_worker_outline.1cb99168.svg',
         width: 24,
         height: 24,
       },
@@ -1065,7 +1065,7 @@ export const listingDetail = {
     },
     {
       icon: {
-        src: '/_next/static/media/stable-power.d9f94d83.png',
+        src: 'https://tests-veerge.myxellia.io/_next/static/media/stable-power.d9f94d83.png',
         width: 24,
         height: 24,
         blurWidth: 8,
@@ -1077,7 +1077,7 @@ export const listingDetail = {
     },
     {
       icon: {
-        src: '/_next/static/media/car-park.94872108.svg',
+        src: 'https://tests-veerge.myxellia.io/_next/static/media/car-park.94872108.svg',
         width: 24,
         height: 24,
       },

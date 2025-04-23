@@ -36,7 +36,7 @@ const scrollBar = {
   },
 };
 
-export const BasicInfo = ({listingDetail, refetch, isCreate}) => {
+export const BasicInfo = ({listingDetail, isCreate}) => {
   const [photoViewSrc, setPhotoViewSrc] = useState(
     listingDetail?.photo_urls ? listingDetail?.photo_urls?.[0] : imageFallback.src
   );
@@ -51,10 +51,7 @@ export const BasicInfo = ({listingDetail, refetch, isCreate}) => {
       : imageFallback.src;
   const [bigPhotoViewSrc, setBigPhotoViewSrc] = useState(CURRENT_DISPLAY_PICTURE);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const ADD_CONTACT_PERSONS = useDisclosure();
   const [checkedItems, setCheckedItems] = useState([]);
-  const [internalCommission, setInternalCommission] = useState(null);
-  const [externalCommission, setExternalCommission] = useState(null);
   const FETCH_ROLES_DATA = useQuery(['fetchAcceptedRoles'], fetchRolesAccepted);
   const FETCH_ROLES__RESULTS =
     FETCH_ROLES_DATA?.data && FETCH_ROLES_DATA?.data?.data?.results?.map(item => item);
@@ -87,18 +84,12 @@ export const BasicInfo = ({listingDetail, refetch, isCreate}) => {
     }
   };
 
-  useEffect(() => {
-    refetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <Box maxW={{base: 'full', lg: 'full'}} w="full" h="full">
       <LayoutGroup type="crossfade">
         <VStack align="flex-start" pos="relative">
           <Flex w="full" justify={{base: 'initial', base: 'space-between'}} columnGap="25px">
             <AnimateImagePresence
-              refetch={refetch}
               layoutId={viewId}
               direction={direction}
               sourceUrl={bigPhotoViewSrc}
