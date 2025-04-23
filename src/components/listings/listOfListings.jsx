@@ -20,6 +20,7 @@ import ListingCard from './components/listingCard';
 import ListingCardLoadingState from './components/listingCardEmptyState';
 import {FiHome, FiPlus} from 'react-icons/fi';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
+import Filter from '/src/pages/communities/manage/ListingsTable/Header/filter/index.js';
 
 
 const ListOfListings = ({projects, forFilter, isLoading}) => {
