@@ -1,4 +1,5 @@
 import {Box, HStack, Heading, Image, Stack, Text, VStack} from '@chakra-ui/react';
+import { loggedinUserStatic } from 'apis/requests';
 import React from 'react';
 
 export const AssigneesDetails = ({formik}) => {

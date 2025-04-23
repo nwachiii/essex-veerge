@@ -13,6 +13,7 @@ import {CUSTOMER_DETAILS} from '../../../../constants/createCustomers';
 import {Box, Button, Container, HStack, Spinner, useToast} from '@chakra-ui/react';
 import {PHONEPREFIX} from 'constants/PHONEPREFIX';
 import capitalizeFirstLetterOfWords from 'utils/capitalizeFirstLetterOfWords';
+import { loggedinUserStatic } from 'apis/requests';
 
 export default function CustomerDetails({handleProgress}) {
   const toast = useToast();
