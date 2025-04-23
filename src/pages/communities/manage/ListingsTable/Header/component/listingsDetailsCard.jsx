@@ -11,11 +11,11 @@ const ListingsDetailsCard = ({soldOut, total, available, heading}) => {
       h="full"
       spacing="none"
       borderRadius="12px"
-      border="0.5px solid #e4e4e4"
+      border="0.5px solid #E4E4E7"
       bg="#ffffff"
     >
       <Flex w="full" p="16px 24px 14px" justifyContent="space-between" alignItems="center">
-        <Stack spacing="8px">
+        <Stack spacing="12px">
           <Heading fontSize="16px" fontWeight="500" color="#525252" lineHeight="25px">
             {heading}
           </Heading>
@@ -27,7 +27,7 @@ const ListingsDetailsCard = ({soldOut, total, available, heading}) => {
       </Flex>
       <Flex
         h="50px"
-        borderTop="0.5px solid #e4e4e4"
+        borderTop="0.5px solid #E4E4E7"
         bg="#f9fafb"
         w="full"
         justify="space-between"
@@ -48,7 +48,7 @@ const ListingsDetailsCard = ({soldOut, total, available, heading}) => {
             lineHeight="20.29px"
             mr="16.37px"
           >
-            Vacant
+            Available
           </Text>
           <Text fontSize="18px" fontWeight="500" color="#191919" lineHeight="22.82px">
             {formatNumberWithCommas(available)}
@@ -69,7 +69,7 @@ const ListingsDetailsCard = ({soldOut, total, available, heading}) => {
             lineHeight="20.29px"
             mr="16.37px"
           >
-            Occupied
+            {heading == 'Total Units' ? `Sold` : `Sold out`}
           </Text>
           <Text fontSize="18px" fontWeight="500" color="#191919" lineHeight="22.82px">
             {formatNumberWithCommas(soldOut)}
