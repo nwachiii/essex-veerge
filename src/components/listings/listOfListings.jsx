@@ -84,21 +84,7 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
           </Button>
           <Flex gap="16px">
 
-
-            {/* <Box
-              display="flex"
-              bg="#ffffff"
-              p="10px"
-              justifyContent="center"
-              alignItems="center"
-              border="0.5px solid #e4e4e4"
-              boxSize="36px"
-              borderRadius="8.12px"
-              as={CSVLink}
-              data={getDataFromJSON(projects)}
-            >
-              <Image w="16px" minW="16px" h="16px" src={downloadIcon.src} alt="download icon" />
-            </Box> */}
+            <Filter />
             <DownloadCsv data={getDataFromJSON(projects)} />
           </Flex>
         </Flex>

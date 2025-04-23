@@ -1,19 +1,9 @@
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
+import {Box, Flex, Grid, GridItem, Heading, Stack, Text} from '@chakra-ui/react';
 import React from 'react';
 import ListingsDetailsCard from './component/listingsDetailsCard';
-import {IoEyeOutline} from 'react-icons/io5';
 import Image from 'next/image';
 
 const ListingOverViewHeader = ({listingData}) => {
-  console.log(listingData?.[0]?.photos?.photo?.[0])
 
   return (
     <Grid
@@ -51,52 +41,49 @@ const ListingOverViewHeader = ({listingData}) => {
         {' '}
         <ListingsDetailsCard total={1200} heading="Total Unit" soldOut={820} available={400} />
       </GridItem>
-      <GridItem colSpan={{base: 2, xl: 1}} borderRadius='19.712px'>
-      <Stack w="full" gap="13.32px" rounded='19.712px'>
-      <Stack
-        justify="end"
-        w="full"
-        pos="relative"
-        h='176px'
-        className="image-container"
-        overflow='hidden'
-      >
-        <Image
-          src={listingData?.[0]?.photos?.[0]?.photo}
-          w="full"
-          fill
-          loading="lazy"
-          style={{
-            objectFit: "cover",
-            borderRadius: "19.712px",
-          }}
-          className="zoom-image"
-        />
-        <Box
-          pos="absolute"
-          bg="linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%)"
-          h="full"
-          w="full"
-          borderRadius="19.712px"
-        />
-        <Stack
-          pos="relative"
-          zIndex={5}
-          pb="24px"
-          color="#FFF"
-        >
-          <Text
-            fontSize="30.46px"
-            fontWeight={600}
-            textTransform={`capitalize`}
-            lineHeight="36.664px"
+      <GridItem colSpan={{base: 2, xl: 1}} borderRadius="19.712px">
+        <Stack w="full" gap="13.32px" rounded="19.712px">
+          <Stack
+            justify="end"
+            w="full"
+            pos="relative"
+            h="176px"
+            className="image-container"
+            overflow="hidden"
           >
-            {`Unit`}
-          </Text>
-   
+            <Image
+              src={listingData?.[0]?.photos?.[0]?.photo}
+              w="full"
+              fill
+              loading="lazy"
+              style={{
+                objectFit: 'cover',
+                borderRadius: '19.712px',
+              }}
+              className="zoom-image"
+            />
+            <Box
+              pos="absolute"
+              bg="linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%)"
+              h="full"
+              w="full"
+              borderRadius="19.712px"
+            />
+            <Stack zIndex={1} px="16px" color="#ffffff" pos="relative" pb="24.2px" spacing="none">
+              <Text textTransform="uppercase" fontSize="14px" lineHeight="17.75px" fontWeight="500">
+                most populated
+              </Text>
+              <Text
+                textTransform="capitalize"
+                fontSize="18px"
+                lineHeight="22.82px"
+                fontWeight="600"
+              >
+                {listingData?.[0]?.name}
+              </Text>
+            </Stack>
+          </Stack>
         </Stack>
-      </Stack>
-    </Stack>
       </GridItem>
     </Grid>
   );
