@@ -25,12 +25,10 @@ import {
 import {FormatToColorfulCurrency} from 'utils/formatAmount';
 import {changeDateFormat} from 'utils/formatDate';
 import {IoArrowBackSharp} from 'react-icons/io5';
+import { loggedinUserStatic } from 'apis/requests';
 
 const UpdateDepositHistory = ({handleScreen, isError, error, isLoading, manualTransactions}) => {
-  const loggedinUserFromLocalStorage =
-    typeof window !== 'undefined' &&
-    localStorage.getItem('loggedinUser') !== 'undefined' &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const loggedinUserFromLocalStorage = loggedinUserStatic;
 
   const customScrollbarStyles = {
     '&::-webkit-scrollbar': {

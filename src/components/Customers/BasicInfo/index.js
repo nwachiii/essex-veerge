@@ -23,6 +23,7 @@ import calling from '/src/images/icons/Calling.png';
 import RealtorDrawer from '../../Drawers/realtorDrawer';
 import HoverForPopUp from 'utils/HoverForPopUp';
 import {truncateLongText} from 'utils';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const CustomerBasicInfo = ({customerInfo, referral}) => {
   const toast = CreateToast();
@@ -31,8 +32,7 @@ export const CustomerBasicInfo = ({customerInfo, referral}) => {
   const agentsDrawer = useDisclosure();
   const [agentId, setAgentId] = useState();
   const [runQuery, setRunQuery] = useState(false);
-  const loggedInUser =
-    typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('loggedinUser')) : null;
+  const loggedInUser = loggedinUserStatic;
 
   const OpenAgentModal = item => {
     agentsDrawer.onOpen();

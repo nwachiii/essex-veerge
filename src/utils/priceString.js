@@ -5,8 +5,8 @@ export const priceString = (price, option = {}) => {
     return price ? `${price}` : '';
   }
 
-  const defaultCurrency = localStorage.getItem('baseCurrency') || 'USD';
-  const defaultCountry = localStorage.getItem('baseCountry') || 'United States Of America';
+  const defaultCurrency = 'USD';
+  const defaultCountry = 'United States Of America';
   const locale = countries.find(item => item.name === defaultCountry)?.locale || 'en-US';
 
   const formatter = new Intl.NumberFormat(locale, {

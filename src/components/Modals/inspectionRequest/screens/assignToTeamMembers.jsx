@@ -34,10 +34,7 @@ const AssignToTeamMembers = ({setSummaryInfo, history, handleScreen, roles}) => 
   const [searchText, setSearchText] = useState('');
   const [contact, setContact] = useState(null);
 
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
   const formik = useFormik({
     initialValues: {
       email: contact?.email || '',

@@ -327,7 +327,7 @@ export const PriceMenu = ({
 }) => {
   let defaultCurrency = '$';
   if (typeof window !== 'undefined') {
-    const defaultCountry = localStorage.getItem('baseCountry') || 'United States Of America';
+    const defaultCountry = 'United States Of America';
     defaultCurrency = countries.find(item => item.name === defaultCountry)?.symbol || '$';
   }
   return (

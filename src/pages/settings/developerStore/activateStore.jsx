@@ -140,26 +140,18 @@ export const ActivateStore = ({ storeDomain }) => {
             color="#FFFFFF"
             fontFamily="DM Sans"
           >
-            {storeName !== "undefined" && storeName ? "Manage your" : "Create"}{" "}
-            Application
+            {storeName !== 'undefined' && storeName ? 'Manage your' : 'Create'} Application
           </Text>
-          {storeName !== "undefined" && storeName ? (
+          {storeName !== 'undefined' && storeName ? (
             <Text></Text>
           ) : (
-            <Text
-              w="654px"
-              fontWeight="400"
-              fontSize="16px"
-              lineHeight="20px"
-              color="#FFFFFF"
-            >
-              Revolutionalise your operations by providing transformational
-              experience to buyers,
+            <Text w="654px" fontWeight="400" fontSize="16px" lineHeight="20px" color="#FFFFFF">
+              Revolutionalise your operations by providing transformational experience to buyers,
               <br /> with just click and not a single line of code
             </Text>
           )}
         </Stack>
-        {storeName !== "undefined" && storeName ? (
+        {storeName !== 'undefined' && storeName ? (
           <Btn
             onClick={manageStoreforQr.onOpen}
             bg="transparent"
@@ -170,7 +162,7 @@ export const ActivateStore = ({ storeDomain }) => {
             h="55px"
             w="199px"
             _hover={{
-              opacity: "0.8",
+              opacity: '0.8',
             }}
             color="#ffffff"
           >
@@ -178,7 +170,7 @@ export const ActivateStore = ({ storeDomain }) => {
           </Btn>
         ) : (
           <CreateStore
-            business_id={storeInfo.data?.data?.business_id}
+            business_id={'VM_VE_5C6BAF'}
             demo_link={storeInfo.data?.data?.demo_link}
             hasBeenSchedule={storeInfo.data?.data?.requested_call}
           />

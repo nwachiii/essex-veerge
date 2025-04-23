@@ -26,10 +26,7 @@ export default function CustomerDetails({handleProgress}) {
   const [avatar, setAvatar] = useState([]);
   const [docObj, setDocObj] = useState({name: ''});
   const [fieldValidity, setFieldValidity] = useState(true);
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
 
   useEffect(() => {
     window.localStorage.removeItem('customerDetails');

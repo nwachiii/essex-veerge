@@ -67,7 +67,7 @@ export const LayoutNotifications = () => {
   const handleLogout = () => {
     queryClient.clear();
     setTimeout(() => {
-      router.push('/auth/onboarding/login');
+      router.push('/account');
     }, 2400);
     return localStorage.clear();
   };

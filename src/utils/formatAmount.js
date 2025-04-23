@@ -89,11 +89,8 @@ export const formatAmountWithDecimal = (amount, symb) => {
       ? localStorage.getItem('baseCurrency')
       : 'USD';
 
-  const defaultCountry =
-    localStorage.getItem('baseCountry') !== 'undefined' && localStorage.getItem('baseCurrency')
-      ? localStorage.getItem('baseCountry')
-      : 'United States Of America';
-  const defaultLocale = countries.find(item => item.name === defaultCountry)?.locale || 'en-US';
+  const defaultCountry = 'United States Of America';
+  const defaultLocale = countries.find(item => item.name === 'Nigeria')?.locale || 'en-US';
   const formatCurrency = value => {
     const formatter = new Intl.NumberFormat(defaultLocale, {
       style: 'currency',
@@ -197,10 +194,7 @@ export const formatToCurrency = (amount, curr) => {
       ? localStorage.getItem('baseCurrency')
       : 'USD';
 
-  const defaultCountry =
-    localStorage.getItem('baseCountry') !== 'undefined' && localStorage.getItem('baseCurrency')
-      ? localStorage.getItem('baseCountry')
-      : 'United States Of America';
+  const defaultCountry ='United States Of America';
   const locale = countries.find(item => item.name === defaultCountry)?.locale || 'en-US';
 
   try {
@@ -245,10 +239,7 @@ export const FormatToColorfulCurrency = ({
       ? localStorage.getItem('baseCurrency')
       : 'USD';
 
-  const defaultCountry =
-    localStorage.getItem('baseCountry') !== 'undefined' && localStorage.getItem('baseCurrency')
-      ? localStorage.getItem('baseCountry')
-      : 'United States Of America';
+  const defaultCountry ='United States Of America';
   const locale = countries.find(item => item.name === defaultCountry)?.locale || 'en-US';
   const formatCurrency = value => {
     const formatter = new Intl.NumberFormat(locale, {
@@ -387,10 +378,7 @@ export const FormatToColorfulAdaptiveCurrency = ({
       ? localStorage.getItem('baseCurrency')
       : 'USD';
 
-  const defaultCountry =
-    localStorage.getItem('baseCountry') !== 'undefined' && localStorage.getItem('baseCurrency')
-      ? localStorage.getItem('baseCountry')
-      : 'United States Of America';
+  const defaultCountry = 'United States Of America';
   const defaultLocale = countries.find(item => item.name === defaultCountry)?.locale || 'en-US';
   const formatCurrency = value => {
     const formatter = new Intl.NumberFormat(defaultLocale, {
@@ -537,10 +525,7 @@ export const priceString = (curr, amount, option) => {
       ? localStorage.getItem('baseCurrency')
       : 'USD';
 
-  const defaultCountry =
-    localStorage.getItem('baseCountry') !== 'undefined' && localStorage.getItem('baseCurrency')
-      ? localStorage.getItem('baseCountry')
-      : 'United States Of America';
+  const defaultCountry = 'United States Of America';
   const locale = countries.find(item => item.name === defaultCountry)?.locale || 'en-US';
 
   try {

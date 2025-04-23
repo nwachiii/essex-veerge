@@ -39,10 +39,7 @@ import InputText from './InputText';
 import Scrolll from './Scrolll';
 
 export default function Notes() {
-  const user =
-    typeof window !== 'undefined' &&
-    localStorage &&
-    JSON.parse(localStorage.getItem('loggedinUser'));
+  const user = loggedinUserStatic;
   const toast = useToast();
   console.log(user);
   const container = {
@@ -368,8 +365,8 @@ export default function Notes() {
                               {expand
                                 ? formatText(item.note)
                                 : item.note.length <= 300
-                                ? formatText(item.note)
-                                : `${formatText(item.note).slice(0, 300)}...`}
+                                  ? formatText(item.note)
+                                  : `${formatText(item.note).slice(0, 300)}...`}
 
                               <Text
                                 fontSize="14px"
@@ -380,8 +377,8 @@ export default function Notes() {
                                 {item.note.length <= 300
                                   ? ''
                                   : expand
-                                  ? ' ...See less'
-                                  : 'See more'}
+                                    ? ' ...See less'
+                                    : 'See more'}
                               </Text>
                             </Text>
                             <Text

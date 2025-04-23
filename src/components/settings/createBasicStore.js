@@ -52,7 +52,7 @@ export const CreateBasicStore = ({business_id, onClose}) => {
   const handleStoreCreation = () => {
     const storeObj = {
       store_name: strName,
-      business: business_id,
+      business: 'VM_VE_5C6BAF',
     };
     return mutation.mutate(storeObj);
   };
