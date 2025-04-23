@@ -30,6 +30,7 @@ import {useQuery} from '@tanstack/react-query';
 import {GraphLoader} from '../../../components/common/loaders/GraphLoader';
 import {formatToCurrency} from 'utils/formatAmount';
 import TransactionsOverview from './TransactionsOverview';
+import {demoGraphData} from 'constants/DEMODATA/account/graphDATA';
 
 export const DashboardApexChart = ({
   filterValue,
@@ -43,44 +44,71 @@ export const DashboardApexChart = ({
   const [series, setSeries] = useState([]);
   const [cardData, setCardData] = useState(null);
 
-  const DASHBOARD_GRAPH_OVERVIEW = useQuery(
-    ['dashboard-graph-overview', filterValue],
-    () => getAccountGraphDetails(filterValue),
-    {
-      onSuccess: res => {
-        const graph_data = res?.data?.data?.graph_data;
-        setCardData(res?.data?.data?.card_data);
-        const series = [
-          {
-            label: 'In-flow',
-            backgroundColor: '#12D8A0',
-            data: graph_data ? graph_data?.map(item => item?.data?.credit) : [],
-            barThickness: 3,
-            inflateAmount: 1,
-            type: 'bar',
-          },
-          {
-            label: 'Out-flow',
-            inflateAmount: 1,
-            barThickness: 3,
-            type: 'bar',
-            backgroundColor: '#FF6A6A',
-            data: graph_data ? graph_data?.map(item => item?.data?.debit) : [],
-          },
-        ];
+  // const DASHBOARD_GRAPH_OVERVIEW = useQuery(
+  //   ['dashboard-graph-overview', filterValue],
+  //   () => getAccountGraphDetails(filterValue),
+  //   {
+  //     onSuccess: res => {
+  //       const graph_data = demoGraphData[filterValue]?.graph_data;
+  //       setCardData(demoGraphData[filterValue]?.card_data);
+  //       const series = [
+  //         {
+  //           label: 'In-flow',
+  //           backgroundColor: '#12D8A0',
+  //           data: graph_data ? graph_data?.map(item => item?.data?.credit) : [],
+  //           barThickness: 3,
+  //           inflateAmount: 1,
+  //           type: 'bar',
+  //         },
+  //         {
+  //           label: 'Out-flow',
+  //           inflateAmount: 1,
+  //           barThickness: 3,
+  //           type: 'bar',
+  //           backgroundColor: '#FF6A6A',
+  //           data: graph_data ? graph_data?.map(item => item?.data?.debit) : [],
+  //         },
+  //       ];
 
-        const options = graph_data
-          ? graph_data?.map(item => (typeof item?.name == 'string' ? item?.name : item?.name))
-          : defaultLabel.map(item => item);
+  //       const options = graph_data
+  //         ? graph_data?.map(item => (typeof item?.name == 'string' ? item?.name : item?.name))
+  //         : defaultLabel.map(item => item);
 
-        setSeries(series);
-        setLabel(options);
-      },
-    }
-  );
+  //       setSeries(series);
+  //       setLabel(options);
+  //     },
+  //   }
+  // );
 
   useEffect(() => {
-    DASHBOARD_GRAPH_OVERVIEW?.refetch();
+    const graph_data = demoGraphData[filterValue]?.graph_data;
+    setCardData(demoGraphData[filterValue]?.card_data);
+
+    const series = [
+      {
+        label: 'In-flow',
+        backgroundColor: '#12D8A0',
+        data: graph_data ? graph_data?.map(item => item?.data?.credit) : [],
+        barThickness: 3,
+        inflateAmount: 1,
+        type: 'bar',
+      },
+      {
+        label: 'Out-flow',
+        inflateAmount: 1,
+        barThickness: 3,
+        type: 'bar',
+        backgroundColor: '#FF6A6A',
+        data: graph_data ? graph_data?.map(item => item?.data?.debit) : [],
+      },
+    ];
+
+    const options = graph_data
+      ? graph_data?.map(item => (typeof item?.name == 'string' ? item?.name : item?.name))
+      : defaultLabel.map(item => item);
+
+    setSeries(series);
+    setLabel(options);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterValue]);
@@ -144,27 +172,22 @@ export const DashboardApexChart = ({
   };
 
   const data = {labels, datasets: series};
-
+  console.log({cardData});
   return (
     <SimpleGrid py={2} columns={2} gap={`8px`} justifyContent="center" alignSelf="center">
-
       <Box flex={`1`} alignItems="end" id="chart" h="165px" maxW="550px" w="100%" minW="50%">
-
-        {DASHBOARD_GRAPH_OVERVIEW?.isFetching ? (
+        {/* {DASHBOARD_GRAPH_OVERVIEW?.isFetching ? (
           <GraphLoader />
-        ) : (
-          <Chart type="bar" height="165px" width={'100%'} data={data} options={options} />
-        )}
-        
+        ) : ( */}
+        <Chart type="bar" height="165px" width={'100%'} data={data} options={options} />
+        {/* )} */}
       </Box>{' '}
-      
       <TransactionsOverview
         data={cardData}
         isAccount={isAccount}
         outstandingBalance={outstandingBalance}
         unprocessedTransactions={unprocessedTransactions}
       />
-
     </SimpleGrid>
   );
 };

@@ -11,10 +11,12 @@ import {
   useDisclosure,
   AbsoluteCenter,
   useMediaQuery,
+  Button,
+  Icon,
 } from '@chakra-ui/react';
 import {useRouter} from 'next/router';
 import {useQuery} from '@tanstack/react-query';
-import overviewIcon from '/src/images/icons/house.svg';
+import overviewIcon from '/src/images/icons/linearHome.svg';
 import walletIcon from '/src/images/icons/wallet.svg';
 import {AccountDrawer} from '../../components/Drawers/account';
 import {AnimatedLoader} from '../../components/common/loaders';
@@ -25,7 +27,7 @@ import {
 } from '../../utils/formatAmount';
 import {LayoutView} from '../../components/PageLayout/LayoutView';
 import {AccountTransactionDetails} from '../../components/account/accountTransactionDetails';
-
+import {FaAngleRight} from 'react-icons/fa6';
 import DepositDrawer from '../../components/Drawers/depositDrawer';
 import Graph from './components/graph';
 import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
@@ -64,19 +66,7 @@ export default function Account() {
         pb="30px"
         activePage={'account'}
       >
-        {ACCOUNT__DATA?.isLoading ? (
-          <AbsoluteCenter mt="17rem">
-            <AnimatedLoader />
-          </AbsoluteCenter>
-        ) : ACCOUNT__DATA.isError ? (
-          toast({
-            title: 'Request failed fetching accounts details',
-            status: 'error',
-            duration: 5000,
-            isClosable: true,
-            position: 'top-right',
-          })
-        ) : (
+        {
           <Box
             bg="#FAFAFA"
             mx="auto"
@@ -114,13 +104,11 @@ export default function Account() {
                     boxShadow="0px 4px 8px rgba(0, 0, 0, 0.02)"
                     border="1px solid #e4e4e4"
                     borderRadius="16px"
-                    pb={2}
                     h={isGateWayDisabled ? 'full' : 'fit-content'}
                     display="flex"
                     flexDirection="column"
-                    pt={2}
                   >
-                    <div className="flex flex-row items-center p-2">
+                    <div className="flex pt-2 h-[50px] border-b border-[#e4e4e7] rounded-t-[16px] bg-[#f9fafb] flex-row items-center p-2">
                       <Image
                         alt=""
                         src={overviewIcon.src}
@@ -131,17 +119,12 @@ export default function Account() {
                       </Text>
                     </div>
                     <div
-                      className={`grid  h-[100%]  self-stretch items-stretch grid-${isGateWayDisabled ? 'rows' : 'cols'}-2 gap-4  px-4 `}
+                      className={`grid  h-[100%]  self-stretch items-stretch grid-cols-2 grid-rows-2 gap-[12px]  p-[18px] `}
                     >
-                      <div className="rounded-lg border  border-[#EFEFEF] py-1 my-1 mx-auto flex flex-col w-full items-center justify-center px-2">
-                        {/* <span className="font-bold">
-                          {formatAmountWithDecimal(OVERVIEW_SUMMARY?.total_purchases)}
-                        </span> */}
-                        {/* <FormatToColorfulCurrency
-                        amount={OVERVIEW_SUMMARY?.total_purchases}
-                        fontWeight="600"
-                        decimalStyle={{fontWeight: '600'}}
-                      /> */}
+                      <div className="rounded-lg border  gap-[8px] border-[#EFEFEF] py-1  mx-auto flex flex-col w-full items-center justify-center px-2">
+                        <Text fontSize="11px" color="#52525b" fontWeight="500">
+                          Total Assessments
+                        </Text>
                         <FormatToColorfulAdaptiveCurrency
                           baseSize={16}
                           fontWeight={600}
@@ -154,25 +137,27 @@ export default function Account() {
                           color={'#333333'}
                           amount={OVERVIEW_SUMMARY?.total_purchases}
                         />
-                        <Text fontSize="10px" className="mt-1">
-                          Total Purchase
-                        </Text>
-                        <Link href="/dashboard/outstanding-balance/transactions?transaction=true">
-                          <Text fontSize="10px" className="cursor-pointer  text-[#4545FE] mt-1">
-                            View details
-                          </Text>
-                        </Link>
+
+                        <Button
+                          fontSize="12px"
+                          fontWeight="500"
+                          color="#4545fe"
+                          variant="ghost"
+                          p="0px"
+                          h="fit-content"
+                          _hover={{
+                            bg: 'transparent',
+                          }}
+                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                          iconSpacing="0px"
+                        >
+                          View
+                        </Button>
                       </div>
-                      <div className="rounded-lg border  border-[#EFEFEF] py-1 my-1 mx-auto flex flex-col w-full items-center justify-center">
-                        {/* <span className="font-bold mt-1">
-                          {formatAmountWithDecimal(OVERVIEW_SUMMARY?.escrow)}
-                        </span> */}
-                        {/* <FormatToColorfulCurrency
-                        amount={OVERVIEW_SUMMARY?.escrow}
-                        fontWeight="600"
-                        wrapper={{mt: '4px'}}
-                        decimalStyle={{fontWeight: '600'}}
-                      /> */}
+                      <div className="rounded-lg border  gap-[8px] border-[#EFEFEF] py-1  mx-auto flex flex-col w-full items-center justify-center">
+                        <Text fontSize="11px" color="#52525b" fontWeight="500">
+                          Total Amenities Fees
+                        </Text>
                         <FormatToColorfulAdaptiveCurrency
                           baseSize={16}
                           fontWeight={600}
@@ -186,115 +171,92 @@ export default function Account() {
                           color={'#333333'}
                           amount={OVERVIEW_SUMMARY?.escrow}
                         />
-                        <Text fontSize="10px" className="" onClick={accountModal.onOpen}>
-                          Escrow
-                        </Text>
+                        <Button
+                          fontSize="12px"
+                          fontWeight="500"
+                          color="#4545fe"
+                          variant="ghost"
+                          p="0px"
+                          h="fit-content"
+                          _hover={{
+                            bg: 'transparent',
+                          }}
+                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                          iconSpacing="0px"
+                        >
+                          View
+                        </Button>
+                      </div>
 
-                        {!OVERVIEW_SUMMARY?.escrow ? (
-                          <Text
-                            opacity={'0.5'}
-                            cursor="not-allowed"
-                            fontSize="10px"
-                            className="text-[#606060] mt-1"
-                          >
-                            View details
-                          </Text>
-                        ) : (
-                          <Link href="/account/escrow">
-                            <Text fontSize="10px" className="cursor-pointer text-[#4545FE] mt-1">
-                              View details
-                            </Text>
-                          </Link>
-                        )}
+                      <div className="rounded-lg border gap-[8px] border-[#EFEFEF] py-1  mx-auto flex flex-col w-full items-center justify-center">
+                        <Text fontSize="11px" color="#52525b" fontWeight="500">
+                          Violation & Fine Payments
+                        </Text>
+                        <FormatToColorfulAdaptiveCurrency
+                          baseSize={16}
+                          fontWeight={600}
+                          lens={16}
+                          maxSize={16}
+                          minSize={10}
+                          pow={isBelow800 ? 0.68 : 0.92}
+                          decimalStyle={{fontWeight: '600'}}
+                          wordBreak="break-word"
+                          color={'#333333'}
+                          amount={USER_WALLET_TOTAL}
+                        />
+
+                        <Button
+                          fontSize="12px"
+                          fontWeight="500"
+                          color="#4545fe"
+                          variant="ghost"
+                          p="0px"
+                          h="fit-content"
+                          _hover={{
+                            bg: 'transparent',
+                          }}
+                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                          iconSpacing="0px"
+                        >
+                          View
+                        </Button>
+                      </div>
+                      <div className="rounded-lg border border-[#EFEFEF] py-1 gap-[8px]  mx-auto flex flex-col w-full items-center justify-center px-2">
+                        <Text fontSize="11px" color="#52525b" fontWeight="500">
+                          Cap Fee
+                        </Text>
+                        <FormatToColorfulAdaptiveCurrency
+                          baseSize={16}
+                          fontWeight={600}
+                          lens={16}
+                          maxSize={16}
+                          minSize={10}
+                          pow={isBelow800 ? 0.68 : 0.92}
+                          wrapper={{mt: '4px'}}
+                          decimalStyle={{fontWeight: '600'}}
+                          wordBreak="break-word"
+                          color={'#333333'}
+                          amount={AGENT_WALLET_TOTAL}
+                        />
+
+                        <Button
+                          fontSize="12px"
+                          fontWeight="500"
+                          color="#4545fe"
+                          variant="ghost"
+                          p="0px"
+                          h="fit-content"
+                          _hover={{
+                            bg: 'transparent',
+                          }}
+                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                          iconSpacing="0px"
+                        >
+                          View
+                        </Button>
                       </div>
                     </div>
                   </Box>
-                  {isGateWayDisabled ? null : (
-                    <Box
-                      flex={`1`}
-                      bg="#FFFFFF"
-                      boxShadow="0px 4px 8px rgba(0, 0, 0, 0.02)"
-                      border="1px solid #e4e4e4"
-                      borderRadius="16px"
-                      pb={2}
-                      pt={2}
-                    >
-                      <div className="flex flex-row items-center px-2 py-1">
-                        <Image
-                          alt=""
-                          src={walletIcon.src}
-                          className="text-[#4545FE] w-6 mt-1 ml-1 h-6"
-                        />
-                        <Text fontSize="14px" fontWeight={500} className="ml-2">
-                          Wallet Overview
-                        </Text>
-                      </div>
-                      <div className="grid grid-cols-2 gap-4 px-4">
-                        <div className="rounded-lg border border-[#EFEFEF] py-1 my-1 mx-auto flex flex-col w-full items-center justify-center">
-                          {/* <FormatToColorfulCurrency
-                        fontWeight="600"
-                        amount={USER_WALLET_TOTAL}
-                        decimalStyle={{fontWeight: '600'}}
-                      /> */}
-                          <FormatToColorfulAdaptiveCurrency
-                            baseSize={16}
-                            fontWeight={600}
-                            lens={16}
-                            maxSize={16}
-                            minSize={10}
-                            pow={isBelow800 ? 0.68 : 0.92}
-                            decimalStyle={{fontWeight: '600'}}
-                            wordBreak="break-word"
-                            color={'#333333'}
-                            amount={USER_WALLET_TOTAL}
-                          />
-                          <Text fontSize="10px" className="mt-1">
-                            User&apos;s wallet
-                          </Text>
-                          <Link
-                            href={`account/store_wallet/users_wallet_txns_list/?total=${USER_WALLET_TOTAL}`}
-                          >
-                            <Text fontSize="10px" className="cursor-pointer  text-[#4545FE] mt-1">
-                              View details
-                            </Text>
-                          </Link>
-                        </div>
-                        <div className="rounded-lg border border-[#EFEFEF] py-1 my-1 mx-auto flex flex-col w-full items-center justify-center px-2">
-                          {/* <span className="font-bold mt-1">
-                          {formatAmountWithDecimal(AGENT_WALLET_TOTAL)}
-                        </span> */}
-                          {/* <FormatToColorfulCurrency
-                        amount={AGENT_WALLET_TOTAL}
-                        fontWeight="600"
-                        wrapper={{mt: '4px'}}
-                        decimalStyle={{fontWeight: '600'}}
-                      /> */}
-                          <FormatToColorfulAdaptiveCurrency
-                            baseSize={16}
-                            fontWeight={600}
-                            lens={16}
-                            maxSize={16}
-                            minSize={10}
-                            pow={isBelow800 ? 0.68 : 0.92}
-                            wrapper={{mt: '4px'}}
-                            decimalStyle={{fontWeight: '600'}}
-                            wordBreak="break-word"
-                            color={'#333333'}
-                            amount={AGENT_WALLET_TOTAL}
-                          />
-                          <Text fontSize="10px" className="mt-1">
-                            {/* Agents wallet */}
-                            Realtor&apos;s wallet
-                          </Text>
-                          <Link href="account/store_wallet/agents_wallet_txns_list">
-                            <Text fontSize="10px" className="cursor-pointer  text-[#4545FE] mt-1">
-                              View details
-                            </Text>
-                          </Link>
-                        </div>
-                      </div>
-                    </Box>
-                  )}
                 </Flex>
               </Flex>
 
@@ -318,7 +280,7 @@ export default function Account() {
               </Stack>
             </main>
           </Box>
-        )}
+        }
         <AccountDrawer drawerModal={accountModal} />
         <DepositDrawer DepositDrawer={DEPOSIT_DRAWER} />
       </LayoutView>

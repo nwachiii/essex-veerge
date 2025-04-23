@@ -198,6 +198,9 @@ export const changeDateFormat = (string, extra, timezone = defaultTimezone) => {
       case 'monthandtime':
         formatString = 'MMMM d, h:mm a';
         break;
+      case 'monthandday':
+        formatString = 'MMM dd';
+        break;
       case 'mm/dd/yyyy':
         formatString = 'MM/dd/yyyy';
         break;
