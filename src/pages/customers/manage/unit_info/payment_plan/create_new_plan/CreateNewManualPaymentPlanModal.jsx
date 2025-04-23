@@ -23,7 +23,7 @@ import {formatAmount, encodeFileToBase64} from '/src/utils';
 import PaymentPlan from '/src/components/Drawers/paymentPlan';
 import DocInput from 'ui-lib/ui-lib.components/Input/DocInput';
 import {scrollBarStyles} from '/src/components/common/ScrollbarStyling';
-import {PriceInputWrapperStyle, PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceInputWrapperStyle, PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import cancelBlackIcon from '/src/images/icons/closeIconForFilter.svg';
 import {convertNumberStringToInteger} from 'utils/removeEmptyObjectValues';
 import {PAYMENT_PLAN_SCHEMA} from 'constants/createListing';

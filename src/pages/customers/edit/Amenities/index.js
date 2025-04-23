@@ -27,7 +27,7 @@ import ViewOtherAmenitiesIcon, {
   ShowLessAmenitiesIcon,
 } from '@/components/assets/ViewOtherAmenitiesIcon';
 import {OTHER_AMENITIES_STORE} from 'constants/listings/amenities';
-import {AmenitiesComponent, SearchMenu} from 'pages/listings/create/Amenities';
+import {AmenitiesComponent, SearchMenu} from 'pages/customers/create/Amenities';
 
 export default function Amenities({defaultData, handleProgress}) {
   const toast = useToast();

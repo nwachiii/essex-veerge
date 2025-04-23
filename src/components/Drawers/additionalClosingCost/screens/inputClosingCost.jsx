@@ -15,7 +15,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import {IoArrowBackSharp} from 'react-icons/io5';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 const formatNumberObj = {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,

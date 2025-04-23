@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import backIcon from '/src/images/icons/backArrowForDrawer.svg';
 import clockIcon from '/src/images/icons/clock.svg';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import {RefundVerify} from './refundVerify';
 import {useState} from 'react';
 

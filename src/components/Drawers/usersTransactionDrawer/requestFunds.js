@@ -17,7 +17,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import backIcon from '/src/images/icons/backArrowForDrawer.svg';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import {MatadorCustomToast} from 'pages/veerge_menu/loop';
 import {useState} from 'react';
 

@@ -31,7 +31,7 @@ import OptionsToRadio from './OptionsToRadio';
 import {useRouter} from 'next/router';
 import {formatToCurrency} from 'utils/formatAmount';
 import {constants} from 'constants/listings/constantsForListingsFilter';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 
 const Filter = ({forFilter}) => {
   const {isOpen, onClose, onOpen} = useDisclosure();

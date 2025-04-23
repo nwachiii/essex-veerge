@@ -16,7 +16,7 @@ import {calculateTotalFractions} from '../../../../../apis/listings';
 import {Button, Popup} from '../../../../../ui-lib/ui-lib.components';
 import {formatAmount, formatAmountWithDecimal} from '../../../../../utils';
 import {FractionalizingModal2} from './FractionalizingModal2';
-import {PriceInputWrapperStyle, PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceInputWrapperStyle, PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import {NumberInputField} from 'ui-lib/ui-lib.components/Input/NumberInputField';
 
 export const FractionalizationModal = ({

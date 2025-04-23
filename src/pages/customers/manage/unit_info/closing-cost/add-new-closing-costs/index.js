@@ -28,7 +28,7 @@ import {scrollBarStyles} from '@/components/common/ScrollBarStyles';
 import {Input} from 'ui-lib/ui-lib.components';
 import {updateAmountInputChange} from 'utils/formatAmount';
 import NairaIcon from '@/components/assets/NairaIcon';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 
 export const AddNewClosingCosts = ({unitId, refetch}) => {
   const toast = useToast();
