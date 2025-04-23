@@ -26,7 +26,7 @@ import {encodeFileToBase64} from '/src/utils';
 import {QUICK_PAYMENT_PLAN} from '/src/constants/createListing';
 import {scrollBarStyles} from '/src/components/common/ScrollbarStyling';
 import DocInput from 'ui-lib/ui-lib.components/Input/DocInput';
-import {PriceInputWrapperStyle, PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceInputWrapperStyle, PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import cancelBlackIcon from '/src/images/icons/closeIconForFilter.svg';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
 import {toastForError} from 'utils/toastForErrors';

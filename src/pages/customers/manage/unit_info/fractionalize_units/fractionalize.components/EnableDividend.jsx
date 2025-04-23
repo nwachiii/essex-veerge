@@ -15,9 +15,9 @@ import {
 } from '@chakra-ui/react';
 import {TbCurrencyDollar, TbCurrencyEuro, TbCurrencyNaira} from 'react-icons/tb';
 import {formatAmount} from '../../../../../../utils';
-import {PriceInputWrapperStyle, PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
-import PeriodSelect from 'pages/listings/create/ListingDetails/ListingDetails.components/PeriodSelect';
-import YearSelect from 'pages/listings/create/ListingDetails/ListingDetails.components/YearSelect';
+import {PriceInputWrapperStyle, PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
+import PeriodSelect from 'pages/customers/create/ListingDetails/ListingDetails.components/PeriodSelect';
+import YearSelect from 'pages/customers/create/ListingDetails/ListingDetails.components/YearSelect';
 import {DropDownComponent} from '@/components/Modals/send_offer/components/dropDown';
 
 export const EnableDividend = ({props, setDividendStartDate}) => {
