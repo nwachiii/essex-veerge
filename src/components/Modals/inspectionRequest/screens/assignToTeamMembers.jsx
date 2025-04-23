@@ -26,6 +26,7 @@ import searchIcon from '/src/images/icons/contactPersonSearchicon.svg';
 import {useFormik} from 'formik';
 import {useState} from 'react';
 import cancelIcon from '/src/images/icons/cancelIconRequest.svg';
+import { loggedinUserStatic } from 'apis/requests';
 
 const AssignToTeamMembers = ({setSummaryInfo, history, handleScreen, roles}) => {
   const modalDisclosure = useDisclosure();

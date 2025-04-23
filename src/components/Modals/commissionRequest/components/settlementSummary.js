@@ -1,4 +1,5 @@
 import {Flex, HStack, Heading, Stack, Text, VStack} from '@chakra-ui/react';
+import { loggedinUserStatic } from 'apis/requests';
 import React, {useState} from 'react';
 
 import {FormatToColorfulCurrency, formatToCurrency} from 'utils/formatAmount';

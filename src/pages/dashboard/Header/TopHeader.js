@@ -1,6 +1,7 @@
 import React from 'react';
 import {Badge, Flex, Heading, HStack, Image, Stack, Text, VStack} from '@chakra-ui/react';
 import welcomeIcon from '../../../images/icons/welcome-icon.png';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const TopHeader = () => {
   const user = loggedinUserStatic;

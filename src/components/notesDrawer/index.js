@@ -37,6 +37,7 @@ import {NotesEmptyState} from './NotesEmptyState';
 import {EmptyState} from '../common/Table';
 
 import AutoResizeInput from './AutoResizeInput';
+import { loggedinUserStatic } from 'apis/requests';
 
 const reStructureSuggestions = suggestions => {
   return suggestions.map(item => {

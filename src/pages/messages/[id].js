@@ -37,6 +37,7 @@ import InputText from '../notes/InputText';
 import MessageBox from './MessageBox';
 import Scrolll from '../notes/Scrolll';
 import {fetchMessages, UpdateMessages} from '../../apis/fetchMessage';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const Messages = () => {
   const user = loggedinUserStatic;
