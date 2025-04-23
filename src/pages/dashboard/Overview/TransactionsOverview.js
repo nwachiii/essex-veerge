@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, SimpleGrid, Text, Skeleton, Stack, useMediaQuery} from '@chakra-ui/react';
+import {Box, SimpleGrid, Text, Skeleton, Stack, useMediaQuery, Flex} from '@chakra-ui/react';
 import {themeStyles} from '../../../theme';
 import {
   formatAmountWithDecimal,
@@ -8,6 +8,7 @@ import {
 } from '../../../utils/formatAmount';
 import MetaDataIconGreen from '../../../components/assets/MetaDataIconGreen';
 import HoverText from 'ui-lib/ui-lib.components/hoverOnText/hoverOnText';
+import MetaDataIconRed from '@/components/assets/MetaDataIconRed';
 
 export const TransactionsOverview = ({
   isAccount,
@@ -29,7 +30,7 @@ export const TransactionsOverview = ({
         >
           <Box {...themeStyles.transactionBox} h={`full`} w={`100%`}>
             <FormatToColorfulAdaptiveCurrency
-              amount={data?.graph_item_net_transactions}
+              amount={data?.totalInflow?.amount}
               lens={13}
               color={themeStyles.color.primary}
               maxSize={16}
@@ -38,22 +39,41 @@ export const TransactionsOverview = ({
               fontWeight="700"
               decimalStyle={{fontWeight: '700'}}
             />
-            <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
-              Net Transactions
-              <Text
-                color={themeStyles.color.matador__green}
-                display="flex"
-                align="center"
-                gap={1.2}
-              >
-                <MetaDataIconGreen /> +0.00%
+
+            <Flex gap="4px">
+              <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
+                Total Inflow
               </Text>
-            </Text>
+              <Flex
+                h="fit-content"
+                alignSelf="end"
+                color={themeStyles.color.matador__green}
+                align="end"
+                gap="4px"
+              >
+                {data?.totalInflow?.changeDirection == 'up' ? (
+                  <MetaDataIconGreen />
+                ) : (
+                  <MetaDataIconRed />
+                )}
+                <Text
+                  fontSize="10px"
+                  fontWeight="400"
+                  color={
+                    data?.totalInflow?.changeDirection == 'up'
+                      ? themeStyles.color.matador__green
+                      : '#f04438'
+                  }
+                >
+                  {data?.totalInflow?.changePercent}%
+                </Text>
+              </Flex>
+            </Flex>
           </Box>
 
           <Box {...themeStyles.transactionBox} h={`full`} w={`100%`}>
             <FormatToColorfulAdaptiveCurrency
-              amount={data?.processed_transactions}
+              amount={data?.totalProcessedTransactions?.amount}
               lens={13}
               color={themeStyles.color.matador__green}
               maxSize={16}
@@ -62,50 +82,72 @@ export const TransactionsOverview = ({
               fontWeight="700"
               decimalStyle={{fontWeight: '700'}}
             />
-            <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
-              {/* {isAccount ? `Processed Transactions` : `Total Deposits`} */}
-              {`Processed Transactions`}
-              <Text
-                color={themeStyles.color.matador__green}
-                display="flex"
-                align="center"
-                gap={1.2}
-              >
-                <MetaDataIconGreen />
-                +0.00%
+            <Flex gap="4px">
+              <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
+                {`Total Processed Transactions`}
               </Text>
-            </Text>
+              <Flex
+                h="fit-content"
+                alignSelf="end"
+                color={themeStyles.color.matador__green}
+                align="end"
+                gap="4px"
+              >
+                {data?.totalProcessedTransactions?.changeDirection == 'up' ? (
+                  <MetaDataIconGreen />
+                ) : (
+                  <MetaDataIconRed />
+                )}
+                <Text
+                  fontSize="10px"
+                  fontWeight="400"
+                  color={
+                    data?.totalProcessedTransactions?.changeDirection == 'up'
+                      ? themeStyles.color.matador__green
+                      : '#f04438'
+                  }
+                >
+                  {data?.totalProcessedTransactions?.changePercent}%
+                </Text>
+              </Flex>
+            </Flex>
           </Box>
 
           <Box {...themeStyles.transactionBox} h={`full`} w={`100%`}>
             <FormatToColorfulAdaptiveCurrency
-              amount={isAccount ? data?.unprocessed_transactions : data?.graph_item_total_purchases}
+              amount={data?.unprocessedTransactions?.amount}
               lens={13}
-              color={
-                unprocessedTransactions
-                  ? themeStyles.color.matador__red
-                  : themeStyles.color.matador__yellow
-              }
+              color={unprocessedTransactions ? '#f04438' : themeStyles.color.matador__yellow}
               maxSize={16}
               minSize={10}
               pow={isBelow800 ? 0.68 : 0.92}
               fontWeight="700"
               decimalStyle={{fontWeight: '700'}}
             />
-            <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
-              {isAccount ? `Unprocessed Transactions` : `Total Purchases`}
-              {!isAccount && (
+
+            <Flex gap="4px">
+              <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
+                Unprocessed Transactions
+              </Text>
+              {/* <Flex color={themeStyles.color.matador__green} align="end" gap="4px">
+                {data?.unprocessedTransactions?.changeDirection == 'up' ? (
+                  <MetaDataIconGreen />
+                ) : (
+                  <MetaDataIconRed />
+                )}
                 <Text
-                  my="auto"
-                  gap={1.2}
-                  display="flex"
-                  align="center"
-                  color={themeStyles.color.matador__green}
+                  fontSize="10px"
+                  fontWeight="400"
+                  color={
+                    data?.unprocessedTransactions?.changeDirection == 'up'
+                      ? themeStyles.color.matador__green
+                      : '#f04438'
+                  }
                 >
-                  <MetaDataIconGreen /> +0.00%
+                  {data?.unprocessedTransactions?.changePercent}%
                 </Text>
-              )}
-            </Text>
+              </Flex> */}
+            </Flex>
           </Box>
           <Box {...themeStyles.transactionBox} h={`full`} w={`100%`}>
             <FormatToColorfulAdaptiveCurrency
@@ -116,20 +158,38 @@ export const TransactionsOverview = ({
               fontWeight="700"
               pow={isBelow800 ? 0.68 : 0.92}
               decimalStyle={{fontWeight: '700'}}
-              amount={data?.graph_item_withdrawal}
+              amount={data?.outstandingBalance?.amount}
             />
-            <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
-              {`Total Payout`}
-              <Text
-                color={themeStyles.color.matador__green}
-                my="auto"
-                display="flex"
-                align="center"
-                gap={1.2}
-              >
-                <MetaDataIconGreen /> +0.00%
+
+            <Flex gap="4px">
+              <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
+                Outstanding Balance
               </Text>
-            </Text>
+              <Flex
+                h="fit-content"
+                alignSelf="end"
+                color={themeStyles.color.matador__green}
+                align="end"
+                gap="4px"
+              >
+                {data?.outstandingBalance?.changeDirection == 'up' ? (
+                  <MetaDataIconGreen />
+                ) : (
+                  <MetaDataIconRed />
+                )}
+                <Text
+                  fontSize="10px"
+                  fontWeight="400"
+                  color={
+                    data?.outstandingBalance?.changeDirection == 'up'
+                      ? themeStyles.color.matador__green
+                      : '#f04438'
+                  }
+                >
+                  {data?.outstandingBalance?.changePercent}%
+                </Text>
+              </Flex>
+            </Flex>
           </Box>
         </SimpleGrid>
       ) : (

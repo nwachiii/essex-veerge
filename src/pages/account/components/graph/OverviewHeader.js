@@ -23,7 +23,7 @@ export const OverviewHeader = ({filterByVal, setFilterByVal, showing}) => {
       >
         <Stack>
           <Heading fontSize="18px" fontWeight={600} align="left">
-            Sales Overview
+            Overview
           </Heading>
           {showing && (
             <Text fontSize="14px" fontWeight={400} color="grey">
@@ -31,16 +31,21 @@ export const OverviewHeader = ({filterByVal, setFilterByVal, showing}) => {
             </Text>
           )}
         </Stack>
-        <Link href="/account/transaction_statement">
-          <Button rounded="full" variant="btn-outline" w="177px">
-            View transactions
-          </Button>
-        </Link>
+
+        <Button rounded="full" variant="btn-outline" w="177px">
+          View transactions
+        </Button>
       </HStack>
       <RadioGroup w="full" onChange={setFilterByVal} value={filterByVal}>
         <Flex justify="flex-end" mt={1} align="center">
           <HStack spacing={4} align="center" h="35px">
-            <Radio value="1" hidden>
+            <Radio
+              _active={{
+                bg: 'transparent',
+              }}
+              value="1"
+              hidden
+            >
               <Text
                 py="5px"
                 textAlign="center"
@@ -60,7 +65,7 @@ export const OverviewHeader = ({filterByVal, setFilterByVal, showing}) => {
                 borderRadius="8px"
                 w="80px"
                 fontWeight={filterByVal == '2' ? '500' : '400'}
-                bg={filterByVal == '2' ? '#faf4f4' : 'transparent'}
+                bg={filterByVal == '2' ? '#F5F5F5' : 'transparent'}
               >
                 1 Month
               </Text>
@@ -72,12 +77,12 @@ export const OverviewHeader = ({filterByVal, setFilterByVal, showing}) => {
                 borderRadius="8px"
                 w="80px"
                 fontWeight={filterByVal == '3' ? '500' : '400'}
-                bg={filterByVal == '3' ? '#faf4f4' : 'transparent'}
+                bg={filterByVal == '3' ? '#F5F5F5' : 'transparent'}
               >
                 1 Year
               </Text>
             </Radio>
-            <Radio value="4" hidden>
+            {/* <Radio value="4" hidden>
               <Text
                 py="5px"
                 textAlign="center"
@@ -88,7 +93,7 @@ export const OverviewHeader = ({filterByVal, setFilterByVal, showing}) => {
               >
                 All time
               </Text>
-            </Radio>
+            </Radio> */}
           </HStack>
         </Flex>
       </RadioGroup>
