@@ -23,8 +23,8 @@ import React, {useEffect, useState} from 'react';
 import {allocateUnitToEquity, fetchAllocatedEquityInfo} from '../../../../apis/customers';
 import {theme, themeStyles} from '../../../../theme';
 import {Spinner} from '../../../../components/common/loaders/AnimatedLoader';
-import UnitInfoForAllocation from '../../../listings/manage/allocations/manage_allocated_units/UnitInfoForAllocation';
-import AllocationImageGallery from '../../../listings/manage/allocations/manage_allocated_units/Gallery';
+import UnitInfoForAllocation from '../../../customers/manage/allocations/manage_allocated_units/UnitInfoForAllocation';
+import AllocationImageGallery from '../../../customers/manage/allocations/manage_allocated_units/Gallery';
 import emptyIcon from '/src/images/icons/emptyIcon.png';
 
 const styles = extendTheme({...theme});

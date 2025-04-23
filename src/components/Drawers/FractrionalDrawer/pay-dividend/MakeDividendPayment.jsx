@@ -22,7 +22,7 @@ import {Button, Input} from 'ui-lib/ui-lib.components';
 import groupIcon from '/src/images/icons/groupIcon.svg';
 import backIcon from '/src/images/icons/backArrowForDrawer.svg';
 import {customScrollbarStyles} from '@/components/common/Calendar/DatePicker';
-import {PriceInputWrapperStyle, PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceInputWrapperStyle, PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import {formatAmount} from 'utils';
 import {useState} from 'react';
 import VerifyUserViaOTP from './VerifyUserViaOTP';

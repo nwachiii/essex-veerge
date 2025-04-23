@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import {useQuery} from '@tanstack/react-query';
 import {fetchCustomerViaEmail} from 'apis/customers';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 import React, {useState} from 'react';
 import {IoArrowBackSharp} from 'react-icons/io5';
 import {formatToCurrency} from 'utils/formatAmount';

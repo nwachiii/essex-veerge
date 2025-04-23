@@ -14,7 +14,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import {IoArrowBackSharp} from 'react-icons/io5';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
+import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
 
 export const InputRefundAmount = ({setAmount, navigateBack, handleScreen, amount}) => {
   const handleAmount = event => {
