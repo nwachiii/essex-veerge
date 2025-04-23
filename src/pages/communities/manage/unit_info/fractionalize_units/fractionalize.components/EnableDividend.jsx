@@ -16,9 +16,9 @@ import {
 import {TbCurrencyDollar, TbCurrencyEuro, TbCurrencyNaira} from 'react-icons/tb';
 import {formatAmount} from '../../../../../../utils';
 import {PriceInputWrapperStyle, PriceMenu} from 'pages/communities/create/WholeUnits/WholeUnits.Form';
-import PeriodSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/PeriodSelect';
-import YearSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/YearSelect';
 import {DropDownComponent} from '@/components/Modals/send_offer/components/dropDown';
+import YearSelect from 'pages/customers/create/ListingDetails/ListingDetails.components/YearSelect';
+import PeriodSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/PeriodSelect';
 
 export const EnableDividend = ({props, setDividendStartDate}) => {
   const [month, setMonth] = useState(null);
