@@ -6,8 +6,6 @@ import {Input, CustomSelect, CustomTextArea} from '../../../../ui-lib';
 import {InputLabel} from '../../../../ui-lib/ui-lib.components/Input/Input';
 
 import LongAndLat from '../../../../components/Drawers/longAndLat';
-import PeriodSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/PeriodSelect';
-import YearSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/YearSelect';
 import {FormErrorWrapper} from '@/components/formComponents/FormErrorWrapper';
 import {DocInputForUrl} from 'ui-lib/ui-lib.components/Input';
 import {UploadImagesWithURL} from 'ui-lib/ui-lib.components/MultipleFilesUpload/UploadImagesWithURL';
@@ -17,6 +15,8 @@ import {
   numberInputOnWheelPreventChange,
 } from 'utils/numberInputsValidationProps';
 import {formatNumberWithCommas} from 'utils/formatAmount';
+import YearSelect from 'pages/customers/create/ListingDetails/ListingDetails.components/YearSelect';
+import PeriodSelect from 'pages/communities/create/ListingDetails/ListingDetails.components/PeriodSelect';
 
 function ListingDetailsForm({
   formik,

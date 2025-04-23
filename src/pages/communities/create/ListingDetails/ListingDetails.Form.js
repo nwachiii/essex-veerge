@@ -16,8 +16,8 @@ import countryList from 'react-select-country-list';
 import {Input, CustomSelect, CustomTextArea} from '../../../../ui-lib';
 import {InputLabel} from '../../../../ui-lib/ui-lib.components/Input/Input';
 import LongAndLat from '../../../../components/Drawers/longAndLat';
-import YearSelect from './ListingDetails.components/YearSelect';
-import PeriodSelect from './ListingDetails.components/PeriodSelect';
+// import YearSelect from './ListingDetails.components/YearSelect';
+// import PeriodSelect from './ListingDetails.components/PeriodSelect';
 import {FormErrorWrapper} from '@/components/formComponents/FormErrorWrapper';
 import {DocInputForUrl} from 'ui-lib/ui-lib.components';
 import {UploadImagesWithURL} from 'ui-lib/ui-lib.components';
@@ -29,6 +29,8 @@ import {
 } from 'utils/numberInputsValidationProps';
 import {PriceMenu} from '../WholeUnits/WholeUnits.Form';
 import countries from 'constants/auth/country';
+import YearSelect from 'pages/customers/create/ListingDetails/ListingDetails.components/YearSelect';
+import PeriodSelect from './ListingDetails.components/PeriodSelect';
 
 function ListingDetailsForm({
   formik,
