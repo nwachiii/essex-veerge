@@ -15,6 +15,7 @@ import {
   VStack,
   HStack,
   TableContainer,
+  Button,
   Heading,
 } from '@chakra-ui/react';
 import CustomPagination from '../Pagination';
@@ -23,6 +24,7 @@ import {ImFilesEmpty} from 'react-icons/im';
 import {AnimatedLoader} from '../loaders';
 import {useRouter} from 'next/router';
 import emptyIcon from '/src/images/icons/emptyIcon.png';
+import expandIcon from '/src/images/icons/expand-icon.svg';
 
 import searchIcon from '/src/images/icons/searchIconRequest.svg';
 
@@ -95,7 +97,8 @@ export const MatadorCustomTable = ({
         overflowX="auto"
         borderRadius={teams ? 'none' : 'xl'}
         border="1px solid"
-        borderColor="#e4e4e4"
+        borderColor="#e4e4e7"
+        borderBottomRadius="0px"
         mx="auto"
         {...rest}
       >
@@ -151,7 +154,7 @@ export const MatadorCustomTable = ({
                             lineHeight="20.29px"
                             letterSpacing={'0'}
                             textTransform={'capitalize'}
-                            borderBottom={'1px solid #e4e4e4'}
+                            borderBottom={'1px solid #e4e4e7'}
                             {...column.getHeaderProps()}
                           >
                             {column.hideHeader == true ? null : column.render('Header')}
@@ -247,7 +250,18 @@ export const MatadorCustomTable = ({
         )}
       </Box>
 
-      <HStack w="full" justify={'flex-end'} gap="21px">
+      <HStack
+        w="full"
+        border="1px solid #e4e4e7"
+        borderTop="none"
+        bg="#ffffff"
+        px="40px"
+        borderBottomRadius="xl"
+        justify={'flex-end'}
+        mb="12px"
+        gap="21px"
+        overflow="hidden"
+      >
         {isManageAgentEmpty && page && !DATA?.length ? (
           <Box py="10px" />
         ) : DATA?.length < forLimit && !(~~number_of_pages > 1) ? (
@@ -267,6 +281,18 @@ export const MatadorCustomTable = ({
             canPreviousPage={canPreviousPage}
           />
         )}
+        <Button
+          variant="md-filled-radius"
+          fontSize="16px"
+          fontWeight="400"
+          color="#ffffff"
+          h="48px"
+          w="170px"
+          bg="#4545fe"
+          leftIcon={<Image src={expandIcon.src} />}
+        >
+          Expand List
+        </Button>
       </HStack>
     </>
   );

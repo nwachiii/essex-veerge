@@ -64,7 +64,7 @@ const Violations = () => {
         px={{base: '0px', xl: '30px'}}
         tabPanelStyle={{pb: '0px'}}
         pb="0px"
-        activePage="users"
+        activePage="violations"
       >
         <Box
           // mt="clamp(-100vh, -82vh, calc(-100vh + 120px))"

@@ -112,7 +112,7 @@ function CustomCheckbox(props) {
       >
         <VStack spacing="12px" align="flex-start">
           <HStack justify="space-between" spacing="none" w="full">
-            <Image alt="" src={option.image} />
+            {option.icon || <Image alt="" src={option.image} />}
             <HStack
               border="1px solid #CBCBCB"
               borderRadius="full"

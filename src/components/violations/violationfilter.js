@@ -26,14 +26,11 @@ import {
   Tooltip,
   StackDivider,
 } from '@chakra-ui/react';
-import filter_icon from '/src/images/icons/filter_icon.svg';
+import filter_icon from '/src/images/icons/filter-icon.svg';
 import React, {useState} from 'react';
 // import OptionsToRadio from './OptionsToRadio';
 import {useRouter} from 'next/router';
-import {formatToCurrency} from 'utils/formatAmount';
-import {constants} from 'constants/listings/constantsForListingsFilter';
-import {PriceMenu} from 'pages/listings/create/WholeUnits/WholeUnits.Form';
-import OptionsToRadio from 'pages/listings/manage/ListingsTable/Header/filter/OptionsToRadio';
+
 import {violationConstants} from 'constants/violation/radioConstants';
 import FilterSearch from './filterSearch';
 import {
