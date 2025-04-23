@@ -24,7 +24,6 @@ import downloadIcon from '/src/images/icons/download-icon.svg';
 import {FiHome} from 'react-icons/fi';
 import {CSVLink} from 'react-csv';
 import SortBy from '../SortBy';
-import Filter from '/src/pages/listings/manage/ListingsTable/Header/filter/index.js';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
 const sort_params = [
   'A-Z',
@@ -90,7 +89,7 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
             </Link>
           )}
           <Flex gap="16px">
-            <Filter forFilter={forFilter} />
+
 
             <SortBy sortFor="listing" btnStyle={{bg: '#fff'}} sort_params={sort_params} />
 
