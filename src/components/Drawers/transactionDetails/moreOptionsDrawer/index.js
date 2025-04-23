@@ -322,7 +322,7 @@ const MoreOptionsDrawer = ({
 
           {canAccess.restructureTransaction ? (
             <Link
-              href={`/users/profile/restructureTranscrion/?equityId=${equityId}&user=${userId}`}
+              href={`/residents/profile/restructureTranscrion/?equityId=${equityId}&user=${userId}`}
               prefetch={true}
             >
               <Stack

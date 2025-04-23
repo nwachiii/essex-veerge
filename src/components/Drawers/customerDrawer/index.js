@@ -175,7 +175,7 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
                 background={`#FFF`}
                 as={Link}
                 prefetch={true}
-                href={`/users/profile/?userId=${userId}`}
+                href={`/residents/profile/?userId=${userId}`}
               >
                 <Center boxSize={`56px`} position="relative">
                   <Image

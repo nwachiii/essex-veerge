@@ -39,7 +39,7 @@ export default function TransactionHistory() {
 
   const goToCustomerProfilePage = () => {
     showProgress(true);
-    router.push(`/users/manage/${listingTxns?.user?.id}`);
+    router.push(`/residents/manage/${listingTxns?.user?.id}`);
   };
   return (
     <LayoutView activePage={'customers'}>

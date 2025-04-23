@@ -24,8 +24,8 @@ import docIcon from '/src/images/icons/docIcon.svg';
 import rightIcon from '/src/images/icons/rightTriangleArrow.svg';
 import EquitySummary from '@/components/Cards/customerCreationSummary';
 import {AnimatedLoader} from '@/components/index';
-import CreateCustomerFooter from 'pages/users/create_account/CustomerDetails/CreateCustomerFooter';
-import UnitAllocation from 'pages/users/create_account/CustomerAccountSummary/UnitAllocation';
+import CreateCustomerFooter from 'pages/residents/create_account/CustomerDetails/CreateCustomerFooter';
+import UnitAllocation from 'pages/residents/create_account/CustomerAccountSummary/UnitAllocation';
 
 export const DisputedEquitySummary = ({subPages, handleProgress, step}) => {
   const router = useRouter();
@@ -54,7 +54,7 @@ export const DisputedEquitySummary = ({subPages, handleProgress, step}) => {
   const completeCreateCustomerAccount = () => {
     const id = userId;
     setTimeout(() => {
-      router.push(`/users/profile?userId=${id}`);
+      router.push(`/residents/profile?userId=${id}`);
     }, 1500);
     setShowProgress(true);
     window.localStorage.removeItem('customerDetails');

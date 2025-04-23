@@ -77,7 +77,7 @@ export const AGENTS_TXNS_COLUMNS = data => [
       return (
         <>
           {row?.agent?.id ? (
-            <Link href={`/users/manage_agents/${row?.agent?.id}`}>
+            <Link href={`/residents/manage_agents/${row?.agent?.id}`}>
               <Button
                 borderRadius="72px"
                 w="115px"

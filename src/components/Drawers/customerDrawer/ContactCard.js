@@ -255,7 +255,7 @@ const ContactCard = ({data, userId}) => {
         </Box>
       </Box>
 
-      <Link href={`/users/profile/?userId=${userId}`}>
+      <Link href={`/residents/profile/?userId=${userId}`}>
         <Button
           bg="#F5F5F5"
           alignSelf="center"

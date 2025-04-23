@@ -38,7 +38,7 @@ export const AgentDrawerOptions = ({
       title: 'Transactions',
       message:
         'View and export transaction details for this listing, including deposits, payer information, payment purposes, outstanding balances, and transaction dates.',
-      openListItem: () => id && router.push(`/users/manage_agents/transaction_statement/${id}`),
+      openListItem: () => id && router.push(`/residents/manage_agents/transaction_statement/${id}`),
     },
     {
       icon: activity.src,

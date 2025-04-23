@@ -66,7 +66,7 @@ export const CalendarDateActivities = ({date}) => {
           if (message_obj?.type === 'text') {
             return message_obj?.content || message_obj?.value || '';
           } else if (message_obj?.type === 'redirect') {
-            if (message_obj.route?.includes('/users/profile')) {
+            if (message_obj.route?.includes('/residents/profile')) {
               return (
                 <CalendarUserDrawer
                   key={index}

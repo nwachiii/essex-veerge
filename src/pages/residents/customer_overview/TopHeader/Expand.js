@@ -62,13 +62,13 @@ const ExpandOverview = ({setValue, value, customersFetchQuery}) => {
               }
             />
           </Box>
-          <Link prefetch={false} href="/users/manage_agents">
+          <Link prefetch={false} href="/residents/manage_agents">
             <Button variant="primary" w="140px" h="48px">
               Manage Realtors
             </Button>
           </Link>
           {/* 
-          <Link prefetch={false} href="/users/blacklist">
+          <Link prefetch={false} href="/residents/blacklist">
             <Button variant="dark" w="130px" fontWeight={'500'} fontSize="14px" h="48px">
               Blacklist
             </Button>

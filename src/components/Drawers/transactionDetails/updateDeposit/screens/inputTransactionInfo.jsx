@@ -21,10 +21,10 @@ import {IoArrowBackSharp} from 'react-icons/io5';
 import historyIcon from '/src/images/icons/historyIcon.svg';
 import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
 import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
-import UploadEquityPackets from 'pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
 import {CalenderMenuAsModal} from '@/components/Modals/send_offer/components/CalendarMenuAsModal';
 import infoIcon from '/src/images/icons/infoIconGrey.svg';
 import {CalenderMenu} from '@/components/common/Calendar/CalenderMenu';
+import UploadEquityPackets from 'pages/residents/create_account/UploadEquityPackets';
 
 const formatNumberObj = {
   minimumFractionDigits: 2,

@@ -21,7 +21,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAnglesLeft} from '@fortawesome/free-solid-svg-icons';
 import PaymentPlanSummary from '../../../components/Cards/PaymentPlanSummary';
 import {getAccountPastPayments, getAccountPaymentDetails} from '../../../apis/account';
-import ListingInfo from '../../users/create_account/CustomerAccountSummary/ListingInfo';
+import ListingInfo from 'pages/residents/create_account/CustomerAccountSummary/ListingInfo';
+// import ListingInfo from '../../residents/create_account/CustomerAccountSummary/ListingInfo';
 
 export const OustandingBalanceBreakdown = () => {
   const router = useRouter();

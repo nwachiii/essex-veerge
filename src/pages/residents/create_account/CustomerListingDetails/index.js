@@ -70,7 +70,7 @@ export default function ListingDetails({subPages, handleProgress}) {
         position: 'top-right',
       });
 
-      router.push(`/users/profile?userId=${userId}`);
+      router.push(`/residents/profile?userId=${userId}`);
 
       window.localStorage.removeItem('customerDetails');
       window.localStorage.removeItem('customer');

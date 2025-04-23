@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {useMutation} from '@tanstack/react-query';
 import {
   Box,
   Container,
-  extendTheme,
   HStack,
   SimpleGrid,
   ButtonGroup,
@@ -26,18 +25,17 @@ import {Formik, Form, FieldArray} from 'formik';
 import {handleEmptySubmittedValues} from '/src/utils/removeEmptyObjectValues';
 
 import {useRouter} from 'next/router';
-
-import PaymentPlan from 'pages/users/create_account/CustomerListingDetails/CustomerListingDetails.PaymentPlan/PaymentPlan';
-import SelectAListting from 'pages/users/create_account/CustomerListingDetails/SelectAListting';
-import SelectAUnit from 'pages/users/create_account/CustomerListingDetails/SelectAUnit';
 import {AnimatedLoader, LayoutView} from '@/components/index';
-import UploadEquityPackets from 'pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
 import SelectDeeductionType, {
   SelectAllocation,
-} from 'pages/users/create_account/CustomerListingDetails/SelectDeeductionType';
-import AddClosingCost from 'pages/users/create_account/CustomerListingDetails/closingCost';
+} from 'pages/residents/create_account/CustomerListingDetails/SelectDeeductionType';
 import {BackArrowWithText} from '@/components/assets/BackArrow';
 import AssignAgentInput from 'ui-lib/ui-lib.components/Input/assignAgent';
+import SelectAListting from 'pages/residents/create_account/CustomerListingDetails/SelectAListting';
+import SelectAUnit from 'pages/residents/create_account/CustomerListingDetails/SelectAUnit';
+import PaymentPlan from 'pages/communities/manage/unit_info/payment_plan/PaymentPlan';
+import AddClosingCost from 'pages/residents/create_account/CustomerListingDetails/closingCost';
+import UploadEquityPackets from 'pages/residents/create_account/UploadEquityPackets';
 
 export default function ListingDetails() {
   const toast = useToast();
@@ -71,7 +69,7 @@ export default function ListingDetails() {
         position: 'top-right',
       });
 
-      router.push(`/users/profile?userId=${userId}`);
+      router.push(`/residents/profile?userId=${userId}`);
     },
     onError: err => {
       toast({

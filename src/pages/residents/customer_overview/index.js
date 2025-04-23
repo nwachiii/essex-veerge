@@ -239,7 +239,7 @@ export const CustomerOverviewPage = () => {
                 as={Link}
                 h="40px"
                 maxW={'195px'}
-                href="/users/blacklist"
+                href="/residents/blacklist"
                 variant="outline-radius"
               >
                 Blacklist
