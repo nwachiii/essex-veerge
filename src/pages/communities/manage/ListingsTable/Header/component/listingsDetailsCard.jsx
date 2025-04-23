@@ -11,7 +11,7 @@ const ListingsDetailsCard = ({soldOut, total, available, heading}) => {
       h="full"
       spacing="none"
       borderRadius="12px"
-      border="0.5px solid #e4e4e4"
+      border="0.5px solid #E4E4E7"
       bg="#ffffff"
     >
       <Flex w="full" p="16px 24px 14px" justifyContent="space-between" alignItems="center">
@@ -27,7 +27,7 @@ const ListingsDetailsCard = ({soldOut, total, available, heading}) => {
       </Flex>
       <Flex
         h="50px"
-        borderTop="0.5px solid #e4e4e4"
+        borderTop="0.5px solid #E4E4E7"
         bg="#f9fafb"
         w="full"
         justify="space-between"

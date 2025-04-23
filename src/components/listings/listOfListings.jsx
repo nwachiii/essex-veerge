@@ -18,7 +18,7 @@ import {useRouter} from 'next/router';
 import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
 import ListingCard from './components/listingCard';
 import ListingCardLoadingState from './components/listingCardEmptyState';
-import {FiHome, FiPlus} from 'react-icons/fi';
+import {FiPlus} from 'react-icons/fi';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
 import Filter from '/src/pages/communities/manage/ListingsTable/Header/filter/index.js';
 
@@ -84,8 +84,7 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
             Create Community
           </Button>
           <Flex gap="16px">
-
-            <Filter />
+            <Filter forFilter={forFilter} />
             <DownloadCsv data={getDataFromJSON(projects)} />
           </Flex>
         </Flex>
@@ -121,7 +120,7 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
               onClick={() => router.push('/listings/create')}
               variant="filled-radius"
             >
-              Create New Listing
+              Create Community
             </Button>
           )}
         </VStack>
