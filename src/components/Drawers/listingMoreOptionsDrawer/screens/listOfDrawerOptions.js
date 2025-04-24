@@ -1,17 +1,12 @@
 import rightArrow from '/src/images/icons/RightArrowForListingScheduledInspection.svg';
-import mapIcon from '/src/images/icons/map.svg';
-import trans from '/src/images/icons/transactions.svg';
-import activity from '/src/images/icons/security-time.svg';
-import orangeStarIcon from '/src/images/icons/orangeStar.svg';
-import editListing from '/src/images/icons/editListingIcon.svg';
-import openHouseIcon from '/src/images/icons/openHouseIcon.svg';
-import secondaryMarketIconForListingDrawer from '/src/images/icons/secondaryMarketIconForListingDrawer.svg';
-import editunitpriceIcon from '/src/images/icons/editUnitPriceIcon.svg';
-import inspection_settings from '/src/images/icons/inspection_settings.svg';
-import uploadSubDocsIcon from '/src/images/icons/uploadSubDocsIcon.svg';
-import makePrivatePadlockIcon from '/src/images/icons/makePrivatePadlockIcon.svg';
-import displayPicture from '/public/icons/icon-park_upload-picture.svg';
-import makePublicUnlockIcon from '/src/images/icons/makePublicUnlockIcon.svg';
+import userIcon from '/src/images/icons/profile-2user.svg';
+import violation from '/src/images/icons/info-circle.svg';
+import lease from '/src/images/icons/building-3.svg';
+import email from '/src/images/icons/ic_round-mail.svg';
+import receipt from '/src/images/icons/receipt-edit.svg';
+import message from '/src/images/icons/device-message.svg';
+import activity from '/src/images/icons/activity.svg';
+
 import {
   DrawerBody,
   DrawerCloseButton,
@@ -22,184 +17,66 @@ import {
   Stack,
   Text,
   VStack,
+  useToast,
 } from '@chakra-ui/react';
-import {useRouter} from 'next/router';
-import {LuPinOff} from 'react-icons/lu';
-import {BsFillPinAngleFill} from 'react-icons/bs';
-import {CourtHouseIcon} from '@/components/assets/courthouse';
 
 export const ListOfDrawerOptions = ({
-  name,
   listingDetail,
   customScrollbarStyles,
-  listingId,
-  openActivity,
-  openListingVisibility,
-  openSecondaryMP,
-  handleScreen,
-  fractionalizeModal,
-  inspectionSettingsDrawer,
-  drawerDisclosure,
-  togglePinnedListingDrawer,
-  mapDrawer,
-  displayPictureDrawer,
-  openUploadSubDoc,
-  openBankAccountScreen,
-  isBuildingTypeSingleFamilyResidential,
-  isPrivate,
 }) => {
-  const router = useRouter();
-  const IS_PINNED = Boolean(listingDetail?.pinned);
 
   const List = [
     {
-      icon: trans.src,
-      title: 'Transactions',
+      icon: userIcon.src,
+      title: 'Occupants',
       message:
-        'View and export transaction details for this listing, including deposits, payer information, payment purposes, outstanding balances, and transaction dates.',
-      openListItem: () =>
-        router.push({
-          pathname: `/dashboard/outstanding-balance/`,
-          query: {
-            isFractional: listingDetail?.fraction_is_available,
-            listingId,
-            name,
-          },
-        }),
+        'Keep an up-to-date log of all residents per unit, including tenants, owners, and additional occupants—ideal for communication and access control.',
     },
     {
       icon: activity.src,
-      title: 'Activity log',
+      title: 'Amenities Access',
       message:
-        "Monitor your listing's activity log to see who visited, shared, made payments, scheduled inspections, and more, ensuring a comprehensive view of all user interactions and activities.",
-      openListItem: () => openActivity(),
+        "Manage and monitor access to community amenities like gyms, pools, and lounges—assign permissions, track usage, and set booking rules effortlessly.",
     },
     {
-      icon: uploadSubDocsIcon.src,
-      title: 'Upload Subscribers Document',
-      message: 'Share documents related to this listing with existing subscribers here.',
-      openListItem: () => openUploadSubDoc(),
+      icon: email.src,
+      title: 'Send Email',
+      message: 'Communicate directly with residents, board members, or staff using built-in email tools—perfect for notices, newsletters, or follow-ups.',
     },
     {
-      iconComponent: <CourtHouseIcon baseColor="#4545FE" boxSize="24px" />,
-      title: 'Bank Account',
-
-      message: 'Add designated bank account to your listing',
-      openListItem: () => openBankAccountScreen(),
+      icon: violation.src,
+      title: 'Violation',
+      message: 'Record and track rule violations with supporting notes and evidence. Assign fines, notify residents, and monitor resolution progress—all in one place.',
     },
     {
-      icon: editListing.src,
-      title: 'Edit listing',
+      icon: lease.src,
+      title: 'Lease Request',
       message:
-        'Customize your listing with ease: Edit the name, update pictures and videos, modify descriptions, and more to keep your listing fresh and engaging.',
-      openListItem: () => router.push(`/listings/edit/?listingId=${listingId}`),
+        'Track and manage rental approvals within the community. Review applications, verify lease terms, and ensure compliance with HOA rental policies—all from one centralized dashboard.',
     },
     {
-      icon: inspection_settings.src,
-      title: 'Inspection Settings',
+      icon: message.src,
+      title: 'Send Broadcast',
       message:
-        'Enable or disable inspection and choose the specific days of the week for inspection availability.',
-      openListItem: () => {
-        drawerDisclosure.onClose();
-        inspectionSettingsDrawer.onOpen();
-      },
-    },
-    isBuildingTypeSingleFamilyResidential
-      ? {
-        icon: editunitpriceIcon.src,
-        title: 'Modify Price',
-        message:
-          'Customize your single family residence with ease: Edit price, upload purchase agreement and more to keep your residence fresh and engaging.',
-        openListItem: handleScreen('editUnitPrice'),
-      }
-      : null,
-    isBuildingTypeSingleFamilyResidential || !listingDetail?.fraction_is_available
-      ? {
-          icon: editListing.src,
-          title: 'Fractionalize',
-          message:
-            'Fractional real estate ownership allows multiple investors to collectively own a portion of a property, without owning the entire property outright.',
-          openListItem: () => {
-            fractionalizeModal.onOpen();
-            drawerDisclosure.onClose();
-          },
-        }
-      : null,
-    {
-      icon: displayPicture.src,
-      title: 'Display Listing Picture',
-      message: 'Select the main image that represents your listing on the application.',
-      openListItem: () => {
-        displayPictureDrawer.onOpen();
-        drawerDisclosure.onClose();
-      },
+        'Send instant announcements or updates to all residents or selected units. Keep your community informed in real time.',
     },
     {
-      icon: mapIcon.src,
-      title: 'Map View',
-      message:
-        'Here, you can control the visibility of the map on the listings page of the web application.',
-      openListItem: () => {
-        mapDrawer.onOpen();
-        drawerDisclosure.onClose();
-      },
-    },
-    IS_PINNED
-      ? {
-          iconComponent: <LuPinOff color={'#191919'} fontSize={'26px'} />,
-          title: 'Remove from Pinned Listings',
-          message:
-            'This listing will automatically return to its original state and order before it was pinned',
-          openListItem: () => {
-            togglePinnedListingDrawer();
-            drawerDisclosure.onClose();
-          },
-        }
-      : {
-          iconComponent: <BsFillPinAngleFill color={'#222222'} fontSize={'28px'} />,
-          title: 'Pin This Listing',
-          message:
-            'This listing will appear first at the top of other listings for your customers.',
-          openListItem: () => {
-            togglePinnedListingDrawer();
-            drawerDisclosure.onClose();
-          },
-        },
-        
-    {
-      icon: isPrivate ? makePublicUnlockIcon.src : makePrivatePadlockIcon.src,
-      title: isPrivate ? 'Make Listing Public' : 'Make Listing Private',
-      message: isPrivate
-      ? 'Make your listing visible in public view in the app and grant  access to all users  for  a better sharing experience.'
-      : 'Privatize your listing to control its visibility. Remove it from public view in the app and grant exclusive access to select individuals for a more controlled and private sharing experience.',
-      openListItem: () => {
-        openListingVisibility();
-        drawerDisclosure.onClose();
-        
-      }
-    },
-    {
-      icon: secondaryMarketIconForListingDrawer.src,
-      title: 'Secondary Market Place',
-      message:
-        'Establish your eligibility to sell properties quickly and seamlessly. A dedicated setup process for homeowners aiming to sell properties in the secondary market.',
-      openListItem: () => {
-        openSecondaryMP();
-        return drawerDisclosure.onClose();
-        
-      }
-    },
-    {
-      icon: openHouseIcon.src,
-      title: 'Set Open House Date',
-      message:
-        'Schedule and manage open house dates for your property listings, inviting potential buyers to view and experience the space firsthand.',
-      openListItem: null,
-      comingSoon: {
-        icon: orangeStarIcon.src,
-      },
+      icon: receipt.src,
+      title: 'Update Information',
+      message: 'Quickly edit or update information to ensure records stay accurate and up to date.',
     },
   ];
+
+  const toast = useToast();
+
+  const openList = () => {
+    toast({
+      position: 'top-right',
+      description: 'You are currently ineligible for this action',
+      status: 'info',
+      duration: 5000
+    })
+  }
 
   return (
     <>
@@ -258,10 +135,10 @@ export const ListOfDrawerOptions = ({
             data
               ? [
                   <HStack
-                    cursor={data.openListItem ? 'pointer' : 'default'}
+                    cursor={'pointer'}
                     border="1px solid #E4E4E4"
                     padding="15px 11px"
-                    onClick={data.openListItem}
+                    onClick={openList}
                     borderRadius="12px"
                     marginBottom="1rem"
                     justify="space-between"
