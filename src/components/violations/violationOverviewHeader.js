@@ -20,11 +20,12 @@ const ViolationOverviewHeader = () => {
   return (
     <Grid
       mb="32px"
-      templateColumns={{base: 'repeat(2, 1fr)', xl: 'repeat(3, 1fr)'}}
+      templateColumns={{base: '1fr', xl: 'repeat(3, 1fr)'}}
       w="full"
       gap="11px"
+      justifyItems="center"
     >
-      <GridItem colSpan={1}>
+      <GridItem w="full" colSpan={1}>
         {' '}
         <ViolationDetailsCard
           total={97}
@@ -34,10 +35,11 @@ const ViolationOverviewHeader = () => {
           escalated={20}
         />
       </GridItem>
-      <GridItem colSpan={2}>
+      <GridItem w="full" colSpan={2}>
         {' '}
         <Flex
           h="full"
+          minH="150px"
           alignItems="center"
           bg="#ffffff"
           p="12px 37px"

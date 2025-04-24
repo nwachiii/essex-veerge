@@ -172,7 +172,7 @@ export const DashboardApexChart = ({
   };
 
   const data = {labels, datasets: series};
-  console.log({cardData});
+
   return (
     <SimpleGrid py={2} columns={2} gap={`8px`} justifyContent="center" alignSelf="center">
       <Box flex={`1`} alignItems="end" id="chart" h="165px" maxW="550px" w="100%" minW="50%">
