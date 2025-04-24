@@ -18,8 +18,9 @@ import nairaIcon from '/src/images/icons/nairaIconForAccount.svg';
 import {useState} from 'react';
 import selectedIcon from '/src/images/icons/mark_icon.svg';
 import {formatToCurrency} from 'utils/formatAmount';
-import UploadEquityPackets from 'pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
+// import UploadEquityPackets from 'pages/residents/create_account/CustomerListingDetails/UploadEquityPackets';
 import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
+import UploadEquityPackets from 'pages/residents/create_account/UploadEquityPackets';
 
 export const CommissionForm = ({
   amount,

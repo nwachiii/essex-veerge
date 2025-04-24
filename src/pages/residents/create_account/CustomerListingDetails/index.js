@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {useMutation} from '@tanstack/react-query';
 import {
   Box,
   Container,
-  extendTheme,
   HStack,
   SimpleGrid,
   ButtonGroup,
@@ -13,35 +12,33 @@ import {
   Spinner,
   useToast,
   Button as ChakraBtn,
-  AbsoluteCenter,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 import {createCustomerEquity} from '/src/apis/customers';
-
 import {useFetchAllListings} from 'ui-lib/ui-lib.hooks/useFetchAllListings';
 import {useFetchListingBundles} from 'ui-lib/ui-lib.hooks/useFetchListingBundles';
 import {AddIcon, SmallCloseIcon} from '@chakra-ui/icons';
 import {Formik, Form, FieldArray} from 'formik';
-
 import {handleEmptySubmittedValues} from '/src/utils/removeEmptyObjectValues';
-
+import PaymentPlan from './CustomerListingDetails.PaymentPlan/PaymentPlan';
+import SelectAListting from './SelectAListting';
+import SelectAUnit from './SelectAUnit';
+import {AnimatedLoader} from '../../../../components/common/loaders';
+import UploadEquityPackets from './UploadEquityPackets';
+import SelectDeeductionType, {SelectAllocation} from './SelectDeeductionType';
+import {AddClosingCost} from './closingCost';
 import {useRouter} from 'next/router';
-
-import PaymentPlan from 'pages/users/create_account/CustomerListingDetails/CustomerListingDetails.PaymentPlan/PaymentPlan';
-import SelectAListting from 'pages/users/create_account/CustomerListingDetails/SelectAListting';
-import SelectAUnit from 'pages/users/create_account/CustomerListingDetails/SelectAUnit';
-import {AnimatedLoader, LayoutView} from '@/components/index';
-import UploadEquityPackets from 'pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
-import SelectDeeductionType, {
-  SelectAllocation,
-} from 'pages/users/create_account/CustomerListingDetails/SelectDeeductionType';
-import AddClosingCost from 'pages/users/create_account/CustomerListingDetails/closingCost';
-import {BackArrowWithText} from '@/components/assets/BackArrow';
+import {CreateToast} from 'ui-lib/ui-lib.components';
+import LeaveEquityAssignment from './leaveEquityAssignment';
+import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 import AssignAgentInput from 'ui-lib/ui-lib.components/Input/assignAgent';
 
-export default function ListingDetails() {
+export default function ListingDetails({subPages, handleProgress}) {
   const toast = useToast();
   const router = useRouter();
+  const toaster = CreateToast('', 'success');
+  const isSmallerLaptop = useSmallerLaptopsBreakpoint();
 
   const query = 'assign=true'; //identifier to filter sold out properties
   const {listingInfo, isLoading, isError} = useFetchAllListings(query);
@@ -49,29 +46,36 @@ export default function ListingDetails() {
   const [equityPacket, setEquityPacket] = useState('');
   const [equityPacketName, setEquityPacketName] = useState('');
   const [isAgentEmail, setIsAgentEmail] = useState([{loading: false, available: true}]);
+
   const {
     listingBundles,
     isLoading: isUnitLoading,
     isError: isUnitError,
   } = useFetchListingBundles(selectedListingId, query);
 
-  const customerID = router.query.customer_id;
-  const userId = router.query.user_id;
+  const customerID =
+    typeof window !== 'undefined' && localStorage && JSON.parse(localStorage.getItem('customer'));
+  const userId =
+    typeof window !== 'undefined' && localStorage && JSON.parse(localStorage.getItem('userId'));
 
-  const handleBack = () => {
-    router.back(-1);
-  };
+  const modalDisclosure = useDisclosure();
+
   const mutation = useMutation(formData => createCustomerEquity(formData), {
     onSuccess: res => {
       toast({
-        title: `Sucessfully Updated`,
+        title: `Successfully updated`,
         status: 'success',
         duration: 8000,
         isClosable: true,
         position: 'top-right',
       });
 
-      router.push(`/users/profile?userId=${userId}`);
+      router.push(`/residents/profile?userId=${userId}`);
+
+      window.localStorage.removeItem('customerDetails');
+      window.localStorage.removeItem('customer');
+      window.localStorage.removeItem('allocationDetails');
+      window.localStorage.removeItem('userId');
     },
     onError: err => {
       toast({
@@ -98,6 +102,7 @@ export default function ListingDetails() {
   const EQUITY_INFO = {
     project_id: '',
     agent_assigned: null,
+
     bundle: {
       id: '',
       payment_class: 'outright',
@@ -146,34 +151,26 @@ export default function ListingDetails() {
   };
 
   const isValidToProceed = val => {
-    if (!val?.equities?.length) return false;
-
-    const areEquitiesValid = val.equities.every((equity, idx) => {
-      const {bundle} = equity;
-
+    const areEquitiesValid = val.equities.every((item, idx) => {
       // validate agent email
 
       const isAgentEmailValid = isAgentEmail?.[idx]?.available && !isAgentEmail?.[idx]?.loading;
-
-      // Validate closing costs
-      const closingCosts = bundle?.closing_costs || [];
-      const isClosingCostInfoValid = closingCosts.length
-        ? closingCosts.every(cost => cost.name?.trim() && Number(cost.amount)) ||
-          (closingCosts.length === 1 &&
-            !Number(closingCosts[0]?.amount) &&
-            !closingCosts[0]?.name?.trim())
+      const isClosingCostInfoValid = item?.bundle?.closing_costs.length
+        ? item?.bundle?.closing_costs.every(item => item.name.trim() && Number(item.amount)) ||
+          (item?.bundle?.closing_costs.length === 1 &&
+            !Number(item?.bundle?.closing_costs?.[0]?.amount) &&
+            !item?.bundle?.closing_costs?.[0]?.name?.trim())
         : true;
-
-      const listingHasBeenSelected = !!equity?.project_id;
-      const packetHasBeenSelected = !!equity?.packets?.length;
-      const unitHasBeenSelected = !!bundle?.id;
-      const paymentPlanDuration =
-        bundle?.payment_class === 'outright' || !!bundle?.payment_period_in_months;
-
-      if (bundle?.payment_class === 'outright') {
-        const outrightPayments = bundle?.outright || [];
-        const isOutrightPaymentInfoValid = outrightPayments.every(
-          payment => payment.payment_date && Number(payment.amount)
+      const PaymentPlanDuration =
+        item?.bundle?.payment_class === 'outright'
+          ? true
+          : !!item?.bundle?.payment_period_in_months;
+      const listingHasBeenSelected = !!item?.project_id;
+      const packetHasBeenSelected = !!item?.packets.length;
+      const unitHasBeenSelected = !!item?.bundle.id;
+      if (item?.bundle?.payment_class === 'outright') {
+        const isOutrightPaymentInfoValid = item?.bundle?.outright.every(
+          item => item.payment_date && Number(item.amount)
         );
 
         return (
@@ -183,67 +180,45 @@ export default function ListingDetails() {
           unitHasBeenSelected &&
           isAgentEmailValid &&
           // packetHasBeenSelected &&
-          paymentPlanDuration
+          PaymentPlanDuration
         );
-      }
-
-      // Custom payment validation
-      if (bundle?.payment_class === 'custom') {
-        const pastPayments = bundle?.paymentplan?.payments || [];
-        const upcomingPayments = bundle?.paymentplan?.upcomings || [];
-
-        const isPastPaymentInfoValid = pastPayments.length
-          ? pastPayments.every(payment => Number(payment.amount) && payment.payment_date)
+      } else if (item?.bundle?.payment_class === 'custom') {
+        const isPastPaymentInfoValid = item?.bundle?.paymentplan?.payments.length
+          ? item?.bundle?.paymentplan?.payments.every(
+              item => Number(item.amount) && item.payment_date
+            )
           : false;
-
-        const isIncomingPaymentInfoValid = upcomingPayments.length
-          ? upcomingPayments.every(payment => Number(payment.amount) && payment.payment_date) ||
-            (upcomingPayments.length === 1 &&
-              !Number(upcomingPayments[0]?.amount) &&
-              !upcomingPayments[0]?.payment_date)
+        const isIncomingPaymentInfoValid = item?.bundle?.paymentplan?.upcomings.length
+          ? item?.bundle?.paymentplan?.upcomings.every(
+              item => Number(item.amount) && item.payment_date
+            ) ||
+            (item?.bundle?.paymentplan?.upcomings.length === 1 &&
+              !Number(item?.bundle?.paymentplan?.upcomings?.[0]?.amount) &&
+              !item?.bundle?.paymentplan?.upcomings?.[0]?.payment_date)
           : true;
 
         return (
-          isPastPaymentInfoValid &&
           isIncomingPaymentInfoValid &&
+          isPastPaymentInfoValid &&
           isClosingCostInfoValid &&
           listingHasBeenSelected &&
           unitHasBeenSelected &&
           isAgentEmailValid &&
           // packetHasBeenSelected &&
-          paymentPlanDuration
+          PaymentPlanDuration
         );
       }
-
-      return false;
     });
-
+    // console.log(areEquitiesValid);
     return areEquitiesValid;
   };
 
   return (
-    <LayoutView
-      maxW="full"
-      tabPanelStyle={{px: '0px', pb: '0px'}}
-      px="0px"
-      pb="30px"
-      activePage={'users'}
-    >
-      <HStack
-        px={{base: `16px`, xl: '0px'}}
-        mx="auto"
-        mt={`clamp(52px,calc(10.4vh + 40px),82px)`}
-        maxW="1100px"
-        w="full"
-        mb="30px"
-      >
-        <BackArrowWithText handleClick={handleBack} text="Back" mt="2vh" />
-      </HStack>
-      <Box px={{base: `16px`, xl: '78px'}} mx="auto" w="full" position={'relative'}>
-        {isLoading || !getProject.length ? (
-          <AbsoluteCenter mt="20vh">
-            <AnimatedLoader />
-          </AbsoluteCenter>
+    <>
+      <LeaveEquityAssignment modalDisclosure={modalDisclosure} />
+      <Box maxW="1100px" w="full" position={'relative'} pb={isSmallerLaptop ? '3em' : ''}>
+        {isLoading ? (
+          <AnimatedLoader />
         ) : isError ? (
           toast({
             title: 'Request failed',
@@ -271,9 +246,6 @@ export default function ListingDetails() {
                   // handling a situation upcoming payments isnt filled
                   const val = {
                     ...values,
-                    customer_id: customerID,
-                    user_id: userId,
-
                     equities: values.equities.map(item => {
                       return {
                         ...item,
@@ -301,6 +273,10 @@ export default function ListingDetails() {
 
                   handleEmptySubmittedValues(val.equities);
                   mutation.mutate(val);
+
+                  // setTimeout(() => {
+                  // }, 2000);
+                  // console.log('EQUITIES', val);
                 }}
               >
                 {({values, setFieldValue}) => (
@@ -317,9 +293,7 @@ export default function ListingDetails() {
                                       <Icon
                                         position="absolute"
                                         right={-6}
-                                        onClick={() => {
-                                          remove(index);
-                                        }}
+                                        onClick={() => remove(index)}
                                         as={SmallCloseIcon}
                                         cursor="pointer"
                                         width="30px"
@@ -339,9 +313,9 @@ export default function ListingDetails() {
                                       index={index}
                                     />
                                     <SelectAUnit
+                                      setFieldValue={setFieldValue}
                                       isLoading={isUnitLoading}
                                       isError={isUnitError}
-                                      setFieldValue={setFieldValue}
                                       listingBundles={listingBundles}
                                       index={index}
                                     />
@@ -382,6 +356,12 @@ export default function ListingDetails() {
                                   >
                                     Select payment type
                                   </Text>
+                                  {/* <Divider
+                                  color="#E4E4E4"
+                                  mb="10px"
+                                  w="full"
+                                  orientation="horizontal"
+                                /> */}
 
                                   <PaymentPlan
                                     values={values}
@@ -450,6 +430,8 @@ export default function ListingDetails() {
                             <HStack pt="79px" w="full" justify="flex-end" gap="21px">
                               <ButtonGroup isAttached variant="outline">
                                 <ChakraBtn
+                                  as="div"
+                                  type="button"
                                   mt="0px"
                                   justify="center"
                                   h="44px"
@@ -460,9 +442,9 @@ export default function ListingDetails() {
                                   fontStyle="normal"
                                   fontWeight="400"
                                   lineHeight="normal"
-                                  variant="outline-radius"
                                   w="238px"
                                   // borderRadius="8px"
+                                  variant="outline-radius"
                                   border="1px solid #4545FE"
                                   background="rgba(69, 69, 254, 0.00)"
                                   onClick={() => {
@@ -481,7 +463,7 @@ export default function ListingDetails() {
                                     lineHeight="normal"
                                   >
                                     {' '}
-                                    Add another unit
+                                    Add another listing
                                   </Text>
                                 </ChakraBtn>
                               </ButtonGroup>
@@ -489,20 +471,21 @@ export default function ListingDetails() {
                                 isDisabled={!isValidToProceed(values) || mutation.isLoading}
                                 w="239px"
                                 fontSize="14px"
+                                variant="filled-radius"
                                 fontWeight="400"
                                 bg="#4545FE"
                                 h="44px"
                                 color="#ffffff"
-                                variant="outline-radius"
                                 _focus={{opacity: 1}}
-                                _hover={{
-                                  opacity: 1,
-                                  _disabled: {
-                                    opacity: '0.4',
+                                _hover={{opacity: 1}}
+                                _disabled={{
+                                  opacity: 0.4,
+                                  cursor: 'not-allowed',
+                                  _hover: {
+                                    opacity: 0.4,
                                   },
                                 }}
-                                // borderRadius={'8px'}
-
+                                borderRadius={'72px'}
                                 type="submit"
                               >
                                 {mutation.isLoading ? <Spinner color="white" /> : 'Proceed'}
@@ -521,6 +504,6 @@ export default function ListingDetails() {
           <AnimatedLoader />
         )}
       </Box>
-    </LayoutView>
+    </>
   );
 }

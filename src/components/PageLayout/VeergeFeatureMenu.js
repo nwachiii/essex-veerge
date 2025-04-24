@@ -394,7 +394,7 @@ const appsData = (
   {image: feedbackIcon, text: 'Feedback', link: '/veerge_menu/feedback'},
 
   {image: insightIcon, text: 'Insight', func: insightDisclosure.onOpen},
-  {image: manageAgentsIcon, text: 'Realtors', link: '/users/manage_agents'},
+  {image: manageAgentsIcon, text: 'Realtors', link: '/residents/manage_agents'},
   // {
   //   image: notesIcon,
   //   text: 'Notes',

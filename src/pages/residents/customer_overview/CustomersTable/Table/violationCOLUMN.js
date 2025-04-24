@@ -109,3 +109,9 @@ export const VIOLATION_COLUMN = [
     },
   },
 ];
+
+const ViolationColumnPage = () => {
+  return null;
+};
+
+export default ViolationColumnPage;

@@ -1,35 +1,19 @@
 import {
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
+  Button, Drawer,
+  DrawerBody, DrawerContent,
   DrawerFooter,
   DrawerOverlay,
   Flex,
   HStack,
   Image,
-  Input,
-  InputGroup,
-  Stack,
-  Text,
-  VStack,
-  useToast,
+  Input, Stack,
+  Text, useToast
 } from '@chakra-ui/react';
-import React, {useState} from 'react';
-import {IoArrowBackSharp} from 'react-icons/io5';
-import historyIcon from '/src/images/icons/historyIcon.svg';
-import {formatNumberWithCommas, formatToCurrency} from 'utils/formatAmount';
-import {PriceMenu} from 'pages/customers/create/WholeUnits/WholeUnits.Form';
-import UploadEquityPackets from 'pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
-import {CalenderMenuAsModal} from '@/components/Modals/send_offer/components/CalendarMenuAsModal';
+import { useState } from 'react';
 import infoIcon from '/src/images/icons/infoIconGrey.svg';
-import {CalenderMenu} from '@/components/common/Calendar/CalenderMenu';
-import {useVerifyAgentEmail} from 'ui-lib/ui-lib.hooks/useVerifyAgentEmail';
-import {useMutation} from '@tanstack/react-query';
-import {assignAgentToEquity} from 'apis/manageAgent';
+import { useVerifyAgentEmail } from 'ui-lib/ui-lib.hooks/useVerifyAgentEmail';
+import { useMutation } from '@tanstack/react-query';
+import { assignAgentToEquity } from 'apis/manageAgent';
 
 const customScrollbarStyles = {
   '&::-webkit-scrollbar': {

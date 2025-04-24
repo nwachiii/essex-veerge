@@ -1,30 +1,34 @@
 import {
   Box,
   Button,
-  Container, HStack,
-  Image, Stack,
+  Container,
+  Divider,
+  extendTheme,
+  Flex,
+  Heading,
+  HStack,
+  Image,
+  Spacer,
+  Stack,
   StackDivider,
   Text,
-  VStack
+  VStack,
 } from '@chakra-ui/react';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import CreateCustomerFooter from '../CustomerDetails/CreateCustomerFooter';
-import UnitAllocation from './UnitAllocation';
+import React, {useState} from 'react';
+import {useRouter} from 'next/router';
+
+// import UnitAllocation from './UnitAllocation';
 import defaultAvatar from '/src/images/avatar.svg';
 import houseIcon from '/src/images/icons/homeIcon.svg';
 import docIcon from '/src/images/icons/docIcon.svg';
 import rightIcon from '/src/images/icons/rightTriangleArrow.svg';
-
-import { AnimatedLoader } from '../../../../components';
 import EquitySummary from '@/components/Cards/customerCreationSummary';
-import { useSmallerLaptopsBreakpoint } from 'ui-lib/ui-lib.hooks';
+import {AnimatedLoader} from '@/components/index';
+import CreateCustomerFooter from 'pages/residents/create_account/CustomerDetails/CreateCustomerFooter';
+import UnitAllocation from 'pages/residents/create_account/CustomerAccountSummary/UnitAllocation';
 
-
-export default function CustomerAccountSummary({subPages, handleProgress, step}) {
+export const DisputedEquitySummary = ({subPages, handleProgress, step}) => {
   const router = useRouter();
-    const isSmallerLaptop = useSmallerLaptopsBreakpoint();
-
   const [showProgress, setShowProgress] = useState(false);
   const customerDetails =
     typeof window !== 'undefined' && JSON.parse(localStorage.getItem('customerDetails'));
@@ -41,21 +45,28 @@ export default function CustomerAccountSummary({subPages, handleProgress, step})
   const EQUITY_DOCUMENTS =
     typeof window !== 'undefined' && JSON.parse(localStorage.getItem('EQUITY_DOCUMENTS'));
 
+  // console.log('CUSTOMER_CREATION_PROFILE', customerDetails);
+  // console.log('CUSTOMER_CREATION_EQUITY_DETAILS', equityDetails);
+  // console.log('CUSTOMER_CREATION_PAYMENTS', customerEquityPayments);
+  // console.log('CUSTOMER_CREATION_DOCUMENTS', EQUITY_DOCUMENTS);
+  // console.log('CUSTOMER_CREATION_ALLOCATION', allocationDetails);
+
   const completeCreateCustomerAccount = () => {
     const id = userId;
     setTimeout(() => {
-      router.push(`/users/profile?userId=${id}`);
+      router.push(`/residents/profile?userId=${id}`);
     }, 1500);
     setShowProgress(true);
     window.localStorage.removeItem('customerDetails');
     window.localStorage.removeItem('customer');
+
     window.localStorage.removeItem('equityDetails');
     window.localStorage.removeItem('allocationDetails');
     window.localStorage.removeItem('payments');
     window.localStorage.removeItem('userId');
   };
   return (
-    <Box position={'relative'} w="full" pb={isSmallerLaptop ? '3em' : ''}>
+    <Box position={'relative'}>
       <Container
         minH={400}
         p="12"
@@ -184,47 +195,46 @@ export default function CustomerAccountSummary({subPages, handleProgress, step})
                 ))}
             </VStack>
             {/* <>
-              <Text
-                my="15px"
-                color="#3D3D3D"
-                fontSize="24px"
-                fontWeight="500"
-                fontStyle="normal"
-                lineHeight="normal"
-                fontFamily="Euclid Circular B"
-              >
-                Note
-              </Text>
-              <Box
-                w="full"
-                minH="118px"
-                pt="20px"
-                px="20px"
-                pb="20px"
-                borderRadius="16px"
-                background="#F5F5F5"
-                h="fit-content"
-              >
                 <Text
-                  bg="#FFFFFF"
-                  minH="60px"
-                  h="fit-content"
-                  p="10px"
-                  borderRadius="10px"
-                  fontSize={'14px'}
+                  my="15px"
+                  color="#3D3D3D"
+                  fontSize="24px"
+                  fontWeight="500"
+                  fontStyle="normal"
+                  lineHeight="normal"
+                  fontFamily="Euclid Circular B"
                 >
-                  Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-                  doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
-                  veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
-                  voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia
-                  consequuntur magni dolores eos
+                  Note
                 </Text>
-              </Box>
-            </> */}
+                <Box
+                  w="full"
+                  minH="118px"
+                  pt="20px"
+                  px="20px"
+                  pb="20px"
+                  borderRadius="16px"
+                  background="#F5F5F5"
+                  h="fit-content"
+                >
+                  <Text
+                    bg="#FFFFFF"
+                    minH="60px"
+                    h="fit-content"
+                    p="10px"
+                    borderRadius="10px"
+                    fontSize={'14px'}
+                  >
+                    Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                    veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
+                    voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia
+                    consequuntur magni dolores eos
+                  </Text>
+                </Box>
+              </> */}
 
             <Box my="75px" />
             <CreateCustomerFooter
-              forCreationSummary={true}
               SubmitCustomerInfo={completeCreateCustomerAccount}
               handleProgress={handleProgress}
               subPages={subPages}
@@ -242,4 +252,6 @@ export default function CustomerAccountSummary({subPages, handleProgress, step})
       </Container>
     </Box>
   );
-}
+};
+
+export default DisputedEquitySummary;

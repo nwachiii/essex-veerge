@@ -81,7 +81,7 @@ export const TRANSACTION_HISTORY_COLUMNS = data => [
     hideHeader: true,
     accessor: row => {
       return (
-        <Link href={`/users/manage/${row.user.id}`}>
+        <Link href={`/residents/manage/${row.user.id}`}>
           <Button
             // onClick={() => showProgress(true)}
             mt={0}

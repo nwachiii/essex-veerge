@@ -342,7 +342,7 @@ export const CustomerEquities = ({customerInfo, refetch, customerEquities}) => {
                     {propInfo?.is_disputed ? (
                       <Link
                         prefetch={false}
-                        href={`/users/profile/customer_equities/edit_disputed_equity/?equityId=${propInfo?.equity_id}&user=${query.userId}`}
+                        href={`/residents/profile/customer_equities/edit_disputed_equity/?equityId=${propInfo?.equity_id}&user=${query.userId}`}
                       >
                         <Button
                           mt={0}

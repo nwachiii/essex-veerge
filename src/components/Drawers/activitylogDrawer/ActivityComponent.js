@@ -50,7 +50,7 @@ export const ActivityComponent = ({item, idx, USER_ID, user_drawer = true}) => {
           : route?.split('userId=')[1];
         const text = content || value || '';
 
-        if (route.includes('/users/profile')) {
+        if (route.includes('/residents/profile')) {
           if (user_drawer) {
             return <ActivityUserDrawer key={index} id={userId} text={text} />;
           } else {

@@ -61,7 +61,10 @@ export const UserProfileMoreOption = ({
   const assignEquity = () => {
     const user_id = customerInfo?.user_info?.user?.id || '';
     const customer_id = customerInfo?.user_info?.id || '';
-    return router.push({pathname: '/users/profile/assignEquity', query: {user_id, customer_id}});
+    return router.push({
+      pathname: '/residents/profile/assignEquity',
+      query: {user_id, customer_id},
+    });
   };
 
   const displayMoreOption = key => {

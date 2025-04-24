@@ -1,7 +1,7 @@
 import Account from '../pages/account';
 import Dashboard from '../pages/dashboard';
 import ManageListing from '../pages/customers';
-import ManageCustomers from '../pages/users';
+// import ManageCustomers from '../pages/users';
 import Request from '../pages/request';
 import users_icon from '/src/images/icons/contact_icon.svg';
 import users_icon_dark from '/src/images/icons/users_icon_dark.svg';
@@ -16,6 +16,7 @@ import dashboard_icon_dark from '/src/images/icons/dashboard_icon_dark.svg';
 import settings_icon from '/src/images/icons/Iconly/Light/Setting.svg';
 import settings_icon_dark from '/src/images/icons/settings_icon_dark.svg';
 import Settings from 'pages/settings';
+import ManageCustomers from 'pages/residents';
 
 export const dashboardTabs = [
   // {
