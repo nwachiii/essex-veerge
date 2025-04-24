@@ -99,7 +99,7 @@ export default function ManageListing() {
     <Box bg="#FAFAFA" w="full" minH="100vh" h={isSmallerLaptop ? '100vh' : ''}>
       <LayoutView
         pb="0px"
-        activePage={'listings'}
+        activePage={'communities'}
         tabPanelStyle={{pb: '0px'}}
         px={{base: '0px', xl: '30px'}}
       >

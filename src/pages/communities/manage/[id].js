@@ -38,6 +38,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import {RxCross1} from 'react-icons/rx';
+import { listingDetail } from 'constants/listListings';
 
 export default function SingleListingPage() {
   const router = useRouter();
@@ -68,8 +69,7 @@ export default function SingleListingPage() {
       position: 'top-right',
     });
   }
-  const listingDetailArr = data && data?.data?.project?.filter(list => list.id == id);
-  const listingDetail = listingInfoFromLocalStorage ?? data?.id ? data : listingDetailArr[0];
+
 
   const handleBack = () => {
     router.back(-1);
@@ -237,3 +237,4 @@ export default function SingleListingPage() {
     </Box>
   );
 }
+
