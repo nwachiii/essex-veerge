@@ -19,8 +19,13 @@ const AdditionalInfo = () => {
       <Text fontSize="13px" fontWeight="500" color="#000000">
         Additional Info
       </Text>
-      <Flex w="full" gap="8px" alignItems="center" justifyContent="space-between">
-        <Icon as={FaChevronLeft} color="#606060" />
+      <Flex
+        w="full"
+        gap="8px"
+        alignItems="center"
+        //   justifyContent="space-between"
+      >
+        {/* <Icon as={FaChevronLeft} color="#606060" /> */}
         {images.map((item, idx) => (
           <Image
             src={item}
@@ -32,7 +37,7 @@ const AdditionalInfo = () => {
             objectFit="cover"
           />
         ))}
-        <Icon as={FaChevronRight} color="#606060" />
+        {/* <Icon as={FaChevronRight} color="#606060" /> */}
       </Flex>
     </Stack>
   );
