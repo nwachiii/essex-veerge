@@ -21,10 +21,10 @@ const ColumnsActionCustomerDrawer = ({row}) => {
         borderRadius="72px"
         w="115px"
         h="40px"
-        color={themeStyles.color.primary}
-        fontWeight={'400'}
-        borderColor={themeStyles.color.primary}
+        color={'#000000'}
+        borderColor={'#E4E4E7'}
         variant="outline"
+        fontWeight="500"
         onClick={() => OpenCustomerModal(row?.response?.id)}
       >
         View

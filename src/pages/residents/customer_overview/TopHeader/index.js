@@ -1,4 +1,4 @@
-import { Grid, GridItem } from '@chakra-ui/react';
+import {Grid, GridItem} from '@chakra-ui/react';
 import UserAssetCard from '@/components/Customers/overview/userAssetCard';
 import UserTransactionInfoCard from '@/components/Customers/overview/userTransactionInfoCard';
 
@@ -40,15 +40,15 @@ export default function TopHeader({handleExpand, expand, value, setValue, custom
         <GridItem colSpan={1}>
           <UserAssetCard
             hasAssets
-            heading={'Users with assets'}
+            heading={'Total Residents'}
             value={customerOverviewData?.total_asset_holders ?? 0}
           />
         </GridItem>
         <GridItem colSpan={1}>
-          <UserAssetCard heading={'Users without assets'} value={usersWithoutAssets ?? 0} />
+          <UserAssetCard heading={'Total Tenants'} value={usersWithoutAssets ?? 0} />
         </GridItem>
-        <GridItem colSpan={{base: 2, xl: 1}}>
-          <UserTransactionInfoCard customerOverviewData={customerOverviewData} />
+        <GridItem colSpan={1}>
+          <UserAssetCard heading={'Total Owners'} value={usersWithoutAssets ?? 0} />
         </GridItem>
       </Grid>
     </>

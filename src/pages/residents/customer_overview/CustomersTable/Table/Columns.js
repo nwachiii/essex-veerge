@@ -9,25 +9,25 @@ export const COLUMNS = (router, limit) => {
 
   return [
     {
-      Header: 'Name',
+      Header: 'Resident',
       accessor: row => {
         return <ColumnsCustomerDrawer row={row} />;
       },
     },
 
-    {
-      Header: 'Email',
-      accessor: row => {
-        return (
-          <Text cursor={'pointer'} color={'#4545FE'} textAlign={'left'} fontSize={'14px'}>
-            <a href={`mailto:${row?.response?.email}`}>
-              {' '}
-              {truncateLongText(row?.response?.email, 29).truncatedText}{' '}
-            </a>
-          </Text>
-        );
-      },
-    },
+    // {
+    //   Header: 'Email',
+    //   accessor: row => {
+    //     return (
+    //       <Text cursor={'pointer'} color={'#4545FE'} textAlign={'left'} fontSize={'14px'}>
+    //         <a href={`mailto:${row?.response?.email}`}>
+    //           {' '}
+    //           {truncateLongText(row?.response?.email, 29).truncatedText}{' '}
+    //         </a>
+    //       </Text>
+    //     );
+    //   },
+    // },
     {
       Header: 'Phone',
       accessor: row => {
@@ -36,16 +36,11 @@ export const COLUMNS = (router, limit) => {
     },
 
     {
-      Header: 'Referred by',
+      Header: 'Community',
       accessor: row => {
-        const isAconsultant =
-          row?.response?.referred_by.type === 'agent' && !row?.response?.referred_by.id;
-        const referreeName = `${isAconsultant ? `${row?.response?.referred_by?.info} (consultant)` : row?.response?.referred_by?.name}`;
+        
         return (
-          <Text fontSize={'14px'}>
-            {' '}
-            {row?.response?.referred_by?.name ? referreeName : <BsDashLg />}
-          </Text>
+         <Text fontSize={'14px'}>{row?.response?.community}</Text>
         );
       },
     },
