@@ -108,7 +108,7 @@ export default function Account() {
                     display="flex"
                     flexDirection="column"
                   >
-                    <div className="flex pt-2 h-[50px] border-b border-[#e4e4e7] rounded-t-[16px] bg-[#f9fafb] flex-row items-center p-2">
+                    <div className="flex pt-2 h-[50px] border-b border-[#e4e4e7] rounded-t-[16px] bg-[#fbfcfc] flex-row items-center p-2">
                       <Image
                         alt=""
                         src={overviewIcon.src}
