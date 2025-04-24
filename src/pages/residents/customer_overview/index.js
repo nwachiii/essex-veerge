@@ -454,6 +454,7 @@ export const customers = {
         email: 'elon@musk.dog',
         name: 'Elon Musk',
         phone: '+442058788999',
+        community: 'Zenith Court',
         address: null,
         status: false,
         date_joined: '2025-03-14T14:11:33.723814Z',
