@@ -8,11 +8,11 @@ export const ListingInfoAmenities = ({data}) => {
       <Heading mb="20px" fontSize="28px" fontWeight="500" color="#191919" lineHeight="31px">
         Amenities
       </Heading>
-      <Container {...themeStyles.containerStyles} maxW="full" padding="19px 36px">
+      <Container {...themeStyles.containerStyles} maxW="full" padding="32px 41px">
         <Flex gap="18px 30px" wrap="wrap">
           {data.map((amenity, index) => (
-            <HStack key={index} bg="#FAFAFA" borderRadius="20px" p="14px">
-              <Image alt="" src={amenity?.icon?.src} fontSize="24px" />
+            <HStack key={index} bg="#F4F4F5" borderRadius="full" p="8px 16px">
+              {amenity?.iconImage ?? <Image alt="" src={amenity?.icon?.src} fontSize="24px" />}
               <Text>{amenity.name}</Text>
             </HStack>
           ))}

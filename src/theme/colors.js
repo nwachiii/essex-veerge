@@ -1,7 +1,7 @@
 export const color = {
   // primary: '#4545FE',
   primary: '#4545FE',
-  matador__green: '#12D8A0',
+  matador__green: '#116932',
   matador__red: '#FF6A6A',
   matador__yellow: '#FF9103',
   matador__purple: '#7255CB',

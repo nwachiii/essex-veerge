@@ -26,7 +26,7 @@ import {
   Link,
   ModalFooter,
 } from '@chakra-ui/react';
-import infoIcon from '/src/images/icons/Info-circle.svg';
+import infoIcon from '/src/images/icons/info-circle.svg';
 import bulbIcon from '/src/images/icons/bulbBlue.svg';
 import {formatAmount, formatAmountWithDecimal} from 'utils';
 import {formatToCurrency} from 'utils/formatAmount';

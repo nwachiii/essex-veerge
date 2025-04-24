@@ -99,6 +99,7 @@ import fluent_emoji_high_contrast_closed_mailbox_with_raised_flag from '/src/ima
 import iconoir_balcony from '/src/images/icons/amenities/iconoir_balcony.svg';
 import alternativePowerSupply from '/src/images/icons/alternativePowerSupply.svg';
 import reacreationalArea from '/src/images/icons/amenities/recreational-area.svg';
+import { BiSolidHotel } from 'react-icons/bi';
 
 export const AMENITIES_STORE = [
   {
@@ -605,5 +606,56 @@ export const OTHER_AMENITIES_STORE = [
   {
     icon: guidance_gallery,
     name: 'Community art installations',
+  },
+];
+
+export const AMENITIES_ESSEX = [
+  {
+    icon: gym,
+    name: 'Gym',
+  },
+  {
+    icon: swimmingPool,
+    name: 'Pool Party Zone',
+  },
+  {
+    icon: mdi_cinema,
+    name: 'Private Movie Theater',
+  },
+  {
+    icon: footballPitch,
+    name: 'Football pitch',
+  },
+  {
+    icon: Pickleball,
+    name: 'Pickleball court',
+  },
+  {
+     icon: basketballCourt,
+    name: 'Basketball court',
+  },
+  {
+    icon: tennisCourt,
+    name: 'Tennis court',
+  },
+  {
+    icon: iconoir_yoga,
+    name: 'Yoga Studios',
+  },
+  {
+    icon: guidance_office,
+    name: 'Coworking Space',
+  },
+  {
+    icon: guidance_conference_room,
+    name: 'Conference Room',
+  },
+{
+    icon: mdi_grill_outline,
+    name: 'BBQ Pavilion',
+  },
+  {
+    iconImage: <BiSolidHotel size='24px' />,
+    name: 'Guest Suite',
   },
 ];

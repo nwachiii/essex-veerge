@@ -125,7 +125,7 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
                   justifyContent={'space-between'}
                 >
                   <Flex gap="12px" alignItems="center">
-                    <Avatar src={''} boxSize="40px" />
+                    <Avatar src={item?.avatar} boxSize="40px" />
                     <Text fontSize="16px" fontWeight="400" color="#52525b">
                       {item?.name ?? 'Darlene Robertson'}
                     </Text>
@@ -234,7 +234,7 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
                   p="16px 12px"
                 >
                   <Flex gap="12px" maxW="169.6px" alignItems="center">
-                    <Avatar src={''} boxSize="40px" />
+                    <Avatar src={item?.avatar} boxSize="40px" />
                     <Text noOfLines={1} fontSize="16px" fontWeight="400" color="#52525b">
                       {item?.name ?? 'Darlene Robertson'}
                     </Text>
@@ -346,7 +346,7 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
                   p="16px 12px"
                 >
                   <Flex gap="12px" w="159.6px" alignItems="center">
-                    <Avatar src={''} boxSize="40px" />
+                    <Avatar src={item?.avatar} boxSize="40px" />
                     <Text noOfLines={1} fontSize="16px" fontWeight="400" color="#52525b">
                       {item?.name ?? 'Darlene Robertson'}
                     </Text>
