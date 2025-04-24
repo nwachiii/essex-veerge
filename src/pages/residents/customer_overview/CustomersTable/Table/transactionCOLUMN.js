@@ -39,14 +39,14 @@ export const TRANSACTIONPAGE_COLUMN = [
     Header: 'Deposit',
     accessor: row => {
       return !row.deposit ? (
-        <Text fontSize="16px" fontWeight="500" color={themeStyles.color.matador__green}>
+        <Text fontSize="16px" fontWeight="500" color={'#22c55e'}>
           _
         </Text>
       ) : (
         <FormatToColorfulAdaptiveCurrency
           amount={row?.deposit}
           lens={13}
-          color={themeStyles.color.matador__green}
+          color={'#22c55e'}
           maxSize={16}
           minSize={10}
           pow={0.92}
