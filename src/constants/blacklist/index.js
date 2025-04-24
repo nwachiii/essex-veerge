@@ -110,7 +110,7 @@ export const BLACKLIST_COLUMN = [
     hideHeader: true,
     accessor: row => (
       <HStack justify="start" w="full">
-        <Link prefetch={false} href={`/users/manage_agents/${row.id} `}>
+        <Link prefetch={false} href={`/residents/manage_agents/${row.id} `}>
           <Button mt={0} variant="outline" border="1px solid #4545FE" color="#4545FE" w="139px">
             View
           </Button>

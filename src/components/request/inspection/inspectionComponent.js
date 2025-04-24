@@ -8,6 +8,7 @@ import {dateOrTimeAgo} from 'utils/formatDate';
 import ActionComponentForPendingInspectionRequest from './components/actionComponentForPendingInspectionRequest';
 import InspectionApprovalAndRescheduling from '@/components/Modals/inspectionRequest';
 import {formatInTimeZone, format} from 'date-fns-tz';
+import {loggedinUserStatic} from 'apis/requests';
 
 export const PendingInspectionComponent = ({info, refetch, roles}) => {
   let status = info?.tour_method?.toLowerCase();
@@ -27,7 +28,7 @@ export const PendingInspectionComponent = ({info, refetch, roles}) => {
     <HStack justify="space-between" px="16px" pr="20px" w="full">
       <HStack spacing="8px">
         <Image
-          src={info?.customer?.avatar ?? ''}
+          src={loggedinUserStatic.avatar}
           fontSize="7px"
           boxSize="48px"
           objectFit="cover"
@@ -39,36 +40,33 @@ export const PendingInspectionComponent = ({info, refetch, roles}) => {
           <Text
             maxW="611px"
             w="full"
-            color="#475467"
+            color="#27272A"
             fontSize="14px"
             textAlign="start"
             fontWeight="400"
           >
-            <UserDrawerRequestData row={info} /> scheduled{' '}
-            {tagObj[status]?.text === 'virtual' ? 'a' : 'an'}{' '}
-            <Text as="span" color="#475467">
-              {tagObj[status]?.text}
-            </Text>{' '}
-            inspection for{' '}
-            <Text as="span" fontWeight="600" color="#475467">
-              {info?.project}
-            </Text>{' '}
-            for{' '}
-            <Text as="span" fontWeight="600" color="#475467">
-              {`${info?.request_time.split(' ')[1]} ${info?.request_time.split(' ')[2]} ${
-                info?.request_time.split(' ')[3]
-              }`}
-            </Text>{' '}
-            at
-            <Text as="span" fontWeight="600" color="#475467">
-              {' '}
-              {`${info?.request_time.split(' ')[0]} ${info?.request_time.split(' ')[4]} ${info?.request_time.split(' ')[5]}`}
+            {/* <UserDrawerRequestData row={info} /> scheduled{' '} */}
+            <Text as="span" fontWeight="700">
+              {`${info?.customer.first_name} ${info?.customer.last_name} `}
             </Text>
+            requested to settle a balance of{' '}
+            <Text as="span" fontWeight="700">
+              $420.80{' '}
+            </Text>
+            in three monthly payments of{' '}
+            <Text as="span" fontWeight="700">
+              $140.29
+            </Text>
+            , starting{' '}
+            <Text as="span" fontWeight="700">
+              01 May 2025
+            </Text>
+            , due to job hours.
           </Text>
           <HStack spacing="8px">
             <Box boxSize="4px" borderRadius="full" bg="#D9D9D9" />
 
-            <Text fontSize="14px" fontWeight="400" color="#475467">
+            <Text fontSize="14px" fontWeight="400">
               {info?.created_at ? dateOrTimeAgo(info?.created_at) : '-'}
             </Text>
           </HStack>

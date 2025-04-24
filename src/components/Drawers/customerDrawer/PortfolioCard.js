@@ -11,8 +11,8 @@ import {
 
 import emptyIcon from '/src/images/icons/emptyIcon.png';
 import {formatNumAbbrev} from '../../../utils/formatAmount';
-import {HouseSVG} from 'pages/users/profile/customer_equities';
 import Image from 'next/image';
+import { HouseSVG } from 'pages/residents/profile/customer_equities';
 
 const EmptyState = () => {
   return (

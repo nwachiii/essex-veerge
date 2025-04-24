@@ -4,55 +4,69 @@ import AllocationRequest from '../../pages/request/allocation_request';
 import CommissionRequest from '../../pages/request/commission_request';
 import DeedRequest from '../../pages/request/deed_request';
 import InspectionRequest from '../../pages/request/inspection_request';
+import allRequestDummyData from './dummyData.js';
+
+const AllRequests = allRequestDummyData;
 
 export const tabs = [
   {
-    tablist: 'Listing Inspection',
-    component: (AllRequests, refetch, isLoading, isError) => (
+    tablist: 'Payment Plan Request',
+    component: (refetch, isLoading, isError) => (
       <InspectionRequest
+        header="Payment Plan Request"
         AllRequests={AllRequests}
+        dataKey={'payment_plan'}
         refetch={refetch}
         isError={isError}
         isLoading={isLoading}
       />
     ),
     countName: 'count_inspection',
+    countNo: 3,
   },
-  // {
-  //   tablist: "Deed Request",
-  //   component: <DeedRequest />,
-  // },
-  // {
-  //   tablist: "Allocation Request",
-  //   component: <AllocationRequest />,
-  // },
-  // {
-  // 	tablist   : 'Account Request',
-  // 	component : <AccountRequest />
-  // },
-
   {
-    tablist: 'Certified Realtors ',
-    component: (AllRequests, refetch, isLoading, isError) => (
-      <AgentRequest
+    tablist: 'Reservation Request ',
+    component: (refetch, isLoading, isError) => (
+      <InspectionRequest
+        header="Reservation Request "
         AllRequests={AllRequests}
+        dataKey={'reservation_request'}
         refetch={refetch}
         isError={isError}
         isLoading={isLoading}
       />
     ),
     countName: 'count_agent',
+    countNo: 1,
   },
   {
-    tablist: 'Sales commission',
-    component: (AllRequests, refetch, isLoading, isError) => (
-      <CommissionRequest
+    tablist: 'Design Request',
+    component: (refetch, isLoading, isError) => (
+      <InspectionRequest
+        header="Design Request"
         AllRequests={AllRequests}
+        dataKey={'design_request'}
         refetch={refetch}
         isError={isError}
         isLoading={isLoading}
       />
     ),
     countName: 'count_commissions',
+    countNo: 0,
+  },
+  {
+    tablist: 'Emergency Escalations',
+    component: (refetch, isLoading, isError) => (
+      <InspectionRequest
+        header="Emergency Escalations"
+        AllRequests={AllRequests}
+        dataKey={'emergency_escalations'}
+        refetch={refetch}
+        isError={isError}
+        isLoading={isLoading}
+      />
+    ),
+    countName: 'count_commissions',
+    countNo: 2,
   },
 ];

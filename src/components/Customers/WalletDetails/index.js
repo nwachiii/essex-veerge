@@ -36,7 +36,7 @@ export const WalletDetails = ({id, data, username}) => {
           {emptyWallet ? null : (
             <HStack
               cursor="pointer"
-              onClick={() => router.push(`/users/profile/wallet_txns/${id}?name=${username}`)}
+              onClick={() => router.push(`/residents/profile/wallet_txns/${id}?name=${username}`)}
               spacing="11px"
             >
               <Text

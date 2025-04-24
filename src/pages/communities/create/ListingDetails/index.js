@@ -11,6 +11,7 @@ import {initializeProject, initializeProjectWithBundle, sendBase64ForUrl} from '
 import {customFormSchema, validateForm} from '../../../../utils/ListingDetailsFunctions';
 import {NeedHelpForListings} from './ListingDetails.components/NeedHelpComponentForListings';
 import SelectPropertyType from '../SelectPropertyType';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const ListingDetails = ({
   subPages,

@@ -35,13 +35,6 @@ export default function RequestHistory() {
     router.back(-1);
   };
 
-  const {
-    data: allRequests,
-    isError,
-    isLoading,
-    error,
-  } = useQuery(['requests-dashboard', 'history'], () => fetchAllRequests('history'));
-
   // isError &&
   //   toast({
   //     title: "An error occured",
@@ -51,7 +44,12 @@ export default function RequestHistory() {
   //     isClosable: true,
   //     position: "top-right",
   //   });
-  const ALL_REQUESTS = allRequests && allRequests?.data?.message;
+  // const ALL_REQUESTS = allRequests && allRequests?.data?.message;
+
+  const isLoading = false;
+  const isError = false;
+  const error = null;
+  const refetch = () => {};
 
   toastForError(error, isError, toast);
 
@@ -151,7 +149,7 @@ export default function RequestHistory() {
                     color="#919191"
                     pr="10px"
                   >
-                    {ALL_REQUESTS?.[item?.countName]?.length || ''}
+                    {/* {ALL_REQUESTS?.[item?.countName]?.length || ''} */}
                   </Text>
                 </Tab>
               ))}

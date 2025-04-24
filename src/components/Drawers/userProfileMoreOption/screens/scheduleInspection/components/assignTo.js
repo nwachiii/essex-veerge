@@ -24,6 +24,7 @@ import searchIcon from '/src/images/icons/searchIcon.svg';
 
 import {useState} from 'react';
 import cancelIcon from '/src/images/icons/cancelIconRequest.svg';
+import { loggedinUserStatic } from 'apis/requests';
 
 const AssignTo = ({formik, roles}) => {
   const modalDisclosure = useDisclosure();

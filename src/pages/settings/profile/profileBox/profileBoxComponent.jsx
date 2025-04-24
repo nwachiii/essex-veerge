@@ -31,6 +31,7 @@ import {themeStyles} from '../../../../theme';
 import {AnimatedLoader} from '../../../../components';
 import {toastForError} from 'utils/toastForErrors';
 import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const ProfileBox = ({user, refetch}) => {
   const [avatar, setAvatar] = useState([{preview: user?.avatar}]);

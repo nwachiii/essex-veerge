@@ -8,6 +8,7 @@ import web_app from '/src/images/quick_start_web_img.svg';
 import customer from '/src/images/icons/quick_start_create_customer_img.svg';
 import sales from '/src/images/quick_start_sales_img.svg';
 import {UserSettingsDrawer} from '@/components/Drawers/userSettingsDrawer';
+import { loggedinUserStatic } from 'apis/requests';
 
 let user;
 try {

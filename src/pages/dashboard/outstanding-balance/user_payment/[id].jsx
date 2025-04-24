@@ -20,7 +20,7 @@ import {AnimatedLoader, LayoutView} from '../../../../components';
 import PageHeader from '../../../../components/common/PageHeader';
 import {BackArrowWithText} from '/src/components/assets/BackArrow';
 import {getAccountPastPayments, getUserPaymentBreakdown} from '../../../../apis/account';
-import ListingInfo from '../../../users/create_account/CustomerAccountSummary/ListingInfo';
+// import ListingInfo from '../../../residents/create_account/CustomerAccountSummary/ListingInfo';
 import CoownershipHeader, {UpcomingPaymentsHeader, UserHeader} from './header';
 import UserTransactionSummary from './userTransactionSummary';
 import {Button} from '../../../../ui-lib';
@@ -35,6 +35,7 @@ import {fetchCustomerVirtualAccountNumber} from '../../../../apis/customers';
 import emptyIcon from '/src/images/icons/emptyIcon.png';
 import {RxCross1} from 'react-icons/rx';
 import view_packet_icon from '/src/images/icons/view_packeet.svg';
+import ListingInfo from 'pages/residents/create_account/CustomerAccountSummary/ListingInfo';
 
 export const UserPaymentBreakDown = () => {
   const toast = useToast();
@@ -64,7 +65,7 @@ export const UserPaymentBreakDown = () => {
 
   useEffect(() => {
     setRecurring(pastPayment && pastPayment[0]?.equity?.auto_debit);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <LayoutView>

@@ -12,8 +12,8 @@ import {
   Input,
   Spinner,
 } from '@chakra-ui/react';
-import PaymentPlan from 'pages/users/create_account/CustomerListingDetails/CustomerListingDetails.PaymentPlan/PaymentPlan';
-import AddClosingCost from 'pages/users/create_account/CustomerListingDetails/closingCost';
+import PaymentPlan from 'pages/residents/create_account/CustomerListingDetails/CustomerListingDetails.PaymentPlan/PaymentPlan';
+import AddClosingCost from 'pages/residents/create_account/CustomerListingDetails/closingCost';
 import React, {useState} from 'react';
 import {Formik, Form, FieldArray, useFormik, FormikProvider} from 'formik';
 import {createCustomerEquity} from '/src/apis/customers';
@@ -22,7 +22,7 @@ import {useFetchListingBundles} from 'ui-lib/ui-lib.hooks/useFetchListingBundles
 import {useRouter} from 'next/router';
 import {CreateToast} from 'ui-lib/ui-lib.components';
 import {useMutation, useQuery} from '@tanstack/react-query';
-import UploadEquityPackets from 'pages/users/create_account/CustomerListingDetails/UploadEquityPackets';
+import UploadEquityPackets from 'pages/residents/create_account/CustomerListingDetails/UploadEquityPackets';
 import Verify2fa from '@/components/transferOfOwnership/verify2fa';
 import {fetchCustomerViaEmail, transferCustomerEquity} from 'apis/customers';
 import Head from 'next/head';
@@ -46,7 +46,7 @@ const TransferOfOwnership = ({equity_id, unitId, project_id}) => {
 
   const mutation = useMutation(formData => transferCustomerEquity(formData), {
     onSuccess: res => {
-      router.push(`/users/profile?userId=${newCustomerId}`);
+      router.push(`/residents/profile?userId=${newCustomerId}`);
     },
     onError: err => {
       toast({

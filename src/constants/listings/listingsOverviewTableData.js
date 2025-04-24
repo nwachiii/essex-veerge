@@ -59,7 +59,7 @@ export const LISTINGS_OVERVIEW_COLUMNS = [
     hideHeader: true,
     accessor: row => {
       return (
-        <Link href={`/users/profile/?userId=${row.id}`}>
+        <Link href={`/residents/profile/?userId=${row.id}`}>
           <Button
             borderRadius="12px"
             w="115px"

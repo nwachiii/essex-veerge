@@ -18,6 +18,7 @@ import {useMutation} from '@tanstack/react-query';
 import {updateProfile} from '/src/apis/settings';
 import {toastForError} from 'utils/toastForErrors';
 import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const ProfileBox = ({user, refetch}) => {
   const [avatar, setAvatar] = useState([{preview: user?.avatar}]);

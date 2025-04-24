@@ -37,6 +37,7 @@ import {fetchNotes, fetchSuggestions, UpdateNotes} from '../../apis/fetchNotes';
 import {Spinner as Loader} from '../../components/common/loaders/AnimatedLoader';
 import InputText from './InputText';
 import Scrolll from './Scrolll';
+import { loggedinUserStatic } from 'apis/requests';
 
 export default function Notes() {
   const user = loggedinUserStatic;

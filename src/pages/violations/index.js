@@ -1,9 +1,12 @@
+import SearchIcon from '@/components/assets/searchIcon';
 import MatadorCustomTable from '@/components/common/Table';
 import {LayoutView} from '@/components/index';
-import {Box} from '@chakra-ui/react';
+import ViolationOverviewHeader from '@/components/violations/violationOverviewHeader';
+import ViolationFilter from '@/components/violations/violationfilter';
+import {Box, Flex} from '@chakra-ui/react';
 import {demoviolationTableData} from 'constants/DEMODATA/violations';
 import {useRouter} from 'next/router';
-import {VIOLATION_COLUMN} from 'pages/users/customer_overview/CustomersTable/Table/violationCOLUMN';
+import {VIOLATION_COLUMN} from 'pages/residents/customer_overview/CustomersTable/Table/violationCOLUMN';
 import React, {useMemo} from 'react';
 import {useSmallerLaptopsBreakpoint} from 'ui-lib';
 
@@ -61,7 +64,7 @@ const Violations = () => {
         px={{base: '0px', xl: '30px'}}
         tabPanelStyle={{pb: '0px'}}
         pb="0px"
-        activePage="users"
+        activePage="violations"
       >
         <Box
           // mt="clamp(-100vh, -82vh, calc(-100vh + 120px))"
@@ -73,6 +76,28 @@ const Violations = () => {
 
           // className="main-app"
         >
+          <ViolationOverviewHeader />
+          <Flex mb="32px" w="full" justify="end" gap="24px">
+            <Flex
+              h="36px"
+              w="36px"
+              justifyContent="center"
+              border="0.5px solid #E4E4E7"
+              alignItems="center"
+              borderRadius="8.12px"
+              bg="#ffffff"
+            >
+              <SearchIcon
+                display="flex"
+                justifyConten="center"
+                alignItems="center"
+                border="none"
+                boxSize="20px"
+                p="0px"
+              />
+            </Flex>
+            <ViolationFilter />
+          </Flex>
           <MatadorCustomTable
             minW="full"
             forMemo={[router]}

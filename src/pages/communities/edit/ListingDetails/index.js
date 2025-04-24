@@ -13,6 +13,7 @@ import {
 import {encodeFileToBase64, truncateLongText} from '../../../../utils';
 import {Button} from '../../../../ui-lib';
 import {useRouter} from 'next/router';
+import { loggedinUserStatic } from 'apis/requests';
 
 export const ListingDetails = ({subPages, defaultData, handleProgress}) => {
   const isBuildingTypeSingleFamilyResidential =

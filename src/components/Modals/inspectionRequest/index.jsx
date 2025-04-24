@@ -2,10 +2,25 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import AssignToExternalMembers from './screens/assignToExternalMembers';
 import Summary from './screens/summary';
-import {Box, HStack, Modal, ModalContent, ModalOverlay, useMediaQuery} from '@chakra-ui/react';
+import {
+  Box,
+  Drawer,
+  DrawerContent,
+  DrawerOverlay,
+  HStack,
+  Image,
+  Modal,
+  ModalContent,
+  ModalOverlay,
+  Text,
+  useMediaQuery,
+  VStack,
+} from '@chakra-ui/react';
 import {MatadorCustomDatePicker} from '@/components/common/Calendar/DatePicker';
 import AssignToTeamMembers from './screens/assignToTeamMembers';
 import {Button} from 'ui-lib';
+import {ArrowBackIcon, CloseIcon} from '@chakra-ui/icons';
+import {loggedinUserStatic} from 'apis/requests';
 
 const InspectionApprovalAndRescheduling = ({
   children,
@@ -180,37 +195,45 @@ const InspectionApprovalAndRescheduling = ({
     }
   };
 
+  const dummyRequest = [
+    {key: 'Request Date', value: '15 Apr, 2025'},
+    {key: 'Payment Type', value: '3 Months'},
+    {key: 'Amount', value: '$420', decimal: '.80'},
+    {key: 'Monthly Payment', value: '$140', decimal: '.29'},
+  ];
+
   return (
     <>
       {children || (
         <HStack spacing="8px" h="40px">
           <Button
+            mt={0}
+            w="80px"
+            h="40px"
+            py="0px"
+            variant="primary"
+            bg="transparent"
             onClick={modalDisclosure.onOpen}
-            mt="0"
-            type="button"
-            notes
-            bg={'#191919'}
-            color={'#ffffff'}
-            fontSize={'12px'}
-            fontWeight={'500'}
-            w={'65px'}
-            h={'26px'}
-            borderRadius={'72px'}
+            border="1px  solid #E4E4E7"
+            color="#27272A"
+            borderRadius="72px"
+            fontSize="14px"
+            fontWeight="400"
             _hover={{
               opacity: '1',
             }}
           >
-            Approve
+            View
           </Button>
-          <Box boxSize="4px" borderRadius="full" bg="#D9D9D9" />
+          {/* <Box boxSize="4px" borderRadius="full" bg="#D9D9D9" />
 
           <MatadorCustomDatePicker
             timeZone={row?.timezone}
             handleDateSelection={handleDateSelection}
-          />
+          /> */}
         </HStack>
       )}
-      <Modal
+      <Drawer
         motionPreset="scale"
         isOpen={modalDisclosure.isOpen}
         onClose={handleClose}
@@ -218,17 +241,121 @@ const InspectionApprovalAndRescheduling = ({
         scrollBehavior="inside"
       >
         {' '}
-        <ModalOverlay bg="rgba(0,0,0,0.2)" />
-        <ModalContent
-          borderRadius="16px"
-          minW="fit-content"
-          w={`100%`}
-          minH="fit-content"
-          transform={isShortScreenHeight ? 'scale(0.7) !important' : 'none'}
-        >
-          {displayRequestApprovalScreens(screen)}
-        </ModalContent>
-      </Modal>
+        <DrawerOverlay bg="rgba(0,0,0,0.2)" />
+        <DrawerContent pt="64px" w="100%" minW="400px">
+          <HStack
+            py="12px"
+            px="20px"
+            justify={'space-between'}
+            borderBottom={'0.5px solid #E4E4E7'}
+          >
+            <HStack spacing={'12px'}>
+              <ArrowBackIcon onClick={modalDisclosure.onClose} cursor={'pointer'} fontSize={25} />
+              <Text
+                color={'#18181B'}
+                fontSize="16px"
+                fontWeight="600"
+                lineHeight="140%"
+                letterSpacing="0.16px"
+              >
+                Request Details
+              </Text>
+            </HStack>
+            <CloseIcon onClick={modalDisclosure.onClose} cursor={'pointer'} fontSize={18} />
+          </HStack>
+          <Box px="20px" w="full" mt="20px">
+            <Box border={'0.5px solid #E4E4E7'} p="16px" bg="#FAFAFA" borderRadius={'4px'}>
+              <HStack spacing={'8px'}>
+                <Image borderRadius={'full'} boxSize="24px" src={loggedinUserStatic.avatar} />
+                <Text
+                  color={'#18181B'}
+                  fontSize="11px"
+                  fontWeight="500"
+                  lineHeight="150%"
+                  letterSpacing="0.33px"
+                >
+                  John Smith
+                </Text>
+              </HStack>
+              <Text
+                mt="8px"
+                color={'#52525B'}
+                fontSize="11px"
+                fontWeight="500"
+                lineHeight="150%"
+                letterSpacing="0.33px"
+              >
+                12-B/Maple Glen
+              </Text>
+            </Box>
+            <VStack
+              align={'stretch'}
+              spacing={'14px'}
+              mt="16px"
+              border={'0.5px solid #E4E4E7'}
+              p="12px"
+              bg="#FAFAFA"
+              borderRadius={'4px'}
+            >
+              {dummyRequest.map(request => (
+                <HStack spacing={'8px'} justify={'space-between'}>
+                  <Text
+                    color={'#424242'}
+                    fontSize="13px"
+                    fontWeight="500"
+                    lineHeight="150%"
+                    letterSpacing="0.26px"
+                  >
+                    {request.key}
+                  </Text>
+                  <Text
+                    color={'#27272A'}
+                    fontSize="16px"
+                    fontWeight="500"
+                    lineHeight="150%"
+                    letterSpacing="0.16px"
+                  >
+                    {request.value}
+                    <Text as="span" color={'#A3A3A3'}>
+                      {request?.decimal}
+                    </Text>
+                  </Text>
+                </HStack>
+              ))}
+            </VStack>
+
+            <Box
+              mt="16px"
+              border={'0.5px solid #E4E4E7'}
+              py="10px"
+              px="16px"
+              bg="#FAFAFA"
+              borderRadius={'4px'}
+            >
+              <Text
+                color={'#18181B'}
+                fontSize="11px"
+                fontWeight="500"
+                lineHeight="150%"
+                letterSpacing="0.33px"
+              >
+                Request Reason
+              </Text>
+              <Text
+                mt="8px"
+                color={'#52525B'}
+                fontSize="11px"
+                fontWeight="500"
+                lineHeight="150%"
+                letterSpacing="0.33px"
+              >
+                Job hours.
+              </Text>
+            </Box>
+          </Box>
+          {/* {displayRequestApprovalScreens(screen)} */}
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };

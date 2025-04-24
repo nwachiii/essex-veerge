@@ -14,8 +14,9 @@ import CoownershipHeader, {UpcomingPaymentsHeader, UserHeader} from '../header';
 import UserTransactionSummary from '../userTransactionSummary';
 import PaymentPlanSummary from '../../../../../components/Cards/PaymentPlanSummary';
 import {ImFilesEmpty} from 'react-icons/im';
-import ListingInfo from '../../../../users/create_account/CustomerAccountSummary/ListingInfo';
+// import ListingInfo from '../../../../residents/create_account/CustomerAccountSummary/ListingInfo';
 import emptyIcon from '/src/images/icons/emptyIcon.png';
+import ListingInfo from 'pages/residents/create_account/CustomerAccountSummary/ListingInfo';
 
 export const IndividualPaymentPageForCoOwnedProperties = () => {
   const toast = useToast();
@@ -45,7 +46,7 @@ export const IndividualPaymentPageForCoOwnedProperties = () => {
 
   useEffect(() => {
     setRecurring(pastPayment && pastPayment[0]?.equity?.auto_debit);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <LayoutView>

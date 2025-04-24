@@ -56,7 +56,7 @@ export default function CustomPagination({
   return (
     <>
       {number_of_pages > 1 ? (
-        <Flex py={6} px="40px" justifyContent="flex-end" {...wrapper}>
+        <Flex py={'12px'} px="40px" justifyContent="flex-end" {...wrapper}>
           <Flex align="center" gap={`8px`}>
             <Text
               m="0"

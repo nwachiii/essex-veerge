@@ -1,8 +1,9 @@
+import {Box} from '@chakra-ui/react';
 import React from 'react';
 
 export const MetaDataIconRed = () => {
   return (
-    <div>
+    <Box transform="rotate(180deg)">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="12"
@@ -15,7 +16,7 @@ export const MetaDataIconRed = () => {
           fill="#f04438"
         />
       </svg>
-    </div>
+    </Box>
   );
 };
 
