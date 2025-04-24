@@ -41,14 +41,14 @@ export default function TopHeader({handleExpand, expand, value, setValue, custom
           <UserAssetCard
             hasAssets
             heading={'Total Residents'}
-            value={customerOverviewData?.total_asset_holders ?? 0}
+            value={'134'}
           />
         </GridItem>
         <GridItem colSpan={1}>
-          <UserAssetCard heading={'Total Tenants'} value={usersWithoutAssets ?? 0} />
+          <UserAssetCard heading={'Total Tenants'} value={'92'} />
         </GridItem>
         <GridItem colSpan={1}>
-          <UserAssetCard heading={'Total Owners'} value={usersWithoutAssets ?? 0} />
+          <UserAssetCard heading={'Total Owners'} value={'42'} />
         </GridItem>
       </Grid>
     </>
