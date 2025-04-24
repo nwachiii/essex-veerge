@@ -257,7 +257,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                     closeOnSelect={false}
                     mb="12px"
                   >
-                    <ProfileMenuInfoCard refetch={refetch} user={user} isLoading={isLoading} />
+                    {/* <ProfileMenuInfoCard refetch={refetch} user={user} isLoading={isLoading} /> */}
                   </MenuItem>
                   <MenuItem
                     mt="0px"

@@ -26,6 +26,7 @@ import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 import ListingContactInfo from './ListingInfo.components/ListingInfo.details/listingContactInfo';
 import {listingDetail} from 'constants/listListings';
 import { ListingInfoReservations } from './ListingInfo.components/ListingInfoReservations';
+import { AMENITIES_ESSEX } from 'constants/listings/amenities';
 
 export const SingleListingPage = () => {
   const router = useRouter();
@@ -144,12 +145,9 @@ export const SingleListingPage = () => {
               </SimpleGrid>
             </Box>
             <ListingInfoWholeUnits
-              isCreate={isCreate}
-              pageQueryId={listingId || listingInfoFromLocalStorage?.id}
-              listingDetail={listingDetail ?? listingInfoFromLocalStorage}
             />
             <ListingInfoAmenities
-              data={listingDetail?.amenities ?? listingInfoFromLocalStorage?.amenities}
+              data={AMENITIES_ESSEX}
             />
           </Box>
         </LayoutView>

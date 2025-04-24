@@ -169,7 +169,7 @@ const listReservations = [
   },
   {
     icon: 'https://tests-veerge.myxellia.io/_next/static/media/swimming-pool.7341183d.svg',
-    name: 'Pool Party Zone',
+    name: 'Guest Suite #1',
     date: 'May 10-15',
     venue: {
       address: 'Chestnut Court, Lavender Crescent',
