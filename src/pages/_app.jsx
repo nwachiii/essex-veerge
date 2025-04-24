@@ -67,7 +67,7 @@ function MyApp({Component, pageProps}) {
   return (
     <ChakraProvider theme={theme}>
       <Head>
-        <title>Veerge</title>
+        <title>Essex HOA</title>
         <meta
           name="description"
           content="Veerge is a robust C.R.M software built to handle all edge-cases needed to run an ultra-modern, outstanding Real Estate Business"
