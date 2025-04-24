@@ -9,6 +9,7 @@ const ViolationDetailsCard = ({escalated, lateToCure, inCure, total, heading}) =
     <Stack
       overflow="hidden"
       w="full"
+      justifySelf="center"
       h="full"
       spacing="none"
       borderRadius="12px"

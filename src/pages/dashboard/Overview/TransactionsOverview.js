@@ -58,6 +58,7 @@ export const TransactionsOverview = ({
                 )}
                 <Text
                   fontSize="10px"
+                  lineHeight="13px"
                   fontWeight="400"
                   color={
                     data?.totalInflow?.changeDirection == 'up'
@@ -100,6 +101,7 @@ export const TransactionsOverview = ({
                 )}
                 <Text
                   fontSize="10px"
+                  lineHeight="13px"
                   fontWeight="400"
                   color={
                     data?.totalProcessedTransactions?.changeDirection == 'up'
@@ -138,6 +140,7 @@ export const TransactionsOverview = ({
                 <Text
                   fontSize="10px"
                   fontWeight="400"
+                  lineHeight="13px"
                   color={
                     data?.unprocessedTransactions?.changeDirection == 'up'
                       ? themeStyles.color.matador__green
@@ -179,6 +182,7 @@ export const TransactionsOverview = ({
                 )}
                 <Text
                   fontSize="10px"
+                  lineHeight="13px"
                   fontWeight="400"
                   color={
                     data?.outstandingBalance?.changeDirection == 'up'
