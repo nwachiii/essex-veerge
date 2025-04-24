@@ -1,993 +1,290 @@
 export const projectData = [
-    {
-        "id": 1271,
-        "photos": [
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/TrcUD1trVd.jpeg"
-            }
-        ],
-        "created_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "last_updated_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "total_units": 20,
-        "rejected_by": null,
-        "units_available": 20,
-        "units_sold": 0,
-        "is_sold_out": false,
-        "unit_id": null,
-        "contact_persons": [
-            {
-                "id": 625,
-                "img": "https://matador-bucket.s3.amazonaws.com/media/d9287483-43b.webp",
-                "last_activity": "2025-04-22T16:43:35.556300Z",
-                "phone_number": "+2349068391926",
-                "name": "Ahmed Malik",
-                "email": "cekkicoydi@gufum.com",
-                "role": "Admin",
-                "status": "accepted",
-                "invited_on": "2024-11-26T10:25:43.083078+01:00",
-                "contact_for": 3406,
-                "business": null
-            }
-        ],
-        "display_price": true,
-        "starting_from": 500000,
-        "is_watchlist": false,
-        "amenities": [
-            {
-                "icon": {
-                    "src": "/_next/static/media/healthicons_security_worker_outline.1cb99168.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Security"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/stable-power.d9f94d83.png",
-                    "width": 24,
-                    "height": 24,
-                    "blurWidth": 8,
-                    "blurHeight": 8,
-                    "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAKlBMVEVMaXE9PT08PDw8PDw7Ozs8PDw+Pj48PDw8PDw7Ozs+Pj48PDw9PT0/Pz8qKTsIAAAADXRSTlMAqTeeK4FSCmi53yHABNbKBAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADhJREFUeJwVykkSgDAMBLEe73Hg/9+l0FlgkmSBnYDwxY2pfhZhKm4jagIaD648/c+d6QuW9Q7nAyCtAQknyIaqAAAAAElFTkSuQmCC"
-                },
-                "name": "24 hours Light"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/car-park.94872108.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Car park"
-            }
-        ],
-        "is_fractionalized": false,
-        "project_display_price": true,
-        "country": null,
-        "property_document": [
-            {
-                "id": 3652,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/e48162d3-4c6.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-28T09:01:15.452830+01:00",
-                "project": 1271,
-                "plan": null,
-                "unit": 1831
-            },
-            {
-                "id": 3651,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/5c5a9b6e-5e9.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-28T09:01:14.745882+01:00",
-                "project": 1271,
-                "plan": null,
-                "unit": 1830
-            },
-            {
-                "id": 3650,
-                "document_file": null,
-                "document_url": "https://d1tfxqgzlmg1r3.cloudfront.net/a8neiK1TwJ.pdf",
-                "purpose": "brochure",
-                "created_at": "2024-11-28T08:58:04.442610+01:00",
-                "project": 1271,
-                "plan": null,
-                "unit": null
-            }
-        ],
-        "payment_plan_is_available": false,
-        "pinned": false,
-        "project_packet": [],
-        "external_commission_rate": "0.00",
-        "listing_timezone": "Africa/Lagos",
-        "name": "queen's court phase 5",
-        "land_size": "20000",
-        "is_unit": false,
-        "property_class": null,
-        "project_start_date": null,
-        "completed_timestamp": null,
-        "fractions_progress_bar": true,
-        "maps_view": true,
-        "constructed_by": "Audacia Prime Reality",
-        "land_title": "C of O",
-        "description": "Queens Court affords you the opportunity to build your empire without breaking the bank. With its flexible payment plan and affordability, everyone can become a landowner. We are developing Queens Court with you in mind and this rare opportunity should not pass you by.",
-        "address": "Iloti, Epe/Ijebu-Ode Expressway.",
-        "profile": "",
-        "landmark": "Epe/Ijebu-Ode Expressway.",
-        "building_type": "Estate",
-        "inspection_enabled": true,
-        "income_start_timestamp": null,
-        "status": "In Construction",
-        "year_built": null,
-        "start_period": "February",
-        "start_year": "2024",
-        "end_period": "October",
-        "end_year": "2025",
-        "youtube_url": "",
-        "location_description": null,
-        "longitude": 3.9999330982318217,
-        "latitude": 6.726204171759677,
-        "created_at": "2024-11-28T08:58:04.434106+01:00",
-        "updated_at": "2025-03-24T12:16:53.940817+01:00",
-        "publish": false,
-        "rejected": false,
-        "request_for_publish": true,
-        "publish_to_store": true,
-        "rejection_reason": null,
-        "photo_urls": [
-            "https://d1tfxqgzlmg1r3.cloudfront.net/TrcUD1trVd.jpeg"
-        ],
-        "open_to_subscription": false,
-        "star_rating": 0,
-        "fraction_is_available": false,
-        "open_house_date": null,
-        "is_private": false,
-        "project_archived": false,
-        "total_archive": null,
-        "internal_commission_rate": "0.00",
-        "current_fraction_price": "0.00",
-        "business": 403,
-        "reels": []
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/OakRidge.png"
     },
-    {
-        "id": 1270,
-        "photos": [
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/GGU55bIg2T.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/Buy9pPf12d.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/3c67CiGaWy.png"
-            }
-        ],
-        "created_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "last_updated_by": null,
-        "total_units": 29,
-        "rejected_by": null,
-        "units_available": 30,
-        "units_sold": 1,
-        "is_sold_out": false,
-        "unit_id": null,
-        "contact_persons": [
-            {
-                "id": 625,
-                "img": "https://matador-bucket.s3.amazonaws.com/media/d9287483-43b.webp",
-                "last_activity": "2025-04-22T16:43:35.556300Z",
-                "phone_number": "+2349068391926",
-                "name": "Ahmed Malik",
-                "email": "cekkicoydi@gufum.com",
-                "role": "Admin",
-                "status": "accepted",
-                "invited_on": "2024-11-26T10:25:43.083078+01:00",
-                "contact_for": 3406,
-                "business": null
-            }
-        ],
-        "display_price": true,
-        "starting_from": 900000,
-        "is_watchlist": false,
-        "amenities": [
-            {
-                "icon": {
-                    "src": "/_next/static/media/car-park.94872108.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Car park"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/stable-power.d9f94d83.png",
-                    "width": 24,
-                    "height": 24,
-                    "blurWidth": 8,
-                    "blurHeight": 8,
-                    "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAKlBMVEVMaXE9PT08PDw8PDw7Ozs8PDw+Pj48PDw8PDw7Ozs+Pj48PDw9PT0/Pz8qKTsIAAAADXRSTlMAqTeeK4FSCmi53yHABNbKBAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADhJREFUeJwVykkSgDAMBLEe73Hg/9+l0FlgkmSBnYDwxY2pfhZhKm4jagIaD648/c+d6QuW9Q7nAyCtAQknyIaqAAAAAElFTkSuQmCC"
-                },
-                "name": "24 hours Light"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/healthicons_security_worker_outline.1cb99168.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Security"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/gym.1a337dd1.png",
-                    "width": 24,
-                    "height": 24,
-                    "blurWidth": 8,
-                    "blurHeight": 8,
-                    "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAHlBMVEU2NjY8PDw9PT08PDw8PDw8PDw7Ozs/Pz89PT0+Pj7FIuvEAAAACnRSTlMBM5yEqrUiSETxxRWmtAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADZJREFUeJwdy8ENwDAMw0BKsp1k/4UL93cAQQB1XQHE884CZwoFld20XSKiJv77eeMsdKv3/QAWgACfxEMKjAAAAABJRU5ErkJggg=="
-                },
-                "name": "Gym"
-            }
-        ],
-        "is_fractionalized": false,
-        "project_display_price": true,
-        "country": null,
-        "property_document": [
-            {
-                "id": 3649,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/dbf74f29-ce4.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-28T08:51:09.587973+01:00",
-                "project": 1270,
-                "plan": null,
-                "unit": 1829
-            },
-            {
-                "id": 3648,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/79454ea9-5e3.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-28T08:51:08.969672+01:00",
-                "project": 1270,
-                "plan": null,
-                "unit": 1828
-            },
-            {
-                "id": 3647,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/57fd871e-c81.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-28T08:51:08.484282+01:00",
-                "project": 1270,
-                "plan": null,
-                "unit": 1827
-            },
-            {
-                "id": 3646,
-                "document_file": null,
-                "document_url": "https://d1tfxqgzlmg1r3.cloudfront.net/AxoEsPUYo2.pdf",
-                "purpose": "brochure",
-                "created_at": "2024-11-28T08:41:26.043141+01:00",
-                "project": 1270,
-                "plan": null,
-                "unit": null
-            }
-        ],
-        "payment_plan_is_available": false,
-        "pinned": false,
-        "project_packet": [],
-        "external_commission_rate": "0.00",
-        "listing_timezone": "Africa/Lagos",
-        "name": "Metro tech city",
-        "land_size": "20000",
-        "is_unit": false,
-        "property_class": null,
-        "project_start_date": null,
-        "completed_timestamp": null,
-        "fractions_progress_bar": true,
-        "maps_view": true,
-        "constructed_by": "Audacia Prime Reality",
-        "land_title": "C of O",
-        "description": "Welcome to Metro Tech City, where innovation is our foundation and dreams take shape to become a reality. We call it \"The Pioneering City of Metropolitan Wealth\" because Metro City is more than just a place to live; it's the assurance of an innovative– its's a destination that transforms lives. Strategically Located in Moniya Ibadan sharing proximity with IITA Dominican University Ibadan Train Station University of Ibadan Moniya Town",
-        "address": "Moniya, Ibadan",
-        "profile": "",
-        "landmark": "Moniya, Ibadan",
-        "building_type": "Estate",
-        "inspection_enabled": true,
-        "income_start_timestamp": null,
-        "status": "Post Construction",
-        "year_built": null,
-        "start_period": "",
-        "start_year": "",
-        "end_period": "January",
-        "end_year": "2024",
-        "youtube_url": "",
-        "location_description": null,
-        "longitude": 3.915312209300844,
-        "latitude": 7.525796018347419,
-        "created_at": "2024-11-28T08:41:26.026630+01:00",
-        "updated_at": "2024-11-28T08:51:58.613472+01:00",
-        "publish": false,
-        "rejected": false,
-        "request_for_publish": true,
-        "publish_to_store": true,
-        "rejection_reason": null,
-        "photo_urls": [
-            "https://d1tfxqgzlmg1r3.cloudfront.net/GGU55bIg2T.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/Buy9pPf12d.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/3c67CiGaWy.png"
-        ],
-        "open_to_subscription": false,
-        "star_rating": 0,
-        "fraction_is_available": false,
-        "open_house_date": null,
-        "is_private": false,
-        "project_archived": false,
-        "total_archive": null,
-        "internal_commission_rate": "0.00",
-        "current_fraction_price": "0.00",
-        "business": 403,
-        "reels": []
+    "name": "Oak Ridge",
+    "units_sold": 134,
+    "units_available": 180
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/MapleGlen.png"
     },
-    {
-        "id": 1257,
-        "photos": [
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/prTtLlf0bn.jpeg"
-            }
-        ],
-        "created_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "last_updated_by": null,
-        "total_units": 20,
-        "rejected_by": null,
-        "units_available": 20,
-        "units_sold": 0,
-        "is_sold_out": false,
-        "unit_id": 1805,
-        "contact_persons": [
-            {
-                "id": 625,
-                "img": "https://matador-bucket.s3.amazonaws.com/media/d9287483-43b.webp",
-                "last_activity": "2025-04-22T16:43:35.556300Z",
-                "phone_number": "+2349068391926",
-                "name": "Ahmed Malik",
-                "email": "cekkicoydi@gufum.com",
-                "role": "Admin",
-                "status": "accepted",
-                "invited_on": "2024-11-26T10:25:43.083078+01:00",
-                "contact_for": 3406,
-                "business": null
-            }
-        ],
-        "display_price": true,
-        "starting_from": 8000000,
-        "is_watchlist": false,
-        "amenities": [
-            {
-                "icon": {
-                    "src": "/_next/static/media/car-park.94872108.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Car park"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/stable-power.d9f94d83.png",
-                    "width": 24,
-                    "height": 24,
-                    "blurWidth": 8,
-                    "blurHeight": 8,
-                    "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAKlBMVEVMaXE9PT08PDw8PDw7Ozs8PDw+Pj48PDw8PDw7Ozs+Pj48PDw9PT0/Pz8qKTsIAAAADXRSTlMAqTeeK4FSCmi53yHABNbKBAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADhJREFUeJwVykkSgDAMBLEe73Hg/9+l0FlgkmSBnYDwxY2pfhZhKm4jagIaD648/c+d6QuW9Q7nAyCtAQknyIaqAAAAAElFTkSuQmCC"
-                },
-                "name": "24 hours Light"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/garden.d7668400.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Garden"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/healthicons_security_worker_outline.1cb99168.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Security"
-            }
-        ],
-        "is_fractionalized": false,
-        "project_display_price": true,
-        "country": null,
-        "property_document": [
-            {
-                "id": 3612,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/6e276f33-37b.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T13:42:03.782054+01:00",
-                "project": 1257,
-                "plan": null,
-                "unit": 1805
-            },
-            {
-                "id": 3611,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/45671a46-050.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T13:36:37.689043+01:00",
-                "project": 1257,
-                "plan": null,
-                "unit": 1804
-            },
-            {
-                "id": 3610,
-                "document_file": null,
-                "document_url": "https://d1tfxqgzlmg1r3.cloudfront.net/RdE9F5zUy7.pdf",
-                "purpose": "brochure",
-                "created_at": "2024-11-27T13:35:44.141051+01:00",
-                "project": 1257,
-                "plan": null,
-                "unit": null
-            }
-        ],
-        "payment_plan_is_available": false,
-        "pinned": false,
-        "project_packet": [],
-        "external_commission_rate": "0.00",
-        "listing_timezone": "Africa/Lagos",
-        "name": "Venice city",
-        "land_size": "5000",
-        "is_unit": false,
-        "property_class": null,
-        "project_start_date": null,
-        "completed_timestamp": null,
-        "fractions_progress_bar": true,
-        "maps_view": true,
-        "constructed_by": "Audacia Prime Reality",
-        "land_title": "C of O",
-        "description": "Just as the ancient city of Venice was a sanctuary in 421 BC, Venice City is a modern refuge for those seeking a diasporic lifestyle in Lagos. Envisioned as a place that transcends environmental transformation to change lives, this estate is poised to become a thriving centre of art, culture, and commerce. Drawing inspiration from the \"Queen of the Adriatic,\" Venice City is a symbol of wealth and a promise of growth.",
-        "address": "IBEJU LEKKI, LAGOS",
-        "profile": "",
-        "landmark": "lekki, lagos",
-        "building_type": "Land",
-        "inspection_enabled": true,
-        "income_start_timestamp": null,
-        "status": "Pre Construction",
-        "year_built": null,
-        "start_period": "",
-        "start_year": "",
-        "end_period": "",
-        "end_year": "",
-        "youtube_url": "",
-        "location_description": null,
-        "longitude": 3.8025189554247145,
-        "latitude": 6.476827234073102,
-        "created_at": "2024-11-27T13:35:44.133540+01:00",
-        "updated_at": "2024-11-27T13:42:03.794200+01:00",
-        "publish": false,
-        "rejected": false,
-        "request_for_publish": true,
-        "publish_to_store": true,
-        "rejection_reason": null,
-        "photo_urls": [
-            "https://d1tfxqgzlmg1r3.cloudfront.net/prTtLlf0bn.jpeg"
-        ],
-        "open_to_subscription": false,
-        "star_rating": 0,
-        "fraction_is_available": false,
-        "open_house_date": null,
-        "is_private": false,
-        "project_archived": false,
-        "total_archive": null,
-        "internal_commission_rate": "0.00",
-        "current_fraction_price": "0.00",
-        "business": 403,
-        "reels": []
+    "name": "Maple Glen",
+    "units_sold": 164,
+    "units_available": 180
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/CrystalLakeManor.png"
     },
-    {
-        "id": 1256,
-        "photos": [
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/7KcpI7f4nc.jpeg"
-            }
-        ],
-        "created_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "last_updated_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "total_units": 120,
-        "rejected_by": null,
-        "units_available": 120,
-        "units_sold": 0,
-        "is_sold_out": false,
-        "unit_id": 1803,
-        "contact_persons": [
-            {
-                "id": 625,
-                "img": "https://matador-bucket.s3.amazonaws.com/media/d9287483-43b.webp",
-                "last_activity": "2025-04-22T16:43:35.556300Z",
-                "phone_number": "+2349068391926",
-                "name": "Ahmed Malik",
-                "email": "cekkicoydi@gufum.com",
-                "role": "Admin",
-                "status": "accepted",
-                "invited_on": "2024-11-26T10:25:43.083078+01:00",
-                "contact_for": 3406,
-                "business": null
-            }
-        ],
-        "display_price": true,
-        "starting_from": 450000,
-        "is_watchlist": false,
-        "amenities": [],
-        "is_fractionalized": false,
-        "project_display_price": true,
-        "country": null,
-        "property_document": [
-            {
-                "id": 3609,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/ea6ef84b-161.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T13:29:44.622256+01:00",
-                "project": 1256,
-                "plan": null,
-                "unit": 1803
-            },
-            {
-                "id": 3608,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/3a087c1d-c92.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T13:28:38.545818+01:00",
-                "project": 1256,
-                "plan": null,
-                "unit": 1802
-            },
-            {
-                "id": 3607,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/b0367896-805.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T13:18:48.079225+01:00",
-                "project": 1256,
-                "plan": null,
-                "unit": 1801
-            },
-            {
-                "id": 3606,
-                "document_file": null,
-                "document_url": "https://d1tfxqgzlmg1r3.cloudfront.net/IC2e76tjEc.pdf",
-                "purpose": "brochure",
-                "created_at": "2024-11-27T13:15:25.329534+01:00",
-                "project": 1256,
-                "plan": null,
-                "unit": null
-            }
-        ],
-        "payment_plan_is_available": false,
-        "pinned": false,
-        "project_packet": [],
-        "external_commission_rate": "0.00",
-        "listing_timezone": "Africa/Lagos",
-        "name": "Imole city",
-        "land_size": "2000",
-        "is_unit": false,
-        "property_class": null,
-        "project_start_date": null,
-        "completed_timestamp": null,
-        "fractions_progress_bar": true,
-        "maps_view": true,
-        "constructed_by": "Audacia Prime Reality",
-        "land_title": "C of O",
-        "description": "right in the capital of Ogun state sits a special city called Imole City. This city shines bright and stands out in the hearts and minds of its people. Just like the word \"Imole\" means light in Yoruba, this city is made to brighten the lives of its residents. With meticulous planning and unparalleled craftsmanship, Audacia Properties Limited proudly unveils Imole City, a sanctuary of serenity and brilliance in the heart of Southwest Nigeria.",
-        "address": "Abeokuta, Ogun State.",
-        "profile": "",
-        "landmark": "Abeokuta, Ogun State.",
-        "building_type": "Land",
-        "inspection_enabled": true,
-        "income_start_timestamp": null,
-        "status": "In Construction",
-        "year_built": null,
-        "start_period": "",
-        "start_year": "",
-        "end_period": "",
-        "end_year": "",
-        "youtube_url": "",
-        "location_description": null,
-        "longitude": 3.357225193330436,
-        "latitude": 7.144361254862102,
-        "created_at": "2024-11-27T13:15:25.321676+01:00",
-        "updated_at": "2024-11-27T13:29:44.634425+01:00",
-        "publish": false,
-        "rejected": false,
-        "request_for_publish": true,
-        "publish_to_store": true,
-        "rejection_reason": null,
-        "photo_urls": [
-            "https://d1tfxqgzlmg1r3.cloudfront.net/7KcpI7f4nc.jpeg"
-        ],
-        "open_to_subscription": false,
-        "star_rating": 0,
-        "fraction_is_available": false,
-        "open_house_date": null,
-        "is_private": false,
-        "project_archived": false,
-        "total_archive": null,
-        "internal_commission_rate": "0.00",
-        "current_fraction_price": "0.00",
-        "business": 403,
-        "reels": []
+    "name": "Crystal Lake Manor",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/SilverleafGrove.png"
     },
-    {
-        "id": 1254,
-        "photos": [
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/4EZUXVCi7z.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/AheDrZSwLH.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/UedoYkcKUC.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/rRVmhpy7PA.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/E0N7e8an7E.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/wG5CQUtpU7.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/abi82soY81.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/O8Z7wtXc2G.png"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/lr1AcQit8y.png"
-            }
-        ],
-        "created_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "last_updated_by": null,
-        "total_units": 1,
-        "rejected_by": null,
-        "units_available": 2,
-        "units_sold": 1,
-        "is_sold_out": false,
-        "unit_id": null,
-        "contact_persons": [
-            {
-                "id": 625,
-                "img": "https://matador-bucket.s3.amazonaws.com/media/d9287483-43b.webp",
-                "last_activity": "2025-04-22T16:43:35.556300Z",
-                "phone_number": "+2349068391926",
-                "name": "Ahmed Malik",
-                "email": "cekkicoydi@gufum.com",
-                "role": "Admin",
-                "status": "accepted",
-                "invited_on": "2024-11-26T10:25:43.083078+01:00",
-                "contact_for": 3406,
-                "business": null
-            }
-        ],
-        "display_price": true,
-        "starting_from": 20000000,
-        "is_watchlist": false,
-        "amenities": [
-            {
-                "icon": {
-                    "src": "/_next/static/media/stable-power.d9f94d83.png",
-                    "width": 24,
-                    "height": 24,
-                    "blurWidth": 8,
-                    "blurHeight": 8,
-                    "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAKlBMVEVMaXE9PT08PDw8PDw7Ozs8PDw+Pj48PDw8PDw7Ozs+Pj48PDw9PT0/Pz8qKTsIAAAADXRSTlMAqTeeK4FSCmi53yHABNbKBAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADhJREFUeJwVykkSgDAMBLEe73Hg/9+l0FlgkmSBnYDwxY2pfhZhKm4jagIaD648/c+d6QuW9Q7nAyCtAQknyIaqAAAAAElFTkSuQmCC"
-                },
-                "name": "24 hours Light"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/car-park.94872108.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Car park"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/healthicons_security_worker_outline.1cb99168.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Security"
-            }
-        ],
-        "is_fractionalized": false,
-        "project_display_price": true,
-        "country": null,
-        "property_document": [
-            {
-                "id": 3602,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/9aaa5228-93a.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T12:59:39.176520+01:00",
-                "project": 1254,
-                "plan": null,
-                "unit": 1798
-            },
-            {
-                "id": 3601,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/51884247-753.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T12:55:55.880523+01:00",
-                "project": 1254,
-                "plan": null,
-                "unit": 1797
-            },
-            {
-                "id": 3599,
-                "document_file": null,
-                "document_url": "https://d1tfxqgzlmg1r3.cloudfront.net/aiOwPJUI3T.pdf",
-                "purpose": "brochure",
-                "created_at": "2024-11-27T12:46:25.607791+01:00",
-                "project": 1254,
-                "plan": null,
-                "unit": null
-            }
-        ],
-        "payment_plan_is_available": false,
-        "pinned": false,
-        "project_packet": [],
-        "external_commission_rate": "0.00",
-        "listing_timezone": "Africa/Lagos",
-        "name": "the audacity",
-        "land_size": "2000",
-        "is_unit": false,
-        "property_class": null,
-        "project_start_date": null,
-        "completed_timestamp": null,
-        "fractions_progress_bar": true,
-        "maps_view": true,
-        "constructed_by": "Audacia Prime Reality",
-        "land_title": "C of O",
-        "description": "The AudaCity is Audacia's debut construction project - breathtaking state-of-the-art\nshort let apartments that's sure to impress. The AudaCity Shortlet Apartments o\n\ner the ideal\nself-catering accommodation in Epe. Cozy, contemporary studio apartments at the heart\nof Lagos State University of Education, Epe.\nThis one-of-a-kind property is the first of its kind in the city. Short let apartment with an\nunparalleled design, amenities, and craftsmanship.\nGrand elegance, grand style. This is what our luxury backpacking edifice located in Epe is all\nabout. The AudaCity is more than just real estate. It's an investment in elegance for the next\ngeneration.",
-        "address": "Lasued Rd, Epe, Lagos state",
-        "profile": "",
-        "landmark": "Epe Lagos",
-        "building_type": "Estate",
-        "inspection_enabled": true,
-        "income_start_timestamp": null,
-        "status": "In Construction",
-        "year_built": null,
-        "start_period": "January",
-        "start_year": "2024",
-        "end_period": "July",
-        "end_year": "2025",
-        "youtube_url": "",
-        "location_description": null,
-        "longitude": 3.9857139297462303,
-        "latitude": 6.62628585070735,
-        "created_at": "2024-11-27T12:46:25.595839+01:00",
-        "updated_at": "2024-11-27T12:59:39.188415+01:00",
-        "publish": false,
-        "rejected": false,
-        "request_for_publish": true,
-        "publish_to_store": true,
-        "rejection_reason": null,
-        "photo_urls": [
-            "https://d1tfxqgzlmg1r3.cloudfront.net/4EZUXVCi7z.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/AheDrZSwLH.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/UedoYkcKUC.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/rRVmhpy7PA.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/E0N7e8an7E.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/wG5CQUtpU7.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/abi82soY81.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/O8Z7wtXc2G.png",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/lr1AcQit8y.png"
-        ],
-        "open_to_subscription": false,
-        "star_rating": 0,
-        "fraction_is_available": false,
-        "open_house_date": null,
-        "is_private": false,
-        "project_archived": false,
-        "total_archive": null,
-        "internal_commission_rate": "0.00",
-        "current_fraction_price": "0.00",
-        "business": 403,
-        "reels": []
+    "name": "Silverleaf Grove",
+    "units_sold": 180,
+    "units_available": 234
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/OakstoneValley.png"
     },
-    {
-        "id": 1251,
-        "photos": [
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/eURYfWwtVb.jpeg"
-            },
-            {
-                "photo": "https://d1tfxqgzlmg1r3.cloudfront.net/fZW277FUNs.webp"
-            }
-        ],
-        "created_by": {
-            "id": 3406,
-            "first_name": "Ahmed",
-            "last_name": "Malik",
-            "email": "cekkicoydi@gufum.com"
-        },
-        "last_updated_by": null,
-        "total_units": 20,
-        "rejected_by": null,
-        "units_available": 20,
-        "units_sold": 0,
-        "is_sold_out": false,
-        "unit_id": 1793,
-        "contact_persons": [
-            {
-                "id": 625,
-                "img": "https://matador-bucket.s3.amazonaws.com/media/d9287483-43b.webp",
-                "last_activity": "2025-04-22T16:43:35.556300Z",
-                "phone_number": "+2349068391926",
-                "name": "Ahmed Malik",
-                "email": "cekkicoydi@gufum.com",
-                "role": "Admin",
-                "status": "accepted",
-                "invited_on": "2024-11-26T10:25:43.083078+01:00",
-                "contact_for": 3406,
-                "business": null
-            }
-        ],
-        "display_price": true,
-        "starting_from": 900000,
-        "is_watchlist": false,
-        "amenities": [
-            {
-                "icon": {
-                    "src": "/_next/static/media/car-park.94872108.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Car park"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/healthicons_security_worker_outline.1cb99168.svg",
-                    "width": 24,
-                    "height": 24
-                },
-                "name": "Security"
-            },
-            {
-                "icon": {
-                    "src": "/_next/static/media/stable-power.d9f94d83.png",
-                    "width": 24,
-                    "height": 24,
-                    "blurWidth": 8,
-                    "blurHeight": 8,
-                    "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAKlBMVEVMaXE9PT08PDw8PDw7Ozs8PDw+Pj48PDw8PDw7Ozs+Pj48PDw9PT0/Pz8qKTsIAAAADXRSTlMAqTeeK4FSCmi53yHABNbKBAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADhJREFUeJwVykkSgDAMBLEe73Hg/9+l0FlgkmSBnYDwxY2pfhZhKm4jagIaD648/c+d6QuW9Q7nAyCtAQknyIaqAAAAAElFTkSuQmCC"
-                },
-                "name": "24 hours Light"
-            }
-        ],
-        "is_fractionalized": false,
-        "project_display_price": true,
-        "country": null,
-        "property_document": [
-            {
-                "id": 3595,
-                "document_file": "https://matador-bucket.s3.amazonaws.com/media/projects/documents/5c3d3550-afb.pdf",
-                "document_url": null,
-                "purpose": "outright",
-                "created_at": "2024-11-27T12:33:48.860701+01:00",
-                "project": 1251,
-                "plan": null,
-                "unit": 1793
-            },
-            {
-                "id": 3591,
-                "document_file": null,
-                "document_url": "https://d1tfxqgzlmg1r3.cloudfront.net/YOAKmpcOwZ.pdf",
-                "purpose": "brochure",
-                "created_at": "2024-11-27T11:32:22.093698+01:00",
-                "project": 1251,
-                "plan": null,
-                "unit": null
-            }
-        ],
-        "payment_plan_is_available": false,
-        "pinned": false,
-        "project_packet": [],
-        "external_commission_rate": "0.00",
-        "listing_timezone": "Africa/Lagos",
-        "name": "fife lagos",
-        "land_size": "2000",
-        "is_unit": false,
-        "property_class": null,
-        "project_start_date": null,
-        "completed_timestamp": null,
-        "fractions_progress_bar": true,
-        "maps_view": true,
-        "constructed_by": "Audacia Prime Reality",
-        "land_title": "C of O",
-        "description": "Amidst this dynamic transformation lies Fife Lagos, an avant-garde real estate development that embodies the future of urban living. Located in Epe, this innovative project integrates residential living, modern farming, and commercial spaces within a sustainable and community-focused environment. Fife Lagos is designed to redefine urban living by incorporating agriculture directly into the urban fabric, promoting a lifestyle that is eco-friendly, socially responsible, and economically viable. Welcome to Fife Lagos, where the future of urban living is being crafted today.",
-        "address": "Omo - Ketu, Epe, Lagos.",
-        "profile": "",
-        "landmark": "Dangote Refinery, Epe resort, Augustin University, Lekki Airport",
-        "building_type": "Land",
-        "inspection_enabled": true,
-        "income_start_timestamp": null,
-        "status": "Pre Construction",
-        "year_built": null,
-        "start_period": "",
-        "start_year": "",
-        "end_period": "",
-        "end_year": "",
-        "youtube_url": "",
-        "location_description": null,
-        "longitude": 3.876226583819892,
-        "latitude": 6.6362569317122855,
-        "created_at": "2024-11-27T11:32:22.083093+01:00",
-        "updated_at": "2024-11-27T12:34:26.063776+01:00",
-        "publish": false,
-        "rejected": false,
-        "request_for_publish": true,
-        "publish_to_store": true,
-        "rejection_reason": null,
-        "photo_urls": [
-            "https://d1tfxqgzlmg1r3.cloudfront.net/eURYfWwtVb.jpeg",
-            "https://d1tfxqgzlmg1r3.cloudfront.net/fZW277FUNs.webp"
-        ],
-        "open_to_subscription": false,
-        "star_rating": 0,
-        "fraction_is_available": false,
-        "open_house_date": null,
-        "is_private": false,
-        "project_archived": false,
-        "total_archive": null,
-        "internal_commission_rate": "0.00",
-        "current_fraction_price": "0.00",
-        "business": 403,
-        "reels": []
-    }
-  ]
+    "name": "Oakstone Valley",
+    "units_sold": 56,
+    "units_available": 80
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/WillowbrookReserve.png"
+    },
+    "name": "Willowbrook Reserve",
+    "units_sold": 40,
+    "units_available": 56
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/TheAspenEnclave.png"
+    },
+    "name": "The Aspen Enclave",
+    "units_sold": 68,
+    "units_available": 197
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/BluebellMeadows.png"
+    },
+    "name": "Bluebell Meadows",
+    "units_sold": 85,
+    "units_available": 99
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/EvergreenHills.png"
+    },
+    "name": "Evergreen Hills",
+    "units_sold": 46,
+    "units_available": 80
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/RedwoodSanctuary.png"
+    },
+    "name": "Redwood Sanctuary",
+    "units_sold": 48,
+    "units_available": 48
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/LuxeHavenResidences.png"
+    },
+    "name": "Luxe Haven Residences",
+    "units_sold": 21,
+    "units_available": 30
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/ZenithCourt.png"
+    },
+    "name": "Zenith Court",
+    "units_sold": 69,
+    "units_available": 82
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/AuroraHeights.png"
+    },
+    "name": "Aurora Heights",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/HalcyonTowers.png"
+    },
+    "name": "Halcyon Towers",
+    "units_sold": 65,
+    "units_available": 78
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/MeridianViewEstate.png"
+    },
+    "name": "Meridian View Estate",
+    "units_sold": 88,
+    "units_available": 169
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/NovaRidge.png"
+    },
+    "name": "Nova Ridge",
+    "units_sold": 24,
+    "units_available": 56
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/SeraphimResidences.png"
+    },
+    "name": "Seraphim Residences",
+    "units_sold": 32,
+    "units_available": 56
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/ArcadiaPoint.png"
+    },
+    "name": "Arcadia Point",
+    "units_sold": 165,
+    "units_available": 200
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/SatoriHeights.png"
+    },
+    "name": "Satori Heights",
+    "units_sold": 76,
+    "units_available": 216
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/VantageLuxeEstate.png"
+    },
+    "name": "Vantage Luxe Estate",
+    "units_sold": 67,
+    "units_available": 97
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/WindsorParkEstate.png"
+    },
+    "name": "Windsor Park Estate",
+    "units_sold": 66,
+    "units_available": 112
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/WhisperingPinesEstate.png"
+    },
+    "name": "Whispering Pines Estate",
+    "units_sold": 67,
+    "units_available": 221
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/WhisperingPinesEstate2.png"
+    },
+    "name": "Whispering Pines Estate II",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/WhisperingPinesEstate3.png"
+    },
+    "name": "Whispering Pines Estate III",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/KensingtonBluffs.png"
+    },
+    "name": "Kensington Bluffs",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/BelmontGardens.png"
+    },
+    "name": "Belmont Gardens",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/EtonRidge.png"
+    },
+    "name": "Eton Ridge",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/TheHamiltonReserve.png"
+    },
+    "name": "The Hamilton Reserve",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/KingsfordManor.png"
+    },
+    "name": "Kingsford Manor",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/DevonshirePlace.png"
+    },
+    "name": "Devonshire Place",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/RoyalCrestEstate.png"
+    },
+    "name": "Royal Crest Estate",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/PlatinumGate.png"
+    },
+    "name": "Platinum Gate",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/NauticaGrove.png"
+    },
+    "name": "Nautica Grove",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/ChateauRoyale.png"
+    },
+    "name": "Chateau Royale",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/HarbourpointEstate.png"
+    },
+    "name": "Harbourpoint Estate",
+    "units_sold": 34,
+    "units_available": 88
+  },
+  {
+    "photos": {
+      "photo": "https://d1x2tneac0i3nn.cloudfront.net/BaysideHeights.png"
+    },
+    "name": "Bayside Heights",
+    "units_sold": 34,
+    "units_available": 88
+  }
+]

@@ -1,44 +1,17 @@
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
+import {Box, Flex, Grid, GridItem, Heading, Stack, Text} from '@chakra-ui/react';
 import React from 'react';
 import ListingsDetailsCard from './component/listingsDetailsCard';
-import {useQuery} from '@tanstack/react-query';
-import {fetchDashboardData} from 'apis';
-import {IoEyeOutline} from 'react-icons/io5';
-import {fetchListingStats} from 'apis/listings';
 import {useRouter} from 'next/router';
 import Image from 'next/image';
 
 const ListingOverViewHeader = ({listingData}) => {
-  const {data} = useQuery(['dashboard', ''], () => fetchDashboardData(''));
-  const fETCH_LISTINGS_STATS = useQuery(['listing_stat'], fetchListingStats);
-  const ListingHeaderStatDATA = fETCH_LISTINGS_STATS?.data?.data?.data;
-
-
-
-  const dataArray = [
-    {
-      heading: 'Most viewed',
-      emptyStateIcon: IoEyeOutline,
-      isEmpty: false,
-      emptyStateSubText: 'Looks like nothing has been viewed yet',
-      ...(listingData?.[0] || {}),
-    },
-  ];
-
+  const router = useRouter();
   return (
     <Grid
       mb="32px"
       templateColumns={{base: 'repeat(2, 1fr)', xl: 'repeat(3, 1fr)'}}
       w="full"
-      gap={{ base: '16px', xl: '24px' }}
+      gap={{base: '16px', xl: '24px'}}
     >
       <GridItem colSpan={1}>
         {' '}
@@ -69,18 +42,14 @@ const ListingOverViewHeader = ({listingData}) => {
         {' '}
         <ListingsDetailsCard total={2420} heading="Total Unit" soldOut={1620} available={800} />
       </GridItem>
-      <GridItem colSpan={{base: 2, xl: 1}} borderRadius='19.712px'>
-        <Stack
-          cursor="pointer"
-          pos="relative"
-          h="176px"
-          w="full"
-          borderRadius='19.712px'
-        >
-          <Box pos='relative' w='full' h='176px' overflow='hidden' borderRadius='19.712px'>
+      <GridItem colSpan={{base: 2, xl: 1}} borderRadius="19.712px">
+        <Stack cursor="pointer" pos="relative" h="176px" w="full" borderRadius="19.712px"
+        
+          onClick={() => router.push(`/listings/manage/?listingId=1`)}>
+          <Box pos="relative" w="full" h="176px" overflow="hidden" borderRadius="19.712px">
             <Image
-              src={listingData?.[0]?.photos?.[0]?.photo}
-              alt={listingData?.[0]?.name || "listing's" + 'image'}
+              src={listingData?.[1]?.photos?.photo}
+              alt={listingData?.[1]?.name || "listing's" + 'image'}
               fill
               style={{objectFit: 'cover'}}
             />
@@ -98,7 +67,7 @@ const ListingOverViewHeader = ({listingData}) => {
               most populated
             </Text>
             <Text textTransform="capitalize" fontSize="18px" lineHeight="22.82px" fontWeight="600">
-              {listingData?.[0]?.name}
+              {listingData?.[1]?.name}
             </Text>
           </Stack>
         </Stack>
