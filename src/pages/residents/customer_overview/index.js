@@ -108,8 +108,6 @@ export const CustomerOverviewPage = () => {
 
   const mainParam = QUERY_PARAMS + (QUERY_PARAMS ? '&' : '') + convertToApiQuery();
 
-  console.log("ASsAS", customers)
-
   const customerOverviewData = customers?.data
 
   const handleExpand = () => {
@@ -180,9 +178,6 @@ export const CustomerOverviewPage = () => {
             color="#191919"
             fontFamily="Euclid Circular B"
           >
-            <Heading fontSize="28px" fontWeight="600" lineHeight="24px" color="#191919">
-              Overview
-            </Heading>
 
             <HStack
               justifySelf="flex-end"
@@ -241,7 +236,7 @@ export const CustomerOverviewPage = () => {
 export default CustomerOverviewPage;
 
 
-const customers = {
+export const customers = {
   status: true,
   count: 78,
   total_customers: 78,
@@ -307,9 +302,10 @@ const customers = {
         customer_id: 3375,
         id: 4026,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/58ad15c2-007.png',
-        email: 'Ahmed@yahoo.com',
-        name: 'Ahmed Ibraheem',
-        phone: '+2347019955751',
+        email: 'ralpheds@gmail.com',
+        name: 'Ralph Edwards',
+        phone: '+1 415 555 2671',
+        community: 'Mapel Glen & 2 others',
         address: null,
         status: false,
         date_joined: '2025-04-16T13:48:59.602977Z',
@@ -328,10 +324,11 @@ const customers = {
         customer_id: 3352,
         id: 4006,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/fda113cd-2d5.png',
-        email: 'dliss@gmail.com',
-        name: 'Lookl Greyworm',
-        phone: '+2343456789',
+        email: 'brooke25@gmail.com',
+        name: 'Brooklyn Simmons',
+        phone: '+1 217 555 0113',
         address: null,
+        community: 'Crystal Lake Manor',
         status: true,
         date_joined: '2025-04-12T03:09:36.170497Z',
         referred_by: {
@@ -348,9 +345,10 @@ const customers = {
         customer_id: 3351,
         id: 3532,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/ffd63f8d-bd8.png',
-        email: 'AHMED@gmail.com',
-        name: 'Ahmed Ibraheem',
-        phone: '+2347019955751',
+        email: 'wadewee@gmail.com',
+        name: 'Wade Warren',
+        phone: '+1 252 555 0126',
+        community: 'Oakstone Valley',
         address: null,
         status: false,
         date_joined: '2025-04-11T22:27:46.554830Z',
@@ -369,10 +367,11 @@ const customers = {
         customer_id: 3350,
         id: 4005,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/0b459615-c30.png',
-        email: 'pecoy47594@anlocc.com',
-        name: 'Sam Altman',
-        phone: '+2347346734778',
+        email: 'jennywilly@gmail.com',
+        name: 'Jenny Wilson',
+        phone: '+1 704 555 0127',
         address: null,
+        community: 'Oak Ridge',
         status: true,
         date_joined: '2025-04-11T13:18:22.267094Z',
         referred_by: {
@@ -389,11 +388,12 @@ const customers = {
         customer_id: 3242,
         id: 2336,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/9bd55c47-20b.jpg',
-        email: 'dudealmost@mail.com',
-        name: 'Anthony Martin',
-        phone: '+15959409394',
+        email: 'arlenee89@gmail.com',
+        name: 'Arlene McCoy',
+        phone: '+1 270 555 0117',
         address: null,
         status: false,
+        community: 'Evergreen Hills',
         date_joined: '2025-03-17T13:49:05.800924Z',
         referred_by: {
           name: 'Another Admin',
@@ -409,11 +409,12 @@ const customers = {
         customer_id: 3241,
         id: 2335,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/b2cff476-387.jpg',
-        email: 'reviewtrust@mail.com',
-        name: 'Violini Odder',
-        phone: '+448393942399',
+        email: 'guyhawkins158@gmail.com',
+        name: 'Guy Hawkins',
+        phone: '+1 205 555 0100',
         address: null,
         status: false,
+        community: 'Bluebell Meadows & 3 others',
         date_joined: '2025-03-17T13:49:05.732809Z',
         referred_by: {
           name: 'Another Admin',
@@ -430,10 +431,11 @@ const customers = {
         id: 2334,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/269e9814-d7f.jpg',
         email: 'younginbank@mail.com',
-        name: 'Mabel Cole',
-        phone: '+2342945394982',
+        name: 'Courtney Henry',
+        phone: '+1 505 555 0125',
         address: null,
         status: false,
+        community: 'The Aspen Enclave ',
         date_joined: '2025-03-17T13:49:05.519216Z',
         referred_by: {
           name: 'Another Admin',
@@ -452,6 +454,7 @@ const customers = {
         email: 'elon@musk.dog',
         name: 'Elon Musk',
         phone: '+442058788999',
+        community: 'Zenith Court',
         address: null,
         status: false,
         date_joined: '2025-03-14T14:11:33.723814Z',
@@ -472,6 +475,7 @@ const customers = {
         email: 'mark@zuck.com',
         name: 'Mark Zuck',
         phone: '+440587889999',
+        community: 'Luxe Haven Residences ',
         address: null,
         status: false,
         date_joined: '2025-03-14T14:02:39.534484Z',
@@ -490,8 +494,10 @@ const customers = {
         id: 3890,
         img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
         email: 'favourayo@gmail.com',
-        name: 'favor ayo mide',
+        name: 'James Cooper',
         phone: '+2348098765455',
+        phone: '+1 505 555 0125',
+        community: 'The Aspen Enclave ',
         address: null,
         status: true,
         date_joined: '2025-03-14T09:58:34.441175Z',
