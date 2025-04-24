@@ -55,7 +55,7 @@ export const AgentApprovalModal = ({isVideo, refetch, accountId}) => {
     onSuccess: res => {
       setIsClicked(false);
       setReason('');
-      refetch()
+      refetch();
       toast({
         title: isAccepted ? `Application Approved` : `Application Rejected`,
         status: 'success',
@@ -106,9 +106,9 @@ export const AgentApprovalModal = ({isVideo, refetch, accountId}) => {
         py="0px"
         variant="primary"
         bg="transparent"
-        onClick={AgentRequestDrawer.onOpen}
-        border="1px  solid #4545FE"
-        color="#4545FE"
+        // onClick={AgentRequestDrawer.onOpen}
+        border="1px  solid #E4E4E7"
+        color="#27272A"
         borderRadius="72px"
         fontSize="14px"
         fontWeight="400"
@@ -141,10 +141,10 @@ export const AgentApprovalModal = ({isVideo, refetch, accountId}) => {
               <Text fontWeight="500" fontSize="18px" color="#191919">
                 {detailsError?.response?.status === 500
                   ? "Apologies for the inconvenience. We're working on it. Please try again later."
-                  : detailsError?.response?.data?.message ??
+                  : (detailsError?.response?.data?.message ??
                     detailsError?.response?.message ??
                     detailsError?.message ??
-                    'Something went wrong, we are working on resolving it.'}
+                    'Something went wrong, we are working on resolving it.')}
               </Text>
             </HStack>
           ) : (
@@ -231,7 +231,7 @@ export const AgentApprovalModal = ({isVideo, refetch, accountId}) => {
                     <Text fontWeight="600" fontSize="14px" color="#191919">
                       {agentDetails?.data?.marital_status === 'marital_status'
                         ? 'N/A'
-                        : agentDetails?.data?.marital_status ?? 'N/A'}
+                        : (agentDetails?.data?.marital_status ?? 'N/A')}
                     </Text>
                   </HStack>
                   <Stack
@@ -285,18 +285,17 @@ export const AgentApprovalModal = ({isVideo, refetch, accountId}) => {
                         borderRadius="20px"
                         bg="whitesmoke"
                         src={agentDetails?.data?.uploaded_id[0]?.document}
-                        cursor='zoom-in'
+                        cursor="zoom-in"
                         onClick={documentDisclosure?.onOpen}
                         alt="image"
                       />
-                   
                     </Box>
                   </Stack>
                 </Stack>
               </DrawerBody>
 
               <DrawerFooter px={`24px`} py={`10px`}>
-                <Stack flexDirection='column-reverse' gap='12px' w={`100%`}>
+                <Stack flexDirection="column-reverse" gap="12px" w={`100%`}>
                   <Button
                     border="1px solid #FF6A6A"
                     borderRadius={`72px`}

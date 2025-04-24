@@ -23,26 +23,25 @@ const UserAssetCard = ({heading, hasAssets, value}) => {
           <Heading fontSize="16px" fontWeight="500" color="#525252" lineHeight="24px">
             {heading}
           </Heading>
-          {hasAssets ? <Image src={verifiedIcon.src} alt="verified icon" boxSize="18px" /> : null}
         </Flex>
         <Text fontSize="36px" fontWeight="600" color="#141414" lineHeight="44px">
           {formatNumberWithCommas(value)}
         </Text>
+        {hasAssets ? <Flex gap="2px" bg={hasAssets ? '#ecfdf3' : '#fef3f2'} borderRadius="24px" h="36px" p="8px">
+          <Icon
+            as={IoArrowDown}
+            boxSize="20px"
+            transform={hasAssets ? 'rotate(180deg)' : ''}
+            color={hasAssets ? '#064b38' : '#f04438'}
+          />
+          <Text fontSize="14px" fontWeight="500" color={'#292929'} lineHeight="20px">
+            <Text as="span" color={hasAssets ? '#064b38' : '#f04438'}>
+              40%
+            </Text>{' '}
+            vs last month
+          </Text>
+        </Flex> : null}
       </Stack>
-      <Flex gap="2px" bg={hasAssets ? '#ecfdf3' : '#fef3f2'} borderRadius="24px" h="36px" p="8px">
-        <Icon
-          as={IoArrowDown}
-          boxSize="20px"
-          transform={hasAssets ? 'rotate(180deg)' : ''}
-          color={hasAssets ? '#064b38' : '#f04438'}
-        />
-        <Text fontSize="14px" fontWeight="500" color={'#292929'} lineHeight="20px">
-          <Text as="span" color={hasAssets ? '#064b38' : '#f04438'}>
-            0%
-          </Text>{' '}
-          vs last month
-        </Text>
-      </Flex>
     </Flex>
   );
 };

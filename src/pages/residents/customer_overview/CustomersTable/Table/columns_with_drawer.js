@@ -1,10 +1,11 @@
 import {useState} from 'react';
-import {Flex, HStack, Image, Text, useDisclosure} from '@chakra-ui/react';
+import {Flex, HStack, Image, Stack, Text, useDisclosure} from '@chakra-ui/react';
 
 import CustomerDrawer from '../../../../../components/Drawers/customerDrawer';
 
 import avatarFallback from '/src/images/avatar.svg';
 import verifiedIcon from '/src/images/icons/verifiedIcon.svg';
+import {truncateLongText} from 'utils/truncateLongText';
 
 const ColumnsCustomerDrawer = ({row, user}) => {
   const CustomerDetailsModal = useDisclosure();
@@ -17,7 +18,7 @@ const ColumnsCustomerDrawer = ({row, user}) => {
     setRunQuery(true);
   };
 
-  const userObject = row?.response || user
+  const userObject = row?.response || user;
   return (
     <>
       <HStack
@@ -37,23 +38,31 @@ const ColumnsCustomerDrawer = ({row, user}) => {
           objectFit="cover"
           src={userObject?.img || userObject?.img?.[0] || avatarFallback.src}
         />
-        <Flex flex={`1`} align="center" gap="8px">
-          <Text
-            pr="7px"
-            fontSize="14px"
-            wordWrap={'break-word'}
-            overflowWrap={`break-word`}
-            whiteSpace="break-spaces"
-            wordBreak="break-word"
-            textTransform="capitalize"
-            _hover={{textDecoration: 'underline'}}
-          >
-            {userObject?.name}
+        <Stack>
+          <Flex flex={`1`} align="center" gap="8px">
+            <Text
+              pr="7px"
+              fontSize="14px"
+              wordWrap={'break-word'}
+              overflowWrap={`break-word`}
+              whiteSpace="break-spaces"
+              wordBreak="break-word"
+              textTransform="capitalize"
+              _hover={{textDecoration: 'underline'}}
+            >
+              {userObject?.name}
+            </Text>
+            {userObject?.status ? (
+              <Image src={verifiedIcon.src} alt="verified icon" boxSize="18px" />
+            ) : null}
+          </Flex>
+          <Text cursor={'pointer'} color={'#4545FE'} textAlign={'left'} fontSize={'14px'}>
+            <a href={`mailto:${row?.response?.email}`}>
+              {' '}
+              {truncateLongText(row?.response?.email, 29).truncatedText}{' '}
+            </a>
           </Text>
-          {userObject?.status ? (
-            <Image src={verifiedIcon.src} alt="verified icon" boxSize="18px" />
-          ) : null}
-        </Flex>
+        </Stack>
       </HStack>
 
       <CustomerDrawer modalDisclosure={CustomerDetailsModal} userId={userId} runQuery={runQuery} />

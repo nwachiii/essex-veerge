@@ -1,11 +1,6 @@
-import {Box, Flex, Grid, GridItem} from '@chakra-ui/react';
-import {motion} from 'framer-motion';
-import React from 'react';
-import ExpandOverview from './Expand';
+import {Grid, GridItem} from '@chakra-ui/react';
 import UserAssetCard from '@/components/Customers/overview/userAssetCard';
 import UserTransactionInfoCard from '@/components/Customers/overview/userTransactionInfoCard';
-import Link from 'next/link';
-import {Button} from 'ui-lib';
 
 export default function TopHeader({handleExpand, expand, value, setValue, customersFetchQuery}) {
   const sort_params = [
@@ -14,8 +9,7 @@ export default function TopHeader({handleExpand, expand, value, setValue, custom
     'Date joined oldest to newest',
     'Date joined newest to oldest',
   ];
-  const customerOverviewData =
-    [customersFetchQuery?.data] && [customersFetchQuery?.data?.data]?.[0];
+  const customerOverviewData = customersFetchQuery;
 
   const usersWithoutAssets =
     (customerOverviewData?.total_customers || 0) - (customerOverviewData?.total_asset_holders || 0);
@@ -46,15 +40,15 @@ export default function TopHeader({handleExpand, expand, value, setValue, custom
         <GridItem colSpan={1}>
           <UserAssetCard
             hasAssets
-            heading={'Users with assets'}
-            value={customerOverviewData?.total_asset_holders ?? 0}
+            heading={'Total Residents'}
+            value={'134'}
           />
         </GridItem>
         <GridItem colSpan={1}>
-          <UserAssetCard heading={'Users without assets'} value={usersWithoutAssets ?? 0} />
+          <UserAssetCard heading={'Total Tenants'} value={'92'} />
         </GridItem>
-        <GridItem colSpan={{base: 2, xl: 1}}>
-          <UserTransactionInfoCard customerOverviewData={customerOverviewData} />
+        <GridItem colSpan={1}>
+          <UserAssetCard heading={'Total Owners'} value={'42'} />
         </GridItem>
       </Grid>
     </>

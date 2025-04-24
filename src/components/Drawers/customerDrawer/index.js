@@ -29,6 +29,7 @@ import {fetchOneCustomer} from 'apis/customers';
 import avatarFallback from '/src/images/avatar.svg';
 import Image from 'next/image';
 import Link from 'next/link';
+import { customers } from 'pages/residents/customer_overview';
 
 const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = () => {}}) => {
   const ACTIVITY_LOG_DRAWER = useDisclosure();
@@ -41,13 +42,7 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
     })();
   };
 
-  const {data, isError, isLoading, error} = useQuery(
-    ['individual-customer-profile', userId],
-    async () => await fetchOneCustomer(userId),
-    {
-      enabled: modalDisclosure.isOpen && runQuery,
-    }
-  );
+  const {data} = customers.data.filter(e => e.response.id == userId);
 
   return (
     <Drawer isOpen={modalDisclosure.isOpen} onClose={handleClose} borderRadius="16px">
@@ -144,26 +139,7 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
           px="26px"
           overflowY={'auto'}
         >
-          {isLoading ? (
-            <VStack w="full" justify="center" align="center" h="20vh">
-              <Spinner />
-            </VStack>
-          ) : isError ? (
-            <VStack w="full" justify="center" align="center" h="40vh">
-              <Text fontSize="14px" fontWeight="400" textAlign="center" w="300px" color="#000">
-                {`${
-                  error?.response?.status === 500
-                    ? "Apologies for the inconvenience. We're working on it. Please try again later."
-                    : error?.response?.status === 401
-                      ? 'Authentication Timeout: For security reasons, your session has timed out. Please log in again to continue.'
-                      : (error?.response?.data?.message ??
-                        error?.response?.message ??
-                        error?.message ??
-                        'Something went wrong')
-                }`}
-              </Text>
-            </VStack>
-          ) : (
+      
             <>
               {/* <ContactCard data={data} userId={userId} /> */}
               <HStack
@@ -208,7 +184,6 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
               </HStack>
               <PortfolioCard data={data} />
             </>
-          )}
         </Box>
       </DrawerContent>
     </Drawer>

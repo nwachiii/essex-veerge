@@ -1,4 +1,4 @@
-# Veerge for Property Developers
+# Essex HOA
 
 Welcome 🎊🎉 Everyone deserves a piece of real estate to call their own, and the acquisition should
 be seamless, with the customer and end-user at the centre of how the solution is conceived. Veerge

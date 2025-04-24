@@ -2,13 +2,10 @@ import {
   Box,
   Image,
   HStack,
-  Tab,
-  TabList,
   TabPanel,
   TabPanels,
   Tabs,
   Text,
-  useToast,
   Button,
   Stack,
   StackDivider,
@@ -17,20 +14,14 @@ import Link from 'next/link';
 import {useEffect, useState} from 'react';
 import {LayoutView} from '../../components';
 import {tabs} from '../../constants/request/tabs';
-import {useQuery} from '@tanstack/react-query';
 import history_timer_icon from '/src/images/icons/request_history_icon.svg';
 import backButton from '/src/images/icons/backButton.svg';
 
-import {fetchAllRequests} from '../../apis/requests';
 import {useRouter} from 'next/router';
-import {toastForError} from '../../utils/toastForErrors';
-import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 
 export default function Request() {
   const [tabIndex, setTabIndex] = useState(0);
-  const toast = useToast();
   const router = useRouter();
-  const isSmallerLaptop = useSmallerLaptopsBreakpoint();
   const routeQueries = router.query;
 
   const mergedQuery = status => ({
@@ -58,80 +49,6 @@ export default function Request() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tabIndex]);
-
-  const tabParamObj = [
-    {
-      search: router?.query?.status === 'history' ? router?.query?.hiq : router?.query?.iq,
-      searchKey:
-        router?.query?.status === 'history' ? 'closed_inspection_search' : 'inspection_search',
-      countName:
-        router?.query?.status === 'history' ? 'count_closed_inspection' : 'count_inspection',
-      page: router?.query?.status === 'history' ? 'page_closed_inspection' : 'page_inspection',
-    },
-    {
-      search: router?.query?.status === 'history' ? router?.query?.haq : router?.query?.aq,
-      searchKey: router?.query?.status === 'history' ? 'closed_agent_search' : 'agent_search',
-
-      countName: router?.query?.status === 'history' ? 'count_closed_agent' : 'count_agent',
-      page: router?.query?.status === 'history' ? 'page_closed_agent' : 'page_agent',
-    },
-    {
-      search: router?.query?.status === 'history' ? router?.query?.hcq : router?.query?.cq,
-      searchKey:
-        router?.query?.status === 'history' ? 'closed_commission_search' : 'commission_search',
-
-      countName:
-        router?.query?.status === 'history' ? 'count_closed_commissions' : 'count_commissions',
-      page: router?.query?.status === 'history' ? 'page_closed_commission' : 'page_commission',
-    },
-  ];
-
-  const convertToApiQuery = () => {
-    const params = new URLSearchParams();
-
-    for (const key in routeQueries) {
-      if (routeQueries.hasOwnProperty(key)) {
-        if (
-          key === 'iq' ||
-          key === 'hiq' ||
-          key === 'aq' ||
-          key === 'haq' ||
-          key === 'cq' ||
-          key === 'hcq'
-        ) {
-        } else if (key === 'status') {
-        } else if (key === 'page') {
-        } else {
-          params.append(key, routeQueries[key]);
-        }
-      }
-    }
-    //include current tab's search
-    tabParamObj[tabIndex]?.search
-      ? params.append(tabParamObj[tabIndex]?.searchKey, tabParamObj[tabIndex]?.search)
-      : null;
-
-    //set active tab's page query
-    routeQueries?.page && routeQueries?.page !== '1' // check if theres a page query or if its not on page 1 (the default page is 1)
-      ? params.append(tabParamObj[tabIndex]?.page, routeQueries?.page)
-      : null;
-    return `${'dashboard'}${params ? '?' : ''}${params}`;
-  };
-
-  const param = convertToApiQuery();
-  // 'dashboard';
-
-  const {
-    data: allRequests,
-    isError,
-    isLoading,
-    refetch,
-    error,
-  } = useQuery([`requests-${param}`, param], () => fetchAllRequests(param));
-
-  const ALL_REQUESTS = allRequests && allRequests?.data?.message;
-
-  toastForError(error, isError, toast);
 
   return (
     <Box
@@ -230,142 +147,68 @@ export default function Request() {
                   boxShadow="0px 1px 2px 0px rgba(16, 24, 40, 0.05)"
                   divider={<StackDivider my="0px" />}
                 >
-                  {tabs.map((item, idx) => {
-                    return (ALL_REQUESTS?.[tabParamObj[idx]?.countName] &&
-                      item.tablist != 'Listing Inspection') ||
-                      item.tablist === 'Listing Inspection' ? (
-                      <HStack
-                        cursor="pointer"
-                        spacing="8px"
-                        px="16px"
-                        onClick={() => tabSwitched(idx)}
-                        py="10px"
-                        bg={idx === tabIndex ? '#F5F5F5' : ''}
-                      >
-                        {idx === tabIndex ? (
-                          <Box boxSize="10px" borderRadius="full" bg="#191919" />
-                        ) : null}
-                        <HStack position="relative">
-                          <Text
-                            as="li"
-                            fontSize="14px"
-                            color={idx === tabIndex ? '#191919' : '#344054'}
-                            fontWeight={idx === tabIndex ? '600' : '400'}
-                          >
-                            {item.tablist}
-                          </Text>
-                          {ALL_REQUESTS?.[tabParamObj[idx]?.countName] ? (
-                            <HStack
-                              justify="center"
-                              position="absolute"
-                              left="104%"
-                              borderRadius="full"
-                              bg={tabIndex === idx ? '#242526' : 'rgba(145, 145, 145, 0.1)'}
-                              minH="20px"
-                              minW="20px"
-                              boxSizing="border-box"
-                              py="2.5px"
-                              align="center"
-                              px="3.67px"
-                            >
-                              <Text
-                                fontSize="11.667px"
-                                lineHeight="20px"
-                                minW="20px"
-                                fontWeight="400"
-                                color={tabIndex === idx ? '#fff' : '#919191'}
+                  {tabs.map((item, idx) => (
+                    <HStack
+                      cursor="pointer"
+                      spacing="8px"
+                      px="16px"
+                      onClick={() => tabSwitched(idx)}
+                      py="10px"
+                      bg={idx === tabIndex ? '#F5F5F5' : ''}
+                    >
+                      {idx === tabIndex ? (
+                        <Box boxSize="10px" borderRadius="full" bg="#191919" />
+                      ) : null}
+                      <HStack position="relative">
+                        <Text
+                          as="li"
+                          fontSize="14px"
+                          color={idx === tabIndex ? '#191919' : '#344054'}
+                          fontWeight={idx === tabIndex ? '600' : '400'}
+                        >
+                          {item.tablist}
+                        </Text>
 
-                                // pr="10px"
-                              >
-                                {ALL_REQUESTS?.[tabParamObj[idx]?.countName]}
-                              </Text>
-                            </HStack>
-                          ) : null}
-                        </HStack>
+                        {tabs[idx]?.countNo ? (
+                          <HStack
+                            justify="center"
+                            position="absolute"
+                            left="104%"
+                            borderRadius="full"
+                            bg={tabIndex === idx ? '#242526' : 'rgba(145, 145, 145, 0.1)'}
+                            minH="20px"
+                            minW="20px"
+                            boxSizing="border-box"
+                            py="2.5px"
+                            align="center"
+                            px="3.67px"
+                          >
+                            <Text
+                              fontSize="11.667px"
+                              lineHeight="20px"
+                              minW="20px"
+                              fontWeight="400"
+                              color={tabIndex === idx ? '#fff' : '#919191'}
+
+                              // pr="10px"
+                            >
+                              {tabs[idx]?.countNo}
+                            </Text>
+                          </HStack>
+                        ) : null}
                       </HStack>
-                    ) : null;
-                  })}
+                    </HStack>
+                  ))}
                 </Stack>
               </Stack>
 
               <Box flex={`1`}>
                 <Tabs variant="null" onChange={tabSwitched} isFitted spacing="none" w={`100%`}>
-                  <TabList
-                    flex={`1`}
-                    maxW="1284px"
-                    fontWeight="light"
-                    boxShadow="none"
-                    color="#3D3D3D"
-                  >
-                    <HStack
-                      border="none"
-                      h="82px"
-                      borderTopRadius="10px"
-                      pt="23px"
-                      pb="26px"
-                      bg="#ffffff"
-                      px="100px"
-                      w="full"
-                      justify="space-between"
-                      hidden={true}
-                    >
-                      {tabs.map((item, index) => (
-                        <Tab
-                          key={index}
-                          maxW="34px"
-                          w="34px"
-                          position="relative"
-                          fontSize="18px"
-                          fontWeight="400"
-                          wordBreak="keep-all"
-                          whiteSpace="nowrap"
-                          color="#919191"
-                          hidden={true}
-                          _selected={{
-                            color: `#191919`,
-                            fontWeight: '600',
-                            border: 'none',
-                          }}
-                        >
-                          <HStack position="relative">
-                            <Text>{item.tablist}</Text>
-                            {ALL_REQUESTS?.[tabParamObj[index]?.countName] ? (
-                              <HStack
-                                justify="center"
-                                position="absolute"
-                                left="104%"
-                                borderRadius="full"
-                                bg={tabIndex === index ? '#242526' : 'rgba(145, 145, 145, 0.1)'}
-                                minH="30px"
-                                minW="30px"
-                                boxSizing="border-box"
-                                py="3px"
-                                px="8px"
-                              >
-                                <Text
-                                  fontSize="14px"
-                                  lineHeight="14px"
-                                  fontWeight="400"
-                                  color={tabIndex === index ? '#fff' : '#919191'}
-
-                                  // pr="10px"
-                                >
-                                  {ALL_REQUESTS?.[tabParamObj[index]?.countName]}
-                                </Text>
-                              </HStack>
-                            ) : (
-                              ''
-                            )}
-                          </HStack>
-                        </Tab>
-                      ))}
-                    </HStack>
-                  </TabList>
                   <Box padding="0">
                     <TabPanels>
                       <Box w="full" h="full">
                         <TabPanel w="full" py="0" px="0px">
-                          {tabs[tabIndex]?.component(ALL_REQUESTS, refetch, isLoading, isError)}
+                          {tabs[tabIndex]?.component(() => {}, false, false)}
                         </TabPanel>
                       </Box>
                     </TabPanels>
