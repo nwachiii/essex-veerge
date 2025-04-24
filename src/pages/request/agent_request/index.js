@@ -33,7 +33,7 @@ export default function AgentRequest({AllRequests, refetch, isLoading, isError})
   const routeQueries = router.query;
 
   const defaultSearchValue =
-    router?.query?.status === 'history' ? routeQueries?.haq ?? '' : routeQueries?.aq ?? '';
+    router?.query?.status === 'history' ? (routeQueries?.haq ?? '') : (routeQueries?.aq ?? '');
 
   const setSearctTextAsQuery = () => {
     let obj = {};
@@ -137,15 +137,7 @@ export default function AgentRequest({AllRequests, refetch, isLoading, isError})
 
   const number_of_pages = Math.ceil(~~AllRequests?.[countKey] / ~~limit);
 
-  return isError ? (
-    <></>
-  ) : isLoading ? (
-    <Stack spacing="none" maxW="1001px" h="60vh" borderTopRadius="8px">
-      <Center>
-        <AnimatedLoader />
-      </Center>
-    </Stack>
-  ) : (
+  return (
     <RequestInfoWrapper
       header={header}
       requestComponent={data => REQUESTCOMPONENT(data)}
@@ -156,73 +148,4 @@ export default function AgentRequest({AllRequests, refetch, isLoading, isError})
       searchText={searchText}
     />
   );
-
-  // (
-  //   <>
-  //     <HStack mb="24px" pr="2px" justify="end" w="full">
-  //       <InputGroup w="fit-content" justifySelf="flex-end" alignSelf="flex-end">
-  //         <InputRightElement pointerEvents="none">
-  //           <Image src={searchIcon.src} alt="search icon" />
-  //         </InputRightElement>
-  //         <Input
-  //           fontSize="14px"
-  //           fontWeight="300"
-  //           value={searchText}
-  //           w="319px"
-  //           h="43px"
-  //           border="1px solid #E4E4E4"
-  //           bg="#F5F5F5"
-  //           color="#222222"
-  //           borderRadius="12px"
-  //           onChange={handleChange}
-  //           placeholder="search"
-  //           _placeholder={{
-  //             color: '#606060',
-  //             fontSize: '12px',
-  //             fontWeight: '300',
-  //           }}
-  //         />
-  //       </InputGroup>
-  //     </HStack>
-  //     <Box
-  //       padding="0"
-  //       border={isLoading && 'solid 1px #f4f4f4'}
-  //       borderRadius={isLoading && '8px'}
-  //       overflow={isLoading && 'hidden'}
-  //       bg={isLoading && 'white'}
-  //     >
-  //       <SkeletonText
-  //         isLoaded={!isLoading}
-  //         skeletonHeight="60px"
-  //         noOfLines={1}
-  //         startColor="gray.300"
-  //         endColor={'#F3F3F3'}
-  //       />
-  //       <SkeletonText
-  //         isLoaded={!isLoading}
-  //         mt="4"
-  //         noOfLines={6}
-  //         spacing="10px"
-  //         skeletonHeight="20px"
-  //         startColor="gray.300"
-  //         endColor={'#F3F3F3'}
-  //       >
-  //         {!isLoading && (
-  //           <MatadorCustomTable
-  //             teams
-  //             minW="full"
-  //             forLimit={[limit, dataKey, router.query.status]}
-  //             number_of_pages={number_of_pages}
-  //             handlePagination={handlePagination}
-  //             forMemo={[AllRequests, dataKey, router.query.status] ?? []}
-  //             headerSpace="evenly"
-  //             isManageAgentEmpty="There is no request at the moment"
-  //             DATA={AllRequests?.[dataKey] ?? []}
-  //             COLUMNS={COLUMN}
-  //           />
-  //         )}
-  //       </SkeletonText>
-  //     </Box>
-  // </>
-  // );
 }

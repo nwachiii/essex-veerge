@@ -1,10 +1,12 @@
 import {
   Box,
+  Center,
   HStack,
   Heading,
   Image,
   Input,
   InputGroup,
+  InputLeftElement,
   InputRightElement,
   Stack,
   StackDivider,
@@ -16,6 +18,7 @@ import emptyIcon from '/src/images/icons/emptyIcon.svg';
 
 import React from 'react';
 import searchIcon from '/src/images/icons/searchIconRequest.svg';
+import filterIcon from '/src/images/icons/filterIconRequest.svg';
 import InspectionHistoryComponent from './inspection/inspectionHistoryComponent';
 
 import PaginationComponent from './paginationComponent';
@@ -25,12 +28,12 @@ import CustomPagination from '../common/Pagination';
 
 export const RequestInfoWrapper = ({
   requestArray,
-  header,
   handlePagination,
   handleChange,
   searchText,
   number_of_pages,
   requestComponent,
+  header,
 }) => {
   return (
     <Stack
@@ -51,37 +54,42 @@ export const RequestInfoWrapper = ({
         pb="16px"
       >
         <Heading fontSize="18.448px" color="#475467" fontWeight="400">
-          {/* 12 Pending Transaction */}
           {header}
         </Heading>
 
-        <InputGroup w="fit-content" justifySelf="flex-end" alignSelf="flex-end">
-          <InputRightElement pointerEvents="none">
-            <Image src={searchIcon.src} alt="search icon" />
-          </InputRightElement>
-          <Input
-            fontSize="14px"
-            fontWeight="300"
-            value={searchText}
-            w="152px"
-            h="43px"
-            border="1px solid #E4E4E4"
-            bg="#F5F5F5"
-            color="#222222"
-            borderRadius="12px"
-            onChange={handleChange}
-            placeholder="search"
-            _focus={{
-              w: '319px',
-            }}
-            transition="ease-in-out 0.3s"
-            _placeholder={{
-              color: '#606060',
-              fontSize: '12px',
-              fontWeight: '300',
-            }}
-          />
-        </InputGroup>
+        <HStack justifySelf="flex-end" alignSelf="flex-end" spacing={'16px'}>
+          <InputGroup w="fit-content">
+            <InputLeftElement pointerEvents="none">
+              <Image src={searchIcon.src} alt="search icon" />
+            </InputLeftElement>
+            <Input
+              fontSize="14px"
+              fontWeight="300"
+              value={searchText}
+              w="152px"
+              h="43px"
+              border="1px solid #E4E4E7"
+              bg="#FAFAFA"
+              color="#222222"
+              borderRadius="8px"
+              onChange={handleChange}
+              placeholder="search"
+              _focus={{
+                w: '319px',
+              }}
+              transition="ease-in-out 0.3s"
+              _placeholder={{
+                color: '#606060',
+                fontSize: '12px',
+                fontWeight: '300',
+              }}
+            />
+          </InputGroup>
+
+          <Center w="43px" h="43px" borderRadius={'9.694px'} border={'0.597px solid #E4E4E7'}>
+            <Image src={filterIcon.src} alt="filter icom" />
+          </Center>
+        </HStack>
       </HStack>
       <Stack w="full" spacing="none" divider={<StackDivider my="24px" />}>
         {!requestArray?.length ? (

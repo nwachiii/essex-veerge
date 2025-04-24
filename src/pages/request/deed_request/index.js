@@ -10,36 +10,24 @@ import {
   DEED_REQUEST_COLUMN_HISTORY,
   DEED_REQUEST_DATA_HISTORY,
 } from '../../../constants/request/request_history/History.DeedRequestData';
+import allRequestDummyData from '../../../constants/request/dummyData.js';
 
 export default function DeedRequest() {
   const router = useRouter();
   const toast = useToast();
+  const ALL_REQUESTS = allRequestDummyData;
 
   const [searchText, setText] = useState('');
-  const [deedData, setDeedData] = useState([]);
-  const [filteredDeedData, setFilteredDeedData] = useState([]);
+  const deedData = ALL_REQUESTS;
+  const [filteredDeedData, setFilteredDeedData] = useState(ALL_REQUESTS);
 
   const param = router.route.slice(-7) === 'history' ? 'history' : 'dashboard';
   console.log(param);
-  const {
-    data: allRequests,
-    isError,
-    isLoading,
-    isFetching,
-    refetch,
-    error,
-  } = useQuery([`requests-${param}`, param], () => fetchAllRequests(param));
 
-  const ALL_REQUESTS = allRequests && allRequests?.data?.message?.deed_requests;
-
-  console.log('deed', ALL_REQUESTS, isLoading, isError);
-
-  useEffect(() => {
-    console.log(allRequests?.data?.message?.deed_requests ?? []);
-    setDeedData(allRequests?.data?.message?.deed_requests ?? []);
-
-    setFilteredDeedData(allRequests?.data?.message?.deed_requests ?? []);
-  }, [allRequests]);
+  const isLoading = false;
+  const isError = false;
+  const error = null;
+  const refetch = () => {};
 
   const handInput = e => {
     const searchQuery = e.target.value;
