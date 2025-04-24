@@ -11,44 +11,35 @@ const AllRequests = allRequestDummyData;
 export const tabs = [
   {
     tablist: 'Payment Plan Request',
-    component: (refetch, isLoading, isError) => (
+    component: () => (
       <InspectionRequest
         header="Payment Plan Request"
         AllRequests={AllRequests}
         dataKey={'payment_plan'}
-        refetch={refetch}
-        isError={isError}
-        isLoading={isLoading}
       />
     ),
     countName: 'count_inspection',
-    countNo: 3,
+    countNo: 7,
   },
   {
     tablist: 'Reservation Request ',
-    component: (refetch, isLoading, isError) => (
+    component: () => (
       <InspectionRequest
-        header="Reservation Request "
+        header="Reservation Request"
         AllRequests={AllRequests}
         dataKey={'reservation_request'}
-        refetch={refetch}
-        isError={isError}
-        isLoading={isLoading}
       />
     ),
     countName: 'count_agent',
-    countNo: 1,
+    countNo: 7,
   },
   {
     tablist: 'Design Request',
-    component: (refetch, isLoading, isError) => (
+    component: () => (
       <InspectionRequest
         header="Design Request"
         AllRequests={AllRequests}
         dataKey={'design_request'}
-        refetch={refetch}
-        isError={isError}
-        isLoading={isLoading}
       />
     ),
     countName: 'count_commissions',
@@ -56,17 +47,14 @@ export const tabs = [
   },
   {
     tablist: 'Emergency Escalations',
-    component: (refetch, isLoading, isError) => (
+    component: () => (
       <InspectionRequest
         header="Emergency Escalations"
         AllRequests={AllRequests}
         dataKey={'emergency_escalations'}
-        refetch={refetch}
-        isError={isError}
-        isLoading={isLoading}
       />
     ),
     countName: 'count_commissions',
-    countNo: 2,
+    countNo: 0,
   },
 ];

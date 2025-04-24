@@ -95,25 +95,12 @@ export const RequestInfoWrapper = ({
         {!requestArray?.length ? (
           <EmptyState
             title={`Nothing Found`}
-            description={`Looks like there is no inspection request at the moment`}
+            description={`Looks like there is no ${header} at the moment`}
           />
         ) : (
           requestArray.map((item, idx) => {
             return requestComponent(item);
           })
-        )}
-
-        {!(~~number_of_pages > 1) ? null : (
-          <HStack w="full" justify={'flex-end'} gap="21px">
-            {/* <PaginationComponent
-              number_of_pages={number_of_pages}
-              handlePagination={handlePagination}
-            /> */}
-            <CustomPagination
-              number_of_pages={number_of_pages}
-              handlePagination={handlePagination}
-            />
-          </HStack>
         )}
       </Stack>
     </Stack>

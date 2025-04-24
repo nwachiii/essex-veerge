@@ -86,7 +86,7 @@ export default function InspectionRequest({AllRequests, dataKey, refetch, header
     router.query.status === 'history' ? (
       <InspectionHistoryComponent info={info} roles={roles} refetch={refetch} />
     ) : (
-      <PendingInspectionComponent info={info} roles={roles} refetch={refetch} />
+      <PendingInspectionComponent dataKey={dataKey} info={info} roles={roles} refetch={refetch} />
     );
 
   const handlePagination = direction => {
