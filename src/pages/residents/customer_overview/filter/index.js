@@ -371,7 +371,7 @@ const Filter = ({listings, setUrl, url, isFractional}) => {
                 >
                   <Wrap inner>
                     <VStack px="5px" spacing="26px" w="full" align="flex-start" h="full">
-                      {filteredListings.map((item, idx) => (
+                      {filteredListings?.map((item, idx) => (
                         <Checkbox
                           borderColor={'#606060'}
                           focusBorderColor=""

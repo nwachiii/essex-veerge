@@ -1,43 +1,24 @@
 import Link from 'next/link';
-import {CSVLink} from 'react-csv';
-import {theme} from '../../../theme';
-import {useRouter} from 'next/router';
-import {useState, useEffect} from 'react';
-import {useQuery} from '@tanstack/react-query';
-import {AnimatedLoader} from '../../../components';
+import { theme } from '../../../theme';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { AnimatedLoader } from '../../../components';
 import CustomersTable from './CustomersTable/Table';
-import {fetchCustomers} from '../../../apis/customers';
-import {Button} from '../../../ui-lib/ui-lib.components';
+import { fetchCustomers } from '../../../apis/customers';
+import { Button } from '../../../ui-lib/ui-lib.components';
 import {
   Box,
   useToast,
-  HStack,
-  Image,
-  Button as ChakraBtn,
-  extendTheme,
-  Heading,
-  SkeletonText,
-  Text,
-  Center,
-  Stack,
-  VStack,
-  useDisclosure,
-  Tooltip,
+  HStack, extendTheme,
+  Heading
 } from '@chakra-ui/react';
 import SortBy from '../../../components/SortBy';
-import backArrow from '/src/images/icons/back-arrow.png';
-import collapseIcon from '/src/images/icons/collapse.png';
-import downloadIcon from '/src/images/icons/download-icon.svg';
 
 import TopHeader from './TopHeader';
 import Filter from './filter';
-import createCustomerIcon from '/src/images/icons/create-customer-acct-icon.svg';
-import {BiExpand} from 'react-icons/bi';
-import expandIcon from '/src/images/icons/expand-icon.svg';
-import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
-import {handleDateFormat} from 'utils/formatDate';
-import {toastForError} from 'utils/toastForErrors';
+import { toastForError } from 'utils/toastForErrors';
 
 const styles = extendTheme({...theme});
 
@@ -127,8 +108,9 @@ export const CustomerOverviewPage = () => {
 
   const mainParam = QUERY_PARAMS + (QUERY_PARAMS ? '&' : '') + convertToApiQuery();
 
-  const customers = useQuery(['customer-meta-data', mainParam], () => fetchCustomers(mainParam));
-  const customerOverviewData = [customers?.data] ? [customers?.data?.data][0]?.data : [];
+  console.log("ASsAS", customers)
+
+  const customerOverviewData = customers?.data
 
   const handleExpand = () => {
     setExpand(!expand);
@@ -149,31 +131,8 @@ export const CustomerOverviewPage = () => {
     expand == false && window.scrollTo(0, 0);
   };
 
-  useEffect(() => {
-    const fetch = async () => await customers.refetch();
-    fetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router]);
-
-  useEffect(() => {
-    const defaultQuery = {
-      page: `1`,
-      limit,
-    };
-
-    const mergedQuery = {
-      ...router.query,
-      ...defaultQuery,
-    };
-    router.push({
-      pathname: router.pathname,
-      query: mergedQuery,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
-
-  const number_of_pages = Math.ceil(~~customers?.data?.data?.count / ~~limit);
-  const number_of_pages_when_expanded = Math.ceil(~~customers?.data?.data?.count / 20);
+  const number_of_pages = Math.ceil(~~customers?.data?.count / ~~limit);
+  const number_of_pages_when_expanded = Math.ceil(~~customers?.data?.count / 20);
   const canNotBeExpanded = ~~currentPage > number_of_pages_when_expanded;
 
   toastForError(customers.error, customers.isError, toast);
@@ -185,7 +144,7 @@ export const CustomerOverviewPage = () => {
     'Date joined newest to oldest',
   ];
 
-  const isTableValid = !customers.isError && !!customerOverviewData?.length;
+  const isTableValid = !!customerOverviewData?.length;
 
   return (
     <Box
@@ -195,8 +154,6 @@ export const CustomerOverviewPage = () => {
       maxW="full"
       w="full"
       mx="auto"
-
-      // className="main-app"
     >
       <TopHeader
         customersFetchQuery={customers}
@@ -235,7 +192,7 @@ export const CustomerOverviewPage = () => {
               spacing="16px"
               alignItems="end"
             >
-              <Button
+              {/* <Button
                 as={Link}
                 h="40px"
                 maxW={'195px'}
@@ -243,7 +200,7 @@ export const CustomerOverviewPage = () => {
                 variant="outline-radius"
               >
                 Blacklist
-              </Button>
+              </Button> */}
               <SortBy
                 sortFor="users"
                 setUrl={setAddedParam}
@@ -255,7 +212,7 @@ export const CustomerOverviewPage = () => {
                 setUrl={setAddedParam}
                 url={addedParam}
                 isFractional={customerOverviewData?.total_fractions_holders}
-                listings={customers?.data?.data?.listings_available}
+                listings={customers?.listings_available}
               />
 
               <DownloadCsv
@@ -282,3 +239,270 @@ export const CustomerOverviewPage = () => {
   );
 };
 export default CustomerOverviewPage;
+
+
+const customers = {
+  status: true,
+  count: 78,
+  total_customers: 78,
+  check: 'deployed',
+  total_asset_holders: 28,
+  total_fractions_holders: 10,
+  customers_with_outstanding: 10,
+  customers_without_outstanding: 14,
+  total_defaulters: 11,
+  listings_available: [
+    'Goshen',
+    'Cesc fab',
+    'Civic resident',
+    'Acc',
+    'Levi charged',
+    'Civic residence',
+    'Xyz',
+    'Haven',
+    'Preference',
+    'Thisis',
+    'Parkside estate',
+    'Golden acres',
+    'Pinecrest meadows',
+    'Lakeshore residence',
+    'Junir apartment',
+    'Cedar ridge apartments',
+    'Woodland properties',
+    'Laitan estate',
+    'Rahim estate',
+    'Graham  suite',
+    'Blue ridge towers',
+    'Baldini suite',
+    'Bain apartments',
+    'Ololade suite',
+    'Maple woods estate',
+    'Emerald villas',
+    'Well spacious 4 bedroom apartment',
+    'Christopher suite',
+    'Egugun mall ipaja lagos',
+    'Chevy view estate lekki',
+    'Elvin testing estate ikoyi',
+    '6 bedroom house',
+    '5-bedroom duplex in victoria island',
+    'Charles mall',
+    'James estate ikeja',
+    'Modern 3-bedroom apartment in lekki, lagos',
+    'Block 105, abesan estate',
+    'Block 103, abesan estate',
+    'Fully automated 5 bedroom duplex in chevron',
+    'Luxury apartment complex in ikoyi, lagos',
+    'prime parcel of land in lekki free trade zone',
+    'Urban center - mixed-use development in victoria island, lagos',
+    'Sunset terrace homes',
+    'Luxuria estate - modern living in lagos',
+    'Greenfield agricultural land',
+    'Rosewood semi-detached duplex',
+    'White orchid detached villa',
+    'Blue river shopping mall',
+  ],
+  data: [
+    {
+      response: {
+        customer_id: 3375,
+        id: 4026,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/58ad15c2-007.png',
+        email: 'Ahmed@yahoo.com',
+        name: 'Ahmed Ibraheem',
+        phone: '+2347019955751',
+        address: null,
+        status: false,
+        date_joined: '2025-04-16T13:48:59.602977Z',
+        referred_by: {
+          name: 'Facebook',
+          avatar:
+            'https://elasticbeanstalk-us-east-1-366943739396.s3.amazonaws.com/resources/facebook.svg',
+          id: null,
+          type: 'Facebook',
+          info: 'Facebook',
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3352,
+        id: 4006,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/fda113cd-2d5.png',
+        email: 'dliss@gmail.com',
+        name: 'Lookl Greyworm',
+        phone: '+2343456789',
+        address: null,
+        status: true,
+        date_joined: '2025-04-12T03:09:36.170497Z',
+        referred_by: {
+          name: 'Joseph Admin',
+          avatar: 'https://matador-bucket.s3.amazonaws.com/media/3c758fc0-224.png',
+          id: 3738,
+          type: 'created',
+          info: null,
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3351,
+        id: 3532,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/ffd63f8d-bd8.png',
+        email: 'AHMED@gmail.com',
+        name: 'Ahmed Ibraheem',
+        phone: '+2347019955751',
+        address: null,
+        status: false,
+        date_joined: '2025-04-11T22:27:46.554830Z',
+        referred_by: {
+          name: 'Facebook',
+          avatar:
+            'https://elasticbeanstalk-us-east-1-366943739396.s3.amazonaws.com/resources/facebook.svg',
+          id: null,
+          type: 'Facebook',
+          info: 'Facebook',
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3350,
+        id: 4005,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/0b459615-c30.png',
+        email: 'pecoy47594@anlocc.com',
+        name: 'Sam Altman',
+        phone: '+2347346734778',
+        address: null,
+        status: true,
+        date_joined: '2025-04-11T13:18:22.267094Z',
+        referred_by: {
+          name: 'Linkedin',
+          avatar: null,
+          id: null,
+          type: 'Linkedin',
+          info: 'Linkedin',
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3242,
+        id: 2336,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/9bd55c47-20b.jpg',
+        email: 'dudealmost@mail.com',
+        name: 'Anthony Martin',
+        phone: '+15959409394',
+        address: null,
+        status: false,
+        date_joined: '2025-03-17T13:49:05.800924Z',
+        referred_by: {
+          name: 'Another Admin',
+          avatar: 'https://matador-bucket.s3.amazonaws.com/media/a3195a78-570.png',
+          id: 3787,
+          type: 'created',
+          info: null,
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3241,
+        id: 2335,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/b2cff476-387.jpg',
+        email: 'reviewtrust@mail.com',
+        name: 'Violini Odder',
+        phone: '+448393942399',
+        address: null,
+        status: false,
+        date_joined: '2025-03-17T13:49:05.732809Z',
+        referred_by: {
+          name: 'Another Admin',
+          avatar: 'https://matador-bucket.s3.amazonaws.com/media/a3195a78-570.png',
+          id: 3787,
+          type: 'created',
+          info: null,
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3240,
+        id: 2334,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/269e9814-d7f.jpg',
+        email: 'younginbank@mail.com',
+        name: 'Mabel Cole',
+        phone: '+2342945394982',
+        address: null,
+        status: false,
+        date_joined: '2025-03-17T13:49:05.519216Z',
+        referred_by: {
+          name: 'Another Admin',
+          avatar: 'https://matador-bucket.s3.amazonaws.com/media/a3195a78-570.png',
+          id: 3787,
+          type: 'created',
+          info: null,
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3231,
+        id: 3895,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/3fc4fbc8-4b7.png',
+        email: 'elon@musk.dog',
+        name: 'Elon Musk',
+        phone: '+442058788999',
+        address: null,
+        status: false,
+        date_joined: '2025-03-14T14:11:33.723814Z',
+        referred_by: {
+          name: 'Referral',
+          avatar: null,
+          id: null,
+          type: 'Referral',
+          info: 'Referral',
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3230,
+        id: 3892,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/b1f63f3c-562.png',
+        email: 'mark@zuck.com',
+        name: 'Mark Zuck',
+        phone: '+440587889999',
+        address: null,
+        status: false,
+        date_joined: '2025-03-14T14:02:39.534484Z',
+        referred_by: {
+          name: 'Referral',
+          avatar: null,
+          id: null,
+          type: 'Referral',
+          info: 'Referral',
+        },
+      },
+    },
+    {
+      response: {
+        customer_id: 3227,
+        id: 3890,
+        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
+        email: 'favourayo@gmail.com',
+        name: 'favor ayo mide',
+        phone: '+2348098765455',
+        address: null,
+        status: true,
+        date_joined: '2025-03-14T09:58:34.441175Z',
+        referred_by: {
+          name: 'Via a consultant',
+          avatar: null,
+          id: null,
+          type: 'Via a consultant',
+          info: 'you',
+        },
+      },
+    },
+  ],
+};
