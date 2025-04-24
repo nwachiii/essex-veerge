@@ -153,14 +153,6 @@ export const projectData = [
   },
   {
     "photos": {
-      "photo": "https://d1x2tneac0i3nn.cloudfront.net/VantageLuxeEstate.png"
-    },
-    "name": "Vantage Luxe Estate",
-    "units_sold": 67,
-    "units_available": 97
-  },
-  {
-    "photos": {
       "photo": "https://d1x2tneac0i3nn.cloudfront.net/WindsorParkEstate.png"
     },
     "name": "Windsor Park Estate",
