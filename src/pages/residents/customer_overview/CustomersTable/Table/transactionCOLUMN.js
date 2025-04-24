@@ -102,3 +102,5 @@ export const TRANSACTIONPAGE_COLUMN = [
     },
   },
 ];
+
+export default TRANSACTIONPAGE_COLUMN;
