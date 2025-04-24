@@ -1,5 +1,4 @@
-import {Box, Text, Flex, Container, VStack, Stack, Image} from '@chakra-ui/react';
-import {listingDetail} from 'constants/listListings';
+import {Box, Text, Flex, Stack, Image} from '@chakra-ui/react';
 import {themeStyles} from '../../../../theme';
 import defaultAvatar from '/src/images/default-avatar.png';
 import Avatar1 from '/src/images/avatar-1.png';
@@ -7,11 +6,10 @@ import Avatar2 from '/src/images/avatar-2.png';
 import Avatar3 from '/src/images/avatar-3.png';
 import Avatar4 from '/src/images/avatar-4.png';
 import Avatar5 from '/src/images/avatar-5.png';
-import {list} from 'postcss';
 import {lightenHex} from 'utils/lightenHEx';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 
-export const ListingInfoReservations = () => {
+const ListingInfoReservations = () => {
   return (
     <Stack gap='16px' mt="36px">
       <Flex w="full" justify="space-between">
@@ -104,6 +102,8 @@ export const ListingInfoReservations = () => {
     </Stack>
   );
 };
+
+export default ListingInfoReservations
 
 const listReservations = [
   {

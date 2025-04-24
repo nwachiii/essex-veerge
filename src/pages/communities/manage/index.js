@@ -26,9 +26,9 @@ import {useEffect, useState} from 'react';
 import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 import ListingContactInfo from './ListingInfo.components/ListingInfo.details/listingContactInfo';
 import {listingDetail} from 'constants/listListings';
-import {ListingInfoReservations} from './ListingInfo.components/ListingInfoReservations';
 import {AMENITIES_ESSEX} from 'constants/listings/amenities';
 import ListingMoreOption from '@/components/Drawers/listingMoreOptionsDrawer';
+import ListingInfoReservations from './ListingInfo.components/ListingInfoReservations';
 
 export const SingleListingPage = () => {
   const router = useRouter();
