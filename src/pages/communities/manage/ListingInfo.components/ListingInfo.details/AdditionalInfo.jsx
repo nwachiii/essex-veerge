@@ -2,84 +2,26 @@ import {
   Button,
   Flex,
   HStack,
-  Image,
-  Spinner,
   Stack,
-  Switch,
   Tag,
   TagLabel,
   Text,
   VStack,
-  useToast,
 } from '@chakra-ui/react';
-import {formatAmountWithDecimal, formatNumberWithCommas} from '../../../../../utils/formatAmount';
 import { Fragment } from 'react';
 import {useRouter} from 'next/router';
 import {themeStyles} from '../../../../../theme';
 import {ChevronRightIcon} from '@chakra-ui/icons';
-import {useMutation, useQuery} from '@tanstack/react-query';
-import {EditUnitInfo, fetchAllListingBundles} from 'apis/listings';
-import switchIsTrue from '/src/images/icons/switch-icon-true.svg';
-import switchIsFalse from '/src/images/icons/switch-icon-off.svg';
 import { IoMdStar } from 'react-icons/io';
 
-export const AdditionalInfo = ({pageQueryId, refetch, listingDetail}) => {
+export const AdditionalInfo = ({pageQueryId, listingDetail}) => {
   const router = useRouter();
   const isCreate = router?.query?.isCreate;
-  const toast = useToast();
 
-  const listingId = Number(pageQueryId) || Number(listingDetail?.id);
-  const LISTING_BUNDLES_QUERY = useQuery(['listing-bundle', listingId], () =>
-    fetchAllListingBundles(listingId)
-  );
-  const listingBundles = LISTING_BUNDLES_QUERY?.data?.data?.results ?? [];
-  const smallestPriceFromUnits = (listingBundles || [])
-    .map(item => convertToNumber(item?.price))
-    .filter(price => !isNaN(price)) // Filter out NaN values
-    .reduce((acc, item) => (acc === null || item < acc ? item : acc), null);
 
-  const mutation = useMutation(body => EditUnitInfo(listingDetail?.unit_id, body), {
-    onSuccess: async res => {
-      return await refetch();
-    },
-    onError: error => {
-      toast({
-        title: 'Oops ...',
-        description: `${
-          error?.response?.status === 500
-            ? "Apologies for the inconvenience. We're working on it. Please try again later."
-            : error?.response?.status === 401
-              ? 'Authentication Timeout: For security reasons, your session has timed out. Please log in again to continue.'
-              : (error?.response?.data?.message ??
-                error?.response?.message ??
-                error?.message ??
-                'Something went wrong')
-        }`,
-        status: 'error',
-        duration: 8000,
-        isClosable: true,
-        position: 'top-right',
-      });
-    },
-  });
-  const handleDisplayPriceSwitch = () => {
-    mutation.mutate({display_price: !listingDetail?.project_display_price});
-  };
-
-  const startingPriceFromAPIData = listingDetail?.starting_from;
-
-  const STARTING_PRICE = isCreate
-    ? (smallestPriceFromUnits ?? startingPriceFromAPIData)
-    : startingPriceFromAPIData;
-
-  const isBuildingTypeSingleFamilyResidential =
-    listingDetail?.building_type == 'Detached' || listingDetail?.building_type == 'Semi Detached';
-  const isLand = listingDetail?.building_type == 'Land';
   const getDocumentType = name =>
     listingDetail?.property_document?.find(item => item.purpose === name);
-  const outrightDoc = getDocumentType('outright')?.document_file;
   const brochureDoc = getDocumentType('brochure')?.document_url;
-  const BUILDING_TYPE = listingDetail?.building_type?.toLowerCase();
 
   const OVERVIEWINFO = [
     {
@@ -184,15 +126,4 @@ export const AdditionalInfo = ({pageQueryId, refetch, listingDetail}) => {
 
 export default AdditionalInfo;
 
-function convertToNumber(str) {
-  if (typeof str !== 'string') {
-    throw new Error('Input should be a string');
-  }
 
-  const number = parseFloat(str);
-  if (isNaN(number)) {
-    throw new Error('Invalid number format');
-  }
-
-  return number;
-}

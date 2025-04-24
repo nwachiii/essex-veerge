@@ -1,32 +1,18 @@
-import {Fragment, useEffect, useState} from 'react';
+import {useState} from 'react';
 import {
   Box,
   Flex,
-  HStack,
   Image,
   SimpleGrid,
-  Tag,
-  TagLabel,
-  Text,
   VStack,
   useDisclosure,
-  Stack,
 } from '@chakra-ui/react';
 
 import videoFallback from '/src/images/video-fallback.png';
 import imageFallback from '/src/images/image-fallback.png';
 import {themeStyles} from '../../../../../theme';
-import {ContactPersons} from './ContactPersons';
-import {ScheduledInspection} from './ScheduledInspection';
-import {motion, AnimatePresence, LayoutGroup} from 'framer-motion';
-import {useQuery} from '@tanstack/react-query';
-import Carousel from 'react-elastic-carousel';
-import {fetchRolesAccepted} from '../../../../../apis/settings';
-import Commissions from '../../../create/Publish/Commissions';
-import PublishModal from '../../../create/ListingDetails/ListingDetails.components/PublishModal';
-import AddContactModal from '../../../create/Publish/AddContactModal';
+import {AnimatePresence, LayoutGroup} from 'framer-motion';
 import {EmbedVideoForFullScreenView} from '../../../../../ui-lib/ui-lib.components/EmbedVideo';
-import carrouselArrow from '/src/images/icons/paymentplanNavArrow.svg';
 import ViewImage from './ViewImage';
 
 const scrollBar = {
@@ -36,11 +22,7 @@ const scrollBar = {
   },
 };
 
-export const BasicInfo = ({listingDetail, isCreate}) => {
-  const [photoViewSrc, setPhotoViewSrc] = useState(
-    listingDetail?.photo_urls ? listingDetail?.photo_urls?.[0] : imageFallback.src
-  );
-
+export const BasicInfo = ({listingDetail}) => {
   const [direction, setDirection] = useState(0);
   const [viewId, setViewId] = useState(0);
   const VIEW_IMAGE = useDisclosure();
@@ -51,13 +33,7 @@ export const BasicInfo = ({listingDetail, isCreate}) => {
       : imageFallback.src;
   const [bigPhotoViewSrc, setBigPhotoViewSrc] = useState(CURRENT_DISPLAY_PICTURE);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [checkedItems, setCheckedItems] = useState([]);
-  const FETCH_ROLES_DATA = useQuery(['fetchAcceptedRoles'], fetchRolesAccepted);
-  const FETCH_ROLES__RESULTS =
-    FETCH_ROLES_DATA?.data && FETCH_ROLES_DATA?.data?.data?.results?.map(item => item);
-
   const handlePhotoView = (src, idx) => {
-    setPhotoViewSrc(src);
     setBigPhotoViewSrc(src);
     setViewId(idx);
     setCurrentImageIndex(idx); //
@@ -66,22 +42,6 @@ export const BasicInfo = ({listingDetail, isCreate}) => {
 
   const resetCurrentImageIndex = () => {
     setPhotoViewSrc(bigPhotoViewSrc);
-  };
-
-  // isCreate useCase
-  const checkedContacts = checkedItems
-    .map(item => FETCH_ROLES__RESULTS.filter(entry => entry?.id == item))
-    .map(([i]) => i);
-
-  const handleRemove = arg => {
-    const copy = [...checkedItems];
-    for (let index = 0; index < checkedItems.length; index++) {
-      if (copy[index] === arg?.id) {
-        copy.splice(index, 1);
-        index = copy.length;
-      }
-      setCheckedItems(copy);
-    }
   };
 
   return (
@@ -156,26 +116,6 @@ export const AnimateImagePresence = ({
   onClick,
   ...rest
 }) => {
-  const variants = {
-    enter: direction => {
-      return {
-        x: direction > 0 ? 1000 : -1000,
-        opacity: 1,
-      };
-    },
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: direction => {
-      return {
-        zIndex: 0,
-        x: direction < 0 ? 1000 : -1000,
-        opacity: 0,
-      };
-    },
-  };
 
   return (
     <AnimatePresence>

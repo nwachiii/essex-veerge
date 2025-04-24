@@ -25,6 +25,7 @@ import {useEffect, useState} from 'react';
 import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 import ListingContactInfo from './ListingInfo.components/ListingInfo.details/listingContactInfo';
 import {listingDetail} from 'constants/listListings';
+import { ListingInfoReservations } from './ListingInfo.components/ListingInfoReservations';
 
 export const SingleListingPage = () => {
   const router = useRouter();
@@ -38,7 +39,6 @@ export const SingleListingPage = () => {
   const [screenHeight, setScreenHeight] = useState(0);
 
   const {listingId} = router?.query;
-  const ShowCalendar = useDisclosure();
 
   const listingInfoFromLocalStorage =
     typeof window !== 'undefined' &&
@@ -55,8 +55,6 @@ export const SingleListingPage = () => {
       setScreenHeight(window.innerHeight);
     });
   }, []);
-
-  console.log('listingDetail', listingDetail);
 
   return (
     <div>
@@ -142,39 +140,7 @@ export const SingleListingPage = () => {
                 spacing={{base: '26px', md: '84px'}}
                 minChildWidth={'500px'}
               >
-                {(listingDetail || listingInfoFromLocalStorage)?.description && (
-                  <Box mt="36px">
-                    <Text
-                      gap="15px"
-                      fontSize="33px"
-                      color="#191919"
-                      fontWeight={500}
-                      lineHeight="30.43px"
-                      alignContent="center"
-                      mb="20px"
-                    >
-                      Reservation
-                    </Text>
-                    <Container
-                      {...themeStyles.containerStyles}
-                      padding={{md: '10px 26px', xl: '25px 28px'}}
-                      maxW="100%"
-                    >
-                      <VStack align="start" justify={'center'} spacing="19px" h="full" w="full">
-                        <Text
-                          w="full"
-                          fontWeight={300}
-                          fontSize={{md: '14px', xl: '16px'}}
-                          lineHeight={{xl: '20.29px'}}
-                          color="#191919"
-                          whiteSpace="pre-wrap"
-                        >
-                          {(listingDetail || listingInfoFromLocalStorage).description}
-                        </Text>
-                      </VStack>
-                    </Container>
-                  </Box>
-                )}
+                <ListingInfoReservations/>
               </SimpleGrid>
             </Box>
             <ListingInfoWholeUnits
@@ -185,7 +151,6 @@ export const SingleListingPage = () => {
             <ListingInfoAmenities
               data={listingDetail?.amenities ?? listingInfoFromLocalStorage?.amenities}
             />
-            <SetOpenHouseDate ShowCalendar={ShowCalendar} />
           </Box>
         </LayoutView>
       </Box>
@@ -193,3 +158,4 @@ export const SingleListingPage = () => {
   );
 };
 export default SingleListingPage;
+
