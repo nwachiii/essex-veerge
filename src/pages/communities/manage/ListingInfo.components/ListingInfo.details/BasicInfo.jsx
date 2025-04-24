@@ -7,6 +7,7 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react';
+import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons'; // Import icons
 
 import videoFallback from '/src/images/video-fallback.png';
 import imageFallback from '/src/images/image-fallback.png';
@@ -14,12 +15,30 @@ import {themeStyles} from '../../../../../theme';
 import {AnimatePresence, LayoutGroup} from 'framer-motion';
 import {EmbedVideoForFullScreenView} from '../../../../../ui-lib/ui-lib.components/EmbedVideo';
 import ViewImage from './ViewImage';
+import ReactElasticCarousel from 'react-elastic-carousel';
 
 const scrollBar = {
   scrollbarWidth: 'none',
   '&::-webkit-scrollbar': {
     display: 'none',
   },
+};
+
+const renderArrow = ({ type, onClick, isEdge }) => {
+  return (
+    <Box
+      as="button"
+      onClick={onClick}
+      disabled={isEdge}
+      zIndex="10"
+      borderRadius="full"
+      _hover={{ bg: 'gray.200' }}
+      left={type === 'PREV' ? '0' : undefined}
+      right={type === 'NEXT' ? '0' : undefined}
+    >
+      {type === 'PREV' ? <ChevronLeftIcon boxSize={8} /> : <ChevronRightIcon boxSize={8} />}
+    </Box>
+  );
 };
 
 export const BasicInfo = ({listingDetail}) => {
@@ -32,17 +51,12 @@ export const BasicInfo = ({listingDetail}) => {
       ? listingDetail?.photos[0]?.photo
       : imageFallback.src;
   const [bigPhotoViewSrc, setBigPhotoViewSrc] = useState(CURRENT_DISPLAY_PICTURE);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const handlePhotoView = (src, idx) => {
     setBigPhotoViewSrc(src);
     setViewId(idx);
-    setCurrentImageIndex(idx); //
     idx <= direction ? setDirection(-1) : setDirection(1);
   };
 
-  const resetCurrentImageIndex = () => {
-    setPhotoViewSrc(bigPhotoViewSrc);
-  };
 
   return (
     <Box maxW={{base: 'full', lg: 'full'}} w="full" h="full">
@@ -62,47 +76,29 @@ export const BasicInfo = ({listingDetail}) => {
               borderRadius="20px"
             />
           </Flex>
-          {listingDetail?.photo_urls?.length > 1 ? (
-            <SimpleGrid columns={1} spacing="18px" pt="8px" w="full">
-              {listingDetail?.reels?.length > 0 && (
-                <Image
-                  alt=""
-                  {...themeStyles.imageFallback}
-                  src={listingDetail?.reels[0] ?? videoFallback.src}
-                />
-              )}
-              <Flex w="full" sx={scrollBar} overflowX="auto">
-                {listingDetail?.photo_urls?.map((item, idx) => (
-                  <AnimatePresence key={idx}>
-                    <Image
-                      alt=""
-                      h="90px"
-                      w="105px"
-                      mx={'6px'}
-                      zIndex={2}
-                      cursor="pointer"
-                      position="relative"
-                      borderRadius="16px"
-                      objectFit={'cover'}
-                      {...themeStyles.imageFallback}
-                      src={item?.photo || item || imageFallback.src}
-                      onClick={() => handlePhotoView(item?.photo || item, idx)}
-                    />
-                  </AnimatePresence>
-                ))}
-                {/* </Carousel> */}
-              </Flex>
-            </SimpleGrid>
-          ) : null}
+         <ReactElasticCarousel
+          itemsToShow={4}
+          pagination={false}
+          renderArrow={renderArrow} // Use the custom renderArrow function
+         >
+          {listingDetail?.photos?.map((photo, index) => {
+            return (
+              <Image
+                src={photo?.photo}
+                key={index}
+                alt='photo'
+                rounded='12px'
+                w='112.785px'
+                h='108.769px'
+                border={bigPhotoViewSrc === photo?.photo ? '1.5px solid #4545FE' : 'none'}
+                cursor='pointer'
+                onClick={() => setBigPhotoViewSrc(photo?.photo)}
+              />
+            )
+          })}
+         </ReactElasticCarousel>
         </VStack>
       </LayoutGroup>
-      <ViewImage
-        modal={VIEW_IMAGE}
-        currentImageIndex={currentImageIndex}
-        photos={listingDetail?.photos}
-        setCurrentImageIndex={setCurrentImageIndex}
-        resetCurrentImageIndex={resetCurrentImageIndex}
-      />
     </Box>
   );
 };

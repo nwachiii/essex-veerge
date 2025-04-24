@@ -194,15 +194,16 @@ export const ListingMoreOption = ({
     }
   };
   return (
-    <div>
+    <>
       <Button
         variant="outline-radius"
-        borderColor="#a3a3a3"
+        borderColor="#E4E4E7"
         color="#242526"
-        fontWeight="400"
-        maxW={'195px'}
+        fontWeight="500"
+        maxW={'215px'}
         fontFamily="Euclid Circular B"
         onClick={drawerDisclosure.onOpen}
+        bg='#FFF'
       >
         <HStack gap={'8px'}>
           <Image src={mo.src} alt="more options" />
@@ -267,7 +268,7 @@ export const ListingMoreOption = ({
         listingId={listingId}
         listingDetail={listingDetail}
       />
-    </div>
+    </>
   );
 };
 

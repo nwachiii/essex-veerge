@@ -66,6 +66,9 @@ export const ListingInfoWholeUnits = () => {
 
   return (
     <Box mt="36px" maxW="full" px={{xl: '78px', base: '20px'}} mx="auto">
+      <Heading mb="20px" fontSize="28px" fontWeight="500" color="#191919" lineHeight="31px">
+              Units
+            </Heading>
       <MatadorCustomTable
         forMemo={[]}
         forLimit={[limit]}

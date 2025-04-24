@@ -20,13 +20,15 @@ import {
   SimpleGrid,
   useToast,
   Grid,
+  Button,
 } from '@chakra-ui/react';
 import {useEffect, useState} from 'react';
 import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
 import ListingContactInfo from './ListingInfo.components/ListingInfo.details/listingContactInfo';
 import {listingDetail} from 'constants/listListings';
-import { ListingInfoReservations } from './ListingInfo.components/ListingInfoReservations';
-import { AMENITIES_ESSEX } from 'constants/listings/amenities';
+import {ListingInfoReservations} from './ListingInfo.components/ListingInfoReservations';
+import {AMENITIES_ESSEX} from 'constants/listings/amenities';
+import ListingMoreOption from '@/components/Drawers/listingMoreOptionsDrawer';
 
 export const SingleListingPage = () => {
   const router = useRouter();
@@ -57,8 +59,10 @@ export const SingleListingPage = () => {
     });
   }, []);
 
+  const drawerDisclosure = useDisclosure();
+
   return (
-    <div>
+    <>
       <Box style={{background: '#FAFAFA'}} minH="100vh" h={isSmallerLaptop ? '60vh' : ''}>
         <LayoutView tabPanelStyle={{px: '0px', pb: '0px'}} px="0px" pb="0px" activePage="listings">
           <Box pb={6} w="full" mx="auto" mt="clamp(52px,calc(10.4vh + 40px),82px)">
@@ -79,25 +83,30 @@ export const SingleListingPage = () => {
                 <Image mr={2} boxSize="50px" alt="back_arrow" src={backArrow.src} />
                 <Heading {...themeStyles.textStyles.h3}>Community Profile</Heading>
               </HStack>
-              {/* {isCreate ? null : (
-                  <ListingMoreOption
-                    doc={doc}
-                    setDoc={setDoc}
-                    refetch={refetch}
-                    mutation={mutation}
-                    listingId={listingId}
-                    editUnitPrice={editUnitPrice}
-                    isPriceUpdated={isPriceUpdated}
-                    pendingEquities={pendingEquities}
-                    setEditUnitPrice={setEditUnitPrice}
-                    drawerDisclosure={drawerDisclosure}
-                    isPrivate={listingDetail?.is_private}
-                    pendingTransactions={PENDING_TRANSACTIONS}
-                    handlePendingTransactions={handlePendingTransactions}
-                    listingDetail={listingInfoFromLocalStorage || listingDetail}
-                    name={listingDetail?.name || listingInfoFromLocalStorage?.name}
-                  />
-                )} */}
+              <HStack align="center" gap={{ base: '16px', xl: '24px' }}>
+                <Button
+                  rounded="full"
+                  bg="#191919"
+                  w="214px"
+                  fontSize="16px"
+                  fontWeight={400}
+                  color="#FFF"
+                  p="16px 40px"
+                  _hover={{
+                    opacity: 1
+                  }}
+                  h='54px'
+                >
+                  Transactions
+                </Button>
+                <ListingMoreOption
+                  drawerDisclosure={drawerDisclosure}
+                  listingId={listingId}
+                  isPrivate={listingDetail?.is_private}
+                  listingDetail={listingInfoFromLocalStorage || listingDetail}
+                  name={listingDetail?.name || listingInfoFromLocalStorage?.name}
+                />
+              </HStack>
             </HStack>
             <Box w="full" px={{base: '0px', xl: '78px'}}>
               <Container
@@ -141,19 +150,15 @@ export const SingleListingPage = () => {
                 spacing={{base: '26px', md: '84px'}}
                 minChildWidth={'500px'}
               >
-                <ListingInfoReservations/>
+                <ListingInfoReservations />
               </SimpleGrid>
             </Box>
-            <ListingInfoWholeUnits
-            />
-            <ListingInfoAmenities
-              data={AMENITIES_ESSEX}
-            />
+            <ListingInfoAmenities data={AMENITIES_ESSEX} />
+            <ListingInfoWholeUnits />
           </Box>
         </LayoutView>
       </Box>
-    </div>
+    </>
   );
 };
 export default SingleListingPage;
-

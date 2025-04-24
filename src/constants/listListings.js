@@ -1015,7 +1015,16 @@ export const listingDetail = {
   id: 1271,
   photos: [
     {
-      photo: 'https://d1tfxqgzlmg1r3.cloudfront.net/TrcUD1trVd.jpeg',
+      photo: 'https://d1x2tneac0i3nn.cloudfront.net/OakRidge.png',
+    },
+    {
+      photo: 'https://d1x2tneac0i3nn.cloudfront.net/WhisperingPinesEstate1.png',
+    },
+    {
+      photo: 'https://d1x2tneac0i3nn.cloudfront.net/WhisperingPinesEstate2.png',
+    },
+    {
+      photo: 'https://d1x2tneac0i3nn.cloudfront.net/WhisperingPinesEstate3.png',
     },
   ],
   created_by: {
@@ -1126,7 +1135,7 @@ export const listingDetail = {
   project_packet: [],
   external_commission_rate: '0.00',
   listing_timezone: 'Africa/Lagos',
-  name: "queen's court phase 5",
+  name: "oak ridge",
   land_size: '20000',
   is_unit: false,
   property_class: null,
