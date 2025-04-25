@@ -22,7 +22,7 @@ const TransactionDemoPage = () => {
 
   const transactions =
     demoTransactionTableData?.[`page${currentPage}`] ?? demoviolationTableData?.[`1`];
-  console.log({transactions});
+
   const handlePagination = direction => {
     if (direction === 'next') {
       const defaultQuery = {
