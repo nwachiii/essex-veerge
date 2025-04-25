@@ -10,7 +10,13 @@ export const LayoutMobileView = () => {
   return (
     <Box bg="#ffffff" h="100svh" maxH="100svh" py={6} pl={4}>
       {/* <Link prefetch={false} href="/"> */}
-      <Image src={essexLogo.src} maxW='150px' objectFit='cover' alt="essex logo" />
+      <Image
+                fill
+                alt="Essex-Hoa"
+                width={'fit-content'}
+                style={{objectFit: `cover`}}
+                src={'./public_image/essex-logo.svg'}
+              />
 
       {/* </Link> */}
       <Stack justify={'center'} px="31px">
