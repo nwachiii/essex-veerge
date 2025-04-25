@@ -1,7 +1,7 @@
 import React from 'react';
 import {CURRENT_YEAR} from '../Navbar';
 import {AbsoluteCenter, Box, Divider, HStack, Image, Link, Stack, Text} from '@chakra-ui/react';
-import veergeLogo from '/src/images/icons/gearVeergeIcon.svg';
+import essexLogo from '/src/images/essex-logo.png';
 
 import {GoogleStore} from 'images/503-error-service-unavailable/google';
 import {AppleStore} from 'images/503-error-service-unavailable/apple';
@@ -10,19 +10,8 @@ export const LayoutMobileView = () => {
   return (
     <Box bg="#ffffff" h="100svh" maxH="100svh" py={6} pl={4}>
       {/* <Link prefetch={false} href="/"> */}
-      <HStack pl={{base: 2, md: '52px'}} cursor="pointer" w="fit-content">
-        <Image src={veergeLogo.src} width=" 33.91px" height="35.05px" alt="veerge logo" />
-        <Text
-          fontSize="38.33px"
-          fontWeight="600"
-          fontFamily="Poppins"
-          alignSelf="start"
-          color="#000000"
-          lineHeight=" 57.5px"
-        >
-          Veerge
-        </Text>
-      </HStack>
+      <Image src={essexLogo.src} maxW='150px' objectFit='cover' alt="essex logo" />
+
       {/* </Link> */}
       <Stack justify={'center'} px="31px">
         <AbsoluteCenter w="full" maxW="614px">
