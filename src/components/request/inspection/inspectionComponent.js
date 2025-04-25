@@ -10,25 +10,14 @@ import InspectionApprovalAndRescheduling from '@/components/Modals/inspectionReq
 import {formatInTimeZone, format} from 'date-fns-tz';
 import {loggedinUserStatic} from 'apis/requests';
 
-export const PendingInspectionComponent = ({info, refetch, roles}) => {
-  let status = info?.tour_method?.toLowerCase();
+export const PendingInspectionComponent = ({info, dataKey}) => {
   const modalDisclosure = useDisclosure();
-
-  const tagObj = {
-    'in-person': {text: 'in-person'},
-    video: {
-      text: 'virtual',
-    },
-    virtual: {
-      text: 'virtual',
-    },
-  };
 
   return (
     <HStack justify="space-between" px="16px" pr="20px" w="full">
       <HStack spacing="8px">
         <Image
-          src={loggedinUserStatic.avatar}
+          src={info.image}
           fontSize="7px"
           boxSize="48px"
           objectFit="cover"
@@ -37,48 +26,69 @@ export const PendingInspectionComponent = ({info, refetch, roles}) => {
           alt="customer profile picture"
         />
         <Stack spacing="3px">
-          <Text
-            maxW="611px"
-            w="full"
-            color="#27272A"
-            fontSize="14px"
-            textAlign="start"
-            fontWeight="400"
-          >
-            {/* <UserDrawerRequestData row={info} /> scheduled{' '} */}
-            <Text as="span" fontWeight="700">
-              {`${info?.customer.first_name} ${info?.customer.last_name} `}
+          {dataKey === 'payment_plan' ? (
+            <Text
+              maxW="611px"
+              w="full"
+              color="#27272A"
+              fontSize="14px"
+              textAlign="start"
+              fontWeight="400"
+            >
+              <Text as="span" fontWeight="700">
+                {`${info?.name} (${info?.project})`}
+              </Text>{' '}
+              requested to settle a balance of{' '}
+              <Text as="span" fontWeight="700">
+                {info?.first_amount}
+              </Text>{' '}
+              in <Text as="span">{info?.periodic}</Text> payments of{' '}
+              <Text as="span" fontWeight="700">
+                {info?.second_amount}
+              </Text>{' '}
+              , starting{' '}
+              <Text as="span" fontWeight="700">
+                {info?.date}
+              </Text>
             </Text>
-            requested to settle a balance of{' '}
-            <Text as="span" fontWeight="700">
-              $420.80{' '}
+          ) : (
+            <Text
+              maxW="611px"
+              w="full"
+              color="#27272A"
+              fontSize="14px"
+              textAlign="start"
+              fontWeight="400"
+            >
+              <Text as="span" fontWeight="700">
+                {`${info?.name} (${info?.project})`}
+              </Text>{' '}
+              scheduled access to <Text as="span">{info?.access}</Text> on{' '}
+              <Text as="span" fontWeight="700">
+                {info?.date}
+              </Text>{' '}
+              from{' '}
+              <Text as="span" fontWeight="700">
+                {info?.from}
+              </Text>{' '}
+              for <Text as="span">{info?.for}</Text>
+              {info?.request ? `and request for ${info?.request}` : ''}
             </Text>
-            in three monthly payments of{' '}
-            <Text as="span" fontWeight="700">
-              $140.29
-            </Text>
-            , starting{' '}
-            <Text as="span" fontWeight="700">
-              01 May 2025
-            </Text>
-            , due to job hours.
-          </Text>
+          )}
           <HStack spacing="8px">
             <Box boxSize="4px" borderRadius="full" bg="#D9D9D9" />
 
             <Text fontSize="14px" fontWeight="400">
-              {info?.created_at ? dateOrTimeAgo(info?.created_at) : '-'}
+              {info?.time}
             </Text>
           </HStack>
         </Stack>
       </HStack>
       {/* <ActionComponentForPendingInspectionRequest info={info} roles={roles} refetch={refetch} /> */}
       <InspectionApprovalAndRescheduling
-        requestId={info?.id}
+        dataKey={dataKey}
+        info={info}
         modalDisclosure={modalDisclosure}
-        row={info}
-        roles={roles}
-        refetch={refetch}
       />
     </HStack>
   );
