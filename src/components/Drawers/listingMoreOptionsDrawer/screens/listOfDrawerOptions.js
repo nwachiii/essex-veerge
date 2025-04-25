@@ -1,6 +1,6 @@
 import rightArrow from '/src/images/icons/RightArrowForListingScheduledInspection.svg';
 import userIcon from '/src/images/icons/profile-2user.svg';
-import violation from '/src/images/icons/info-circle.svg';
+import violation from '/src/images/icons/Info-circle.svg';
 import lease from '/src/images/icons/building-3.svg';
 import email from '/src/images/icons/ic_round-mail.svg';
 import receipt from '/src/images/icons/receipt-edit.svg';

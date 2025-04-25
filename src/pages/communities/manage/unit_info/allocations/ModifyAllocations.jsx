@@ -19,7 +19,7 @@ import {
   Center,
   HStack,
 } from '@chakra-ui/react';
-import infoIcon from '/src/images/icons/info-circle.svg';
+import infoIcon from '/src/images/icons/Info-circle.svg';
 import {AnimatedLoader} from '../../../../../components';
 import {useMutation, useQuery} from '@tanstack/react-query';
 import {updatePaymentMilestone} from '../../../../../apis/customers';

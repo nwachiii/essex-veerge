@@ -5,7 +5,6 @@ import {useSmallerLaptopsBreakpoint} from 'ui-lib';
 import {useRouter} from 'next/router';
 import {demoTransactionTableData} from 'constants/DEMODATA/transaction';
 import MatadorCustomTable from '@/components/common/Table';
-
 import TransactionDetailsCard from '@/components/transactionDemoPage/transactionDetailsCard';
 import {FaAngleLeft} from 'react-icons/fa';
 import {TfiAngleLeft} from 'react-icons/tfi';
