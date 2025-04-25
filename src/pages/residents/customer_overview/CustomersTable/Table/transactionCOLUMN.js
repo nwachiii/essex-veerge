@@ -103,4 +103,8 @@ const TRANSACTIONPAGE_COLUMN = [
   },
 ];
 
-export default TRANSACTIONPAGE_COLUMN;
+const TxnColumnPage = () => {
+  return null;
+};
+
+export default TxnColumnPage;
