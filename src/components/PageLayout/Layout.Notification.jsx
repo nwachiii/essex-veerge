@@ -14,21 +14,21 @@ import {
   Box,
   Flex,
   useDisclosure,
-  HStack,
   Center,
-  usePrefersReducedMotion,
+  StackDivider,
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import {useRouter} from 'next/router';
 import avatarSm from '/src/images/avatar.svg';
 import notification from '/src/images/icons/notification.svg';
 import {fetchNotif, UpdateStatus} from '../../apis/FetchNotif';
-import animatedNotif from '/src/images/animated_icons/alarm.gif';
 import {useQuery, useMutation, useQueryClient} from '@tanstack/react-query';
-import newNotif from '/src/images/icons/Iconly/Light/new-notification-icon.svg';
 import CustomerDrawer from '../Drawers/customerDrawer';
 import {VeergeNotificationsIcon} from './navbar/svgs';
 import {keyframes} from '@emotion/react';
+import walletIcon from '/src/images/icons/wallet.svg';
+import defaultAvatar from '/src/images/default-avatar.png';
+import { CloseIcon } from '@chakra-ui/icons';
 
 const fadeIn = keyframes`
   0% { opacity: 0;scale:0 },
@@ -50,34 +50,22 @@ export const LayoutNotifications = () => {
 
   const [runQuery, setRunQuery] = useState(false);
   const [nameId, setNameId] = useState();
-  const handleOpenDrawer = item => {
-    // modalDisclosure.onOpen();
-    setNameId(item);
-    setRunQuery(true);
-  };
   const toast = useToast();
 
-  const {data, isError, error, isLoading, refetch} = useQuery(['notif'], fetchNotif, {
+  const {data, isError, error} = useQuery(['notif'], fetchNotif, {
     refetchInterval: 60000,
   });
 
   const queryClient = useQueryClient();
   const router = useRouter();
 
-  const handleLogout = () => {
-    queryClient.clear();
-    setTimeout(() => {
-      router.push('/account');
-    }, 2400);
-    return localStorage.clear();
-  };
 
   const mutation = useMutation(data => UpdateStatus(data), {
-    onSuccess: async res => {
+    onSuccess: async () => {
       queryClient.invalidateQueries(['notif']);
       await queryClient.refetchQueries(['notif']);
     },
-    onError: err => {
+    onError: () => {
       toast({
         title: 'An error occured',
         status: 'error',
@@ -95,30 +83,6 @@ export const LayoutNotifications = () => {
     setToggleMarkAsReadText('true');
   };
 
-  const dateOrTimeAgo = (ts, data) => {
-    const d = new Date();
-    const nowTs = Math.floor(d.getTime() / 1000);
-    const seconds = nowTs - ts / 1000;
-
-    // more that two days
-    if (seconds >= 2 * 24 * 3600) {
-      return data;
-    }
-    // a day
-    if (seconds > 24 * 3600) {
-      return 'yesterday';
-    }
-
-    if (seconds > 3600) {
-      const h = seconds / 3600;
-      return `${Math.floor(h)} hour${h == 1 ? '' : 's'} ago`;
-    }
-
-    if (seconds > 60) {
-      const m = seconds / 60;
-      return `${Math.floor(m)} minute${m == 1 ? '' : 's'} ago`;
-    }
-  };
 
   const handleNotif = (notifonClose, click, notifIsOpen) => {
     if (error?.response?.status === 401) {
@@ -165,10 +129,6 @@ export const LayoutNotifications = () => {
     }
   };
 
-  const hasAllNotifBeenRead = () => {
-    const notif = [...data?.data?.recent, ...data?.data?.older];
-    return notif.every(item => item.status === false);
-  };
   const check_notif_status = () => {
     if (!data?.data?.recent && !data?.data?.older) {
       return false;
@@ -184,14 +144,12 @@ export const LayoutNotifications = () => {
       handleStatus('read');
     }
   };
-  const isNotifAvailable = () => !!data?.data?.recent.length && !!data?.data?.older.length;
 
   return (
     <Box>
       <Menu isOpen={isOpen} onClose={handleClose} placement="bottom" autoSelect={false}>
         <>
-          <MenuButton>
-            {/* <MenuButton onClick={() => (handleNotif(onClose, true), onOpen())} position={'relative'}> */}
+          <MenuButton onClick={onOpen}>
             <VStack position="relative">
               {check_notif_status().hasUnread ? (
                 <Flex
@@ -248,206 +206,46 @@ export const LayoutNotifications = () => {
             // position={'absolute'}
             position="relative"
             // right={'-21.2rem'}
-            w={{base: '90%', md: 467}}
-            borderRadius={'lg'}
+            w={{base: '90%', md: '400px' }}
+            rounded='0'
             borderColor={'#e4e4e4'}
             boxShadow={'xl'}
             sx={{transition: 'opacity 0.001s  ease, transform 0.1s ease'}}
           >
-            {/* <Box
-                position={'absolute'}
-                zIndex={-100}
-                top={'-.8rem'}
-                // right={'15.7rem'}
-                mx="auto"
-                right="0"
-                left="0"
-                width="0"
-                height="0"
-                borderLeft="70px solid transparent"
-                borderRight="70px solid transparent"
-                borderBottom="80px solid #FFFFFF"
-              /> */}
-            <Heading>
-              <h1>Notifications</h1>
-              {toggleMarkAsReadText == 'false' ? (
-                check_notif_status().hasUnread ? (
-                  <span onClick={handleStatus}>Mark all as read</span>
-                ) : null
-              ) : null}
-            </Heading>
-            {isLoading || mutation.isLoading ? (
-              <>
-                <SkeletonText
-                  noOfLines={1}
-                  ml="24px"
-                  mt="25px"
-                  w="60px"
-                  skeletonHeight="10px"
-                  startColor="gray.300"
-                  endColor={'#F3F3F3'}
-                />
-                <VStack pt="10px" justify="center" w="full" spacing="20px">
-                  {[1, 2, 3, 4, 5, 6].map((item, idx) => (
-                    <Stack
-                      w="full"
-                      key={idx}
-                      justifyContent="center"
-                      alignItems="center"
-                      direction="row"
-                      spacing={4}
-                    >
-                      <SkeletonCircle size="10" />
-                      <SkeletonText
-                        noOfLines={2}
-                        spacing="10px"
-                        skeletonHeight="10px"
-                        width="80%"
-                        startColor="gray.300"
-                        endColor={'#F3F3F3'}
-                      />
-                    </Stack>
-                  ))}
-                </VStack>
-              </>
-            ) : isError ? (
-              // handleNotif(onClose, false, isOpen)
-              <></>
-            ) : !isNotifAvailable ? (
-              <MenuItem mt="24px" cursor="auto" _hover={{background: 'transparent'}}>
-                <VStack h="90%" w="full" justify={'center'}>
-                  <Image alt="" src={notification.src} />
-                  <Text>{`You don't have any notification yet`}</Text>
-                </VStack>
-              </MenuItem>
-            ) : (
-              <NotifList>
-                <RecentNotifList>
-                  <ul>
-                    {data.data.recent.map(msg => {
-                      return (
-                        <li key={msg.id} className={msg.status ? 'unread' : ''}>
-                          <Center
-                            w="40px"
-                            h="40px"
-                            minW="40px"
-                            minH="40px"
-                            borderRadius={'50%'}
-                            overflow="hidden"
-                            position={'relative'}
-                            bg={'#FFFFFF'}
-                          >
-                            <Image
-                              alt=""
-                              objectFit={'cover'}
-                              fill
-                              minH="100%"
-                              minW="100%"
-                              src={msg.img || avatarSm.src}
-                            />
-                          </Center>
-                          {/* <MessageWrap> */}
-                          <Box display="flex" flexDirection="column" gap="8px">
-                            {msg?.body_object === null ? (
-                              <Text fontSize="14px" color="#191919">
-                                {msg.body}
-                              </Text>
-                            ) : (
-                              <Flex flexWrap="nowrap" wordBreak="break-word">
-                                <Box fontSize="14px" whiteSpace="normal">
-                                  <span
-                                    style={{
-                                      color: '#4545FE',
-                                      textTransform: 'capitalize',
-                                      cursor: 'pointer',
-                                      fontWeight: '400',
-                                    }}
-                                    onClick={() => {
-                                      onClose();
-                                      handleOpenDrawer(msg.add_on);
-                                    }}
-                                  >
-                                    {msg.body_object.name}
-                                  </span>
-                                  <span style={{color: '#191919'}}>{msg.body_object.message}</span>
-                                </Box>
-                              </Flex>
-                            )}
-                            <Flex color="#606060" gap="5px" fontSize="12px" fontWeight={'400'}>
-                              <Text paddingRight="5px">
-                                {dateOrTimeAgo(msg.time_ago, msg.created_at)}
-                              </Text>
-                              <Text>{msg.time}</Text>
-                            </Flex>
-                          </Box>
-                          {/* </MessageWrap> */}
-                        </li>
-                      );
-                    })}
-                    {data.data.older.map(msg => {
-                      return (
-                        <li key={msg.id} className={msg.status ? 'unread' : ''}>
-                          <Center
-                            w="40px"
-                            h="40px"
-                            minW="40px"
-                            minH="40px"
-                            borderRadius={'50%'}
-                            overflow="hidden"
-                            position={'relative'}
-                            bg={'#FFFFFF'}
-                          >
-                            <Image
-                              alt=""
-                              objectFit={'cover'}
-                              minH="100%"
-                              minW="100%"
-                              fill
-                              src={msg.img || avatarSm.src}
-                            />
-                          </Center>
-                          {/* <MessageWrap> */}
-                          <Box display="flex" flexDirection="column" gap="8px">
-                            {msg?.body_object === null ? (
-                              <Text fontSize="14px" color="#191919">
-                                {msg.body}
-                              </Text>
-                            ) : (
-                              <Flex flexWrap="nowrap" wordBreak="break-word">
-                                <Box fontSize="14px" whiteSpace="normal">
-                                  <span
-                                    style={{
-                                      color: '#4545FE',
-                                      textTransform: 'capitalize',
-                                      cursor: 'pointer',
-                                    }}
-                                    onClick={() => {
-                                      onClose();
-                                      handleOpenDrawer(msg.add_on);
-                                    }}
-                                  >
-                                    {msg.body_object.name}
-                                  </span>
-                                  <span style={{color: '#191919'}}>{msg.body_object.message}</span>
-                                </Box>
-                              </Flex>
-                            )}
-                            <Flex color="#606060" gap="5px" fontSize="12px" fontWeight={'400'}>
-                              <Text paddingRight="5px">
-                                {dateOrTimeAgo(msg.time_ago, msg.created_at)}
-                              </Text>
-                              <Text>{msg.time}</Text>
-                            </Flex>
-                          </Box>
-                          {/* </MessageWrap> */}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </RecentNotifList>
-                <OldNotifList></OldNotifList>
-              </NotifList>
-            )}
+            <Flex w='full' justify='space-between' align='center' p='16px 20px' bg='#FAFAFA' borderBottom='1px solid #E4E4E7' boxShadow='l'>
+              <Text fontSize='17px' fontWeight={600}>Notifications</Text>
+              <Flex align='center' gap='12px'>
+                <Text fontSize='14px' as="span" color="#4545FE">
+                  Mark all as read
+                </Text>
+                <CloseIcon fontSize='12px' cursor='pointer' color='#71717A' onClick={onClose} />
+              </Flex>
+            </Flex>
+            <Box pt='16px' px="20px">
+              <Stack gap="16px" divider={<StackDivider borderColor="#E4E4E7" />}>
+                {listNotif.map((msg, idx) => {
+                  const {before, bold, after} = parseMessage(msg.text);
+                  return (
+                    <Flex gap="16px" key={idx}>
+                      <Image src={msg?.icon} alt="notification icon" boxSize="40px" />
+                      <Stack>
+                        <Text>
+                          {before}
+                          <Text as="span" fontWeight="bold">
+                            {bold}
+                          </Text>
+                          {after}
+                        </Text>
+                        <Text fontSize="14px" color="#71717A">
+                          {msg.time}
+                        </Text>
+                      </Stack>
+                    </Flex>
+                  );
+                })}
+              </Stack>
+              <OldNotifList></OldNotifList>
+            </Box>
           </MenuList>
           <CustomerDrawer
             modalDisclosure={modalDisclosure}
@@ -483,21 +281,6 @@ const Heading = styled.header`
   }
 `;
 
-const NotifList = styled.div`
-  height: 490px;
-  overflow: auto;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
-const NotifHeader = styled.h2`
-  font-size: 16px;
-  font-weight: 600;
-  padding: 0 24px;
-  font-weight: 600;
-`;
 const RecentNotifList = styled.div`
   padding-top: 5px;
   ul {
@@ -524,18 +307,27 @@ const OldNotifList = styled(RecentNotifList)`
   }
 `;
 
-const MessageWrap = styled.div`
-  p {
-    font-size: 14px;
-    font-weight: 400;
-    color: #191919;
-	max-width:380px;
-  }
-  div {
-    font-size: 10px;
-    color: #606060;
-    display: flex;
-    gap: 15px;
-	font
-  }
-`;
+
+const listNotif = [
+  {
+    icon: walletIcon.src,
+    text: 'New payment received from <b>Sam Bryant (Unit 7-B) $250.00.</b>',
+    time: '5 mins ago',
+  },
+  {
+    icon: defaultAvatar.src,
+    text: '<b>Emily Johnson (7-A)</b> submitted a payment plan request.',
+    time: '5 mins ago',
+  },
+  {
+    icon: walletIcon.src,
+    text: 'Overdue balance alert: Jean <b>Darlinton (12-C)</b> now <b>30 days</b> past due.',
+    time: '16 Apr, 2025',
+  },
+];
+
+const parseMessage = text => {
+  const regex = /<b>(.*?)<\/b>/;
+  const [before, match, after] = text.split(regex);
+  return {before, bold: match, after};
+};
