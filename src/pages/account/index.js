@@ -135,7 +135,7 @@ export default function Account() {
                           decimalStyle={{fontWeight: '600'}}
                           wordBreak="break-word"
                           color={'#333333'}
-                          amount={OVERVIEW_SUMMARY?.total_purchases}
+                          amount={OVERVIEW_SUMMARY?.total_purchases ?? 6764000}
                         />
 
                         <Button
@@ -169,7 +169,7 @@ export default function Account() {
                           decimalStyle={{fontWeight: '600'}}
                           wordBreak="break-word"
                           color={'#333333'}
-                          amount={OVERVIEW_SUMMARY?.escrow}
+                          amount={OVERVIEW_SUMMARY?.escrow ?? 1034470}
                         />
                         <Button
                           fontSize="12px"
@@ -202,7 +202,7 @@ export default function Account() {
                           decimalStyle={{fontWeight: '600'}}
                           wordBreak="break-word"
                           color={'#333333'}
-                          amount={USER_WALLET_TOTAL}
+                          amount={USER_WALLET_TOTAL ?? 864240}
                         />
 
                         <Button
@@ -236,7 +236,7 @@ export default function Account() {
                           decimalStyle={{fontWeight: '600'}}
                           wordBreak="break-word"
                           color={'#333333'}
-                          amount={AGENT_WALLET_TOTAL}
+                          amount={AGENT_WALLET_TOTAL ?? 4674243}
                         />
 
                         <Button

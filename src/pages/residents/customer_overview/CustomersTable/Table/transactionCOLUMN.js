@@ -4,7 +4,7 @@ import {FormatToColorfulAdaptiveCurrency} from 'utils/formatAmount';
 const {Button, Badge, Text} = require('@chakra-ui/react');
 const {changeDateFormat} = require('utils/formatDate');
 
-const TRANSACTIONPAGE_COLUMN = [
+export const TRANSACTIONPAGE_COLUMN = [
   {
     Header: 'Date',
     accessor: row => {
