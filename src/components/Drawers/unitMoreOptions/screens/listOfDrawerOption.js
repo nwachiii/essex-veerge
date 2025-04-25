@@ -1,3 +1,13 @@
+import rightArrow from '/src/images/icons/RightArrowForListingScheduledInspection.svg';
+import userIcon from '/src/images/icons/profile-2user.svg';
+import violation from '/src/images/icons/setting-2.svg';
+import lease from '/src/images/icons/building-3.svg';
+import request from '/src/images/icons/usd-coin.svg';
+import receipt from '/src/images/icons/receipt-edit.svg';
+import receiptIcon from '/src/images/icons/receipt-icon.svg';
+import message from '/src/images/icons/message.svg';
+import info from '/src/images/icons/home-wifi.svg';
+
 import {
   DrawerBody,
   DrawerCloseButton,
@@ -8,192 +18,152 @@ import {
   Stack,
   Text,
   VStack,
+  useToast,
 } from '@chakra-ui/react';
-import uploadSubDocsIcon from '/src/images/icons/uploadSubDocsIcon.svg';
 
-import editunitIcon from '/src/images/icons/editListingIcon.svg';
-import editunitpriceIcon from '/src/images/icons/editUnitPriceIcon.svg';
-import editunitquantityIcon from '/src/images/icons/editUnitQuantityIcon.svg';
-import trans from '/src/images/icons/transactions.svg';
-import rightArrow from '/src/images/icons/RightArrowForListingScheduledInspection.svg';
-import fractionalizeIcon from '/src/images/icons/moreOptionsFractionalizeIcon.svg';
-import archiveIcon from '/src/images/icons/moreOptionsListArchiveUnitIcon.svg';
-import makePrivatePadlockIcon from '/src/images/icons/makePrivatePadlockIcon.svg';
-import displayPicture from '/public/icons/icon-park_upload-picture.svg'
-import makePublicUnlockIcon from '/src/images/icons/makePublicUnlockIcon.svg';
-
-import {useRouter} from 'next/router';
-import {LuPinOff} from 'react-icons/lu';
-import {BsFillPinAngleFill} from 'react-icons/bs';
-
-export const ListOfDrawerOption = ({
-  handleScreen,
-  customScrollbarStyles,
-  unitInfo,
-  bundleId,
-  disclosure,
-  editDisclosure,
-  fractionalizeModal,
-  openUploadSubDoc,
-  isFractionsCreated,
-  togglePinnedUnitDrawer,
-  displayPictureDrawer,
-  unitVisible,
-  isPrivate
-}) => {
-  const router = useRouter();
-  const IS_PINNED = Boolean(unitInfo?.is_pinned);
-
+export const ListOfDrawerOptions = ({listingDetail, customScrollbarStyles}) => {
   const List = [
     {
-      icon: trans.src,
-      title: 'Transactions',
+      icon: receiptIcon.src,
+      title: 'Send Statement',
       message:
-        'View and export transaction details for this listing, including deposits, payer information, payment purposes, outstanding balances, and transaction dates.',
-      openListItem: () => router.push(`/listings/manage/unit_info/transactions/?id=${bundleId}`),
+        'Generate and deliver detailed account statements to residents with a single click—includes all balances, fees, and payment history.',
     },
     {
-      icon: editunitIcon.src,
-      title: 'Modify Unit Info',
+      icon: message.src,
+      title: 'Add Note',
+      message: `Attach private notes to a resident's profile or financial record—ideal for internal updates, reminders, or documentation of conversations.`,
+    },
+    {
+      icon: receipt.src,
+      title: 'Update Information',
+      message: 'Quickly edit or update information to ensure records stay accurate and up to date.',
+    },
+    {
+      icon: request.src,
+      title: 'Request Fee',
       message:
-        'Customise your unit with ease: Edit the name, update pictures and videos, and more to keep your unit fresh and engaging.',
-      openListItem: () => {
-        editDisclosure.onOpen();
-        disclosure.onClose();
-      },
+        'Easily initiate a fee request for any applicable charges, such as maintenance, violations, or special assessments. Track status and history in one place.',
     },
     {
-      icon: editunitpriceIcon.src,
-      title: 'Modify Unit Price',
+      icon: violation.src,
+      title: 'New Work Request',
       message:
-        'Customize your unit with ease: Edit price, upload purchase agreement and more to keep your unit fresh and engaging.',
-      openListItem: handleScreen('editUnitPrice'),
+        'Create  maintenance or repair requests for resident —track status, assign vendors, and close tickets with ease.',
     },
     {
-      icon: editunitquantityIcon.src,
-      title: 'Modify Unit Quantity',
+      icon: lease.src,
+      title: 'Lease Request',
       message:
-        'Customize your unit with ease: Edit unit quantity and more to keep your unit fresh and engaging.',
-      openListItem: handleScreen('editUnitQuantity'),
+        'Track and manage rental approvals within the community. Review applications, verify lease terms, and ensure compliance with HOA rental policies—all from one centralized dashboard.',
     },
     {
-      icon: displayPicture.src,
-      title: 'Display Unit Picture',
-      message: 'Select the main image that represents your unit on the application.',
-      openListItem: () => displayPictureDrawer.onOpen(),
-    },
-    IS_PINNED
-      ? {
-          iconComponent: <LuPinOff color={'#191919'} fontSize={'26px'} />,
-          title: 'Remove from Pinned Units',
-          message:
-            'This unit will automatically return to its original position and order before it was pinned',
-          openListItem: () => togglePinnedUnitDrawer(),
-        }
-      : {
-          iconComponent: <BsFillPinAngleFill color={'#222222'} fontSize={'28px'} />,
-          title: 'Pin this Unit',
-          message: 'This unit will appear first before other units.',
-          openListItem: () => togglePinnedUnitDrawer(),
-        },
-        {
-          icon: isPrivate ? makePublicUnlockIcon.src : makePrivatePadlockIcon.src,
-          title: isPrivate ? 'Make Unit Public' : 'Make Unit Private',
-          message: isPrivate
-            ? 'Make your unit visible in public view in the app and grant access to all users for a better sharing experience.'
-            : 'Privatize your unit to control its visibility. Remove it from public view in the app and grant exclusive access to select individuals for a more controlled and private sharing experience.',
-          openListItem: () => unitVisible.onOpen(),
-        },
-    {
-      icon: uploadSubDocsIcon.src,
-      title: 'Share Unit Document',
-      message: 'Share all property purchase-related documents here.',
-      openListItem: () => openUploadSubDoc(),
-    },
-    !unitInfo.project.fraction_is_available && unitInfo?.quantity !== 0
-      ? {
-          icon: fractionalizeIcon.src,
-          title: 'Fractionalize',
-          message:
-            'Easily divide and sell shares of your property, enabling fractional ownership and investment in real estate. A smart solution for accessible and diversified property investment.',
-          openListItem: () => {
-            fractionalizeModal.onOpen();
-            disclosure.onClose();
-          },
-        }
-      : null,
-
-    {
-      icon: archiveIcon.src,
-      title: 'Archived Units',
+      icon: info.src,
+      title: 'Transfer Ownership',
       message:
-        'Conveniently archive units to temporarily remove them from the application, reserving them for future availability or strategic release.',
-      openListItem: handleScreen('archiveUnit'),
+        'Easily update property records when a unit changes hands. Preserve past data while onboarding new owners with accurate, seamless transitions.',
     },
   ];
 
+  const toast = useToast();
+
+  const openList = () => {
+    toast({
+      position: 'top-right',
+      description: 'You are currently ineligible for this action',
+      status: 'info',
+      duration: 5000,
+    });
+  };
+
   return (
-    <DrawerBody>
+    <>
       <DrawerContent
-        p="0px"
-        bg="#fff"
+        position="relative"
         zIndex={100}
         mt="65.12px"
-        position="relative"
-        minW="fit-content"
         sx={customScrollbarStyles}
+        // mt="112.12px"
+        minW="fit-content"
+        bg="#fff"
+        p="0px"
+        //   pr="3px"
       >
         <HStack
           py="30px"
-          px="25px"
           h="49.699px"
           bg="#F5F5F5"
+          px="25px"
+          justify="space-between"
           align="center"
           position="relative"
-          justify="space-between"
         >
           <Heading fontSize="18.9px" fontWeight="700">
             More Options
           </Heading>
           <HStack spacing="15px">
             <VStack
+              position="relative"
+              justify="center"
+              align="center"
               w="30px"
               h="30px"
+              borderRadius="5px"
+              transition="0.3s ease-in-out"
               _hover={{
                 width: '30px',
                 height: '30px',
               }}
-              align="center"
-              justify="center"
-              position="relative"
-              borderRadius="5px"
-              transition="0.3s ease-in-out"
             >
-              <DrawerCloseButton right="0px" left="0px" my="auto" color="#000" top="0" bottom="0" />
+              <DrawerCloseButton
+                _focus={{outline: 'none'}}
+                _focusVisible={{outline: 'none'}}
+                right="0px"
+                left="0px"
+                my="auto"
+                color="#000"
+                top="0"
+                bottom="0"
+              />
             </VStack>
           </HStack>
         </HStack>
         <DrawerBody sx={customScrollbarStyles} paddingTop="1rem" mr="3px" w="400px">
-          {List?.flatMap((data, index) =>
+          {List.flatMap((data, index) =>
             data
               ? [
                   <HStack
-                    cursor="pointer"
+                    cursor={'pointer'}
                     border="1px solid #E4E4E4"
                     padding="15px 11px"
-                    onClick={data?.openListItem}
+                    onClick={openList}
                     borderRadius="12px"
                     marginBottom="1rem"
+                    justify="space-between"
                     key={index}
-                    w="full"
-                    justifyContent="space-between"
                   >
                     <VStack spacing="11px" alignItems="start">
-                      {data.iconComponent ? (
-                        data.iconComponent
-                      ) : (
-                        <Image src={data.icon} alt="icons" />
-                      )}
+                      <HStack spacing="15px">
+                        {data?.iconComponent ? (
+                          data?.iconComponent
+                        ) : (
+                          <Image src={data.icon} alt="icons" />
+                        )}
+                        {data?.comingSoon ? (
+                          <HStack
+                            bg="rgba(255, 145, 3, 0.10)"
+                            borderRadius="8px"
+                            border=" 0.603px solid #FF9103"
+                            boxShadow="0px 4.80333px 28.81997px 0px rgba(0, 0, 0, 0.04)"
+                            p="6px"
+                          >
+                            <Image src={data.comingSoon.icon} alt="icons" />
+                            <Text fontWeight="500" color="#FF9103" fontSize="9.607px">
+                              Coming soon!
+                            </Text>
+                          </HStack>
+                        ) : null}
+                      </HStack>
                       <Stack spacing="8px">
                         <Text fontSize="0.8rem" fontWeight="600">
                           {data.title}
@@ -210,8 +180,8 @@ export const ListOfDrawerOption = ({
           )}
         </DrawerBody>
       </DrawerContent>
-    </DrawerBody>
+    </>
   );
 };
 
-export default ListOfDrawerOption;
+export default ListOfDrawerOptions;

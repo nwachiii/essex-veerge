@@ -1,12 +1,20 @@
-import {Box, Container, Flex, Heading, HStack, Image, Stack, useDisclosure} from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  HStack,
+  Image,
+  Stack,
+  useDisclosure,
+} from '@chakra-ui/react';
 import React, {Fragment, useState} from 'react';
 import {useRouter} from 'next/router';
-import {useQuery} from '@tanstack/react-query';
 import {themeStyles} from '../../../../theme';
 import backArrow from '/src/images/icons/back-arrow.png';
 import {LayoutView} from '../../../../components';
 import UnitPropertyInformation from './UnitPropertyInformation';
-import {fetchAllBundlePaymentPlan} from '../../../../apis/listings';
 import {
   AnimateImagePresence,
   renderArrow,
@@ -17,6 +25,9 @@ import ReactElasticCarousel from 'react-elastic-carousel';
 import UnitInfoReservations from './UnitInfoReservations';
 import UnitInfoViolations from './UnitInfoViolations';
 import UnitInfoRequests from './UnitInfoRequests';
+import UnitInfoDocuments from './UnitInfoDocuments';
+import UnitInfoPetVehicles from './UnitInfoPetVehicles';
+import UnitMoreOption from '@/components/Drawers/unitMoreOptions';
 
 export const UnitInformation = () => {
   const router = useRouter();
@@ -26,7 +37,8 @@ export const UnitInformation = () => {
   const [photoViewSrc, setPhotoViewSrc] = useState(null);
   const [bigPhotoViewSrc, setBigPhotoViewSrc] = useState(photos?.[0]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const drawerDisclosure = useDisclosure();
+  
   const resetCurrentImageIndex = () => {
     setPhotoViewSrc(bigPhotoViewSrc);
   };
@@ -57,25 +69,24 @@ export const UnitInformation = () => {
                 />
                 <Heading {...themeStyles.textStyles.h3}>Back</Heading>
               </HStack>
-              <Flex justify="space-between" columnGap="28px" zIndex={10} align="center">
-                {/* <UnitMoreOption
-                    bundleId={bundleId}
-                    refetch={refetch}
-                    unitQty={UNIT_INFO?.total_quantity}
-                    unitPrice={UNIT_INFO?.price}
-                    unitInfo={UNIT_INFO}
-                    pendingTransactions={PENDING_TRANSACTIONS}
-                    isPriceUpdated={isPriceUpdated}
-                    editUnitPrice={editUnitPrice}
-                    setEditUnitPrice={setEditUnitPrice}
-                    mutation={mutation}
-                    handlePendingTransactions={handlePendingTransactions}
-                    drawerDisclosure={drawerDisclosure}
-                    doc={doc}
-                    setDoc={setDoc}
-                    pendingEquities={pendingEquities}
-                    equityRefresh={FETCHED_PENDING_EQUITIES?.refetch}
-                  /> */}
+              <Flex justify="space-between" columnGap="18px" zIndex={10} align="center">
+                <Button
+                  rounded="full"
+                  bg="#191919"
+                  w="214px"
+                  fontSize="16px"
+                  fontWeight={400}
+                  color="#FFF"
+                  p="16px 40px"
+                  _hover={{
+                    opacity: 1,
+                  }}
+                  h="54px"
+                  onClick={() => router.push('/transactions')}
+                >
+                  Transactions
+                </Button>
+                <UnitMoreOption drawerDisclosure={drawerDisclosure} />
               </Flex>
             </HStack>
             <Box w="full" px={{base: '0px', xl: '78px'}}>
@@ -145,9 +156,11 @@ export const UnitInformation = () => {
               </Container>
             </Box>
             <Box w="full" px={{base: '16px', xl: '78px'}}>
-              <UnitInfoRequests/>
-              <UnitInfoViolations/>
+              <UnitInfoRequests />
+              <UnitInfoViolations />
               <UnitInfoReservations />
+              <UnitInfoDocuments />
+              <UnitInfoPetVehicles />
             </Box>
           </Fragment>
         </Box>
