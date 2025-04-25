@@ -281,7 +281,7 @@ export const MatadorCustomTable = ({
             canPreviousPage={canPreviousPage}
           />
         )}
-        <Button
+        {/* <Button
           variant="md-filled-radius"
           fontSize="16px"
           fontWeight="400"
@@ -292,7 +292,7 @@ export const MatadorCustomTable = ({
           leftIcon={<Image src={expandIcon.src} />}
         >
           Expand List
-        </Button>
+        </Button> */}
       </HStack>
     </>
   );
