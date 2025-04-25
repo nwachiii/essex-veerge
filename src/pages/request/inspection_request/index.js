@@ -84,7 +84,8 @@ export default function InspectionRequest({AllRequests, dataKey, refetch, header
 
   const REQUESTCOMPONENT = info =>
     router.query.status === 'history' ? (
-      <InspectionHistoryComponent info={info} roles={roles} refetch={refetch} />
+      // <InspectionHistoryComponent info={info} roles={roles} refetch={refetch} />
+      <PendingInspectionComponent dataKey={dataKey} info={info} roles={roles} refetch={refetch} />
     ) : (
       <PendingInspectionComponent dataKey={dataKey} info={info} roles={roles} refetch={refetch} />
     );

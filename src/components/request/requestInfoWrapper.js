@@ -25,6 +25,7 @@ import PaginationComponent from './paginationComponent';
 import PendingInspectionComponent from './inspection/inspectionComponent';
 import {EmptyState} from '../common/Table';
 import CustomPagination from '../common/Pagination';
+import {useRouter} from 'next/router';
 
 export const RequestInfoWrapper = ({
   requestArray,
@@ -35,6 +36,8 @@ export const RequestInfoWrapper = ({
   requestComponent,
   header,
 }) => {
+  const router = useRouter();
+
   return (
     <Stack
       // w="69.5vw"
@@ -93,6 +96,11 @@ export const RequestInfoWrapper = ({
       </HStack>
       <Stack w="full" spacing="none" divider={<StackDivider my="24px" />}>
         {!requestArray?.length ? (
+          <EmptyState
+            title={`Nothing Found`}
+            description={`Looks like there is no ${header} at the moment`}
+          />
+        ) : router.query.status === 'history' ? (
           <EmptyState
             title={`Nothing Found`}
             description={`Looks like there is no ${header} at the moment`}
