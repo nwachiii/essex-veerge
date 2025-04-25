@@ -96,6 +96,7 @@ export const SingleListingPage = () => {
                     opacity: 1
                   }}
                   h='54px'
+                  onClick={() => router.push('/transactions')}
                 >
                   Transactions
                 </Button>
