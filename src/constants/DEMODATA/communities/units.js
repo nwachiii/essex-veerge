@@ -194,7 +194,7 @@ const DrawerButton = () => {
       borderColor="#E4E4E7"
       variant="outline"
       onClick={() =>
-        router.push(`/listings/manage/unit_info?isFraction=false&unitId=1830&projectId=1271`)
+        router.push(`/communities/manage/unit_info?&unitId=1`)
       }
     >
       View

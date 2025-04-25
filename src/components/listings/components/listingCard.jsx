@@ -18,7 +18,7 @@ const ListingCard = ({project}) => {
         borderRadius="12px"
         overflow="hidden"
         cursor="pointer"
-        onClick={() => router.push(`/listings/manage/?listingId=1`)}
+        onClick={() => router.push(`/communities/manage/?listingId=1`)}
         h="full"
         pos="relative"
       >
