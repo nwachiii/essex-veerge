@@ -9,11 +9,7 @@ const ListingCard = ({project}) => {
   const sold = project?.units_sold;
   const total_available_units = project?.units_available;
   const soldPercentage = project ? (sold / total_available_units) * 100 : 0;
-  const CURRENT_DISPLAY_PICTURE = project?.profile
-    ? project?.profile
-    : project?.photos
-      ? project?.photos[0]?.photo
-      : project?.photo_urls[0];
+  const CURRENT_DISPLAY_PICTURE = project?.photos?.photo
   return (
     <AspectRatio ratio={1.49} maxH="280px" w="full">
       <Stack
@@ -22,7 +18,7 @@ const ListingCard = ({project}) => {
         borderRadius="12px"
         overflow="hidden"
         cursor="pointer"
-        onClick={() => router.push(`/communities/manage/?listingId=${project?.id}`)}
+        onClick={() => router.push(`/listings/manage/?listingId=1`)}
         h="full"
         pos="relative"
       >
