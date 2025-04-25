@@ -49,7 +49,7 @@ export const UnitInformation = () => {
 
   return (
     <Box bg="#FAFAFA" minH="100vh" h="fit-content">
-      <LayoutView tabPanelStyle={{px: '0px', pb: '0px'}} px="0px" pb="0px" activePage="listings">
+      <LayoutView tabPanelStyle={{px: '0px', pb: '0px'}} px="0px" pb="0px" activePage="communities">
         <Box pb={6} w="full" mx="auto" mt="clamp(52px,calc(10.4vh + 40px),82px)">
           <Fragment>
             <HStack
