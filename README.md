@@ -1,7 +1,7 @@
 # Essex HOA
 
 Welcome 🎊🎉 Everyone deserves a piece of real estate to call their own, and the acquisition should
-be seamless, with the customer and end-user at the centre of how the solution is conceived. Veerge
+be seamless, with the customer and end-user at the centre of how the solution is conceived. Essex
 is on a mission to take the pain out of your real estate journey, and unlock opportunities that have
 traditionally only been available to institutional investors.
 
