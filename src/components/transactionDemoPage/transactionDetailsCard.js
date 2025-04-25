@@ -14,7 +14,7 @@ const TransactionDetailsCard = () => {
     {
       name: 'Total Deposit',
       value: '6,754.10',
-      color: themeStyles.color.matador__green,
+      color: '#22c55e',
     },
     {
       name: 'Total Debit',

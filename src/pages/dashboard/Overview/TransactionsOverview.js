@@ -44,13 +44,7 @@ export const TransactionsOverview = ({
               <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
                 Total Inflow
               </Text>
-              <Flex
-                h="fit-content"
-                alignSelf="end"
-                color={themeStyles.color.matador__green}
-                align="end"
-                gap="4px"
-              >
+              <Flex h="fit-content" alignSelf="end" color={'#22c55e'} align="end" gap="4px">
                 {data?.totalInflow?.changeDirection == 'up' ? (
                   <MetaDataIconGreen />
                 ) : (
@@ -60,11 +54,7 @@ export const TransactionsOverview = ({
                   fontSize="10px"
                   lineHeight="13px"
                   fontWeight="400"
-                  color={
-                    data?.totalInflow?.changeDirection == 'up'
-                      ? themeStyles.color.matador__green
-                      : '#f04438'
-                  }
+                  color={data?.totalInflow?.changeDirection == 'up' ? '#22c55e' : '#f04438'}
                 >
                   {data?.totalInflow?.changePercent}%
                 </Text>
@@ -76,7 +66,7 @@ export const TransactionsOverview = ({
             <FormatToColorfulAdaptiveCurrency
               amount={data?.totalProcessedTransactions?.amount}
               lens={13}
-              color={themeStyles.color.matador__green}
+              color={'#22c55e'}
               maxSize={16}
               minSize={10}
               pow={isBelow800 ? 0.68 : 0.92}
@@ -87,13 +77,7 @@ export const TransactionsOverview = ({
               <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
                 {`Total Processed Transactions`}
               </Text>
-              <Flex
-                h="fit-content"
-                alignSelf="end"
-                color={themeStyles.color.matador__green}
-                align="end"
-                gap="4px"
-              >
+              <Flex h="fit-content" alignSelf="end" color={'#22c55e'} align="end" gap="4px">
                 {data?.totalProcessedTransactions?.changeDirection == 'up' ? (
                   <MetaDataIconGreen />
                 ) : (
@@ -105,7 +89,7 @@ export const TransactionsOverview = ({
                   fontWeight="400"
                   color={
                     data?.totalProcessedTransactions?.changeDirection == 'up'
-                      ? themeStyles.color.matador__green
+                      ? '#22c55e'
                       : '#f04438'
                   }
                 >
@@ -131,7 +115,7 @@ export const TransactionsOverview = ({
               <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
                 Unprocessed Transactions
               </Text>
-              {/* <Flex color={themeStyles.color.matador__green} align="end" gap="4px">
+              {/* <Flex color={'#22c55e'} align="end" gap="4px">
                 {data?.unprocessedTransactions?.changeDirection == 'up' ? (
                   <MetaDataIconGreen />
                 ) : (
@@ -143,7 +127,7 @@ export const TransactionsOverview = ({
                   lineHeight="13px"
                   color={
                     data?.unprocessedTransactions?.changeDirection == 'up'
-                      ? themeStyles.color.matador__green
+                      ? '#22c55e'
                       : '#f04438'
                   }
                 >
@@ -168,13 +152,7 @@ export const TransactionsOverview = ({
               <Text as="small" fontSize="9px" display="flex" gap={2} mt={2} flexWrap={`wrap`}>
                 Outstanding Balance
               </Text>
-              <Flex
-                h="fit-content"
-                alignSelf="end"
-                color={themeStyles.color.matador__green}
-                align="end"
-                gap="4px"
-              >
+              <Flex h="fit-content" alignSelf="end" color={'#22c55e'} align="end" gap="4px">
                 {data?.outstandingBalance?.changeDirection == 'up' ? (
                   <MetaDataIconGreen />
                 ) : (
@@ -184,11 +162,7 @@ export const TransactionsOverview = ({
                   fontSize="10px"
                   lineHeight="13px"
                   fontWeight="400"
-                  color={
-                    data?.outstandingBalance?.changeDirection == 'up'
-                      ? themeStyles.color.matador__green
-                      : '#f04438'
-                  }
+                  color={data?.outstandingBalance?.changeDirection == 'up' ? '#22c55e' : '#f04438'}
                 >
                   {data?.outstandingBalance?.changePercent}%
                 </Text>

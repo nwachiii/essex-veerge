@@ -1,3 +1,5 @@
+import ViewViolation from '@/components/Drawers/violations';
+
 const {Button, Badge, Text} = require('@chakra-ui/react');
 const {changeDateFormat} = require('utils/formatDate');
 
@@ -89,23 +91,7 @@ export const VIOLATION_COLUMN = [
     Header: 'Action',
     hideHeader: true,
     accessor: row => {
-      return (
-        <Button
-          borderRadius="72px"
-          w="118px"
-          h="46px"
-          fontWeight={'500'}
-          color="#000000"
-          fontSize="16px"
-          borderColor={'#e4e4e7'}
-          variant="outline"
-          _hover={{
-            bg: 'rgba(0,0,0,0.03)',
-          }}
-        >
-          View
-        </Button>
-      );
+      return <ViewViolation />;
     },
   },
 ];
