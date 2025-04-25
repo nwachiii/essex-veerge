@@ -24,7 +24,7 @@ const scrollBar = {
   },
 };
 
-const renderArrow = ({ type, onClick, isEdge }) => {
+export const renderArrow = ({ type, onClick, isEdge }) => {
   return (
     <Box
       as="button"
