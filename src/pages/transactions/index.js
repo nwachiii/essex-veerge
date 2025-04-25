@@ -5,11 +5,11 @@ import {useSmallerLaptopsBreakpoint} from 'ui-lib';
 import {useRouter} from 'next/router';
 import {demoTransactionTableData} from 'constants/DEMODATA/transaction';
 import MatadorCustomTable from '@/components/common/Table';
-import TRANSACTIONPAGE_COLUMN from 'pages/residents/customer_overview/CustomersTable/Table/transactionCOLUMN';
 import TransactionDetailsCard from '@/components/transactionDemoPage/transactionDetailsCard';
 import {FaAngleLeft} from 'react-icons/fa';
 import {TfiAngleLeft} from 'react-icons/tfi';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
+import TRANSACTIONPAGE_COLUMN from 'pages/residents/customer_overview/CustomersTable/Table/transactionCOLUMN';
 const limit = 10;
 const TransactionDemoPage = () => {
   const isSmallerLaptop = useSmallerLaptopsBreakpoint();

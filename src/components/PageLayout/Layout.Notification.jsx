@@ -122,7 +122,8 @@ export const LayoutNotifications = () => {
 
   const handleNotif = (notifonClose, click, notifIsOpen) => {
     if (error?.response?.status === 401) {
-      return handleLogout();
+      // return handleLogout();
+      return;
     }
     if (isError) {
       notifIsOpen && notifonClose(true);
@@ -190,7 +191,7 @@ export const LayoutNotifications = () => {
       <Menu isOpen={isOpen} onClose={handleClose} placement="bottom" autoSelect={false}>
         <>
           <MenuButton>
-          {/* <MenuButton onClick={() => (handleNotif(onClose, true), onOpen())} position={'relative'}> */}
+            {/* <MenuButton onClick={() => (handleNotif(onClose, true), onOpen())} position={'relative'}> */}
             <VStack position="relative">
               {check_notif_status().hasUnread ? (
                 <Flex
@@ -310,7 +311,8 @@ export const LayoutNotifications = () => {
                 </VStack>
               </>
             ) : isError ? (
-              handleNotif(onClose, false, isOpen)
+              // handleNotif(onClose, false, isOpen)
+              <></>
             ) : !isNotifAvailable ? (
               <MenuItem mt="24px" cursor="auto" _hover={{background: 'transparent'}}>
                 <VStack h="90%" w="full" justify={'center'}>

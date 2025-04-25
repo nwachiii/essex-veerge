@@ -31,10 +31,11 @@ export const OverviewHeader = ({filterByVal, setFilterByVal, showing}) => {
             </Text>
           )}
         </Stack>
-
-        <Button rounded="full" variant="btn-outline" w="177px">
-          View transactions
-        </Button>
+        <Link href="/transactions" prefetch={true}>
+          <Button rounded="full" variant="btn-outline" w="177px">
+            View transactions
+          </Button>
+        </Link>
       </HStack>
       <RadioGroup w="full" onChange={setFilterByVal} value={filterByVal}>
         <Flex justify="flex-end" mt={1} align="center">
