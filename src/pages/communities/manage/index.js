@@ -5,7 +5,6 @@ import ListingInfoAmenities from './ListingInfo.components/ListingInfoAmenities'
 import ListingInfoWholeUnits from './ListingInfo.components/ListingInfoWholeUnits';
 import {LayoutView} from '../../../components/PageLayout/LayoutView';
 import AdditionalInfo from './ListingInfo.components/ListingInfo.details/AdditionalInfo';
-import {SetOpenHouseDate} from '../../../components/Modals/SetOpenHouseData';
 import BasicInfo from './ListingInfo.components/ListingInfo.details/BasicInfo';
 import {
   Box,
@@ -49,7 +48,7 @@ export const SingleListingPage = () => {
     JSON.parse(localStorage.getItem('listingInfo'));
 
   const handleBack = () => {
-    router.push('/listings');
+    router.back(-1);
   };
 
   useEffect(() => {
