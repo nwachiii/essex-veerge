@@ -155,7 +155,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                 alt="Essex-Hoa"
                 width={'fit-content'}
                 style={{objectFit: `cover`}}
-                src={'./public_image/essex-logo.svg'}
+                src={'https://d1x2tneac0i3nn.cloudfront.net/essex-logo.svg'}
               />
             </Link>
           </HStack>
@@ -215,7 +215,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                         fill
                         style={{objectFit: `cover`}}
                         alt="Dylan_Frank"
-                        src={'./public_image/dylan-frank.png'}
+                        src={'https://d1x2tneac0i3nn.cloudfront.net/dylan-frank.png'}
                       />
                     </Center>
                     <Text
