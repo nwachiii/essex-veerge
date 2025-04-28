@@ -15,6 +15,7 @@ import {
   Tooltip,
   Center,
   Stack,
+  Avatar,
 } from '@chakra-ui/react';
 import {useQuery} from '@tanstack/react-query';
 import {HiOutlinePencilSquare} from 'react-icons/hi2';
@@ -31,7 +32,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {customers} from 'pages/residents/customer_overview';
 
-const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = () => {}}) => {
+const CustomerDrawer = ({modalDisclosure, userId, handleCloseDrawer = () => {}}) => {
   const ACTIVITY_LOG_DRAWER = useDisclosure();
   const notesDisclosure = useDisclosure();
   const [awaitUserId, setAwaitUserId] = useState(false);
@@ -42,7 +43,7 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
     })();
   };
 
-  const {data} = customers.data.filter(e => e.response.id == userId);
+  const data = customers?.[`page${1}`]?.filter(e => e.response.id == userId);
 
   return (
     <Drawer isOpen={modalDisclosure.isOpen} onClose={handleClose} borderRadius="16px">
@@ -140,7 +141,6 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
           overflowY={'auto'}
         >
           <>
-            {/* <ContactCard data={data} userId={userId} /> */}
             <HStack
               p={`15px`}
               gap={`8px`}
@@ -153,11 +153,11 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
               href={`/residents/profile/?userId=${userId}`}
             >
               <Center boxSize={`56px`} position="relative">
-                <Image
-                  src={data?.data?.user_info?.avatar ?? avatarFallback.src}
-                  // src={avatarFallback.src}
+                <Avatar
                   alt="user img"
                   fill
+                  name={`${data?.data?.user_info?.first_name} ${data?.data?.user_info?.last_name}`}
+                  src={data?.data?.user_info?.avatar}
                   style={{objectFit: `cover`}}
                 />
               </Center>

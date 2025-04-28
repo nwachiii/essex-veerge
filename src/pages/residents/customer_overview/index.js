@@ -306,7 +306,7 @@ export const customers = {
       response: {
         customer_id: 3352,
         id: 4006,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/fda113cd-2d5.png',
+        img: null,
         email: 'brooke25@gmail.com',
         name: 'Brooklyn Simmons',
         phone: '+1 217 555 0113',
@@ -370,7 +370,7 @@ export const customers = {
       response: {
         customer_id: 3242,
         id: 2336,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/9bd55c47-20b.jpg',
+        img: null,
         email: 'arlenee89@gmail.com',
         name: 'Arlene McCoy',
         phone: '+1 270 555 0117',
@@ -412,7 +412,7 @@ export const customers = {
       response: {
         customer_id: 3240,
         id: 2334,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/269e9814-d7f.jpg',
+        img: null,
         email: 'younginbank@mail.com',
         name: 'Courtney Henry',
         phone: '+1 505 555 0125',
@@ -475,7 +475,7 @@ export const customers = {
       response: {
         customer_id: 3227,
         id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
+        img: null,
         email: 'favourayo@gmail.com',
         name: 'James Cooper',
         phone: '+2348098765455',
@@ -543,7 +543,7 @@ export const customers = {
       response: {
         customer_id: 3227,
         id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
+        img: null,
         email: 'favourayo@gmail.com',
         name: 'James Cooper',
         phone: '+2348098765455',
