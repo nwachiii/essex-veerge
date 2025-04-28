@@ -12,7 +12,7 @@ import {
 import emptyIcon from '/src/images/icons/emptyIcon.png';
 import {formatNumAbbrev} from '../../../utils/formatAmount';
 import Image from 'next/image';
-import { HouseSVG } from 'pages/residents/profile/customer_equities';
+import {HouseSVG} from 'pages/residents/profile/customer_equities';
 
 const EmptyState = () => {
   return (
@@ -45,7 +45,7 @@ const PortfolioCard = ({data}) => {
       <Text color="#191919" fontWeight={'500'} wordBreak="break-word" fontSize="18px">
         Portfolio
       </Text>
-      {customerPortfolio?.length === 0 ? (
+      {customerPortfolio?.length === 0 || true ? (
         <EmptyState />
       ) : (
         <Stack

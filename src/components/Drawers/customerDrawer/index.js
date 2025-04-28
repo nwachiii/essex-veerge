@@ -29,7 +29,7 @@ import {fetchOneCustomer} from 'apis/customers';
 import avatarFallback from '/src/images/avatar.svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import { customers } from 'pages/residents/customer_overview';
+import {customers} from 'pages/residents/customer_overview';
 
 const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = () => {}}) => {
   const ACTIVITY_LOG_DRAWER = useDisclosure();
@@ -139,51 +139,45 @@ const CustomerDrawer = ({modalDisclosure, userId, runQuery, handleCloseDrawer = 
           px="26px"
           overflowY={'auto'}
         >
-      
-            <>
-              {/* <ContactCard data={data} userId={userId} /> */}
-              <HStack
-                p={`15px`}
-                gap={`8px`}
-                borderRadius={`8px`}
-                border={`0.5px solid`}
-                borderColor={`#E4E4E4`}
-                background={`#FFF`}
-                as={Link}
-                prefetch={true}
-                href={`/residents/profile/?userId=${userId}`}
-              >
-                <Center boxSize={`56px`} position="relative">
-                  <Image
-                    src={data?.data?.user_info?.avatar ?? avatarFallback.src}
-                    // src={avatarFallback.src}
-                    alt="user img"
-                    fill
-                    style={{objectFit: `cover`}}
-                  />
-                </Center>
-                <Stack gap={`8px`}>
-                  <Text
-                    color={`#191919`}
-                    fontSize={`18px`}
-                    fontWeight={`600`}
-                    lineHeight={`normal`}
-                    textTransform={`capitalize`}
-                  >
-                    {data?.data?.user_info?.first_name} {data?.data?.user_info?.last_name}
-                  </Text>
-                  <Text
-                    color={`#4545FE`}
-                    fontSize={`14px`}
-                    fontWeight={`400`}
-                    lineHeight={`normal`}
-                  >
-                    view profile
-                  </Text>
-                </Stack>
-              </HStack>
-              <PortfolioCard data={data} />
-            </>
+          <>
+            {/* <ContactCard data={data} userId={userId} /> */}
+            <HStack
+              p={`15px`}
+              gap={`8px`}
+              borderRadius={`8px`}
+              border={`0.5px solid`}
+              borderColor={`#E4E4E4`}
+              background={`#FFF`}
+              as={Link}
+              prefetch={true}
+              href={`/residents/profile/?userId=${userId}`}
+            >
+              <Center boxSize={`56px`} position="relative">
+                <Image
+                  src={data?.data?.user_info?.avatar ?? avatarFallback.src}
+                  // src={avatarFallback.src}
+                  alt="user img"
+                  fill
+                  style={{objectFit: `cover`}}
+                />
+              </Center>
+              <Stack gap={`8px`}>
+                <Text
+                  color={`#191919`}
+                  fontSize={`18px`}
+                  fontWeight={`600`}
+                  lineHeight={`normal`}
+                  textTransform={`capitalize`}
+                >
+                  {data?.data?.user_info?.first_name} {data?.data?.user_info?.last_name}
+                </Text>
+                <Text color={`#4545FE`} fontSize={`14px`} fontWeight={`400`} lineHeight={`normal`}>
+                  view profile
+                </Text>
+              </Stack>
+            </HStack>
+            <PortfolioCard data={data} />
+          </>
         </Box>
       </DrawerContent>
     </Drawer>
