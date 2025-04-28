@@ -11,7 +11,10 @@ import {FaAngleLeft} from 'react-icons/fa';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
 
 import AccountOverViewHeader from '@/components/account/overViewHeader';
-import {demoAccountPageTableData} from 'constants/DEMODATA/account/accountPages';
+import {
+  demoAccountPageTableData,
+  demoRefundableTableData,
+} from 'constants/DEMODATA/account/accountPages';
 import {REFUNDABLE_COLUMN} from 'constants/accounts/tables/refundableDeposit';
 import Head from 'next/head';
 
@@ -25,7 +28,7 @@ const RefundableDeposit = () => {
   const currentPage = routeQueries?.page ?? '1';
 
   const transactions =
-    demoAccountPageTableData?.[`page${currentPage}`] ?? demoAccountPageTableData?.[`1`];
+    demoRefundableTableData?.[`page${currentPage}`] ?? demoRefundableTableData?.[`1`];
 
   const handlePagination = direction => {
     if (direction === 'next') {

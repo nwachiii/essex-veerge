@@ -209,3 +209,251 @@ export const demoAccountPageTableData = {
     //   }
   ],
 };
+
+export const demoCapFeePageTableData = {
+  page1: [
+    {
+      avatar: woman1.src,
+      name: 'Eleanor Vance',
+      unit: '12-D',
+      location: 'Oak Ridge',
+      description: 'CAP Fee',
+      amount: 248.9,
+      date: '17 Feb, 2025',
+    },
+    {
+      avatar: man1.src,
+      name: 'Marcus Chen',
+      unit: '7-A',
+      location: 'Maple Glen',
+      description: 'CAP Fee',
+      amount: 312.0,
+      date: '16 Feb, 2025',
+    },
+    {
+      avatar: woman2.src,
+      name: 'Sophia Rossi',
+      unit: 'E-14',
+      location: 'Crystal Lake Manor',
+      description: 'CAP Fee',
+      amount: 504.34,
+      date: '14 Feb, 2025',
+    },
+    {
+      avatar: man2.src,
+      name: 'Liam Patel',
+      unit: 'B-102',
+      location: 'Garden Heights',
+      description: 'CAP Fee',
+      amount: 126.0,
+      date: '14 Feb, 2025',
+    },
+    {
+      avatar: man3.src,
+      name: 'Noah Williams',
+      unit: 'D-23',
+      location: 'Maple Glen',
+      description: 'CAP Fee',
+      amount: 295.1,
+      date: '13 Feb, 2025',
+    },
+    {
+      avatar: man5.src,
+      name: 'Ethan Jones',
+      unit: '45-G',
+      location: 'Pine Hall',
+      description: 'CAP Fee',
+      amount: 489.45,
+      date: '13 Feb, 2025',
+    },
+    {
+      avatar: man4.src,
+      name: 'Cole Brown',
+      unit: 'A-11',
+      location: 'Oak Ridge',
+      description: 'CAP Fee',
+      amount: 122.76,
+      date: '13 Feb, 2025',
+    },
+    {
+      avatar: man6.src,
+      name: 'Alex Garcia',
+      unit: '4-8',
+      location: 'Silver Heights',
+      description: 'CAP Fee',
+      amount: 300.0,
+      date: '13 Feb, 2025',
+    },
+    {
+      avatar: woman3.src,
+      name: 'Isabella Nguyen',
+      unit: '9-F',
+      location: 'Crystal Lake Manor',
+      description: 'CAP Fee',
+      amount: 389.6,
+      date: '12 Feb, 2025',
+    },
+    {
+      avatar: man8.src,
+      name: 'Lucas Davis',
+      unit: '6-08',
+      location: 'Laurel Heights',
+      description: 'CAP Fee',
+      amount: 218.34,
+      date: '10 Feb, 2025',
+    },
+  ],
+  page2: [
+    {
+      avatar: man9.src,
+      name: 'Aiden Hernandez',
+      unit: 'C-5',
+      location: 'Maple Glen',
+      description: 'CAP Fee',
+      amount: 150.0,
+      date: '10 Feb, 2025',
+    },
+    {
+      avatar: woman3.src,
+      name: 'Isabella Nguyen',
+      unit: '10-B',
+      location: 'Oak Ridge',
+      description: 'CAP Fee',
+      amount: 75.5,
+      date: '09 Feb, 2025',
+    },
+    {
+      avatar: man7.src,
+      name: 'Logan Miller',
+      unit: 'F-11',
+      location: 'Crystal Lake Manor',
+      description: 'CAP Fee',
+      amount: 255.0,
+      date: '09 Feb, 2025',
+    },
+  ],
+};
+
+export const demoRefundableTableData = {
+  page1: [
+    {
+      avatar: woman1.src,
+      name: 'Eleanor Vance',
+      unit: '12-D',
+      location: 'Oak Ridge',
+      description: 'Refundable Deposit',
+      amount: 248.9,
+      date: '17 Jan, 2025', // Past date
+    },
+    {
+      avatar: man1.src,
+      name: 'Marcus Chen',
+      unit: '7-A',
+      location: 'Maple Glen',
+      description: 'Refundable Deposit',
+      amount: 312.0,
+      date: '16 Jan, 2025', // Past date
+    },
+    {
+      avatar: woman2.src,
+      name: 'Sophia Rossi',
+      unit: 'E-14',
+      location: 'Crystal Lake Manor',
+      description: 'Refundable Deposit',
+      amount: 504.34,
+      date: '14 Jan, 2025', // Past date
+    },
+    {
+      avatar: man2.src,
+      name: 'Liam Patel',
+      unit: 'B-102',
+      location: 'Garden Heights',
+      description: 'Refundable Deposit',
+      amount: 126.0,
+      date: '14 Jan, 2025', // Past date
+    },
+    {
+      avatar: man3.src,
+      name: 'Noah Williams',
+      unit: 'D-23',
+      location: 'Maple Glen',
+      description: 'Refundable Deposit',
+      amount: 295.1,
+      date: '13 Jan, 2025', // Past date
+    },
+    {
+      avatar: man5.src,
+      name: 'Ethan Jones',
+      unit: '45-G',
+      location: 'Pine Hall',
+      description: 'Refundable Deposit',
+      amount: 489.45,
+      date: '13 Jan, 2025', // Past date
+    },
+    {
+      avatar: man4.src,
+      name: 'Cole Brown',
+      unit: 'A-11',
+      location: 'Oak Ridge',
+      description: 'Refundable Deposit',
+      amount: 122.76,
+      date: '13 Jan, 2025', // Past date
+    },
+    {
+      avatar: man6.src,
+      name: 'Alex Garcia',
+      unit: '4-8',
+      location: 'Silver Heights',
+      description: 'Refundable Deposit',
+      amount: 300.0,
+      date: '13 Jan, 2025', // Past date
+    },
+    {
+      avatar: woman3.src,
+      name: 'Isabella Nguyen',
+      unit: '9-F',
+      location: 'Crystal Lake Manor',
+      description: 'Refundable Deposit',
+      amount: 389.6,
+      date: '12 Jan, 2025', // Past date
+    },
+    {
+      avatar: man8.src,
+      name: 'Lucas Davis',
+      unit: '6-08',
+      location: 'Laurel Heights',
+      description: 'Refundable Deposit',
+      amount: 218.34,
+      date: '10 Jan, 2025', // Past date
+    },
+  ],
+  page2: [
+    {
+      avatar: man9.src,
+      name: 'Aiden Hernandez',
+      unit: 'C-5',
+      location: 'Maple Glen',
+      description: 'Refundable Deposit',
+      amount: 150.0,
+      date: '10 Jan, 2025', // Past date
+    },
+    {
+      avatar: woman2.src,
+      name: 'Sophia Rossi',
+      unit: '10-B',
+      location: 'Oak Ridge',
+      description: 'Refundable Deposit',
+      amount: 75.5,
+      date: '09 Jan, 2025', // Past date
+    },
+    {
+      avatar: man7.src,
+      name: 'Logan Miller',
+      unit: 'F-11',
+      location: 'Crystal Lake Manor',
+      description: 'Refundable Deposit',
+      amount: 255.0,
+      date: '09 Jan, 2025', // Past date
+    },
+  ],
+};
