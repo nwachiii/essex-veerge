@@ -1,60 +1,216 @@
-import {useRouter} from 'next/router';
-import backArrow from '../../../images/icons/back-arrow.png';
-import {AnimatedLoader} from '../../../components/common/loaders/AnimatedLoader';
 import {LayoutView} from '../../../components/PageLayout/LayoutView';
 import {
-  Heading,
   HStack,
-  Stack,
   Image,
   Box,
-  useToast,
-  Flex,
   Center,
   VStack,
   Text,
+  Flex,
+  Button as ChakraButton,
 } from '@chakra-ui/react';
 
-import {themeStyles} from '../../../theme';
-import {CustomerProperties} from './properties';
-import {useQuery} from '@tanstack/react-query';
-import {scrollBarStyles} from '../../../components/common/ScrollbarStyling';
-import {fetchOneCustomer} from '../../../apis/customers';
-import {CustomerBasicInfo} from '../../../components/Customers/BasicInfo';
-import PageLoader from '../../../components/PageLayout/PageLoader';
 import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
-import {ChevronLeftIcon, ChevronRightIcon, SmallAddIcon} from '@chakra-ui/icons';
-import {Button} from 'ui-lib/ui-lib.components';
+import {ChevronLeftIcon, ChevronRightIcon, EditIcon, SmallAddIcon} from '@chakra-ui/icons';
+// import {Button} from 'ui-lib/ui-lib.components';
 import ralph from '../../../images/resident-profile/ralph.png';
 import calling from '../../../images/resident-profile/calling.svg';
 import plus from '../../../images/resident-profile/plus.svg';
 import info from '../../../images/resident-profile/info.svg';
+import basketBall from '../../../images/resident-profile/basketBall.svg';
+import edit from '../../../images/resident-profile/edit.svg';
+import vehicle from '../../../images/resident-profile/vehicle.svg';
+import treasurer from '../../../images/resident-profile/treasurer.svg';
+import clubHouse from '../../../images/resident-profile/clubHouse.svg';
+import poolParty from '../../../images/resident-profile/poolParty.svg';
+import moreOption from '../../../images/resident-profile/moreOption.svg';
+import verify from '../../../images/resident-profile/verify.svg';
+import pet from '../../../images/resident-profile/pet.svg';
+import lease from '../../../images/resident-profile/lease.svg';
 import document from '../../../images/resident-profile/document.svg';
 import ppt1 from '../../../images/resident-profile/ppt1.png';
+import ppt2 from '../../../images/resident-profile/ppt2.png';
+import ppt3 from '../../../images/resident-profile/ppt3.png';
+import {useRouter} from 'next/router';
 
-const customScroll = {
-  '&::-webkit-scrollbar': {
-    display: 'none',
-  },
+const Button = ({children, ...rest}) => (
+  <ChakraButton _hover={{opacity: 1}} _active={{opacity: 1}} h="55px" {...rest}>
+    {children}
+  </ChakraButton>
+);
 
-  scrollbarWidth: 'none',
-};
 export const SingleCustomerPage = ({userId}) => {
-  const router = useRouter();
-  const toast = useToast();
-  const UniqueCustomer = useQuery(
-    ['individual-customer-profile', userId],
-    async () => await fetchOneCustomer(userId)
-  );
   const isSmallerLaptop = useSmallerLaptopsBreakpoint();
+  const router = useRouter();
 
-  const handleBack = () => {
-    router.back(-1);
-  };
+  const portfolio = [
+    {
+      image: ppt1.src,
+      name: '12-D',
+      type: 'Oak Ridge',
+      tag: 'Owner-Occupied',
+      color: 'green',
+      balanceColor: 'black',
+      balance: '-$800.00(credit)',
+      openRequest: '1',
+      violation: '0',
+    },
+    {
+      image: ppt2.src,
+      name: 'D23',
+      type: 'Haven Estate',
+      tag: 'Tenant-As Landlord',
+      color: 'purple',
+      balanceColor: 'red',
+      balance: '$200.00(due)',
+      openRequest: '0',
+      violation: '1',
+    },
+    {
+      image: ppt3.src,
+      name: '3 Bedroom',
+      type: 'Astrid 2.0',
+      tag: 'Owner',
+      color: 'green',
+      balanceColor: 'black',
+      balance: '$0.00',
+      openRequest: '2',
+      violation: '0',
+    },
+  ];
 
-  if (router.isFallback) {
-    return <PageLoader />;
-  }
+  const requestOrWorkOrder = [
+    {
+      name: 'Leaking Faucet',
+      tag: 'In Progress',
+      tagColor: '#92310A',
+      tagBg: '#FFF7ED',
+      ppt: '12-B',
+      firstText: 'WO - 8831',
+      secondText: 'SLA 2 hours',
+    },
+    {
+      name: 'Patio Cover',
+      tag: 'Committee vote',
+      tagColor: '#3737D1',
+      tagBg: '#EEF4FF',
+      ppt: '14-D',
+      firstText: 'WO - 8357',
+      secondText: 'SLA 12 Days',
+    },
+  ];
+  const violation = [
+    {
+      name: 'Trash Can',
+      tag: 'Cured',
+      tagColor: '#116932',
+      tagBg: '#F0FDF4',
+      ppt: '14-D',
+      firstText: 'V - 1432',
+      secondText: '20 APR',
+    },
+    {
+      name: 'Late Night Noise',
+      tag: 'Fined',
+      tagColor: '#991919',
+      tagBg: '#FEF2F2',
+      ppt: '14-D',
+      firstText: 'V - 1425',
+      secondText: '22 APR',
+    },
+  ];
+  const upcomingReserve = [
+    {
+      icon: basketBall.src,
+      name: 'Tennis Court #12',
+      tagColor: '#13618F',
+      tagLeftColor: '#64C6FF',
+      tagBg: 'rgba(100, 198, 255, 0.10)',
+      month: 'APRIL',
+      day: '22',
+      firstText: 'Aspen Row, Wisteria Lane',
+      secondText: '06:00PM - 07:00PM',
+    },
+    {
+      icon: clubHouse.src,
+      name: 'Clubhouse',
+      tagColor: '#20751E',
+      tagLeftColor: '#06D001',
+      tagBg: 'rgba(6, 208, 1, 0.10)',
+      month: 'MAY',
+      day: '03',
+      firstText: 'Pine Grove, Elm Street',
+      secondText: '04:00PM - 09:00PM',
+    },
+    {
+      icon: poolParty.src,
+      name: 'Pool Party Zone',
+      tagColor: '#92310A',
+      tagLeftColor: '#F97316',
+      tagBg: '#FFEDD5',
+      month: 'MAY',
+      day: '05',
+      firstText: 'Pine Grove, Elm  Street',
+      secondText: '01:00PM - 03:00PM',
+    },
+  ];
+
+  const documents = [
+    {
+      name: 'Lease',
+      ppt: '14-D',
+      firstText: 'Expiration 21 Dec, 2025',
+    },
+    {
+      name: 'HO-6 policy',
+      ppt: '12-B',
+      firstText: 'Expiration 30 Jun, 2025',
+    },
+  ];
+  const KYC = [
+    {
+      name: 'Driver’s License',
+      ppt: '14-D',
+      firstText: 'Expiration 10 Jan, 2028',
+    },
+    {
+      name: 'International Passport',
+      ppt: '12-B',
+      firstText: 'Expiration 15 May, 2029',
+    },
+  ];
+  const pets = [
+    {
+      icon: pet.src,
+      name: 'Pet',
+      ppt: '14-D',
+      firstText: '1 dog (Labrador)',
+    },
+    {
+      icon: vehicle.src,
+      name: 'Vehicles',
+      ppt: '12-B',
+      firstText: '8JQK321',
+    },
+    {
+      icon: vehicle.src,
+      name: 'Vehicles',
+      ppt: '12-B',
+      firstText: 'TXM 4827',
+    },
+  ];
+  const board = [
+    {
+      name: 'Treasurer',
+      ppt: 'Oak Ridge',
+      firstText: 'Term End 21 Dec, 2026',
+    },
+    {
+      name: 'ARC Member',
+      ppt: 'Maple Glen',
+      firstText: 'Term End 21 Dec, 2025',
+    },
+  ];
 
   return (
     <Box bg="#FAFAFA" mx="auto" minH="100vh" h={isSmallerLaptop ? '60vh' : ''}>
@@ -73,7 +229,14 @@ export const SingleCustomerPage = ({userId}) => {
           mx="auto"
         >
           <HStack justify={'space-between'}>
-            <Center w="50px" h="50px" borderRadius={'full'} border={'1px solid #E4E4E7'}>
+            <Center
+              w="50px"
+              h="50px"
+              borderRadius={'full'}
+              border={'1px solid #E4E4E7'}
+              cursor={'pointer'}
+              onClick={() => router.back()}
+            >
               <ChevronLeftIcon color={'#000000'} fontSize={25} />
             </Center>
 
@@ -92,6 +255,7 @@ export const SingleCustomerPage = ({userId}) => {
                 Transaction
               </Button>
               <Button
+                leftIcon={<Image src={moreOption.src} />}
                 py="16px"
                 px="40px"
                 bg="#fff"
@@ -142,7 +306,7 @@ export const SingleCustomerPage = ({userId}) => {
                     </Text>
                     <HStack mt="7px" spacing={'9px'} align={'center'}>
                       <Button
-                        mt="0"
+                        borderRadius="full"
                         leftIcon={<Image boxSize={'16px'} src={calling.src} />}
                         color="#4545FE"
                         bg="rgba(69, 69, 254, 0.10)"
@@ -189,7 +353,6 @@ export const SingleCustomerPage = ({userId}) => {
                   px="16px"
                   bg="#E7FBF5"
                   borderRadius="full"
-                  mt="0"
                   color="#064B38"
                 >
                   Notes
@@ -220,116 +383,114 @@ export const SingleCustomerPage = ({userId}) => {
                   bg="#fff"
                   borderRadius={'16px'}
                 >
-                  {Array(3)
-                    .fill(1)
-                    .map(() => (
-                      <HStack
-                        px="20px"
-                        py="18px"
-                        spacing={'24px'}
-                        border={'0.8px solid #E4E4E4'}
-                        bg="#fff"
-                        borderRadius={'16px'}
-                      >
-                        <Image src={ppt1.src} h="175px" w="180px" borderRadius={'15.265px'} />
+                  {portfolio.map(data => (
+                    <HStack
+                      px="20px"
+                      py="18px"
+                      spacing={'24px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#fff"
+                      borderRadius={'16px'}
+                    >
+                      <Image src={data.image} h="175px" w="180px" borderRadius={'15.265px'} />
 
-                        <VStack w="full" spacing={'20px'} align={'stretch'}>
-                          <HStack w="full" spacing={'24px'}>
-                            <Box>
-                              <Text fontSize="20px" fontWeight="600" lineHeight="normal">
-                                12-D
-                              </Text>
-                              <Text fontSize="14px" fontWeight="400" lineHeight="normal">
-                                Oak Ridge
-                              </Text>
-                            </Box>
-                            <Center
-                              px="12px"
-                              py="4px"
-                              fontSize="14px"
-                              fontWeight="500"
-                              lineHeight="20px"
-                              color={'#116932'}
-                              bg="#F0FDF4"
-                              borderRadius={'full'}
-                            >
-                              Owner-Occupied
-                            </Center>
-                          </HStack>
-
-                          <HStack w="full" spacing={'24px'}>
-                            <Box>
-                              <Text
-                                fontSize="11px"
-                                fontWeight="400"
-                                lineHeight="150%"
-                                letterSpacing={'0.33px'}
-                              >
-                                Balance
-                              </Text>
-                              <Text
-                                fontSize="13px"
-                                fontWeight="600"
-                                lineHeight="150%"
-                                letterSpacing={'0.26px'}
-                              >
-                                -$800.00(credit)
-                              </Text>
-                            </Box>
-                            <Box>
-                              <Text
-                                fontSize="11px"
-                                fontWeight="400"
-                                lineHeight="150%"
-                                letterSpacing={'0.33px'}
-                              >
-                                Open Requests
-                              </Text>
-                              <Text
-                                fontSize="13px"
-                                fontWeight="600"
-                                lineHeight="150%"
-                                letterSpacing={'0.26px'}
-                              >
-                                1
-                              </Text>
-                            </Box>
-                            <Box>
-                              <Text
-                                fontSize="11px"
-                                fontWeight="400"
-                                lineHeight="150%"
-                                letterSpacing={'0.33px'}
-                              >
-                                Violation
-                              </Text>
-                              <Text
-                                fontSize="13px"
-                                fontWeight="600"
-                                lineHeight="150%"
-                                letterSpacing={'0.26px'}
-                              >
-                                0
-                              </Text>
-                            </Box>
-                          </HStack>
-
-                          <Button
-                            mt="0"
-                            h="40px"
-                            w="152px"
-                            borderRadius="full"
-                            bg="#000"
-                            color="#fff"
-                            fontSize="16px"
+                      <VStack w="full" spacing={'20px'} align={'stretch'}>
+                        <HStack w="full" spacing={'24px'}>
+                          <Box>
+                            <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                              {data.name}
+                            </Text>
+                            <Text fontSize="14px" fontWeight="400" lineHeight="normal">
+                              {data.type}
+                            </Text>
+                          </Box>
+                          <Center
+                            px="12px"
+                            py="4px"
+                            fontSize="14px"
                             fontWeight="500"
-                            lineHeight="normal"
+                            lineHeight="20px"
+                            color={data.color === 'green' ? '#116932' : '#6941C6'}
+                            bg={data.color === 'green' ? '#F0FDF4' : '#F5F9FF'}
+                            borderRadius={'full'}
                           >
-                            View Details
-                          </Button>
-                        </VStack>
-                      </HStack>
-                    ))}
+                            Owner-Occupied
+                          </Center>
+                        </HStack>
+
+                        <HStack w="full" spacing={'24px'}>
+                          <Box>
+                            <Text
+                              fontSize="11px"
+                              fontWeight="400"
+                              lineHeight="150%"
+                              letterSpacing={'0.33px'}
+                            >
+                              Balance
+                            </Text>
+                            <Text
+                              fontSize="13px"
+                              fontWeight="600"
+                              lineHeight="150%"
+                              letterSpacing={'0.26px'}
+                              color={data.balanceColor === 'red' ? '#DC2626' : '#000'}
+                            >
+                              {data.balance}
+                            </Text>
+                          </Box>
+                          <Box>
+                            <Text
+                              fontSize="11px"
+                              fontWeight="400"
+                              lineHeight="150%"
+                              letterSpacing={'0.33px'}
+                            >
+                              Open Requests
+                            </Text>
+                            <Text
+                              fontSize="13px"
+                              fontWeight="600"
+                              lineHeight="150%"
+                              letterSpacing={'0.26px'}
+                            >
+                              {data.openRequest}
+                            </Text>
+                          </Box>
+                          <Box>
+                            <Text
+                              fontSize="11px"
+                              fontWeight="400"
+                              lineHeight="150%"
+                              letterSpacing={'0.33px'}
+                            >
+                              Violation
+                            </Text>
+                            <Text
+                              fontSize="13px"
+                              fontWeight="600"
+                              lineHeight="150%"
+                              letterSpacing={'0.26px'}
+                            >
+                              {data.violation}
+                            </Text>
+                          </Box>
+                        </HStack>
+
+                        <Button
+                          h="40px"
+                          w="152px"
+                          borderRadius="full"
+                          bg="#000"
+                          color="#fff"
+                          fontSize="16px"
+                          fontWeight="500"
+                          lineHeight="normal"
+                        >
+                          View Details
+                        </Button>
+                      </VStack>
+                    </HStack>
+                  ))}
                 </VStack>
               </Box>
 
@@ -341,7 +502,7 @@ export const SingleCustomerPage = ({userId}) => {
 
                   <HStack>
                     <Text fontSize="19px" fontWeight="500" lineHeight="130%">
-                      Link New Unit
+                      View Work Order History
                     </Text>
                     <ChevronRightIcon fontSize={25} />
                   </HStack>
@@ -355,77 +516,75 @@ export const SingleCustomerPage = ({userId}) => {
                   bg="#fff"
                   borderRadius={'16px'}
                 >
-                  {Array(2)
-                    .fill(1)
-                    .map(() => (
-                      <VStack
-                        align={'stretch'}
-                        w="256px"
-                        p="12px"
-                        spacing={'12px'}
-                        border={'0.8px solid #E4E4E4'}
-                        bg="#FBFCFC"
-                        borderRadius={'16px'}
-                      >
-                        <HStack spacing={'8px'}>
-                          <Center
-                            borderRadius={'full'}
-                            boxSize={'36px'}
-                            border={'1px solid #E4E4E7'}
-                            bg="#FAFAFA"
-                          >
-                            <Image src={info.src} />
-                          </Center>
-                          <Text
-                            fontSize="13px"
-                            fontWeight="500"
-                            lineHeight="150%"
-                            letterSpacing="0.26px"
-                          >
-                            Trash Can
-                          </Text>
-                        </HStack>
-                        <HStack spacing={'8px'}>
-                          <Text fontSize="20px" fontWeight="600" lineHeight="normal">
-                            14-D
-                          </Text>
-                          <Center
-                            px="12px"
-                            py="4px"
-                            fontSize="14px"
-                            fontWeight="500"
-                            lineHeight="20px"
-                            color={'#116932'}
-                            bg="#F0FDF4"
-                            borderRadius={'full'}
-                          >
-                            Cured
-                          </Center>
-                        </HStack>
+                  {requestOrWorkOrder.map(data => (
+                    <VStack
+                      align={'stretch'}
+                      w="256px"
+                      p="12px"
+                      spacing={'12px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#FBFCFC"
+                      borderRadius={'16px'}
+                    >
+                      <HStack spacing={'8px'}>
+                        <Center
+                          borderRadius={'full'}
+                          boxSize={'36px'}
+                          border={'1px solid #E4E4E7'}
+                          bg="#FAFAFA"
+                        >
+                          <Image src={info.src} />
+                        </Center>
+                        <Text
+                          fontSize="13px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.26px"
+                        >
+                          {data.name}
+                        </Text>
+                      </HStack>
+                      <HStack spacing={'8px'}>
+                        <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                          {data.ppt}
+                        </Text>
+                        <Center
+                          px="12px"
+                          py="4px"
+                          fontSize="14px"
+                          fontWeight="500"
+                          lineHeight="20px"
+                          color={data.tagColor}
+                          bg={data.tagBg}
+                          borderRadius={'full'}
+                        >
+                          {data.tag}
+                        </Center>
+                      </HStack>
 
-                        <HStack spacing={'8px'}>
-                          <Text
-                            fontSize="11px"
-                            fontWeight="500"
-                            lineHeight="150%"
-                            letterSpacing={'0.33px'}
-                            color={'#52525B'}
-                          >
-                            WO - 8831
-                          </Text>
-                          <Box boxSize="3px" borderRadius={'full'} bg="#000" />
-                          <Text
-                            fontSize="11px"
-                            fontWeight="500"
-                            lineHeight="150%"
-                            letterSpacing={'0.33px'}
-                            color={'#27272A'}
-                          >
-                            SLA 2 hours
-                          </Text>
-                        </HStack>
-                      </VStack>
-                    ))}
+                      <HStack spacing={'8px'}>
+                        <Text
+                          fontSize="11px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing={'0.33px'}
+                          color={'#52525B'}
+                        >
+                          {data.firstText}
+                        </Text>
+                        <Box boxSize="3px" borderRadius={'full'} bg="#000" />
+                        <Text
+                          fontSize="11px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing={'0.33px'}
+                          color={'#27272A'}
+                        >
+                          {data.secondText}
+                        </Text>
+                      </HStack>
+                    </VStack>
+                  ))}
                 </HStack>
               </Box>
 
@@ -451,148 +610,758 @@ export const SingleCustomerPage = ({userId}) => {
                   bg="#fff"
                   borderRadius={'16px'}
                 >
-                  {Array(2)
-                    .fill(1)
-                    .map(() => (
-                      <VStack
-                        align={'stretch'}
-                        w="256px"
-                        p="12px"
-                        spacing={'12px'}
-                        border={'0.8px solid #E4E4E4'}
-                        bg="#FBFCFC"
-                        borderRadius={'16px'}
-                      >
-                        <HStack spacing={'8px'}>
-                          <Center
-                            borderRadius={'full'}
-                            boxSize={'36px'}
-                            border={'1px solid #E4E4E7'}
-                            bg="#FAFAFA"
-                          >
-                            <Image src={info.src} />
-                          </Center>
+                  {violation.map(data => (
+                    <VStack
+                      align={'stretch'}
+                      w="256px"
+                      p="12px"
+                      spacing={'12px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#FBFCFC"
+                      borderRadius={'16px'}
+                    >
+                      <HStack spacing={'8px'}>
+                        <Center
+                          borderRadius={'full'}
+                          boxSize={'36px'}
+                          border={'1px solid #E4E4E7'}
+                          bg="#FAFAFA"
+                        >
+                          <Image src={info.src} />
+                        </Center>
+                        <Text
+                          fontSize="13px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.26px"
+                        >
+                          {data.name}
+                        </Text>
+                      </HStack>
+                      <HStack spacing={'8px'}>
+                        <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                          {data.ppt}
+                        </Text>
+                        <Center
+                          px="12px"
+                          py="4px"
+                          fontSize="14px"
+                          fontWeight="500"
+                          lineHeight="20px"
+                          color={data.tagColor}
+                          bg={data.tagBg}
+                          borderRadius={'full'}
+                        >
+                          {data.tag}
+                        </Center>
+                      </HStack>
+
+                      <HStack spacing={'8px'}>
+                        <Text
+                          fontSize="11px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing={'0.33px'}
+                          color={'#52525B'}
+                        >
+                          {data.firstText}
+                        </Text>
+                        <Box boxSize="3px" borderRadius={'full'} bg="#000" />
+                        <Text
+                          fontSize="11px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing={'0.33px'}
+                          color={'#27272A'}
+                        >
+                          {data.secondText}
+                        </Text>
+                      </HStack>
+                    </VStack>
+                  ))}
+                </HStack>
+              </Box>
+
+              <Box w="full" color={'#191919'}>
+                <HStack w="full" justify={'space-between'}>
+                  <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                    Upcoming Reservations / Events
+                  </Text>
+
+                  <HStack>
+                    <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                      View Reservation History
+                    </Text>
+                    <ChevronRightIcon fontSize={25} />
+                  </HStack>
+                </HStack>
+                <HStack
+                  mt="12px"
+                  p="16px"
+                  spacing={'16px'}
+                  align={'stretch'}
+                  border={'0.5px solid #E4E4E4'}
+                  bg="#fff"
+                  borderRadius={'16px'}
+                >
+                  {upcomingReserve.map(data => (
+                    <VStack
+                      align={'stretch'}
+                      w="256px"
+                      p="12px"
+                      spacing={'8px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#FBFCFC"
+                      borderRadius={'16px'}
+                    >
+                      <HStack spacing={'8px'}>
+                        <Center
+                          borderRadius={'full'}
+                          boxSize={'36px'}
+                          border={'1px solid #E4E4E7'}
+                          bg="#FAFAFA"
+                        >
+                          <Image src={data.icon} />
+                        </Center>
+                        <Text
+                          fontSize="13px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.26px"
+                        >
+                          {data.name}
+                        </Text>
+                      </HStack>
+                      <VStack spacing={'0'} w="full" align={'stretch'}>
+                        <Text
+                          fontSize="11px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.33px"
+                          color={'#DC2626'}
+                        >
+                          {data.month}
+                        </Text>
+                        <Text fontSize="33px" fontWeight="500" lineHeight="130%" color={'#000'}>
+                          {data.day}
+                        </Text>
+                      </VStack>
+
+                      <Box bg={data.tagBg} px="5px" py="4px" maxW={'156px'}>
+                        <VStack
+                          spacing={'4px'}
+                          align={'stretch'}
+                          w="full"
+                          pl="8px"
+                          borderLeft={'4px solid'}
+                          borderColor={data.tagLeftColor}
+                        >
                           <Text
                             fontSize="13px"
                             fontWeight="500"
                             lineHeight="150%"
-                            letterSpacing="0.26px"
+                            letterSpacing={'0.26px'}
+                            color={data.tagColor}
                           >
-                            Trash Can
+                            {data.firstText}
                           </Text>
-                        </HStack>
-                        <HStack spacing={'8px'}>
-                          <Text fontSize="20px" fontWeight="600" lineHeight="normal">
-                            14-D
-                          </Text>
-                          <Center
-                            px="12px"
-                            py="4px"
-                            fontSize="14px"
-                            fontWeight="500"
-                            lineHeight="20px"
-                            color={'#116932'}
-                            bg="#F0FDF4"
-                            borderRadius={'full'}
-                          >
-                            Cured
-                          </Center>
-                        </HStack>
-
-                        <HStack spacing={'8px'}>
                           <Text
-                            fontSize="11px"
-                            fontWeight="500"
+                            fontSize="13px"
+                            fontWeight="400"
                             lineHeight="150%"
-                            letterSpacing={'0.33px'}
-                            color={'#52525B'}
+                            letterSpacing={'0.26px'}
+                            color={'#13618F'}
                           >
-                            WO - 8831
+                            {data.secondText}
                           </Text>
-                          <Box boxSize="3px" borderRadius={'full'} bg="#000" />
-                          <Text
-                            fontSize="11px"
-                            fontWeight="500"
-                            lineHeight="150%"
-                            letterSpacing={'0.33px'}
-                            color={'#27272A'}
-                          >
-                            SLA 2 hours
-                          </Text>
-                        </HStack>
-                      </VStack>
-                    ))}
+                        </VStack>
+                      </Box>
+                    </VStack>
+                  ))}
                 </HStack>
+              </Box>
+
+              <Box w="full" color={'#191919'}>
+                <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                  Documents & Certificates
+                </Text>
+                <HStack
+                  mt="12px"
+                  p="16px"
+                  spacing={'16px'}
+                  align={'stretch'}
+                  border={'0.5px solid #E4E4E4'}
+                  bg="#fff"
+                  borderRadius={'16px'}
+                >
+                  {documents.map(data => (
+                    <VStack
+                      align={'stretch'}
+                      w="256px"
+                      p="12px"
+                      spacing={'12px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#FBFCFC"
+                      borderRadius={'16px'}
+                    >
+                      <HStack spacing={'8px'}>
+                        <Center
+                          borderRadius={'full'}
+                          boxSize={'36px'}
+                          border={'1px solid #E4E4E7'}
+                          bg="#FAFAFA"
+                        >
+                          <Image src={lease.src} />
+                        </Center>
+                        <Text
+                          fontSize="13px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.26px"
+                        >
+                          {data.name}
+                        </Text>
+                      </HStack>
+                      <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                        {data.ppt}
+                      </Text>
+
+                      <HStack
+                        spacing={'8px'}
+                        border={'0.5px solid #E4E4E7'}
+                        w="fit-content"
+                        px="6px"
+                        py="4px"
+                      >
+                        <Box boxSize="3px" borderRadius={'full'} bg="#DC2626" />
+                        <Text
+                          fontSize="10px"
+                          fontWeight="400"
+                          lineHeight="150%"
+                          letterSpacing={'0.3px'}
+                          color={'#27272A'}
+                        >
+                          {data.firstText}
+                        </Text>
+                      </HStack>
+                    </VStack>
+                  ))}
+                </HStack>
+              </Box>
+
+              <Box w="full" color={'#191919'}>
+                <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                  KYC/ID verification
+                </Text>
+                <HStack
+                  mt="12px"
+                  p="16px"
+                  spacing={'16px'}
+                  align={'stretch'}
+                  border={'0.5px solid #E4E4E4'}
+                  bg="#fff"
+                  borderRadius={'16px'}
+                >
+                  {KYC.map(data => (
+                    <VStack
+                      align={'stretch'}
+                      w="256px"
+                      p="12px"
+                      spacing={'12px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#FBFCFC"
+                      borderRadius={'16px'}
+                    >
+                      <HStack spacing={'8px'}>
+                        <Center
+                          borderRadius={'full'}
+                          boxSize={'36px'}
+                          border={'1px solid #E4E4E7'}
+                          bg="#FAFAFA"
+                        >
+                          <Image src={lease.src} />
+                        </Center>
+                        <Text
+                          fontSize="13px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.26px"
+                        >
+                          {data.name}
+                        </Text>
+                      </HStack>
+                      <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                        {data.ppt}
+                      </Text>
+
+                      <HStack
+                        spacing={'8px'}
+                        border={'0.5px solid #E4E4E7'}
+                        w="fit-content"
+                        px="6px"
+                        py="4px"
+                      >
+                        <Box boxSize="3px" borderRadius={'full'} bg="#DC2626" />
+                        <Text
+                          fontSize="10px"
+                          fontWeight="400"
+                          lineHeight="150%"
+                          letterSpacing={'0.3px'}
+                          color={'#27272A'}
+                        >
+                          {data.firstText}
+                        </Text>
+                      </HStack>
+                    </VStack>
+                  ))}
+                </HStack>
+              </Box>
+
+              <Box w="full" color={'#191919'}>
+                <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                  Pet & Vehicles
+                </Text>
+                <HStack
+                  mt="12px"
+                  p="16px"
+                  spacing={'16px'}
+                  align={'stretch'}
+                  border={'0.5px solid #E4E4E4'}
+                  bg="#fff"
+                  borderRadius={'16px'}
+                >
+                  {pets.map(data => (
+                    <VStack
+                      align={'stretch'}
+                      w="256px"
+                      p="12px"
+                      spacing={'12px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#FBFCFC"
+                      borderRadius={'16px'}
+                    >
+                      <HStack spacing={'8px'}>
+                        <Center
+                          borderRadius={'full'}
+                          boxSize={'36px'}
+                          border={'1px solid #E4E4E7'}
+                          bg="#FAFAFA"
+                        >
+                          <Image src={data.icon} />
+                        </Center>
+                        <Text
+                          fontSize="13px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.26px"
+                        >
+                          {data.name}
+                        </Text>
+                      </HStack>
+                      <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                        {data.ppt}
+                      </Text>
+
+                      <HStack
+                        spacing={'8px'}
+                        border={'0.5px solid #E4E4E7'}
+                        w="fit-content"
+                        px="6px"
+                        py="4px"
+                      >
+                        <Box boxSize="3px" borderRadius={'full'} bg="#DC2626" />
+                        <Text
+                          fontSize="10px"
+                          fontWeight="400"
+                          lineHeight="150%"
+                          letterSpacing={'0.3px'}
+                          color={'#27272A'}
+                        >
+                          {data.firstText}
+                        </Text>
+                      </HStack>
+                    </VStack>
+                  ))}
+                </HStack>
+              </Box>
+
+              <Box w="full" color={'#191919'}>
+                <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                  Board & Committee Roles
+                </Text>
+                <HStack
+                  mt="12px"
+                  p="16px"
+                  spacing={'16px'}
+                  align={'stretch'}
+                  border={'0.5px solid #E4E4E4'}
+                  bg="#fff"
+                  borderRadius={'16px'}
+                >
+                  {board.map(data => (
+                    <VStack
+                      align={'stretch'}
+                      w="256px"
+                      p="12px"
+                      spacing={'12px'}
+                      border={'0.8px solid #E4E4E4'}
+                      bg="#FBFCFC"
+                      borderRadius={'16px'}
+                    >
+                      <HStack spacing={'8px'}>
+                        <Center
+                          borderRadius={'full'}
+                          boxSize={'36px'}
+                          border={'1px solid #E4E4E7'}
+                          bg="#FAFAFA"
+                        >
+                          <Image src={treasurer.src} />
+                        </Center>
+                        <Text
+                          fontSize="13px"
+                          fontWeight="500"
+                          lineHeight="150%"
+                          letterSpacing="0.26px"
+                        >
+                          {data.name}
+                        </Text>
+                      </HStack>
+                      <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                        {data.ppt}
+                      </Text>
+
+                      <HStack
+                        spacing={'8px'}
+                        border={'0.5px solid #E4E4E7'}
+                        w="fit-content"
+                        px="6px"
+                        py="4px"
+                      >
+                        <Box boxSize="3px" borderRadius={'full'} bg="#DC2626" />
+                        <Text
+                          fontSize="10px"
+                          fontWeight="400"
+                          lineHeight="150%"
+                          letterSpacing={'0.3px'}
+                          color={'#27272A'}
+                        >
+                          {data.firstText}
+                        </Text>
+                      </HStack>
+                    </VStack>
+                  ))}
+                </HStack>
+              </Box>
+
+              <Box w="full" color={'#191919'}>
+                <HStack w="full" justify={'space-between'}>
+                  <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                    Resident’s Additional Information
+                  </Text>
+
+                  <HStack>
+                    <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                      Edit Details
+                    </Text>
+                    <Image src={edit.src} />
+                  </HStack>
+                </HStack>
+
+                <Flex
+                  mt="12px"
+                  p="16px"
+                  // columnGap={'24px'}
+                  rowGap={'16px'}
+                  align={'stretch'}
+                  border={'0.5px solid #E4E4E4'}
+                  bg="#fff"
+                  borderRadius={'16px'}
+                  flexWrap={'wrap'}
+                  justify={'space-between'}
+                >
+                  <Center
+                    w="37%"
+                    h="117px"
+                    flexDir={'column'}
+                    p="12px"
+                    gap={'10px'}
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="14px" fontWeight="400" color="#27272A">
+                      Education
+                    </Text>
+                    <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                      MBA
+                    </Text>
+                  </Center>
+                  <Center
+                    w="30%"
+                    h="117px"
+                    flexDir={'column'}
+                    p="12px"
+                    gap={'10px'}
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="14px" fontWeight="400" color="#27272A">
+                      Occupation
+                    </Text>
+                    <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                      Software Engineer
+                    </Text>
+                  </Center>
+                  <Center
+                    w="30%"
+                    h="117px"
+                    flexDir={'column'}
+                    p="12px"
+                    gap={'10px'}
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="14px" fontWeight="400" color="#27272A">
+                      Marital Status
+                    </Text>
+                    <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                      Single
+                    </Text>
+                  </Center>
+
+                  <Center
+                    w="32%"
+                    h="117px"
+                    flexDir={'column'}
+                    p="12px"
+                    gap={'10px'}
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="14px" fontWeight="400" color="#27272A">
+                      Company Name
+                    </Text>
+                    <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                      Meta
+                    </Text>
+                  </Center>
+                  <Center
+                    w="32%"
+                    h="117px"
+                    flexDir={'column'}
+                    p="12px"
+                    gap={'10px'}
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="14px" fontWeight="400" color="#27272A">
+                      Date of Birth
+                    </Text>
+                    <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                      Jan 27, 1988
+                    </Text>
+                  </Center>
+                  <Center
+                    w="33%"
+                    h="117px"
+                    flexDir={'column'}
+                    p="12px"
+                    gap={'10px'}
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="14px" fontWeight="400" color="#27272A">
+                      Joined Date
+                    </Text>
+                    <Text fontSize="20px" fontWeight="600" lineHeight="normal">
+                      Sep 04, 2021
+                    </Text>
+                  </Center>
+
+                  <Box
+                    w="100%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Mailing Address
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      742 Evergreen Terrace Springfield, IL 62704
+                    </Text>
+                  </Box>
+                  <Box
+                    w="100%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Residential Address
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      4th Avenue, Roseline Close
+                    </Text>
+                  </Box>
+
+                  <Box
+                    w="100%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Employment Address
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      344 Dublin Dr Mineral Wells, West Virginia(WV)
+                    </Text>
+                  </Box>
+                </Flex>
+              </Box>
+
+              <Box w="full" color={'#191919'}>
+                <HStack w="full" justify={'space-between'}>
+                  <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                    Next of Kin Details
+                  </Text>
+
+                  <HStack>
+                    <Text fontSize="19px" fontWeight="500" lineHeight="130%">
+                      Edit Details
+                    </Text>
+                    <Image src={edit.src} />
+                  </HStack>
+                </HStack>
+
+                <Flex
+                  mt="12px"
+                  p="16px"
+                  // columnGap={'24px'}
+                  rowGap={'16px'}
+                  align={'stretch'}
+                  border={'0.5px solid #E4E4E4'}
+                  bg="#fff"
+                  borderRadius={'16px'}
+                  flexWrap={'wrap'}
+                  justify={'space-between'}
+                >
+                  <Box
+                    w="49.3%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Legal First Name
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      John
+                    </Text>
+                  </Box>
+                  <Box
+                    w="49.3%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Legal Last Name
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      Edwards
+                    </Text>
+                  </Box>
+                  <Box
+                    w="33%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Relationship
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      Brother
+                    </Text>
+                  </Box>
+                  <Box
+                    w="32%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Email Address
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" color="#4545FE">
+                      Edwarjean34@gmail.comds
+                    </Text>
+                  </Box>
+                  <Box
+                    w="32%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Phone
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      +1 217 555-0113
+                    </Text>
+                  </Box>
+                  <Box
+                    w="100%"
+                    h="80px"
+                    flexDir={'column'}
+                    p="16px"
+                    border={'0.8px solid #E4E4E4'}
+                    bg="#FBFCFC"
+                    borderRadius={'12px'}
+                  >
+                    <Text fontSize="13px" fontWeight="500" color="#52525B">
+                      Residential Address
+                    </Text>
+                    <Text mt="8px" fontSize="16px" fontWeight="500" lineHeight="normal">
+                      114 Dublin Dr Mineral Wells, West Virginia(WV)
+                    </Text>
+                  </Box>
+                </Flex>
               </Box>
             </VStack>
           </HStack>
         </Box>
-        {/* <Box
-          mt="clamp(52px,calc(11.4vh + 40px),96px)"
-          px={{base: '0px', xl: '30px'}}
-          maxW="full"
-          w="full"
-          mx="auto"
-        >
-          {UniqueCustomer?.isLoading ? (
-            <Box position="relative" display="grid" placeItems="center" mx="auto" mt="10vh">
-              <AnimatedLoader />
-            </Box>
-          ) : UniqueCustomer?.isError ? (
-            toast({
-              title: 'An error occured fetching user profile',
-              status: 'error',
-              duration: 5000,
-              isClosable: true,
-              position: 'top-right',
-            })
-          ) : (
-            <Stack
-              mx="auto"
-              columns={2}
-              zIndex={700}
-              justify="flex-end"
-              align="start"
-              position={'relative'}
-              spacing={{base: '20px', xl: '56px'}}
-              direction={{base: 'column', md: 'row'}}
-            >
-              <Box
-                css={customScroll}
-                w="full"
-                maxW={{base: '300px', lg: '371px'}}
-                mx={'auto'}
-                top="calc(clamp(52px,calc(11.4vh + 40px),96px) + 44px)"
-                position={'sticky'}
-                overflowY="auto"
-                h="calc(100vh - calc(clamp(52px,calc(11.4vh + 40px),96px) + 44px)) "
-              >
-                <HStack onClick={handleBack} mb={4}>
-                  <Image
-                    style={{cursor: 'pointer'}}
-                    mr={2}
-                    height="50px"
-                    src={backArrow.src}
-                    alt="back_arrow"
-                    zIndex={1200}
-                  />
-                  <Heading {...themeStyles.textStyles.h3}>Back</Heading>
-                </HStack>
-                <CustomerBasicInfo
-                  referral={UniqueCustomer?.data?.data?.referred_by}
-                  customerInfo={UniqueCustomer?.data?.data?.user_info}
-                />
-              </Box>
-              <Box w="full" maxW={{base: '60vw', xl: '888px'}} minH="100vh">
-                <CustomerProperties
-                  id={UniqueCustomer?.id}
-                  refetch={UniqueCustomer.refetch}
-                  customerInfo={UniqueCustomer?.data?.data}
-                />
-              </Box>
-            </Stack>
-          )}
-        </Box> */}
       </LayoutView>
     </Box>
   );
