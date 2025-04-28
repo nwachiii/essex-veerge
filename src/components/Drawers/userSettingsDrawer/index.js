@@ -149,20 +149,20 @@ export const UserSettingsDrawer = ({isPending, children}) => {
   const toggle_settings = () => {
     setTab(all_tabs[0]);
     if (developerStatus.isLoading || !developerStatus?.data?.data.status) {
-      toast({
-        title:
-          'Your registration was not approved. Please check your email for details regarding the rejection',
-        status: 'error',
-        duration: 2500,
-        isClosable: true,
-        position: 'top-right',
-      });
-      setTimeout(() => {
-        router.push('/auth/onboarding');
-      }, 2500);
+      // toast({
+      //   title:
+      //     'Your registration was not approved. Please check your email for details regarding the rejection',
+      //   status: 'error',
+      //   duration: 2500,
+      //   isClosable: true,
+      //   position: 'top-right',
+      // });
+      // setTimeout(() => {
+      //   router.push('/account');
+      // }, 2500);
     } else {
       if (!drawerDisclosure.isOpen) {
-        drawerDisclosure?.onOpen();
+        // drawerDisclosure?.onOpen();
       } else {
         drawerDisclosure.onClose();
       }
