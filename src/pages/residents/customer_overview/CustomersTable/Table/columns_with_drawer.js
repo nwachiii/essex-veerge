@@ -30,12 +30,13 @@ const ColumnsCustomerDrawer = ({row, user}) => {
         minW="150px"
       >
         <Avatar
-          alt="customer image"
+         
           borderRadius="full"
           height="48px"
           width="48px"
           aspectRatio="1"
           objectFit="cover"
+          bg={'#FAFAFA'}
           name={`${userObject?.name}`}
           src={userObject?.img || userObject?.img?.[0]}
         />
