@@ -114,9 +114,9 @@ const listOfContacts = [
   },
   {
     image: Avatar3.src,
-    name: 'Property Operations Manager',
+    title: 'Property Operations Manager',
     email: 'ava359@gmail.com    ',
-    title: 'Ava Mitchell',
+    name: 'Ava Mitchell',
   },
   {
     image: Avatar4.src,
