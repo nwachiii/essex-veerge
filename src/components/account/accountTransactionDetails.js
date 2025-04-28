@@ -73,7 +73,7 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
               View All
             </Button>
           ) : (
-            <Link href="/refundableDeposit">
+            <Link prefetch={true} href="/refundableDeposit">
               <Button
                 fontSize="12px"
                 fontWeight="500"
@@ -276,37 +276,41 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
           </Text>
 
           {!upcomingDeposits || !upcomingDeposits?.length ? (
-            <Button
-              fontSize="12px"
-              fontWeight="500"
-              color="#4545fe"
-              variant="ghost"
-              p="0px"
-              h="fit-content"
-              _hover={{
-                bg: 'transparent',
-              }}
-              rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
-              iconSpacing="5px"
-            >
-              View All
-            </Button>
+            <Link prefetch={true} href="/upcomingPayments">
+              <Button
+                fontSize="12px"
+                fontWeight="500"
+                color="#4545fe"
+                variant="ghost"
+                p="0px"
+                h="fit-content"
+                _hover={{
+                  bg: 'transparent',
+                }}
+                rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
+                iconSpacing="5px"
+              >
+                View All
+              </Button>
+            </Link>
           ) : (
-            <Button
-              fontSize="12px"
-              fontWeight="500"
-              color="#4545fe"
-              variant="ghost"
-              p="0px"
-              h="fit-content"
-              _hover={{
-                bg: 'transparent',
-              }}
-              rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
-              iconSpacing="5px"
-            >
-              View All
-            </Button>
+            <Link prefetch={true} href="/upcomingPayments">
+              <Button
+                fontSize="12px"
+                fontWeight="500"
+                color="#4545fe"
+                variant="ghost"
+                p="0px"
+                h="fit-content"
+                _hover={{
+                  bg: 'transparent',
+                }}
+                rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
+                iconSpacing="5px"
+              >
+                View All
+              </Button>
+            </Link>
           )}
         </div>
         {

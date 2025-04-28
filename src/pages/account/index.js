@@ -238,22 +238,23 @@ export default function Account() {
                           color={'#333333'}
                           amount={AGENT_WALLET_TOTAL ?? 4674243}
                         />
-
-                        <Button
-                          fontSize="12px"
-                          fontWeight="500"
-                          color="#4545fe"
-                          variant="ghost"
-                          p="0px"
-                          h="fit-content"
-                          _hover={{
-                            bg: 'transparent',
-                          }}
-                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
-                          iconSpacing="0px"
-                        >
-                          View
-                        </Button>
+                        <Link prefetch={true} href="/capFee">
+                          <Button
+                            fontSize="12px"
+                            fontWeight="500"
+                            color="#4545fe"
+                            variant="ghost"
+                            p="0px"
+                            h="fit-content"
+                            _hover={{
+                              bg: 'transparent',
+                            }}
+                            rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                            iconSpacing="0px"
+                          >
+                            View
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </Box>
