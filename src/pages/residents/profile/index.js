@@ -263,7 +263,12 @@ export const SingleCustomerPage = ({userId}) => {
               borderRadius={'16px'}
             >
               <VStack spacing={'17px'}>
-                <Image w="124px" h="124px" borderRadius={'full'} src={ralph.src} />
+                <Image
+                  w="124px"
+                  h="124px"
+                  borderRadius={'full'}
+                  src={'https://randomuser.me/api/portraits/men/32.jpg'}
+                />
                 <Text color={'#191919'} fontSize="28px" fontWeight="600" lineHeight="normal">
                   Ralph Edwards
                 </Text>
@@ -1003,6 +1008,7 @@ export const SingleCustomerPage = ({userId}) => {
               >
                 {board.map(data => (
                   <VStack
+                    key={data}
                     align={'stretch'}
                     w="256px"
                     p="12px"
