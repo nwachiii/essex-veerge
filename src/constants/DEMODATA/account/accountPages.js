@@ -341,7 +341,7 @@ export const demoRefundableTableData = {
       name: 'Eleanor Vance',
       unit: '12-D',
       location: 'Oak Ridge',
-      description: 'Refundable Deposit',
+      description: 'Club House', // Original Description
       amount: 248.9,
       date: '17 Jan, 2025', // Past date
     },
@@ -350,7 +350,7 @@ export const demoRefundableTableData = {
       name: 'Marcus Chen',
       unit: '7-A',
       location: 'Maple Glen',
-      description: 'Refundable Deposit',
+      description: 'Pool party', // Original Description
       amount: 312.0,
       date: '16 Jan, 2025', // Past date
     },
@@ -359,7 +359,7 @@ export const demoRefundableTableData = {
       name: 'Sophia Rossi',
       unit: 'E-14',
       location: 'Crystal Lake Manor',
-      description: 'Refundable Deposit',
+      description: 'Club House', // Original Description
       amount: 504.34,
       date: '14 Jan, 2025', // Past date
     },
@@ -368,7 +368,7 @@ export const demoRefundableTableData = {
       name: 'Liam Patel',
       unit: 'B-102',
       location: 'Garden Heights',
-      description: 'Refundable Deposit',
+      description: 'Construction Compliance Deposit', // Original Description
       amount: 126.0,
       date: '14 Jan, 2025', // Past date
     },
@@ -377,7 +377,7 @@ export const demoRefundableTableData = {
       name: 'Noah Williams',
       unit: 'D-23',
       location: 'Maple Glen',
-      description: 'Refundable Deposit',
+      description: 'Club House', // Original Description
       amount: 295.1,
       date: '13 Jan, 2025', // Past date
     },
@@ -386,7 +386,7 @@ export const demoRefundableTableData = {
       name: 'Ethan Jones',
       unit: '45-G',
       location: 'Pine Hall',
-      description: 'Refundable Deposit',
+      description: 'Pool party', // Original Description
       amount: 489.45,
       date: '13 Jan, 2025', // Past date
     },
@@ -395,7 +395,7 @@ export const demoRefundableTableData = {
       name: 'Cole Brown',
       unit: 'A-11',
       location: 'Oak Ridge',
-      description: 'Refundable Deposit',
+      description: 'Pool party', // Original Description
       amount: 122.76,
       date: '13 Jan, 2025', // Past date
     },
@@ -404,7 +404,7 @@ export const demoRefundableTableData = {
       name: 'Alex Garcia',
       unit: '4-8',
       location: 'Silver Heights',
-      description: 'Refundable Deposit',
+      description: 'Construction Compliance Deposit', // Original Description
       amount: 300.0,
       date: '13 Jan, 2025', // Past date
     },
@@ -413,7 +413,7 @@ export const demoRefundableTableData = {
       name: 'Isabella Nguyen',
       unit: '9-F',
       location: 'Crystal Lake Manor',
-      description: 'Refundable Deposit',
+      description: 'Pool party', // Original Description
       amount: 389.6,
       date: '12 Jan, 2025', // Past date
     },
@@ -422,7 +422,7 @@ export const demoRefundableTableData = {
       name: 'Lucas Davis',
       unit: '6-08',
       location: 'Laurel Heights',
-      description: 'Refundable Deposit',
+      description: 'Construction Compliance Deposit', // Original Description
       amount: 218.34,
       date: '10 Jan, 2025', // Past date
     },
@@ -433,7 +433,7 @@ export const demoRefundableTableData = {
       name: 'Aiden Hernandez',
       unit: 'C-5',
       location: 'Maple Glen',
-      description: 'Refundable Deposit',
+      description: 'Maintenance Fee', // Original Description
       amount: 150.0,
       date: '10 Jan, 2025', // Past date
     },
@@ -442,7 +442,7 @@ export const demoRefundableTableData = {
       name: 'Sophia Rossi',
       unit: '10-B',
       location: 'Oak Ridge',
-      description: 'Refundable Deposit',
+      description: 'Parking Fee', // Original Description
       amount: 75.5,
       date: '09 Jan, 2025', // Past date
     },
@@ -451,7 +451,7 @@ export const demoRefundableTableData = {
       name: 'Logan Miller',
       unit: 'F-11',
       location: 'Crystal Lake Manor',
-      description: 'Refundable Deposit',
+      description: 'Pool party', // Original Description
       amount: 255.0,
       date: '09 Jan, 2025', // Past date
     },
