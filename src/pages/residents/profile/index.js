@@ -264,7 +264,7 @@ export const SingleCustomerPage = ({userId}) => {
             >
               <VStack spacing={'17px'}>
                 <Image
-                  alt=''
+                  alt=""
                   w="124px"
                   h="124px"
                   borderRadius={'full'}
@@ -492,7 +492,7 @@ export const SingleCustomerPage = ({userId}) => {
                         fontSize="16px"
                         fontWeight="500"
                         lineHeight="normal"
-                        onClick={() => router.push('/communities/manage?listingId=1')}
+                        onClick={() => router.push('/communities/manage/unit_info?&unitId=1')}
                       >
                         View Details
                       </Button>

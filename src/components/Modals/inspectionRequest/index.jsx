@@ -11,6 +11,7 @@ import {
 import {Button} from 'ui-lib';
 import {ArrowBackIcon, CloseIcon} from '@chakra-ui/icons';
 import rescheduleIcon from '../../../images/requests/reschedule-icon.svg';
+import avatar from '../../../images/avatar-12.png';
 
 const InspectionApprovalAndRescheduling = ({children, info, dataKey, modalDisclosure}) => {
   const dummyRequest =
@@ -178,13 +179,59 @@ const InspectionApprovalAndRescheduling = ({children, info, dataKey, modalDisclo
                     letterSpacing="0.33px"
                     textTransform={'capitalize'}
                   >
-                    {dataKey === 'payment_plan' ? 'Job hours.' : info?.for}
+                    {info?.inReview
+                      ? `I experienced a temporary reduction in income after being
+                       laid off on 28 March 2025. My new position begins on 1 June 2025,
+                        but until my first paycheck 
+                        I’m short on funds to cover the full assessment balance.`
+                      : dataKey === 'payment_plan'
+                        ? 'Job hours.'
+                        : info?.for}
                   </Text>
                 </Box>
               </Box>
             </Box>
 
-            {dataKey === 'payment_plan' ? (
+            {info?.inReview ? (
+              <Box
+                w="full"
+                spacing={'16px'}
+                h="fit-content"
+                p="20px"
+                borderTop={'0.5px solid #E4E4E7'}
+              >
+                <HStack
+                  align={'flex-start'}
+                  w="full"
+                  px="20px"
+                  py="12px"
+                  spacing={'18px'}
+                  // border="1px solid #F97316"
+                  bg="transparent"
+                  borderRadius="full"
+                  justify={'space-between'}
+                >
+                  <Image src={avatar.src} boxSize={'35px'} alt="info image" />
+                  <VStack spacing={'6px'} align={'stretch'}>
+                    <Text
+                      fontSize="14px"
+                      fontWeight="400"
+                      lineHeight="130%"
+                      letterSpacing="0.16px"
+                      color={'#27272A'}
+                    >
+                      <Text as="span" fontWeight="600" color={'#000'}>
+                        Eric Collins
+                      </Text>
+                      -Payment-plan request currently in review.
+                    </Text>
+                    <Text as="span" fontSize={'12px'} fontWeight="300" color={'#71717A'}>
+                      2 days ago
+                    </Text>
+                  </VStack>
+                </HStack>
+              </Box>
+            ) : dataKey === 'payment_plan' ? (
               <HStack
                 w="full"
                 spacing={'16px'}
@@ -242,7 +289,7 @@ const InspectionApprovalAndRescheduling = ({children, info, dataKey, modalDisclo
                   fontWeight="500"
                   lineHeight="100%"
                   letterSpacing="0.16px"
-                  leftIcon={<Image src={rescheduleIcon.src} />}
+                  leftIcon={<Image src={rescheduleIcon.src} alt="reschedule" />}
                 >
                   Reschedule
                 </Button>
