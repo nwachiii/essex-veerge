@@ -46,7 +46,7 @@ const ListOfListings = ({projects, forFilter, isLoading}) => {
   const handleClick = () => {
     toast({
       position: 'top-right',
-      description: 'You do not have permission to create a listing',
+      description: 'You do not have permission to create communities',
       status: 'info',
       duration: 3000,
       isClosable: true,
