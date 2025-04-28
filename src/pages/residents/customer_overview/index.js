@@ -90,20 +90,8 @@ export const CustomerOverviewPage = () => {
     }
     return result;
   };
-  const QUERY_PARAMS =
-    value == '2'
-      ? 'asset_holders=true'
-      : value == '3'
-        ? 'defaulting=true'
-        : value == '4'
-          ? 'outstanding=true'
-          : value == '5'
-            ? 'outstanding=false'
-            : value == '6'
-              ? 'fractions=true'
-              : '';
 
-  const customerOverviewData = customers?.data
+  const customerOverviewData = customers?.[`page${currentPage}`]
 
   const handleExpand = () => {
     setExpand(!expand);
@@ -124,8 +112,8 @@ export const CustomerOverviewPage = () => {
     expand == false && window.scrollTo(0, 0);
   };
 
-  const number_of_pages = Math.ceil(~~customers?.data?.count / ~~limit);
-  const number_of_pages_when_expanded = Math.ceil(~~customers?.data?.count / 20);
+  const number_of_pages = Math.ceil(~~customers?.count / ~~limit);
+  const number_of_pages_when_expanded = Math.ceil(~~customers?.count / 20);
   const canNotBeExpanded = ~~currentPage > number_of_pages_when_expanded;
 
   toastForError(customers.error, customers.isError, toast);
@@ -161,7 +149,7 @@ export const CustomerOverviewPage = () => {
         </Box>
       ) : customers?.isError ? (
         <></>
-      ) : customers?.data ? (
+      ) : customers ? (
         <>
           <HStack
             mb="24px"
@@ -216,10 +204,10 @@ export const CustomerOverviewPage = () => {
             <CustomersTable
               forMemo={[router]}
               expanded={expand}
+              number_of_pages={3}
               forLimit={[limit, router]}
               handleExpand={handleExpand}
               handlePagination={handlePagination}
-              number_of_pages={number_of_pages}
               customerData={customerOverviewData}
             />
           )}
@@ -291,7 +279,7 @@ export const customers = {
     'White orchid detached villa',
     'Blue river shopping mall',
   ],
-  data: [
+  page1: [
     {
       response: {
         customer_id: 3375,
@@ -505,6 +493,8 @@ export const customers = {
         },
       },
     },
+  ],
+  page2: [
     {
       response: {
         customer_id: 3227,
@@ -725,6 +715,8 @@ export const customers = {
         },
       },
     },
+  ],
+  page3: [
     {
       response: {
         customer_id: 3227,

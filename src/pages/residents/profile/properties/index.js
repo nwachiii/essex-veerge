@@ -32,21 +32,21 @@ import SendAnOffer from '../../../../components/Modals/send_offer';
 import UserProfileMoreOption from '@/components/Drawers/userProfileMoreOption';
 import Offers from '@/components/Cards/customerProfile/sendOffer/offer';
 import {useIsGatewayDisabled} from 'utils/useIsGatewayDisabled';
+import { customers } from 'pages/residents/customer_overview';
 
 export const CustomerProperties = ({customerInfo, refetch}) => {
   const {query} = useRouter();
   const SEND_OFFER_MODAL = useDisclosure();
-  const customers = useQuery(['customer-meta-data'], fetchCustomers);
-  const customerOverviewData = [customers?.data] && [customers?.data?.data][0]?.data;
-  const filterCustomerOverviewData = customerOverviewData?.filter(
-    item => item?.response?.id == query.id
-  )[0]?.response;
-  const {data: customerEquities} = useQuery(
-    ['customerEquity', filterCustomerOverviewData?.customer_id],
-    () => fetchCustomersEquity(filterCustomerOverviewData?.customer_id ?? query.userId)
-  );
-  const PENDING_INVESTMEENTS = customerInfo?.pending_investments;
-  const isGateWayDisabled = useIsGatewayDisabled();
+  const customerOverviewData = customers?.[`page${1}`];
+  // const filterCustomerOverviewData = customerOverviewData?.filter(
+  //   item => item?.response?.id == query.id
+  // )[0]?.response;
+  // const {data: customerEquities} = useQuery(
+  // //   ['customerEquity', filterCustomerOverviewData?.customer_id],
+  //   () => fetchCustomersEquity(filterCustomerOverviewData?.customer_id ?? query.userId)
+  // );
+  // const PENDING_INVESTMEENTS = customerInfo?.pending_investments;
+  // const isGateWayDisabled = useIsGatewayDisabled();
   return (
     <Stack
       w="full"
@@ -68,30 +68,30 @@ export const CustomerProperties = ({customerInfo, refetch}) => {
         // w="98%"
         w="full"
       >
-        <UserProfileMoreOption
+        {/* <UserProfileMoreOption
           isGateWayDisabled={isGateWayDisabled}
           refetch={refetch}
           customerInfo={customerInfo}
           giveOffer={SEND_OFFER_MODAL}
-        />
+        /> */}
       </HStack>
       <Stack w="full" spacing="60px">
-        <CustomerEquities
+        {/* <CustomerEquities
           customerEquities={customerEquities}
           refetch={refetch}
           customerInfo={customerInfo?.customer_investments}
-        />
-        <Offers offers={customerInfo?.offers} />
-        {PENDING_INVESTMEENTS?.length > 0 ? <PendingTxns data={PENDING_INVESTMEENTS} /> : null}
+        /> */}
+        {/* <Offers offers={customerInfo?.offers} />
+        {PENDING_INVESTMEENTS?.length > 0 ? <PendingTxns data={PENDING_INVESTMEENTS} /> : null} */}
 
-        {isGateWayDisabled ? null : (
+        {/* {isGateWayDisabled ? null : (
           <WalletDetails
             id={query.userId}
             data={customerInfo?.finances}
             username={`${customerInfo?.user_info?.first_name}'s transactions`}
           />
-        )}
-        <Inspection
+        )} */}
+        {/* <Inspection
           id={query.id}
           data={customerInfo?.inspection_requests?.ongoing}
           isClosed={customerInfo?.inspection_requests?.closed?.length > 0}
@@ -112,13 +112,13 @@ export const CustomerProperties = ({customerInfo, refetch}) => {
         <AdditionalInfo
           isGateWayDisabled={isGateWayDisabled}
           customerInfo={customerInfo && customerInfo}
-        />
-
+        /> */}
+{/* 
         <SendAnOffer
           customerId={customerInfo?.user_info?.id}
           refetch={refetch}
           SEND_OFFER_MODAL={SEND_OFFER_MODAL}
-        />
+        /> */}
       </Stack>
     </Stack>
   );
