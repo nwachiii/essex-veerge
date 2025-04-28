@@ -58,6 +58,10 @@ export const AdditionalInfo = ({pageQueryId, listingDetail}) => {
     {
       title: 'Average Year Built',
       value: 2008
+    },
+    {
+      title: 'Community Type',
+      value: 'Board Community'
     }
   ]
 
