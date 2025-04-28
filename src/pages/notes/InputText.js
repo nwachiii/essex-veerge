@@ -233,7 +233,7 @@ const InputText = ({id, toast, refetch, Ref}) => {
     if (textBeforeCaret?.trim()?.length > 0 && textBeforeCaret.startsWith('@')) {
       err && formik.setValues({notes: text});
       // distanceOfCursor();
-      const prop = sugData?.data?.data?.response?.recent?.length ? 'recent' : 'users';
+      const prop = sugData?.data?.data?.response?.recent?.length ? 'recent' : 'resedents';
       const listed = sugData?.data?.data?.response?.[prop]?.map(item => {
         return {name: Object.keys(item)[0], img: item.img};
       });

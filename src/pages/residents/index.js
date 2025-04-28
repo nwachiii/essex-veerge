@@ -12,7 +12,7 @@ export default function ManageCustomers() {
         px={{base: '0px', xl: '30px'}}
         tabPanelStyle={{pb: '0px'}}
         pb="0px"
-        activePage="users"
+        activePage="residents"
       >
         <CustomerOverviewPage />
       </LayoutView>

@@ -33,7 +33,7 @@ const EditDispute = () => {
       px={{base: '0px', xl: '30px'}}
       tabPanelStyle={{pb: '0px'}}
       pb="0px"
-      activePage={'users'}
+      activePage={'residents'}
     >
       {/* <HStack mt="9.4vh">
         <BackArrowWithText handleClick={handleBack} text={step == 0 ? 'Back' : 'Previous step'} />

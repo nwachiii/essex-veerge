@@ -225,7 +225,7 @@ export default function ListingDetails() {
       tabPanelStyle={{px: '0px', pb: '0px'}}
       px="0px"
       pb="30px"
-      activePage={'users'}
+      activePage={'residents'}
     >
       <HStack
         px={{base: `16px`, xl: '0px'}}

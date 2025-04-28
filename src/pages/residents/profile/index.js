@@ -217,7 +217,7 @@ export const SingleCustomerPage = ({userId}) => {
       <LayoutView
         px={{base: '0px', xl: '30px'}}
         tabPanelStyle={{pb: '0px'}}
-        activePage={'users'}
+        activePage={'residents'}
         position="relative"
         pb="40px"
       >

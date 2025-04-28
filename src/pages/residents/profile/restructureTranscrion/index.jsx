@@ -256,7 +256,7 @@ export default function RestructureTrnsaction() {
       px={{base: '0px', xl: '30px'}}
       tabPanelStyle={{pb: '0px'}}
       pb="0px"
-      activePage={'users'}
+      activePage={'residents'}
     >
       {SINGLE_EQUITY_QUERY?.isLoading ? (
         <Center mt="40.4vh">
