@@ -1,19 +1,24 @@
 import Link from 'next/link';
-import {theme} from '../../../theme';
-import {useRouter} from 'next/router';
-import {useState, useEffect} from 'react';
-import {useQuery} from '@tanstack/react-query';
-import {AnimatedLoader} from '../../../components';
+import { theme } from '../../../theme';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { AnimatedLoader } from '../../../components';
 import CustomersTable from './CustomersTable/Table';
-import {fetchCustomers} from '../../../apis/customers';
-import {Button} from '../../../ui-lib/ui-lib.components';
-import {Box, useToast, HStack, extendTheme, Heading} from '@chakra-ui/react';
+import { fetchCustomers } from '../../../apis/customers';
+import { Button } from '../../../ui-lib/ui-lib.components';
+import {
+  Box,
+  useToast,
+  HStack, extendTheme,
+  Heading
+} from '@chakra-ui/react';
 import SortBy from '../../../components/SortBy';
 
 import TopHeader from './TopHeader';
 import Filter from './filter';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
-import {toastForError} from 'utils/toastForErrors';
+import { toastForError } from 'utils/toastForErrors';
 
 const styles = extendTheme({...theme});
 
@@ -103,7 +108,7 @@ export const CustomerOverviewPage = () => {
 
   const mainParam = QUERY_PARAMS + (QUERY_PARAMS ? '&' : '') + convertToApiQuery();
 
-  const customerOverviewData = customers?.data;
+  const customerOverviewData = customers?.data
 
   const handleExpand = () => {
     setExpand(!expand);
@@ -173,6 +178,7 @@ export const CustomerOverviewPage = () => {
             color="#191919"
             fontFamily="Euclid Circular B"
           >
+
             <HStack
               justifySelf="flex-end"
               flexWrap="wrap-reverse"
@@ -228,6 +234,7 @@ export const CustomerOverviewPage = () => {
   );
 };
 export default CustomerOverviewPage;
+
 
 export const customers = {
   status: true,
