@@ -160,7 +160,7 @@ export default function ManageAgents() {
       px={{base: '0px', xl: '30px'}}
       tabPanelStyle={{pb: '0px'}}
       pb="0px"
-      activePage="users"
+      activePage="residents"
     >
       <Box
         mt="clamp(52px,calc(11.4vh + 40px),96px)"

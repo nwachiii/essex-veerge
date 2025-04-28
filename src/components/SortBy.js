@@ -113,7 +113,7 @@ const SortBy = ({
       }
     }
 
-    if (sortFor === 'users') {
+    if (sortFor === 'residents') {
       if (e.target.name === 'none') {
         const mergedQuery = {
           ...router.query,
