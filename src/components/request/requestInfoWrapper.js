@@ -89,7 +89,14 @@ export const RequestInfoWrapper = ({
             />
           </InputGroup>
 
-          <Center w="43px" h="43px" borderRadius={'9.694px'} border={'0.597px solid #E4E4E7'}>
+          <Center
+            w="43px"
+            h="43px"
+            borderRadius={'9.694px'}
+            border={'1px solid #E4E4E7'}
+            _hover={{bg: '#FAFAFA'}}
+            cursor={'pointer'}
+          >
             <Image src={filterIcon.src} alt="filter icom" />
           </Center>
         </HStack>

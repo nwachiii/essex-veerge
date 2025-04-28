@@ -1,24 +1,19 @@
 import Link from 'next/link';
-import { theme } from '../../../theme';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { AnimatedLoader } from '../../../components';
+import {theme} from '../../../theme';
+import {useRouter} from 'next/router';
+import {useState, useEffect} from 'react';
+import {useQuery} from '@tanstack/react-query';
+import {AnimatedLoader} from '../../../components';
 import CustomersTable from './CustomersTable/Table';
-import { fetchCustomers } from '../../../apis/customers';
-import { Button } from '../../../ui-lib/ui-lib.components';
-import {
-  Box,
-  useToast,
-  HStack, extendTheme,
-  Heading
-} from '@chakra-ui/react';
+import {fetchCustomers} from '../../../apis/customers';
+import {Button} from '../../../ui-lib/ui-lib.components';
+import {Box, useToast, HStack, extendTheme, Heading} from '@chakra-ui/react';
 import SortBy from '../../../components/SortBy';
 
 import TopHeader from './TopHeader';
 import Filter from './filter';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
-import { toastForError } from 'utils/toastForErrors';
+import {toastForError} from 'utils/toastForErrors';
 
 const styles = extendTheme({...theme});
 
@@ -34,6 +29,9 @@ export const CustomerOverviewPage = () => {
     param: '',
   });
   const router = useRouter();
+  const handleBack = () => {
+    router.back(-1);
+  };
 
   const routeQueries = router.query;
   const currentPage = routeQueries?.page ?? '1';
@@ -103,7 +101,9 @@ export const CustomerOverviewPage = () => {
               ? 'fractions=true'
               : '';
 
-  const customerOverviewData = customers?.data
+  const mainParam = QUERY_PARAMS + (QUERY_PARAMS ? '&' : '') + convertToApiQuery();
+
+  const customerOverviewData = customers?.data;
 
   const handleExpand = () => {
     setExpand(!expand);
@@ -164,16 +164,15 @@ export const CustomerOverviewPage = () => {
       ) : customers?.data ? (
         <>
           <HStack
-            mb="24px"
-            w="full"
-            align="end"
-            spacing="14px"
-            color="#191919"
             justify="space-between"
             mt={!expand ? '0' : '16px'}
+            mb="24px"
+            w="full"
+            spacing="14px"
+            align="end"
+            color="#191919"
             fontFamily="Euclid Circular B"
           >
-
             <HStack
               justifySelf="flex-end"
               flexWrap="wrap-reverse"
@@ -192,18 +191,18 @@ export const CustomerOverviewPage = () => {
                 Blacklist
               </Button> */}
               <SortBy
-                sortFor="residents"
+                sortFor="users"
                 setUrl={setAddedParam}
                 url={addedParam}
                 btnStyle={{bg: '#fff', mt: '0px'}}
                 sort_params={sort_params}
               />
-              {/* <Filter
+              <Filter
                 setUrl={setAddedParam}
                 url={addedParam}
                 isFractional={customerOverviewData?.total_fractions_holders}
                 listings={customers?.listings_available}
-              /> */}
+              />
 
               <DownloadCsv
                 isTableValid={isTableValid}
@@ -229,7 +228,6 @@ export const CustomerOverviewPage = () => {
   );
 };
 export default CustomerOverviewPage;
-
 
 export const customers = {
   status: true,
@@ -480,270 +478,6 @@ export const customers = {
           id: null,
           type: 'Referral',
           info: 'Referral',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
-        },
-      },
-    },
-    {
-      response: {
-        customer_id: 3227,
-        id: 3890,
-        img: 'https://matador-bucket.s3.amazonaws.com/media/customer_avatar/adb41f56-295.png',
-        email: 'favourayo@gmail.com',
-        name: 'James Cooper',
-        phone: '+2348098765455',
-        phone: '+1 505 555 0125',
-        community: 'The Aspen Enclave ',
-        address: null,
-        status: true,
-        date_joined: '2025-03-14T09:58:34.441175Z',
-        referred_by: {
-          name: 'Via a consultant',
-          avatar: null,
-          id: null,
-          type: 'Via a consultant',
-          info: 'you',
         },
       },
     },
