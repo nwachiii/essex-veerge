@@ -34,10 +34,10 @@ export const tabs = [
     countNo: 7,
   },
   {
-    tablist: 'Design Request',
+    tablist: 'AAC Request',
     component: () => (
       <InspectionRequest
-        header="Design Request"
+        header="AAC Request"
         AllRequests={AllRequests}
         dataKey={'design_request'}
       />

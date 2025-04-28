@@ -15,7 +15,15 @@ import dashboard_icon from '/src/images/icons/dashboard_icon.svg';
 import dashboard_icon_dark from '/src/images/icons/dashboard_icon_dark.svg';
 import settings_icon from '/src/images/icons/Iconly/Light/Setting.svg';
 import settings_icon_dark from '/src/images/icons/settings_icon_dark.svg';
-import Settings from 'pages/settings';
+import communitiesIcon_light from '/src/images/layoutNavigationIcons/layoutIconCommunutiesLight.svg';
+import communitiesIcon_dark from '/src/images/layoutNavigationIcons/layputIconCommunitiesDark.svg';
+import residentIcon_light from '/src/images/layoutNavigationIcons/layoutIconResidentsLight.svg';
+import residentIcon_dark from '/src/images/layoutNavigationIcons/layoutIconResidentDark.svg';
+import requestIcon_light from '/src/images/layoutNavigationIcons/layoutIconRequestlight.svg';
+import requestIcon_dark from '/src/images/layoutNavigationIcons/layoutIconRequestDark.svg';
+import violationIcon_light from '/src/images/layoutNavigationIcons/layoutIconViolationLight.svg';
+import violationIcon_dark from '/src/images/layoutNavigationIcons/layoutIconViolationDark.svg';
+
 import ManageCustomers from 'pages/residents';
 
 export const dashboardTabs = [
@@ -33,26 +41,26 @@ export const dashboardTabs = [
   },
   {
     linkText: 'Communities',
-    iconSrc: listing_icon,
+    iconSrc: communitiesIcon_light,
     component: <ManageListing />,
-    dark_iconSrc: listing_icon_dark,
+    dark_iconSrc: communitiesIcon_dark,
   },
   {
     linkText: 'Residents',
-    iconSrc: users_icon,
-    dark_iconSrc: users_icon_dark,
+    iconSrc: residentIcon_light,
+    dark_iconSrc: residentIcon_dark,
     component: <ManageCustomers />,
   },
   {
     linkText: 'Request',
-    iconSrc: request_icon,
+    iconSrc: requestIcon_light,
     component: <Request />,
-    dark_iconSrc: request_icon_dark,
+    dark_iconSrc: requestIcon_dark,
   },
   {
     linkText: 'Violations',
-    iconSrc: settings_icon,
+    iconSrc: violationIcon_light,
     component: <Request />,
-    dark_iconSrc: settings_icon_dark,
+    dark_iconSrc: violationIcon_dark,
   },
 ];

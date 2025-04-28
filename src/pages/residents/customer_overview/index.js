@@ -29,6 +29,9 @@ export const CustomerOverviewPage = () => {
     param: '',
   });
   const router = useRouter();
+  const handleBack = () => {
+    router.back(-1);
+  };
 
   const routeQueries = router.query;
   const currentPage = routeQueries?.page ?? '1';
@@ -147,13 +150,13 @@ export const CustomerOverviewPage = () => {
       ) : customers ? (
         <>
           <HStack
-            mb="24px"
-            w="full"
-            align="end"
-            spacing="14px"
-            color="#191919"
             justify="space-between"
             mt={!expand ? '0' : '16px'}
+            mb="24px"
+            w="full"
+            spacing="14px"
+            align="end"
+            color="#191919"
             fontFamily="Euclid Circular B"
           >
             <HStack
@@ -174,18 +177,18 @@ export const CustomerOverviewPage = () => {
                 Blacklist
               </Button> */}
               <SortBy
-                sortFor="residents"
+                sortFor="users"
                 setUrl={setAddedParam}
                 url={addedParam}
                 btnStyle={{bg: '#fff', mt: '0px'}}
                 sort_params={sort_params}
               />
-              {/* <Filter
+              <Filter
                 setUrl={setAddedParam}
                 url={addedParam}
                 isFractional={customerOverviewData?.total_fractions_holders}
                 listings={customers?.listings_available}
-              /> */}
+              />
 
               <DownloadCsv
                 isTableValid={isTableValid}
@@ -741,5 +744,6 @@ export const customers = {
         },
       },
     },
+
   ],
 };

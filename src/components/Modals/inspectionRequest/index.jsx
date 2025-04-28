@@ -184,12 +184,50 @@ const InspectionApprovalAndRescheduling = ({children, info, dataKey, modalDisclo
               </Box>
             </Box>
 
-            {dataKey !== 'payment_plan' && (
+            {dataKey === 'payment_plan' ? (
               <HStack
                 w="full"
-                justify={'space-between'}
+                spacing={'16px'}
                 h="fit-content"
                 p="20px"
+                borderTop={'0.5px solid #E4E4E7'}
+              >
+                <Button
+                  onClick={modalDisclosure.onClose}
+                  mt="0"
+                  px="20px"
+                  border="1px solid #E4E4E7"
+                  bg="#FFF"
+                  borderRadius="full"
+                  fontSize="16px"
+                  fontWeight="500"
+                  lineHeight="100%"
+                  letterSpacing="0.16px"
+                >
+                  Decline
+                </Button>
+                <Button
+                  onClick={modalDisclosure.onClose}
+                  mt="0"
+                  px="20px"
+                  color="#fff"
+                  bg="#18181B"
+                  borderRadius="full"
+                  fontSize="16px"
+                  fontWeight="500"
+                  lineHeight="100%"
+                  letterSpacing="0.16px"
+                >
+                  Approve
+                </Button>
+              </HStack>
+            ) : (
+              <VStack
+                w="full"
+                align={'stretch'}
+                h="fit-content"
+                p="20px"
+                spacing={'12px'}
                 borderTop={'0.5px solid #E4E4E7'}
               >
                 <Button
@@ -208,37 +246,36 @@ const InspectionApprovalAndRescheduling = ({children, info, dataKey, modalDisclo
                 >
                   Reschedule
                 </Button>
-                <HStack spacing={'16px'} h="fit-content">
-                  <Button
-                    onClick={modalDisclosure.onClose}
-                    mt="0"
-                    px="20px"
-                    border="1px solid #E4E4E7"
-                    bg="#FFF"
-                    borderRadius="full"
-                    fontSize="16px"
-                    fontWeight="500"
-                    lineHeight="100%"
-                    letterSpacing="0.16px"
-                  >
-                    Decline
-                  </Button>
-                  <Button
-                    onClick={modalDisclosure.onClose}
-                    mt="0"
-                    px="20px"
-                    color="#fff"
-                    bg="#18181B"
-                    borderRadius="full"
-                    fontSize="16px"
-                    fontWeight="500"
-                    lineHeight="100%"
-                    letterSpacing="0.16px"
-                  >
-                    Approve
-                  </Button>
-                </HStack>
-              </HStack>
+                <Button
+                  onClick={modalDisclosure.onClose}
+                  mt="0"
+                  px="20px"
+                  color="#fff"
+                  bg="#18181B"
+                  borderRadius="full"
+                  fontSize="16px"
+                  fontWeight="500"
+                  lineHeight="100%"
+                  letterSpacing="0.16px"
+                >
+                  Approve
+                </Button>
+                <Button
+                  onClick={modalDisclosure.onClose}
+                  mt="0"
+                  px="20px"
+                  border="1px solid #E4E4E7"
+                  bg="#FFF"
+                  color="#EF4444"
+                  borderRadius="full"
+                  fontSize="16px"
+                  fontWeight="500"
+                  lineHeight="100%"
+                  letterSpacing="0.16px"
+                >
+                  Decline
+                </Button>
+              </VStack>
             )}
           </VStack>
         </DrawerContent>
