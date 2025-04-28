@@ -22,14 +22,8 @@ import {
 } from '@chakra-ui/react';
 import {fetchSuggestionsData} from 'apis/veerge_menu';
 
-export function LayoutNavigation({
-  manageroles,
-  tabPanelStyle,
-  activePage,
-  children,
-  ...restProps
-}) {
-  const isPending = false
+export function LayoutNavigation({manageroles, tabPanelStyle, activePage, children, ...restProps}) {
+  const isPending = false;
   const router = useRouter();
   const [activeLocation, setActiveLocation] = useState('');
 
@@ -40,6 +34,7 @@ export function LayoutNavigation({
     router.pathname.indexOf(activeLink) === -1
       ? setActiveLocation('false')
       : setActiveLocation(activeLink.toLowerCase());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.pathname]);
   const {data} = useQuery(['customers', 'Communities'], fetchSuggestionsData);
