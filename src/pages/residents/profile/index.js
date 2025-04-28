@@ -29,8 +29,6 @@ export const SingleCustomerPage = ({userId}) => {
           <ProfileBar />
           <DetailsBar />
         </HStack>
-
-        <NotesDrawer modalDisclosure={modalDisclosure} />
       </LayoutView>
     </Box>
   );
