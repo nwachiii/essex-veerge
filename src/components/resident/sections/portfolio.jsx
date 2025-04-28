@@ -116,7 +116,7 @@ const Portfolio = () => {
                 fontSize="16px"
                 fontWeight="500"
                 lineHeight="normal"
-                onClick={() => router.push('/communities/manage?listingId=1')}
+                onClick={() => router.push('/communities/manage/unit_info?&unitId=1')}
               >
                 View Details
               </Button>
