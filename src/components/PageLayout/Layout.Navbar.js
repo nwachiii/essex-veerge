@@ -162,7 +162,8 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
           <Flex align="center">
             <HStack spacing={'24px'} alignItems={'center'} mx={{base: '0px', xl: `54px`}}>
               <LayoutNotifications />
-              <UserSettingsDrawer isPending={isPending} />
+              <Image boxSize={'32px'} alt="support_icon" src="./public_image/support-icon.png" />
+              {/* <UserSettingsDrawer isPending={isPending} /> */}
               {isRoleRestricted('create customer and listing').check ? null : (
                 <VeergeQuickAdd isPending={isPending} />
               )}
