@@ -2,7 +2,7 @@
     {
         id: 1,
         created_by: {
-        avatar: 'path/to/avatar1.jpg',
+        avatar: './public_image/notes-img1.png',
         first_name: 'Phoenix',
         last_name: 'baker',
         },
@@ -21,7 +21,7 @@
     {
         id: 2,
         created_by: {
-        avatar: null,
+        avatar: './public_image/notes-img2.png',
         first_name: 'Smith',
         last_name: 'Collins',
         },
@@ -31,9 +31,9 @@
         files: null,
     },
     {
-        id: 2,
+        id: 3,
         created_by: {
-        avatar: null,
+        avatar: './public_image/notes-img3.png',
         first_name: 'Mary',
         last_name: 'Jane',
         },

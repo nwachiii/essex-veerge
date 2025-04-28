@@ -40,7 +40,7 @@ import {EmptyState} from '../common/Table';
 import AutoResizeInput from './AutoResizeInput';
 import {loggedinUserStatic} from 'apis/requests';
 import {notesStaticData} from './notesStaticData';
-import { suggestionsQueryStaticData } from './suggestionsQueryStaticData';
+import {suggestionsQueryStaticData} from './suggestionsQueryStaticData';
 
 const reStructureSuggestions = suggestions => {
   return suggestions.map(item => {
@@ -220,68 +220,79 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                 <Stack w="full" spacing="10px">
                   {notesStaticData.map((item, idx) => {
                     return (
-                      <VStack
-                        bg="#F5F5F5"
-                        borderRadius="16px"
-                        key={idx}
-                        mb="10px"
-                        py="10px"
-                        pb="18px"
-                        px="13px"
-                        pr="10px"
-                        spacing="none"
-                      >
-                        <HStack pr="5px" w="full" justify="space-between">
-                          <HStack w="full" spacing="6px">
-                            <Avatar
-                              boxSize="32px"
-                              borderRadius="full"
-                              alt="notes profile picture"
-                              name={`${item?.created_by?.first_name} ${item?.created_by?.last_name}`}
-                              src={item?.created_by?.avatar ?? avatar.src}
-                            />
-                            <Heading fontSize="13.067px" fontWeight={500} as="h2">
-                              {item?.created_by?.first_name ?? ''}{' '}
-                              {item?.created_by?.last_name ?? ''}
-                            </Heading>
-                          </HStack>
+                      <VStack key={idx} spacing="none">
+                        <Flex gap={3}>
+                          <Avatar
+                            boxSize="32px"
+                            p={2}
+                            borderRadius="full"
+                            alt="notes profile picture"
+                            name={`${item?.created_by?.first_name} ${item?.created_by?.last_name}`}
+                            src={item?.created_by?.avatar ?? avatar.src}
+                          />
+                          <Stack>
+                            <HStack pr="5px" w="full" justify="space-between" align={'flex-end'}>
+                              <HStack w="full" spacing="6px">
+                                <Heading fontSize="13.067px" fontWeight={500} as="h2">
+                                  {item?.created_by?.first_name ?? ''}{' '}
+                                  {item?.created_by?.last_name ?? ''}
+                                </Heading>
+                              </HStack>
 
-                          {/* <Icon as={BsThreeDots} /> */}
-                          <Text fontSize="10px" fontWeight={400} color="#606060" minW="fit-content">
-                            {item?.created_at}
-                          </Text>
-                        </HStack>
-                        <VStack mt="13.23px" pl="9px" w="full">
-                          <Text fontSize="14px" fontWeight="300" w="full" color="#191919">
-                            {expand === idx
-                              ? formatText(item.note)
-                              : formatText(item.note).length <= 30
-                                ? formatText(item.note)
-                                : formatText(item.note).slice(
-                                    0,
-                                    -(formatText(item.note).length - 30)
-                                  )}
-
-                            <Text
-                              fontSize="14px"
-                              fontWeight="500"
-                              as="span"
-                              color="#4545FE"
-                              cursor="pointer"
-                              onClick={() =>
-                                formatText(item.note).length <= 30
-                                  ? null
-                                  : setExpand(expand === idx ? null : idx)
-                              }
+                              {/* <Icon as={BsThreeDots} /> */}
+                              <Text
+                                fontSize="10px"
+                                fontWeight={400}
+                                color="#606060"
+                                minW="fit-content"
+                              >
+                                {item?.created_at}
+                              </Text>
+                            </HStack>
+                            <VStack
+                              
+                              pl="9px"
+                              w="full"
+                              bg="#F5F5F5"
+                              mb="10px"
+                              pt={'5px'}
+                              pb="18px"
+                              px="13px"
+                              pr="10px"
+                              borderRadius="16px"
                             >
-                              {formatText(item.note).length <= 30
-                                ? ''
-                                : expand === idx
-                                  ? ' ...See less'
-                                  : '...See more'}
-                            </Text>
-                          </Text>
-                        </VStack>
+                              <Text fontSize="14px" fontWeight="300" w="full" color="#191919">
+                                {expand === idx
+                                  ? formatText(item.note)
+                                  : formatText(item.note).length <= 30
+                                    ? formatText(item.note)
+                                    : formatText(item.note).slice(
+                                        0,
+                                        -(formatText(item.note).length - 30)
+                                      )}
+
+                                <Text
+                                  fontSize="14px"
+                                  fontWeight="500"
+                                  as="span"
+                                  color="#4545FE"
+                                  cursor="pointer"
+                                  onClick={() =>
+                                    formatText(item.note).length <= 30
+                                      ? null
+                                      : setExpand(expand === idx ? null : idx)
+                                  }
+                                >
+                                  {formatText(item.note).length <= 30
+                                    ? ''
+                                    : expand === idx
+                                      ? ' ...See less'
+                                      : '...See more'}
+                                </Text>
+                              </Text>
+                            </VStack>
+                          </Stack>
+                        </Flex>
                         {
                           // item.files_list && Array.isArray(item.files_list)
                           item.files_list?.length || item?.files ? (
