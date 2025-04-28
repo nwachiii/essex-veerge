@@ -3,26 +3,17 @@ import {
   Box,
   Flex,
   Image,
-  SimpleGrid,
   VStack,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons'; // Import icons
 
-import videoFallback from '/src/images/video-fallback.png';
 import imageFallback from '/src/images/image-fallback.png';
-import {themeStyles} from '../../../../../theme';
 import {AnimatePresence, LayoutGroup} from 'framer-motion';
 import {EmbedVideoForFullScreenView} from '../../../../../ui-lib/ui-lib.components/EmbedVideo';
-import ViewImage from './ViewImage';
 import ReactElasticCarousel from 'react-elastic-carousel';
+import ContactPersons from './ContactPersons';
 
-const scrollBar = {
-  scrollbarWidth: 'none',
-  '&::-webkit-scrollbar': {
-    display: 'none',
-  },
-};
 
 export const renderArrow = ({ type, onClick, isEdge }) => {
   return (
@@ -51,17 +42,12 @@ export const BasicInfo = ({listingDetail}) => {
       ? listingDetail?.photos[0]?.photo
       : imageFallback.src;
   const [bigPhotoViewSrc, setBigPhotoViewSrc] = useState(CURRENT_DISPLAY_PICTURE);
-  const handlePhotoView = (src, idx) => {
-    setBigPhotoViewSrc(src);
-    setViewId(idx);
-    idx <= direction ? setDirection(-1) : setDirection(1);
-  };
 
 
   return (
     <Box maxW={{base: 'full', lg: 'full'}} w="full" h="full">
       <LayoutGroup type="crossfade">
-        <VStack align="flex-start" pos="relative">
+        <VStack gap='24px' align="flex-start" pos="relative">
           <Flex w="full" justify={{base: 'initial', base: 'space-between'}} columnGap="25px">
             <AnimateImagePresence
               layoutId={viewId}
@@ -97,6 +83,8 @@ export const BasicInfo = ({listingDetail}) => {
             )
           })}
          </ReactElasticCarousel>
+         <ContactPersons listingDetail={listingDetail} />
+
         </VStack>
       </LayoutGroup>
     </Box>
