@@ -58,7 +58,7 @@ const reStructureSuggestions = suggestions => {
 
 const drawermarginTop = '65.12px';
 export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
-  const [expand, setExpand] = useState(false);
+  const [expand, setExpand] = useState(true);
   const [started, setStarted] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const router = useRouter();
@@ -223,8 +223,8 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                       <VStack key={idx} spacing="none">
                         <Flex gap={3}>
                           <Avatar
-                            boxSize="32px"
-                            p={2}
+                            boxSize="40px"
+                            // p={2}
                             borderRadius="full"
                             alt="notes profile picture"
                             name={`${item?.created_by?.first_name} ${item?.created_by?.last_name}`}
@@ -239,7 +239,7 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                                 </Heading>
                               </HStack>
 
-                              {/* <Icon as={BsThreeDots} /> */}
+            
                               <Text
                                 fontSize="10px"
                                 fontWeight={400}
@@ -271,7 +271,7 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                                         -(formatText(item.note).length - 30)
                                       )}
 
-                                <Text
+                                {/* <Text
                                   fontSize="14px"
                                   fontWeight="500"
                                   as="span"
@@ -288,7 +288,7 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                                     : expand === idx
                                       ? ' ...See less'
                                       : '...See more'}
-                                </Text>
+                                </Text> */}
                               </Text>
                             </VStack>
                           </Stack>
