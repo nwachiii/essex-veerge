@@ -286,7 +286,7 @@ export const customers = {
         phone: '+1 415 555 2671',
         community: 'Mapel Glen & 2 others',
         address: null,
-        status: false,
+        status: true,
         date_joined: '2025-04-16T13:48:59.602977Z',
         referred_by: {
           name: 'Facebook',
@@ -308,7 +308,7 @@ export const customers = {
         phone: '+1 217 555 0113',
         address: null,
         community: 'Crystal Lake Manor',
-        status: true,
+        status: false,
         date_joined: '2025-04-12T03:09:36.170497Z',
         referred_by: {
           name: 'Joseph Admin',
@@ -392,7 +392,7 @@ export const customers = {
         name: 'Guy Hawkins',
         phone: '+1 205 555 0100',
         address: null,
-        status: false,
+        status: true,
         community: 'Bluebell Meadows & 3 others',
         date_joined: '2025-03-17T13:49:05.732809Z',
         referred_by: {
@@ -500,7 +500,7 @@ export const customers = {
         phone: '+1 505 555 0125',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-14T09:58:34.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -521,7 +521,7 @@ export const customers = {
         phone: '+49 176 12345678',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-15T10:22:11.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -542,7 +542,7 @@ export const customers = {
         phone: '+1 212 555 0187',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-16T11:45:22.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -563,7 +563,7 @@ export const customers = {
         phone: '+34 612 345 678',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-17T08:15:33.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -584,7 +584,7 @@ export const customers = {
         phone: '+44 7700 900123',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-18T14:37:45.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -605,7 +605,7 @@ export const customers = {
         phone: '+1 415 555 0198',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-19T16:22:10.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -626,7 +626,7 @@ export const customers = {
         phone: '+39 345 678 9012',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-20T09:12:34.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -647,7 +647,7 @@ export const customers = {
         phone: '+33 6 12 34 56 78',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-21T11:45:22.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -668,7 +668,7 @@ export const customers = {
         phone: '+1 617 555 0134',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-22T13:18:56.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -689,7 +689,7 @@ export const customers = {
         phone: '+48 601 234 567',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-23T15:33:44.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -712,7 +712,7 @@ export const customers = {
         phone: '+1 305 555 0178',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-24T10:22:11.441175Z',
         referred_by: {
           name: 'Via a consultant',
@@ -733,7 +733,7 @@ export const customers = {
         phone: '+49 171 9876543',
         community: 'The Aspen Enclave',
         address: null,
-        status: true,
+        status: false,
         date_joined: '2025-03-25T12:45:33.441175Z',
         referred_by: {
           name: 'Via a consultant',

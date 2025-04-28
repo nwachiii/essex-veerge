@@ -264,6 +264,7 @@ export const SingleCustomerPage = ({userId}) => {
             >
               <VStack spacing={'17px'}>
                 <Image
+                  alt=''
                   w="124px"
                   h="124px"
                   borderRadius={'full'}
