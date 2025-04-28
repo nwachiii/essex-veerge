@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Flex, HStack, Image, Stack, Text, useDisclosure} from '@chakra-ui/react';
+import {Avatar, Flex, HStack, Image, Stack, Text, useDisclosure} from '@chakra-ui/react';
 
 import CustomerDrawer from '../../../../../components/Drawers/customerDrawer';
 
@@ -29,14 +29,16 @@ const ColumnsCustomerDrawer = ({row, user}) => {
         maxW={`250px`}
         minW="150px"
       >
-        <Image
-          alt="customer image"
+        <Avatar
+         
           borderRadius="full"
           height="48px"
           width="48px"
           aspectRatio="1"
           objectFit="cover"
-          src={userObject?.img || userObject?.img?.[0] || avatarFallback.src}
+          bg={'#FAFAFA'}
+          name={`${userObject?.name}`}
+          src={userObject?.img || userObject?.img?.[0]}
         />
         <Stack>
           <Flex flex={`1`} align="center" gap="8px">
