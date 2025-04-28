@@ -347,7 +347,12 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
                 >
                   <Flex gap="12px" w="159.6px" alignItems="center">
                     <Avatar src={item?.avatar} boxSize="40px" />
-                    <Text noOfLines={1} fontSize="16px" fontWeight="400" color="#52525b">
+                    <Text
+                      // noOfLines={1}
+                      fontSize="16px"
+                      fontWeight="400"
+                      color="#52525b"
+                    >
                       {item?.name ?? 'Darlene Robertson'}
                     </Text>
                   </Flex>
