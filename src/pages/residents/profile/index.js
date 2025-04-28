@@ -8,6 +8,7 @@ import {
   Text,
   Flex,
   Button as ChakraButton,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
@@ -33,6 +34,8 @@ import ppt2 from '../../../images/resident-profile/ppt2.png';
 import ppt3 from '../../../images/resident-profile/ppt3.png';
 import {useRouter} from 'next/router';
 import ResidentProfileDrawerOptions from '@/components/Drawers/resident/profile';
+import DataMigrationModal from '@/components/dashboard/dataMigration';
+import NotesDrawer from '@/components/notesDrawer';
 
 const Button = ({children, ...rest}) => (
   <ChakraButton _hover={{opacity: 1}} _active={{opacity: 1}} h="55px" {...rest}>
@@ -43,6 +46,7 @@ const Button = ({children, ...rest}) => (
 export const SingleCustomerPage = ({userId}) => {
   const isSmallerLaptop = useSmallerLaptopsBreakpoint();
   const router = useRouter();
+  const modalDisclosure = useDisclosure();
 
   const portfolio = [
     {
@@ -330,6 +334,7 @@ export const SingleCustomerPage = ({userId}) => {
                   bg="#E7FBF5"
                   borderRadius="full"
                   color="#064B38"
+                  onClick={modalDisclosure.onOpen}
                 >
                   Notes
                 </Button>
@@ -380,6 +385,7 @@ export const SingleCustomerPage = ({userId}) => {
               >
                 {portfolio.map(data => (
                   <HStack
+                    key={data}
                     px="20px"
                     py="18px"
                     spacing={'24px'}
@@ -387,7 +393,7 @@ export const SingleCustomerPage = ({userId}) => {
                     bg="#fff"
                     borderRadius={'16px'}
                   >
-                    <Image src={data.image} h="175px" w="180px" borderRadius={'15.265px'} />
+                    <Image alt="" src={data.image} h="175px" w="180px" borderRadius={'15.265px'} />
 
                     <VStack w="full" spacing={'20px'} align={'stretch'}>
                       <HStack w="full" spacing={'24px'}>
@@ -514,6 +520,7 @@ export const SingleCustomerPage = ({userId}) => {
               >
                 {requestOrWorkOrder.map(data => (
                   <VStack
+                    key={data}
                     align={'stretch'}
                     w="256px"
                     p="12px"
@@ -529,7 +536,7 @@ export const SingleCustomerPage = ({userId}) => {
                         border={'1px solid #E4E4E7'}
                         bg="#FAFAFA"
                       >
-                        <Image src={info.src} />
+                        <Image alt="" src={info.src} />
                       </Center>
                       <Text
                         fontSize="13px"
@@ -1357,6 +1364,8 @@ export const SingleCustomerPage = ({userId}) => {
             </Box>
           </VStack>
         </HStack>
+
+        <NotesDrawer modalDisclosure={modalDisclosure} />
       </LayoutView>
     </Box>
   );
