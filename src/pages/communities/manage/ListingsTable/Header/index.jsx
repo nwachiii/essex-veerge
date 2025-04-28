@@ -32,7 +32,7 @@ const ListingOverViewHeader = ({listingData}) => {
                 Total Communities
               </Heading>
               <Text fontSize="36px" fontWeight="600" color="#141414" lineHeight="44px">
-                180
+                35
               </Text>
             </Stack>
           </Flex>
