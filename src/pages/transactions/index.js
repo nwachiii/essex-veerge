@@ -10,6 +10,8 @@ import {FaAngleLeft} from 'react-icons/fa';
 import {TfiAngleLeft} from 'react-icons/tfi';
 import DownloadCsv from 'ui-lib/ui-lib.components/Button/downloadCsv';
 import {TRANSACTIONPAGE_COLUMN} from 'pages/residents/customer_overview/CustomersTable/Table/transactionCOLUMN';
+import Head from 'next/head';
+// import {TRANSACTIONPAGE_COLUMN} from 'pages/residents/customer_overview/CustomersTable/Table/transactionCOLUMN';
 // import TRANSACTIONPAGE_COLUMN from 'pages/residents/customer_overview/CustomersTable/Table/transactionCOLUMN';
 const limit = 10;
 const TransactionDemoPage = () => {
