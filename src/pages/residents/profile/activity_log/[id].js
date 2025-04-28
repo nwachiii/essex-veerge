@@ -247,7 +247,7 @@ export const Activity_log = () => {
     <>
       <Box as={motion.div} variants={container} initial="hidden" animate="show">
         <div>
-          <LayoutView activePage="users" position="relative" />
+          <LayoutView activePage="residents" position="relative" />
           {isLoading ? (
             <Spinner />
           ) : (

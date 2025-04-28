@@ -38,7 +38,7 @@ export default function TransactionHistory() {
     router.back(-1);
   };
   return (
-    <LayoutView activePage={'users'}>
+    <LayoutView activePage={'residents'}>
       <HStack onClick={handleBack} my="35px">
         <Image
           style={{cursor: 'pointer'}}

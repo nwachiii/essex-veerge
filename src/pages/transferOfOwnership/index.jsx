@@ -251,7 +251,7 @@ const TransferOfOwnership = ({equity_id, unitId, project_id}) => {
       tabPanelStyle={{px: '0px', pb: '0px'}}
       px="0px"
       pb="30px"
-      activePage={'users'}
+      activePage={'residents'}
     >
       <Head>
         <title>Veerge | Transfer of Ownership</title>
