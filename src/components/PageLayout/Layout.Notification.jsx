@@ -229,14 +229,14 @@ export const LayoutNotifications = () => {
                     <Flex gap="16px" key={idx}>
                       <Image src={msg?.icon} alt="notification icon" boxSize="40px" />
                       <Stack>
-                        <Text>
+                        <Text fontSize="14px">
                           {before}
                           <Text as="span" fontWeight="bold">
                             {bold}
                           </Text>
                           {after}
                         </Text>
-                        <Text fontSize="14px" color="#71717A">
+                        <Text fontSize="12px" color="#71717A">
                           {msg.time}
                         </Text>
                       </Stack>
