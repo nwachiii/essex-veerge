@@ -32,6 +32,7 @@ import ppt1 from '../../../images/resident-profile/ppt1.png';
 import ppt2 from '../../../images/resident-profile/ppt2.png';
 import ppt3 from '../../../images/resident-profile/ppt3.png';
 import {useRouter} from 'next/router';
+import ResidentProfileDrawerOptions from '@/components/Drawers/resident/profile';
 
 const Button = ({children, ...rest}) => (
   <ChakraButton _hover={{opacity: 1}} _active={{opacity: 1}} h="55px" {...rest}>
@@ -213,15 +214,15 @@ export const SingleCustomerPage = ({userId}) => {
   ];
 
   return (
-    <Box bg="#FAFAFA" mx="auto" minH="100vh" h={isSmallerLaptop ? '60vh' : ''}>
+    <Box w="full" minH="100vh" bg="#FAFAFA" h={isSmallerLaptop ? '60vh' : ''}>
       <LayoutView
         px={{base: '0px', xl: '30px'}}
         tabPanelStyle={{pb: '0px'}}
-        activePage={'residents'}
-        position="relative"
-        pb="40px"
+        pb="0px"
+        activePage="users"
       >
         <Box
+          // mt="clamp(-100vh, -82vh, calc(-100vh + 120px))"
           mt="clamp(52px,calc(11.4vh + 40px),96px)"
           px={{base: '0px', xl: '30px'}}
           maxW="full"
@@ -254,7 +255,7 @@ export const SingleCustomerPage = ({userId}) => {
               >
                 Transaction
               </Button>
-              <Button
+              {/* <Button
                 leftIcon={<Image src={moreOption.src} />}
                 py="16px"
                 px="40px"
@@ -268,12 +269,15 @@ export const SingleCustomerPage = ({userId}) => {
                 border="1px solid #A3A3A3"
               >
                 More Options
-              </Button>
+              </Button> */}
+              <ResidentProfileDrawerOptions />
             </HStack>
           </HStack>
 
           <HStack w="full" mt="18px" spacing={'41.5px'} align={'flex-start'}>
             <VStack
+              position={'sticky'}
+              top={'calc(64px + 52px)'}
               w="30%"
               p="16px"
               spacing={'16px'}
@@ -485,6 +489,7 @@ export const SingleCustomerPage = ({userId}) => {
                           fontSize="16px"
                           fontWeight="500"
                           lineHeight="normal"
+                          onClick={() => router.push('/communities/manage?listingId=1')}
                         >
                           View Details
                         </Button>
@@ -500,12 +505,12 @@ export const SingleCustomerPage = ({userId}) => {
                     Requests / Work Orders
                   </Text>
 
-                  <HStack>
+                  {/* <HStack>
                     <Text fontSize="19px" fontWeight="500" lineHeight="130%">
                       View Work Order History
                     </Text>
                     <ChevronRightIcon fontSize={25} />
-                  </HStack>
+                  </HStack> */}
                 </HStack>
                 <HStack
                   mt="12px"
@@ -594,12 +599,12 @@ export const SingleCustomerPage = ({userId}) => {
                     Violation
                   </Text>
 
-                  <HStack>
+                  {/* <HStack>
                     <Text fontSize="19px" fontWeight="500" lineHeight="130%">
                       View Violation History
                     </Text>
                     <ChevronRightIcon fontSize={25} />
-                  </HStack>
+                  </HStack> */}
                 </HStack>
                 <HStack
                   mt="12px"
@@ -688,12 +693,12 @@ export const SingleCustomerPage = ({userId}) => {
                     Upcoming Reservations / Events
                   </Text>
 
-                  <HStack>
+                  {/* <HStack>
                     <Text fontSize="19px" fontWeight="500" lineHeight="130%">
                       View Reservation History
                     </Text>
                     <ChevronRightIcon fontSize={25} />
-                  </HStack>
+                  </HStack> */}
                 </HStack>
                 <HStack
                   mt="12px"
@@ -770,7 +775,7 @@ export const SingleCustomerPage = ({userId}) => {
                             fontWeight="400"
                             lineHeight="150%"
                             letterSpacing={'0.26px'}
-                            color={'#13618F'}
+                            color={data.tagColor}
                           >
                             {data.secondText}
                           </Text>
