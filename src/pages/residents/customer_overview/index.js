@@ -34,9 +34,6 @@ export const CustomerOverviewPage = () => {
     param: '',
   });
   const router = useRouter();
-  const handleBack = () => {
-    router.back(-1);
-  };
 
   const routeQueries = router.query;
   const currentPage = routeQueries?.page ?? '1';
@@ -106,8 +103,6 @@ export const CustomerOverviewPage = () => {
               ? 'fractions=true'
               : '';
 
-  const mainParam = QUERY_PARAMS + (QUERY_PARAMS ? '&' : '') + convertToApiQuery();
-
   const customerOverviewData = customers?.data
 
   const handleExpand = () => {
@@ -169,13 +164,13 @@ export const CustomerOverviewPage = () => {
       ) : customers?.data ? (
         <>
           <HStack
-            justify="space-between"
-            mt={!expand ? '0' : '16px'}
             mb="24px"
             w="full"
-            spacing="14px"
             align="end"
+            spacing="14px"
             color="#191919"
+            justify="space-between"
+            mt={!expand ? '0' : '16px'}
             fontFamily="Euclid Circular B"
           >
 
