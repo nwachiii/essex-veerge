@@ -1,18 +1,7 @@
 import {Grid, GridItem} from '@chakra-ui/react';
 import UserAssetCard from '@/components/Customers/overview/userAssetCard';
-import UserTransactionInfoCard from '@/components/Customers/overview/userTransactionInfoCard';
 
-export default function TopHeader({handleExpand, expand, value, setValue, customersFetchQuery}) {
-  const sort_params = [
-    'A-Z',
-    'Z-A',
-    'Date joined oldest to newest',
-    'Date joined newest to oldest',
-  ];
-  const customerOverviewData = customersFetchQuery;
-
-  const usersWithoutAssets =
-    (customerOverviewData?.total_customers || 0) - (customerOverviewData?.total_asset_holders || 0);
+export default function TopHeader() {
 
   return (
     <>
@@ -41,14 +30,14 @@ export default function TopHeader({handleExpand, expand, value, setValue, custom
           <UserAssetCard
             hasAssets
             heading={'Total Residents'}
-            value={'134'}
+            value={'22'}
           />
         </GridItem>
         <GridItem colSpan={1}>
-          <UserAssetCard heading={'Total Tenants'} value={'92'} />
+          <UserAssetCard heading={'Total Tenants'} value={'11'} />
         </GridItem>
         <GridItem colSpan={1}>
-          <UserAssetCard heading={'Total Owners'} value={'42'} />
+          <UserAssetCard heading={'Total Owners'} value={'11'} />
         </GridItem>
       </Grid>
     </>

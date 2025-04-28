@@ -8,15 +8,17 @@ import {AppleStore} from 'images/503-error-service-unavailable/apple';
 
 export const LayoutMobileView = () => {
   return (
-    <Box bg="#ffffff" h="100svh" maxH="100svh" py={6} pl={4}>
-      {/* <Link prefetch={false} href="/"> */}
-      <Image
-                fill
-                alt="Essex-Hoa"
-                width={'fit-content'}
-                style={{objectFit: `cover`}}
-                src={'./public_image/essex-logo.svg'}
-              />
+    <Box bg="#ffffff" h="100svh" maxH="100svh" pb={6}>
+      <Stack w="full" bg="#18230F" p={2} mb={6}>
+        <Image
+          fill
+          h="52px"
+          alt="Essex-Hoa"
+          width={'fit-content'}
+          style={{objectFit: `cover`}}
+          src={'./public_image/essex-logo-png.png'}
+        />
+      </Stack>
 
       {/* </Link> */}
       <Stack justify={'center'} px="31px">
