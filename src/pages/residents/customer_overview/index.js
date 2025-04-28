@@ -183,12 +183,12 @@ export const CustomerOverviewPage = () => {
                 btnStyle={{bg: '#fff', mt: '0px'}}
                 sort_params={sort_params}
               />
-              <Filter
+              {/* <Filter
                 setUrl={setAddedParam}
                 url={addedParam}
                 isFractional={customerOverviewData?.total_fractions_holders}
                 listings={customers?.listings_available}
-              />
+              /> */}
 
               <DownloadCsv
                 isTableValid={isTableValid}
