@@ -28,7 +28,7 @@ const RefundableDeposit = () => {
   const currentPage = routeQueries?.page ?? '1';
 
   const transactions =
-    demoRefundableTableData?.[`page${currentPage}`] ?? demoRefundableTableData?.[`1`];
+    demoAccountPageTableData?.[`page${currentPage}`] ?? demoAccountPageTableData?.[`1`];
 
   const handlePagination = direction => {
     if (direction === 'next') {
