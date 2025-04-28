@@ -29,6 +29,9 @@ const UpcomingDeposit = () => {
   const transactions =
     demoAccountPageTableData?.[`page${currentPage}`] ?? demoAccountPageTableData?.[`1`];
 
+  const handleVal = val => () => {
+    setFilterByVal(val);
+  };
   const handlePagination = direction => {
     if (direction === 'next') {
       const defaultQuery = {
@@ -130,6 +133,8 @@ const UpcomingDeposit = () => {
                 minH="33px"
                 py={'12px'}
                 px={'9.5px'}
+                onClick={handleVal('1')}
+                transition="0.3s ease-in-out"
                 borderRadius={'72px'}
                 bg={filterByVal == '1' ? '#4545FE' : 'transparent'}
                 minW={'max-content'}
@@ -143,8 +148,10 @@ const UpcomingDeposit = () => {
                 cursor={'pointer'}
                 minH="33px"
                 py={'12px'}
+                transition="0.3s ease-in-out"
                 px={'9.5px'}
                 borderRadius={'72px'}
+                onClick={handleVal('2')}
                 bg={filterByVal == '2' ? '#4545FE' : 'transparent'}
                 minW={'max-content'}
                 color={filterByVal == '2' ? '#ffffff' : '#4545fe'}
@@ -158,7 +165,9 @@ const UpcomingDeposit = () => {
                 h="33px"
                 py={'12px'}
                 px={'9.5px'}
+                transition="0.3s ease-in-out"
                 borderRadius={'72px'}
+                onClick={handleVal('3')}
                 fontWeight={filterByVal == '3' ? '600' : '400'}
                 bg={filterByVal == '3' ? '#4545FE' : 'transparent'}
                 color={filterByVal == '3' ? '#ffffff' : '#4545fe'}
@@ -173,7 +182,9 @@ const UpcomingDeposit = () => {
                 minH="33px"
                 py={'12px'}
                 px={'9.5px'}
+                transition="0.3s ease-in-out"
                 borderRadius={'72px'}
+                onClick={handleVal('4')}
                 bg={filterByVal == '4' ? '#4545FE' : 'transparent'}
                 minW={'max-content'}
                 color={filterByVal == '4' ? '#ffffff' : '#4545fe'}
@@ -187,7 +198,9 @@ const UpcomingDeposit = () => {
                 minH="33px"
                 py={'12px'}
                 px={'9.5px'}
+                transition="0.3s ease-in-out"
                 borderRadius={'72px'}
+                onClick={handleVal('5')}
                 bg={filterByVal == '5' ? '#4545FE' : 'transparent'}
                 minW={'max-content'}
                 color={filterByVal == '5' ? '#ffffff' : '#4545fe'}
@@ -197,7 +210,7 @@ const UpcomingDeposit = () => {
               <Box
                 flex="1"
                 textAlign={'center'}
-                cursor={'pointer'}
+                cursor={'not-allowed'}
                 minH="33px"
                 py={'12px'}
                 px={'9.5px'}
