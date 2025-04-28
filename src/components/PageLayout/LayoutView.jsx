@@ -65,53 +65,18 @@ export function LayoutView({
               tabPanelStyle={tabPanelStyle}
               isPending={false}
               manageroles
-              // children={children}
               activePage={activePage}
               {...restProps}
             >
               <Stack
                 maxW="1500px"
                 mx="auto"
-                // className="main-app"
               >
                 {children}
               </Stack>
             </LayoutNavigation>
           )}
         </Box>
-        <Link
-          zIndex={1000}
-          pos="fixed"
-          right="2%"
-          bottom="calc(3.2% + 65px )"
-          as="a"
-          href={`mailto:hello@myxellia.io`}
-        >
-          <IconButton
-            // pos="fixed"
-            // bottom="calc(3.2% + 65px )"
-            variant="unstyled"
-            // zIndex={2444}
-
-            // right="2%"
-            icon={<Image src={chatIcon.src} alt="chat icon" />}
-          />
-        </Link>
-
-        {/* <HStack
-          zIndex={2444}
-          pos="fixed"
-          bottom={0}
-          w="full"
-          borderTop="0.5px solid #e5e5e5"
-          bg="#ffffff"
-          h="23px"
-          justify="center"
-        >
-          <Text color="#737373" fontSize="12px" fontWeight="400">
-            Powered by Myxellia | Veerge is a product of Myxellia Inc.
-          </Text>
-        </HStack> */}
       </Stack>
     </>
   );
