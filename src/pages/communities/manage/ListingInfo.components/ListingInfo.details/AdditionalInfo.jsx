@@ -58,6 +58,10 @@ export const AdditionalInfo = ({pageQueryId, listingDetail}) => {
     {
       title: 'Average Year Built',
       value: 2008
+    },
+    {
+      title: 'Community Type',
+      value: 'Board Community'
     }
   ]
 
@@ -102,15 +106,13 @@ export const AdditionalInfo = ({pageQueryId, listingDetail}) => {
               </Text>
 
               <Button
-                as="a"
                 fontWeight={500}
                 fontSize="14px"
                 lineHeight="18px"
                 target="_blank"
                 variant="link"
                 color="#4545FE"
-                cursor="pointer"
-                href={brochureDoc}
+                cursor="not-allowed"
                 rightIcon={<ChevronRightIcon />}
                 iconSpacing="1px"
               >

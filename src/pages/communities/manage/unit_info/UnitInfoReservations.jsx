@@ -24,7 +24,7 @@ const UnitInfoReservations = () => {
           gap="8px"
           color="#191919"
           fontSize="16px"
-          cursor="pointer"
+          cursor="not-allowed"
         >
           <Text>View Reservation History</Text>
           <ChevronRightIcon fontSize="24px" />

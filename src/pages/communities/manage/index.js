@@ -28,6 +28,7 @@ import {listingDetail} from 'constants/listListings';
 import {AMENITIES_ESSEX} from 'constants/listings/amenities';
 import ListingMoreOption from '@/components/Drawers/listingMoreOptionsDrawer';
 import ListingInfoReservations from './ListingInfo.components/ListingInfoReservations';
+import ListingInfoBoardMembers from './ListingInfo.components/ListingInfoBoardMembers';
 
 export const SingleListingPage = () => {
   const router = useRouter();
@@ -63,7 +64,12 @@ export const SingleListingPage = () => {
   return (
     <>
       <Box style={{background: '#FAFAFA'}} minH="100vh" h={isSmallerLaptop ? '60vh' : ''}>
-        <LayoutView tabPanelStyle={{px: '0px', pb: '0px'}} px="0px" pb="0px" activePage="communities">
+        <LayoutView
+          tabPanelStyle={{px: '0px', pb: '0px'}}
+          px="0px"
+          pb="0px"
+          activePage="communities"
+        >
           <Box pb={6} w="full" mx="auto" mt="clamp(52px,calc(10.4vh + 40px),82px)">
             <HStack
               px={{base: '16px', xl: '78px'}}
@@ -82,7 +88,7 @@ export const SingleListingPage = () => {
                 <Image mr={2} boxSize="50px" alt="back_arrow" src={backArrow.src} />
                 <Heading {...themeStyles.textStyles.h3}>Community Profile</Heading>
               </HStack>
-              <HStack align="center" gap={{ base: '16px', xl: '24px' }}>
+              <HStack align="center" gap={{base: '16px', xl: '24px'}}>
                 <Button
                   rounded="full"
                   bg="#191919"
@@ -92,9 +98,9 @@ export const SingleListingPage = () => {
                   color="#FFF"
                   p="16px 40px"
                   _hover={{
-                    opacity: 1
+                    opacity: 1,
                   }}
-                  h='54px'
+                  h="54px"
                   onClick={() => router.push('/transactions')}
                 >
                   Transactions
@@ -144,6 +150,7 @@ export const SingleListingPage = () => {
               </Container>
             </Box>
             <Box w="full" px={{base: '16px', xl: '78px'}}>
+              <ListingInfoBoardMembers />
               <SimpleGrid
                 mx="auto"
                 columns={2}

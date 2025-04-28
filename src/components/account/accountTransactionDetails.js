@@ -73,21 +73,23 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
               View All
             </Button>
           ) : (
-            <Button
-              fontSize="12px"
-              fontWeight="500"
-              color="#4545fe"
-              variant="ghost"
-              p="0px"
-              h="fit-content"
-              _hover={{
-                bg: 'transparent',
-              }}
-              rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
-              iconSpacing="5px"
-            >
-              View All
-            </Button>
+            <Link prefetch={true} href="/refundableDeposit">
+              <Button
+                fontSize="12px"
+                fontWeight="500"
+                color="#4545fe"
+                variant="ghost"
+                p="0px"
+                h="fit-content"
+                _hover={{
+                  bg: 'transparent',
+                }}
+                rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
+                iconSpacing="5px"
+              >
+                View All
+              </Button>
+            </Link>
           )}
         </div>
 
@@ -274,37 +276,41 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
           </Text>
 
           {!upcomingDeposits || !upcomingDeposits?.length ? (
-            <Button
-              fontSize="12px"
-              fontWeight="500"
-              color="#4545fe"
-              variant="ghost"
-              p="0px"
-              h="fit-content"
-              _hover={{
-                bg: 'transparent',
-              }}
-              rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
-              iconSpacing="5px"
-            >
-              View All
-            </Button>
+            <Link prefetch={true} href="/upcomingPayments">
+              <Button
+                fontSize="12px"
+                fontWeight="500"
+                color="#4545fe"
+                variant="ghost"
+                p="0px"
+                h="fit-content"
+                _hover={{
+                  bg: 'transparent',
+                }}
+                rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
+                iconSpacing="5px"
+              >
+                View All
+              </Button>
+            </Link>
           ) : (
-            <Button
-              fontSize="12px"
-              fontWeight="500"
-              color="#4545fe"
-              variant="ghost"
-              p="0px"
-              h="fit-content"
-              _hover={{
-                bg: 'transparent',
-              }}
-              rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
-              iconSpacing="5px"
-            >
-              View All
-            </Button>
+            <Link prefetch={true} href="/upcomingPayments">
+              <Button
+                fontSize="12px"
+                fontWeight="500"
+                color="#4545fe"
+                variant="ghost"
+                p="0px"
+                h="fit-content"
+                _hover={{
+                  bg: 'transparent',
+                }}
+                rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
+                iconSpacing="5px"
+              >
+                View All
+              </Button>
+            </Link>
           )}
         </div>
         {
@@ -347,7 +353,12 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
                 >
                   <Flex gap="12px" w="159.6px" alignItems="center">
                     <Avatar src={item?.avatar} boxSize="40px" />
-                    <Text noOfLines={1} fontSize="16px" fontWeight="400" color="#52525b">
+                    <Text
+                      // noOfLines={1}
+                      fontSize="16px"
+                      fontWeight="400"
+                      color="#52525b"
+                    >
                       {item?.name ?? 'Darlene Robertson'}
                     </Text>
                   </Flex>
