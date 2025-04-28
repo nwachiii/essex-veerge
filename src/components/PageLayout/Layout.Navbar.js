@@ -216,7 +216,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                         fill
                         style={{objectFit: `cover`}}
                         alt="Dylan_Frank"
-                        src={'https://d1x2tneac0i3nn.cloudfront.net/dylan-frank.png'}
+                        src={'https://randomuser.me/api/portraits/men/41.jpg'}
                       />
                     </Center>
                     <Text
@@ -258,7 +258,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                     closeOnSelect={false}
                     mb="12px"
                   >
-                    {/* <ProfileMenuInfoCard refetch={refetch} user={user} isLoading={isLoading} /> */}
+                    <ProfileMenuInfoCard refetch={refetch} user={user} isLoading={isLoading} />
                   </MenuItem>
                   <MenuItem
                     mt="0px"
