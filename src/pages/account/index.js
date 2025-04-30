@@ -137,22 +137,23 @@ export default function Account() {
                           color={'#333333'}
                           amount={OVERVIEW_SUMMARY?.total_purchases ?? 6764000}
                         />
-
-                        <Button
-                          fontSize="12px"
-                          fontWeight="500"
-                          color="#4545fe"
-                          variant="ghost"
-                          p="0px"
-                          h="fit-content"
-                          _hover={{
-                            bg: 'transparent',
-                          }}
-                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
-                          iconSpacing="0px"
-                        >
-                          View
-                        </Button>
+                        <Link prefetch={true} href="/totalAssetment">
+                          <Button
+                            fontSize="12px"
+                            fontWeight="500"
+                            color="#4545fe"
+                            variant="ghost"
+                            p="0px"
+                            h="fit-content"
+                            _hover={{
+                              bg: 'transparent',
+                            }}
+                            rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                            iconSpacing="0px"
+                          >
+                            View
+                          </Button>
+                        </Link>
                       </div>
                       <div className="rounded-lg border  gap-[8px] border-[#EFEFEF] py-1  mx-auto flex flex-col w-full items-center justify-center">
                         <Text fontSize="11px" color="#52525b" fontWeight="500">
@@ -171,21 +172,23 @@ export default function Account() {
                           color={'#333333'}
                           amount={OVERVIEW_SUMMARY?.escrow ?? 1034470}
                         />
-                        <Button
-                          fontSize="12px"
-                          fontWeight="500"
-                          color="#4545fe"
-                          variant="ghost"
-                          p="0px"
-                          h="fit-content"
-                          _hover={{
-                            bg: 'transparent',
-                          }}
-                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
-                          iconSpacing="0px"
-                        >
-                          View
-                        </Button>
+                        <Link prefetch={true} href="/totalAmenitiesFees">
+                          <Button
+                            fontSize="12px"
+                            fontWeight="500"
+                            color="#4545fe"
+                            variant="ghost"
+                            p="0px"
+                            h="fit-content"
+                            _hover={{
+                              bg: 'transparent',
+                            }}
+                            rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                            iconSpacing="0px"
+                          >
+                            View
+                          </Button>
+                        </Link>
                       </div>
 
                       <div className="rounded-lg border gap-[8px] border-[#EFEFEF] py-1  mx-auto flex flex-col w-full items-center justify-center">
@@ -204,22 +207,23 @@ export default function Account() {
                           color={'#333333'}
                           amount={USER_WALLET_TOTAL ?? 864240}
                         />
-
-                        <Button
-                          fontSize="12px"
-                          fontWeight="500"
-                          color="#4545fe"
-                          variant="ghost"
-                          p="0px"
-                          h="fit-content"
-                          _hover={{
-                            bg: 'transparent',
-                          }}
-                          rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
-                          iconSpacing="0px"
-                        >
-                          View
-                        </Button>
+                        <Link prefetch={true} href="/violationAndFinePayments">
+                          <Button
+                            fontSize="12px"
+                            fontWeight="500"
+                            color="#4545fe"
+                            variant="ghost"
+                            p="0px"
+                            h="fit-content"
+                            _hover={{
+                              bg: 'transparent',
+                            }}
+                            rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="10px" />}
+                            iconSpacing="0px"
+                          >
+                            View
+                          </Button>
+                        </Link>
                       </div>
                       <div className="rounded-lg border border-[#EFEFEF] py-1 gap-[8px]  mx-auto flex flex-col w-full items-center justify-center px-2">
                         <Text fontSize="11px" color="#52525b" fontWeight="500">

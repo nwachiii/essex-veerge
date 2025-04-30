@@ -15,6 +15,7 @@ import {demoAccountPageTableData} from 'constants/DEMODATA/account/accountPages'
 import {REFUNDABLE_COLUMN} from 'constants/accounts/tables/refundableDeposit';
 import {CAPFEE_COLUMN} from 'constants/accounts/tables/capFee';
 import Head from 'next/head';
+import {filterDataByFutureDateRange} from '@/components/account/utils';
 
 const limit = 10;
 const UpcomingDeposit = () => {
@@ -26,8 +27,15 @@ const UpcomingDeposit = () => {
   const routeQueries = router.query;
   const currentPage = routeQueries?.page ?? '1';
 
-  const transactions =
-    demoAccountPageTableData?.[`page${currentPage}`] ?? demoAccountPageTableData?.[`1`];
+  const data = filterDataByFutureDateRange(demoAccountPageTableData, filterByVal);
+  const total = [...data.page1, ...data.page2].reduce((total, item) => {
+    // Ensure item exists and amount is a number, otherwise add 0
+    const itemAmount = item && typeof Number(item.amount) === 'number' ? Number(item.amount) : 0;
+
+    return total + itemAmount;
+  }, 0);
+  const count = [...data.page1, ...data.page2].length;
+  const transactions = data?.[`page${currentPage}`] ?? data?.[`1`];
 
   const handleVal = val => () => {
     setFilterByVal(val);
@@ -64,7 +72,7 @@ const UpcomingDeposit = () => {
       });
     }
   };
-  const number_of_pages = 2;
+  const number_of_pages = Math.ceil(~~count / ~~limit);
 
   const columns = useMemo(() => CAPFEE_COLUMN, []);
 
@@ -222,11 +230,11 @@ const UpcomingDeposit = () => {
               </Box>
             </HStack>
           </Flex>
-          <AccountOverViewHeader header="Total Upcoming Payments" amount="5678.76" />
+          <AccountOverViewHeader header="Total Upcoming Payments" amount={total} />
           <MatadorCustomTable
             minW="full"
-            forMemo={[router]}
-            forLimit={[limit, router]}
+            forMemo={[router, filterByVal, data]}
+            forLimit={[limit, router, filterByVal, data]}
             headerSpace="evenly"
             COLUMNS={columns}
             number_of_pages={number_of_pages}

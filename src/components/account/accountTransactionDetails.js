@@ -162,21 +162,23 @@ export const AccountTransactionDetails = ({depositsData, withdrawalsData, upcomi
           </Text>
 
           {!depositsData || !depositsData?.length ? (
-            <Button
-              fontSize="12px"
-              fontWeight="500"
-              color="#4545fe"
-              variant="ghost"
-              p="0px"
-              h="fit-content"
-              _hover={{
-                bg: 'transparent',
-              }}
-              rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
-              iconSpacing="5px"
-            >
-              View All
-            </Button>
+            <Link prefetch={true} href="/recentTransaction">
+              <Button
+                fontSize="12px"
+                fontWeight="500"
+                color="#4545fe"
+                variant="ghost"
+                p="0px"
+                h="fit-content"
+                _hover={{
+                  bg: 'transparent',
+                }}
+                rightIcon={<Icon as={FaAngleRight} color="#4545fe" boxSize="12px" />}
+                iconSpacing="5px"
+              >
+                View All
+              </Button>
+            </Link>
           ) : (
             <Button
               fontSize="12px"

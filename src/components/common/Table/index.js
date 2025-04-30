@@ -249,39 +249,46 @@ export const MatadorCustomTable = ({
           <AnimatedLoader />
         )}
       </Box>
+      <Box>
+        {/* {DATA?.length < forLimit?.[0] && !(~~number_of_pages > 1) ? (
+          <></>
+        ) : ( */}
 
-      <HStack
-        w="full"
-        border="1px solid #e4e4e7"
-        borderTop="none"
-        bg="#ffffff"
-        px="40px"
-        borderBottomRadius="xl"
-        justify={'flex-end'}
-        mb="12px"
-        gap="21px"
-        overflow="hidden"
-      >
-        {isManageAgentEmpty && page && !DATA?.length ? (
-          <Box py="10px" />
-        ) : DATA?.length < forLimit && !(~~number_of_pages > 1) ? (
-          <Box py="10px" />
-        ) : (
-          <CustomPagination
-            wrapper={{px: '0px'}}
-            nextPage={nextPage}
-            number_of_pages={number_of_pages}
-            gotoPage={gotoPage}
-            handlePagination={handlePagination}
-            pageIndex={pageIndex}
-            pageCount={pageCount}
-            canNextPage={canNextPage}
-            pageOptions={pageOptions}
-            previousPage={previousPage}
-            canPreviousPage={canPreviousPage}
-          />
-        )}
-        {/* <Button
+        <HStack
+          w="full"
+          border={
+            DATA?.length < forLimit?.[0] && !(~~number_of_pages > 1) ? 'none' : '1px solid #e4e4e7'
+          }
+          borderTop="none"
+          bg="#ffffff"
+          px="40px"
+          borderBottomRadius="xl"
+          justify={'flex-end'}
+          mb="12px"
+          gap="21px"
+          overflow="hidden"
+        >
+          {isManageAgentEmpty && page && !DATA?.length ? (
+            <Box py="10px" />
+          ) : DATA?.length < forLimit?.[0] && !(~~number_of_pages > 1) ? (
+            // <Box py="10px" />
+            <></>
+          ) : (
+            <CustomPagination
+              wrapper={{px: '0px'}}
+              nextPage={nextPage}
+              number_of_pages={number_of_pages}
+              gotoPage={gotoPage}
+              handlePagination={handlePagination}
+              pageIndex={pageIndex}
+              pageCount={pageCount}
+              canNextPage={canNextPage}
+              pageOptions={pageOptions}
+              previousPage={previousPage}
+              canPreviousPage={canPreviousPage}
+            />
+          )}
+          {/* <Button
           variant="md-filled-radius"
           fontSize="16px"
           fontWeight="400"
@@ -293,7 +300,9 @@ export const MatadorCustomTable = ({
         >
           Expand List
         </Button> */}
-      </HStack>
+        </HStack>
+        {/* )} */}
+      </Box>
     </>
   );
 };
