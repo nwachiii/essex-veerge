@@ -15,7 +15,7 @@ const UnitInfoDocuments = () => {
           alignContent="center"
           mb="12px"
         >
-          Documents & Certificated
+          Documents & Certificates
         </Text>
       </Flex>
       <Flex
