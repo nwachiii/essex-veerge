@@ -37,7 +37,7 @@ const ResidentProfileDrawerOptions = dynamic(
   () => import('@/components/Drawers/resident/profile'),
   {ssr: false}
 );
-// import DataMigrationModal from '@/components/dashboard/dataMigration';
+// import DataMigrationModal from '@/components/dashboard/dataMigration'
 const NotesDrawer = dynamic(() => import('@/components/notesDrawer'), {
   ssr: false,
 });
