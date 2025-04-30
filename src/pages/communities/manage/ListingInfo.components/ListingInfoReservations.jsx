@@ -24,7 +24,7 @@ const ListingInfoReservations = () => {
         >
           Reservation
         </Text>
-        <Flex fontWeight={500} align='center' gap='8px' color='#191919' fontSize='16px' cursor='pointer'>
+        <Flex fontWeight={500} align='center' gap='8px' color='#191919' fontSize='16px' cursor='not-allowed'>
             <Text >View Reservation History</Text>
             <ChevronRightIcon fontSize='24px' />
         </Flex>

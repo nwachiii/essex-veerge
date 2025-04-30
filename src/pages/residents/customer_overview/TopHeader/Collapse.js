@@ -18,10 +18,9 @@ import SortBy from '../../../../components/SortBy';
 const styles = extendTheme({...theme});
 
 const CollapseOverview = ({handleExpand, sort_params}) => {
-  const customers = useQuery(['customer-meta-data'], fetchCustomers);
+  // const customers = useQuery(['customer-meta-data'], fetchCustomers);
 
-  // console.log("customer-meta-data", [customers?.data?.data]);
-  const customerOverviewData = [customers?.data] && [customers?.data?.data][0];
+  const customerOverviewData = customers?.[`page${1}`]
 
   const getDataFromJSON = data => {
     const result = [];

@@ -39,11 +39,12 @@ import ReportBug from '../Drawers/ReportBug';
 import Feedback from '../Drawers/feedback';
 import {VeergeLogo} from './navbar/svgs';
 import LogOutIcon from '../assets/logOutIcon';
-import { loggedinUserStatic } from 'apis/requests';
+import {loggedinUserStatic} from 'apis/requests';
 import {fetchDeveloperProfile} from 'apis/settings';
 import ProfileMenuInfoCard from './navbar/profileMenuInfoCard';
 import {UserSettingsDrawer} from '../Drawers/userSettingsDrawer';
 import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
+import {HiChatBubbleLeftRight} from 'react-icons/hi2';
 
 const NavLink = ({link, children}) => (
   <Link
@@ -69,7 +70,7 @@ const NavLink = ({link, children}) => (
   </Link>
 );
 
-export const LayoutNavbar = ({ activePage, openmanageApp }) => {
+export const LayoutNavbar = ({activePage, openmanageApp}) => {
   const isPending = false;
   const router = useRouter();
   const [activeLocation, setActiveLocation] = useState('');
@@ -162,7 +163,10 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
           <Flex align="center">
             <HStack spacing={'24px'} alignItems={'center'} mx={{base: '0px', xl: `54px`}}>
               <LayoutNotifications />
-              <UserSettingsDrawer isPending={isPending} />
+              <Box pt={1}>
+                <HiChatBubbleLeftRight color="#FFFFFF" fontSize="34px" cursor={'not-allowed'} />
+              </Box>
+              {/* <UserSettingsDrawer isPending={isPending} /> */}
               {isRoleRestricted('create customer and listing').check ? null : (
                 <VeergeQuickAdd isPending={isPending} />
               )}
@@ -215,7 +219,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                         fill
                         style={{objectFit: `cover`}}
                         alt="Dylan_Frank"
-                        src={'https://d1x2tneac0i3nn.cloudfront.net/dylan-frank.png'}
+                        src={'https://randomuser.me/api/portraits/men/41.jpg'}
                       />
                     </Center>
                     <Text
@@ -257,7 +261,7 @@ export const LayoutNavbar = ({ activePage, openmanageApp }) => {
                     closeOnSelect={false}
                     mb="12px"
                   >
-                    {/* <ProfileMenuInfoCard refetch={refetch} user={user} isLoading={isLoading} /> */}
+                    <ProfileMenuInfoCard refetch={refetch} user={user} isLoading={isLoading} />
                   </MenuItem>
                   <MenuItem
                     mt="0px"

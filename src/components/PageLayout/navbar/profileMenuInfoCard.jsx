@@ -1,11 +1,11 @@
-import {Box, Center, Flex, Spinner, Stack, Text} from '@chakra-ui/react';
+import {Box, Center, Flex, Image, Spinner, Stack, Text} from '@chakra-ui/react';
 import React, {useEffect, useState} from 'react';
 import {UploadProfilePicture} from 'ui-lib';
 import fallbackSrc from '/src/images/avatar.svg';
 import cameraIcon from '/src/images/icons/cameraIconForProfileIcon.svg';
 import {useMutation, useQuery} from '@tanstack/react-query';
 import {fetchDeveloperProfile, updateProfile} from 'apis/settings';
-import { loggedinUserStatic } from 'apis/requests';
+import {loggedinUserStatic} from 'apis/requests';
 
 const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
   const [avatar, setAvatar] = useState(() => {
@@ -49,54 +49,14 @@ const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
   return (
     <Flex alignItems="center" gap="8px">
       <Box position="relative">
-        {isLoading ? null : mutation?.isLoading ? (
-          <Center bg="#f5f5f5" border="1px solid #eaeaea" borderRadius="full" boxSize="56px">
-            <Spinner />
-          </Center>
-        ) : (
-          <UploadProfilePicture
-            id="avatar"
-            isProfilePic
-            name="avatar"
-            files={avatar}
-            containerStyle={{
-              width: '56px',
-              height: '56px',
-            }}
-            imgStyle={{
-              style: {
-                width: '56px ',
-                height: '56px ',
-                borderRadius: '100%',
-                boxSizing: 'border-box',
-                display: 'inline-flex',
-                border: '1px solid #eaeaea',
-              },
-            }}
-            defaultCameraIcon={cameraIcon}
-            defaultCameraStyle={{
-              boxSize: '12px',
-            }}
-            defaultCameraWrapperStyle={{
-              top: 'initial',
-              position: 'absolute',
-              bottom: '0%',
-              display: 'grid',
-
-              cursor: 'pointer',
-              placeItems: 'center',
-              bg: 'rgba(0,0,0,0.5)',
-              h: '40%',
-              w: 'full',
-            }}
-            profileWrapper={{
-              overflow: 'hidden',
-              borderRadius: '50%',
-            }}
-            setFiles={onAvatarChange}
-            profileFallback={fallbackSrc}
-          />
-        )}
+        <Image
+          fill
+          boxSize={'90px'}
+          borderRadius={'full'}
+          style={{objectFit: `cover`}}
+          alt="Dylan_Frank"
+          src={'https://randomuser.me/api/portraits/men/41.jpg'}
+        />
       </Box>
       <Stack h="full">
         <Text
@@ -118,7 +78,7 @@ const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
           whiteSpace="break-spaces"
           wordBreak="break-all"
         >
-          {user?.email || ''}
+          {'dylanfrank@gmail.com'}
         </Text>
       </Stack>
     </Flex>
