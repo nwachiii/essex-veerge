@@ -1,9 +1,8 @@
 import {FormatToColorfulAdaptiveCurrency} from 'utils/formatAmount';
-import {changeDateFormat} from 'utils/formatDate';
 
 const {Text, Avatar, Flex} = require('@chakra-ui/react');
 
-export const CAPFEE_COLUMN = [
+export const RECENT_TRANSACTION_COLUMN = [
   {
     Header: 'Residents',
     accessor: row => {
@@ -27,6 +26,16 @@ export const CAPFEE_COLUMN = [
           <Text as="span" fontSize="14px" fontWeight="400" color="#52525b">
             {row.location}
           </Text>
+        </Text>
+      );
+    },
+  },
+  {
+    Header: 'Payment Type',
+    accessor: row => {
+      return (
+        <Text fontSize="16px" fontWeight="400" color={'#00000'}>
+          {row.payment_type}
         </Text>
       );
     },
@@ -58,7 +67,7 @@ export const CAPFEE_COLUMN = [
     accessor: row => {
       return (
         <Text fontSize={'16px'} fontWeight="400" color="#000000">
-          {changeDateFormat(row.date)}
+          {row.date}
         </Text>
       );
     },
