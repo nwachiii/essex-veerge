@@ -22,9 +22,11 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import NotesDrawer from '@/components/notesDrawer';
+import { SendStatementDrawer } from './sendStatement';
 
 export const ListOfDrawerOptions = ({customScrollbarStyles}) => {
   const modalDisclosure = useDisclosure();
+  const drawerDisclosure = useDisclosure();
 
   const toast = useToast();
 
@@ -40,8 +42,7 @@ export const ListOfDrawerOptions = ({customScrollbarStyles}) => {
   const List = [
     {
       icon: receiptIcon.src,
-      // onClick: openList,
-      notAllowed: true,
+      onClick: () => drawerDisclosure.onOpen(),
       title: 'Send Statement',
       message:
         'Generate and deliver detailed account statements to residents with a single click—includes all balances, fees, and payment history.',
@@ -197,7 +198,7 @@ export const ListOfDrawerOptions = ({customScrollbarStyles}) => {
           )}
         </DrawerBody>
       </DrawerContent>
-
+          <SendStatementDrawer drawerDisclosure={drawerDisclosure} />
       <NotesDrawer modalDisclosure={modalDisclosure} />
     </>
   );

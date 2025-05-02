@@ -184,7 +184,7 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
               <HStack w="full" spacing="10.87px">
                 <Stack spacing="2px">
                   <Heading fontSize="18.9px" fontWeight="700">
-                    Internal Note
+                    Private Internal Note
                   </Heading>
                 </Stack>
               </HStack>
@@ -217,7 +217,7 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
 
             <DrawerBody sx={customScrollStyle} mb="5px" py="0px" px="29px">
               <>
-                <Stack w="full" spacing="10px">
+                <Stack w="full" spacing="24px">
                   {notesStaticData.map((item, idx) => {
                     return (
                       <VStack key={idx} spacing="none">
@@ -239,7 +239,6 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                                 </Heading>
                               </HStack>
 
-            
                               <Text
                                 fontSize="10px"
                                 fontWeight={400}
@@ -250,18 +249,12 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                               </Text>
                             </HStack>
                             <VStack
-                              
-                              pl="9px"
                               w="full"
-                              bg="#F5F5F5"
-                              mb="10px"
-                              pt={'5px'}
-                              pb="18px"
-                              px="13px"
-                              pr="10px"
-                              borderRadius="16px"
+                              bg="#F4F4F5"
+                              p='10px 14px'
+                              borderRadius="0px 8px 8px 8px"
                             >
-                              <Text fontSize="14px" fontWeight="300" w="full" color="#191919">
+                              <Text fontSize="14px" letterSpacing='0.26px' w="full" color="#191919">
                                 {expand === idx
                                   ? formatText(item.note)
                                   : formatText(item.note).length <= 30
@@ -271,24 +264,6 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                                         -(formatText(item.note).length - 30)
                                       )}
 
-                                {/* <Text
-                                  fontSize="14px"
-                                  fontWeight="500"
-                                  as="span"
-                                  color="#4545FE"
-                                  cursor="pointer"
-                                  onClick={() =>
-                                    formatText(item.note).length <= 30
-                                      ? null
-                                      : setExpand(expand === idx ? null : idx)
-                                  }
-                                >
-                                  {formatText(item.note).length <= 30
-                                    ? ''
-                                    : expand === idx
-                                      ? ' ...See less'
-                                      : '...See more'}
-                                </Text> */}
                               </Text>
                             </VStack>
                           </Stack>
@@ -362,7 +337,7 @@ export const NotesDrawer = ({modalDisclosure, usersId, awaitUserId}) => {
                 <Box id="endOfListRef" />
               </>
             </DrawerBody>
-            <DrawerFooter pt="0px">
+            <DrawerFooter borderTop='0.5px solid #E4E4E7' p="0px">
               <AutoResizeInput
                 userId={userId}
                 refetch={refetch}
