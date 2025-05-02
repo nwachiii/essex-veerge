@@ -35,7 +35,7 @@ const FilterSearch = ({label, data}) => {
               p="0px"
             />
           </InputLeftElement>
-          <Input p="8px 12px 8px 30px" h="36px" type="text" placeholder={`search ${label}`} />
+          <Input p="8px 12px 8px 30px" h="36px" type="text" placeholder={`Search ${label}`} />
         </InputGroup>
       </Stack>
       <Stack spacing="16px" w="full" maxH="92px" sx={customScrollbarStyles}>

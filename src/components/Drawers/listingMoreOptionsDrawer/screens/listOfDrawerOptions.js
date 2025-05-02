@@ -19,12 +19,14 @@ import {
   VStack,
   useToast,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 export const ListOfDrawerOptions = ({
   listingDetail,
   customScrollbarStyles,
   handleScreen,
 }) => {
+  const router = useRouter();
 
   const List = [
     {
@@ -50,6 +52,7 @@ export const ListOfDrawerOptions = ({
       icon: violation.src,
       title: 'Violation',
       message: 'Record and track rule violations with supporting notes and evidence. Assign fines, notify residents, and monitor resolution progress—all in one place.',
+      openListItem: () => router.push('/communities/manage/violations'),
     },
     {
       icon: lease.src,

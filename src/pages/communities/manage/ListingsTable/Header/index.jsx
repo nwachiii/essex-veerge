@@ -43,9 +43,14 @@ const ListingOverViewHeader = ({listingData}) => {
         <ListingsDetailsCard total={2420} heading="Total Unit" soldOut={1620} available={800} />
       </GridItem>
       <GridItem colSpan={{base: 2, xl: 1}} borderRadius="19.712px">
-        <Stack cursor="pointer" pos="relative" h="176px" w="full" borderRadius="19.712px"
-        
-          onClick={() => router.push(`/communities/manage/?listingId=1`)}>
+        <Stack
+          cursor="pointer"
+          pos="relative"
+          h="176px"
+          w="full"
+          borderRadius="19.712px"
+          onClick={() => router.push(`/communities/manage/?listingId=1`)}
+        >
           <Box pos="relative" w="full" h="176px" overflow="hidden" borderRadius="19.712px">
             <Image
               src={listingData?.[1]?.photos?.photo}
