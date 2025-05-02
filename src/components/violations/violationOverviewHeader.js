@@ -28,11 +28,11 @@ const ViolationOverviewHeader = () => {
       <GridItem w="full" colSpan={1}>
         {' '}
         <ViolationDetailsCard
-          total={97}
+          total={79}
           heading="Total Open Violations"
           inCure={45}
           lateToCure={32}
-          escalated={20}
+          escalated={2}
         />
       </GridItem>
       <GridItem w="full" colSpan={2}>

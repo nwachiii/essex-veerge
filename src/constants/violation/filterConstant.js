@@ -65,3 +65,21 @@ export const violationCommunityAndBuildingConstant = {
     },
   ],
 };
+
+export const violationUnits = {
+  label: 'Unit',
+  data: [
+    {
+      id: 'comm_01',
+      label: '12-B',
+    },
+    {
+      id: 'comm_02',
+      label: '7-A',
+    },
+    {
+      id: 'comm_03',
+      label: '45-G',
+    },
+  ],
+};
