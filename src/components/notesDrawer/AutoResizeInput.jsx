@@ -19,7 +19,8 @@ import avatarSm from '/src/images/avatar.svg';
 import {TbSend} from 'react-icons/tb';
 import {VscSend} from 'react-icons/vsc';
 import {encodeFileToBase64} from 'utils';
-import CameraIcon from '/src/images/icons/camIcon.svg';
+import CameraIcon from '/src/images/icons/camera-note.svg';
+import AttachIcon from '/src/images/icons/attach-circle.svg';
 import CloseIcon from '/src/images/icons/close-icon-blue.svg';
 import {useMutation} from '@tanstack/react-query';
 import {UpdateNotes} from 'apis/fetchNotes';
@@ -35,11 +36,10 @@ const customScrollbarStyles = {
 
 const StyledTextArea = styled.textarea`
   width: 100%;
-  min-height: 45px;
-  max-height: 150px;
+  height: 36px;
   padding: 10px;
-  border: 1px solid #e4e4e4;
-  border-radius: 8px;
+  border: 0.5px solid #e4e4e7;
+  border-radius: 4px;
   resize: none;
   font-size: 14px;
   white-space: break-spaces;
@@ -52,7 +52,7 @@ const StyledTextArea = styled.textarea`
   position: relative;
 
   z-index: 2;
-  background: transparent;
+  background: #FAFAFA;
 
   &:focus {
     outline: none;
@@ -138,7 +138,7 @@ const AutoResizeInput = ({
     if (textAreaRef.current) {
       console.log(textAreaRef.current.scrollHeight);
       textAreaRef.current.style.height = 'auto';
-      textAreaRef.current.style.height = `${Math.min(Math.max(textAreaRef.current.scrollHeight, 69), 150)}px`;
+      textAreaRef.current.style.height = `${Math.min(Math.max(textAreaRef.current.scrollHeight, 36), 150)}px`;
     }
   }, [formik.values.notes]);
 
@@ -343,7 +343,7 @@ const AutoResizeInput = ({
 
   const isValid = formik.values.notes.trim() || uploadedImages.length;
   return (
-    <Stack w="full" spacing="none">
+    <Stack p='12px 20px' w="full" spacing="none">
       <HStack
         as="form"
         onSubmit={formik.handleSubmit}
@@ -352,7 +352,14 @@ const AutoResizeInput = ({
         alignItems={`stretch`}
         p="8px"
       >
-        <Stack position="relative" w="fit-content" justifyContent="center">
+        <HStack position="relative" w="fit-content" justifyContent="center">
+        <Image
+            boxSize='20px'
+            src={AttachIcon.src}
+            alt="attachment icon"
+            cursor="pointer"
+            onClick={selectImage}
+          />
           <Input
             ref={imageRef}
             onChange={handleImageChange}
@@ -361,32 +368,15 @@ const AutoResizeInput = ({
             hidden
             multiple
           />
-          {/* <Image
-            w="20px"
-            h="20px"
+          <Image
+            boxSize='20px'
             src={CameraIcon.src}
             alt="camera icon"
             cursor="pointer"
-            color="#3D3D3D"
             onClick={selectImage}
-          /> */}
-          <IconButton
-            variant="unstyled"
-            minW="fit-content"
-            display="flex"
-            alignItems="center"
-            alignSelf="center"
-            justifyContent="center"
-            w="20px"
-            h="20px"
-            alt="camera icon"
-            cursor="pointer"
-            color="#606060"
-            onClick={selectImage}
-          >
-            <ImAttachment />
-          </IconButton>
-        </Stack>
+          />
+         
+        </HStack>
         <Box position="relative" zIndex={2} w="100%">
           <HighlightOverlay
             ref={overlayRef}
@@ -406,7 +396,7 @@ const AutoResizeInput = ({
                 overlayRef.current.scrollTop = textAreaRef.current.scrollTop;
               }
             }}
-            placeholder="Type your message here. Use @ to mention someone..."
+            placeholder="Drop a note"
           />
 
           <Box

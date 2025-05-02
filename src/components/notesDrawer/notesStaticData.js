@@ -4,19 +4,10 @@ export const notesStaticData = [
     created_by: {
       avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
       first_name: 'Phoenix',
-      last_name: 'baker',
+      last_name: 'Baker',
     },
-    created_at: '2 hours ago',
+    created_at: 'Apr 18, 2025 | 11:45 AM',
     note: 'Just a heads-up —Ralph has submitted another maintenance request regarding the recurring leak in his bathroom ceiling. This is the third report in the past 6 weeks. Can we confirm if Facilities followed up with the plumbing contractor after the last work order?',
-    // files_list: [
-    // {
-    //     files: 'path/to/attachment1.pdf',
-    // },
-    // {
-    //     files: 'path/to/attachment2.jpg',
-    // },
-    // ],
-    // files: 'path/to/alternative-attachment.pdf',
   },
   {
     id: 3,
@@ -25,7 +16,7 @@ export const notesStaticData = [
       first_name: 'Courtney',
       last_name: 'Henry',
     },
-    created_at: '6 days ago',
+    created_at: 'Apr 18, 2025 | 11:47 AM',
     note: `Please also check if 15-B has had any similar complaints. If it's a shared pipe, we might need to notify both units officially.
     I’ll hold off responding to Mr. Ralph until we confirm what's going on..`,
     files_list: [], // No attachments
