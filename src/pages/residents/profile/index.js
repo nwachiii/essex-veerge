@@ -10,11 +10,11 @@ import {
   Button as ChakraButton,
   useDisclosure,
 } from '@chakra-ui/react';
-
-import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
-import {ChevronLeftIcon, ChevronRightIcon, EditIcon, SmallAddIcon} from '@chakra-ui/icons';
+import dynamic from 'next/dynamic';
+import {useSmallerLaptopsBreakpoint} from '/src/ui-lib/ui-lib.hooks/useSmallerLaptopsBreakpoint.js';
+import {ChevronLeftIcon} from '@chakra-ui/icons';
 // import {Button} from 'ui-lib/ui-lib.components';
-import ralph from '../../../images/resident-profile/ralph.png';
+// import ralph from '../../../images/resident-profile/ralph.png';
 import calling from '../../../images/resident-profile/calling.svg';
 import plus from '../../../images/resident-profile/plus.svg';
 import info from '../../../images/resident-profile/info.svg';
@@ -24,8 +24,8 @@ import vehicle from '../../../images/resident-profile/vehicle.svg';
 import treasurer from '../../../images/resident-profile/treasurer.svg';
 import clubHouse from '../../../images/resident-profile/clubHouse.svg';
 import poolParty from '../../../images/resident-profile/poolParty.svg';
-import moreOption from '../../../images/resident-profile/moreOption.svg';
-import verify from '../../../images/resident-profile/verify.svg';
+// import moreOption from '../../../images/resident-profile/moreOption.svg';
+// import verify from '../../../images/resident-profile/verify.svg';
 import pet from '../../../images/resident-profile/pet.svg';
 import lease from '../../../images/resident-profile/lease.svg';
 import document from '../../../images/resident-profile/document.svg';
@@ -33,9 +33,14 @@ import ppt1 from '../../../images/resident-profile/ppt1.png';
 import ppt2 from '../../../images/resident-profile/ppt2.png';
 import ppt3 from '../../../images/resident-profile/ppt3.png';
 import {useRouter} from 'next/router';
-import ResidentProfileDrawerOptions from '@/components/Drawers/resident/profile';
-import DataMigrationModal from '@/components/dashboard/dataMigration';
-import NotesDrawer from '@/components/notesDrawer';
+const ResidentProfileDrawerOptions = dynamic(
+  () => import('@/components/Drawers/resident/profile'),
+  {ssr: false}
+);
+// import DataMigrationModal from '@/components/dashboard/dataMigration'
+const NotesDrawer = dynamic(() => import('@/components/notesDrawer'), {
+  ssr: false,
+});
 
 const Button = ({children, ...rest}) => (
   <ChakraButton _hover={{opacity: 1}} _active={{opacity: 1}} h="55px" {...rest}>
@@ -1380,13 +1385,13 @@ export const SingleCustomerPage = ({userId}) => {
 
 export default SingleCustomerPage;
 
-export async function getServerSideProps(context) {
-  const {query} = context;
-  const userId = query.userId;
+// export async function getServerSideProps(context) {
+//   const {query} = context;
+//   const userId = query.userId;
 
-  return {
-    props: {
-      userId,
-    },
-  };
-}
+//   return {
+//     props: {
+//       userId,
+//     },
+//   };
+// }
