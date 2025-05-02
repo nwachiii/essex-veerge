@@ -4,7 +4,7 @@ import NProgress from 'nprogress';
 import {DefaultSeo} from 'next-seo';
 import {useRouter} from 'next/router';
 import {Suspense, useEffect, useState} from 'react';
-import {ChakraProvider, Progress, Show} from '@chakra-ui/react';
+import {Center, ChakraProvider, Image, Progress, Show, Text, useDisclosure} from '@chakra-ui/react';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 import SEO from '../next-seo.config';
@@ -16,6 +16,8 @@ import LayoutMobileView from '../components/PageLayout/Layout.MobileView';
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 import './globalStyles.css';
 import 'aos/dist/aos.css';
+import InsightDrawer from '@/components/Drawers/insightDrawer';
+import insightIcon from '../images/icons/insight.svg';
 
 NProgress.configure({showSpinner: false});
 
@@ -32,6 +34,7 @@ const queryClient = new QueryClient({
 });
 
 function MyApp({Component, pageProps}) {
+  const insightDisclosure = useDisclosure();
   const router = useRouter();
   const [pageLoader, setPageLoader] = useState(false);
 
@@ -105,7 +108,32 @@ function MyApp({Component, pageProps}) {
                 <Show breakpoint="(max-width: 767px)">
                   <LayoutMobileView />
                 </Show>
+
+                {/* <Center>
+                  <Image src={insightIcon.src} alt="insight" />
+                </Center> */}
               </Suspense>
+
+              <Center
+                position={'fixed'}
+                bottom="42px"
+                right="78px"
+                zIndex={100}
+                bg="#18230F"
+                p="15px"
+                borderRadius="full"
+                gap={'8px'}
+                cursor={'pointer'}
+                onClick={() => {
+                  insightDisclosure.onOpen();
+                }}
+              >
+                <Image src={insightIcon.src} alt="insight" />
+                <Text fontSize="20px" fontWeight="400" lineHeight="normal" color={'#fff'}>
+                  AI Assistant
+                </Text>
+              </Center>
+              <InsightDrawer modalDisclosure={insightDisclosure} />
             </ErrorBoundary>
           ) : (
             <AnimatedLoader />
