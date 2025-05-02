@@ -1,7 +1,6 @@
 import {useRouter} from 'next/router';
 import {useState} from 'react';
 import {AnimatedLoader} from '../../../../../components';
-import CustomersTable from './CustomersTable/Table';
 import {Box, useToast, HStack, Heading, Image} from '@chakra-ui/react';
 import SortBy from '../../../../../components/SortBy';
 
