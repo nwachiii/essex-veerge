@@ -95,6 +95,97 @@ export const UNIT_DATA_COLUMNS = data => [
   },
 ];
 
+export const OCCUPANT_DATA_COLUMNS = data => [
+  // {
+  //   Header: ' ',
+  //   accessor: row => {
+  //     return <></>;
+  //   },
+  // },
+  {
+    Header: 'Name',
+    accessor: row => {
+      return (
+        <Text fontFamily="Inter" fontSize="14px" fontWeight={500} color="#191919">
+          {row?.address}
+        </Text>
+      );
+    },
+  },
+  {
+    Header: 'Occupant',
+    accessor: row => {
+      return (
+        <HStack mx="auto" align="center" spacing="11px">
+          <Image alt="" boxSize="40px" src={row?.avatar} rounded="full" />
+          <Stack fontFamily="Inter" gap="2px">
+            <Text fontFamily="Inter" fontSize="14px" color="#191919">
+              {row?.name}
+            </Text>
+            <Text fontFamily="Inter" fontSize="14px" color="#4545FE">
+              {row?.email}
+            </Text>
+          </Stack>
+        </HStack>
+      );
+    },
+  },
+  {
+    Header: 'Phone',
+    accessor: row => {
+      return (
+        <Text fontFamily="Inter" fontSize="14px" fontWeight={500} color="#191919">
+          {row?.phoneNumber}
+        </Text>
+      );
+    },
+  },
+  {
+    Header: 'Status',
+    accessor: row => {
+      return (
+        <Text
+          bg={
+            row?.status?.toLowerCase() == 'owner'
+              ? themeStyles.color.matador__green_tag
+              : row?.status == 'reversed'
+                ? themeStyles.color.matador__purple_tag
+                : row?.status?.toLowerCase() == 'tenant'
+                  ? themeStyles.color.matador__yellow_tag
+                  : '-'
+          }
+          color={
+            row?.status?.toLowerCase() == 'owner'
+              ? themeStyles.color.matador__green
+              : row?.status == 'reversed'
+                ? themeStyles.color.matador__purple
+                : row?.status?.toLowerCase() == 'tenant'
+                  ? themeStyles.color.matador__yellow
+                  : '-'
+          }
+          fontSize="14px"
+          w="fit-content"
+          fontWeight={500}
+          padding={'4px 12px'}
+          borderRadius={'16px'}
+          textTransform={'capitalize'}
+          fontFamily="Inter"
+          textAlign="center"
+        >
+          {row?.status}
+        </Text>
+      );
+    },
+  },
+  {
+    Header: 'Action',
+    hideHeader: true,
+    accessor: row => {
+      return <OccupantDrawerButton />;
+    },
+  },
+];
+
 export const unitsData = {
   data: [
     {
@@ -194,12 +285,34 @@ const DrawerButton = () => {
       borderColor="#E4E4E7"
       variant="outline"
       _hover={{
-        opacity: 1
+        opacity: 1,
       }}
       fontSize="14px"
-      onClick={() =>
-        router.push(`/communities/manage/unit_info?&unitId=1`)
-      }
+      onClick={() => router.push(`/communities/manage/unit_info?&unitId=1`)}
+    >
+      View
+    </Button>
+  );
+};
+
+const OccupantDrawerButton = () => {
+  const router = useRouter();
+
+  return (
+    <Button
+      borderRadius="72px"
+      w="118px"
+      h="46px"
+      color="#000"
+      fontWeight={'500'}
+      border="1px solid"
+      borderColor="#E4E4E7"
+      variant="outline"
+      _hover={{
+        opacity: 1,
+      }}
+      fontSize="16px"
+      onClick={() => router.push(`/residents/profile?userId=4026`)}
     >
       View
     </Button>
