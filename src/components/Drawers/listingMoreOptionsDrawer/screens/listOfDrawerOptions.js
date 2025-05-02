@@ -34,7 +34,8 @@ export const ListOfDrawerOptions = ({
       title: 'Occupants',
       message:
         'Keep an up-to-date log of all residents per unit, including tenants, owners, and additional occupants—ideal for communication and access control.',
-    },
+        openListItem: () => router.push('/communities/manage/occupants'),
+      },
     {
       icon: activity.src,
       title: 'Amenities Access',
