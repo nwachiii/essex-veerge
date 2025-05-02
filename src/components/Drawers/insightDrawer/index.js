@@ -23,19 +23,19 @@ import BodySection from './contentSection';
 import veerge_ai from '/src/images/icons/veerge_ai.svg';
 
 const testSamples = [
-  'Help me draft an email response.',
-  'What is the age distribution of subscribers?',
-  'What are buyers saying about properties and services?',
-  'How are sales team performing in different regions?',
-  'What is the projected sales revenue for the next quarter/year?',
-  'How satisfied are customers with their purchase experience?',
-  'What geographical areas shows the most potential for expansion?',
-  'How often do customers delay instalment payments?',
-  'What property features are most sought after by customers?',
-  'What is the profitability of different property types (e.g residential, commercial)?',
-  'What is the potential of expanding operations into new market?',
-  'Are there opportunities to cross-sell additional services or properties to existing customers?',
-  'Are there underserved niches or segments in the property market?',
+  'Analyze recent violations and identify trends.',
+  'Summarize all open work requests and sort by urgency.',
+  'Summarize recent resident requests by priority.',
+  'Summarize financial activity for all communites this quarter.',
+  'Analyze recent violations and identify trends.',
+  'Recommend steps to handle repeat violation offenders.',
+  'List residents with outstanding balances over $300.',
+  'Generate a response to a resident requesting a payment plan.',
+  // 'What property features are most sought after by customers?',
+  // 'What is the profitability of different property types (e.g residential, commercial)?',
+  // 'What is the potential of expanding operations into new market?',
+  // 'Are there opportunities to cross-sell additional services or properties to existing customers?',
+  // 'Are there underserved niches or segments in the property market?',
 ];
 
 const InsightDrawer = ({modalDisclosure}) => {
@@ -159,7 +159,7 @@ const InsightDrawer = ({modalDisclosure}) => {
         </HStack>
 
         <DrawerBody position="relative">
-          <Flex direction={'column'} pt="10px" gap="16px" w="100%">
+          <Flex direction={'column'} pt="10px" gap="16px" w="100%" flex={'1'} height={'100%'}>
             <BodySection
               testSamples={testSamples}
               setInputMsg={setInputMsg}

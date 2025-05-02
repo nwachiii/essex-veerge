@@ -14,7 +14,7 @@ const BodySection = ({
   // const [listOptions, setListOptions] = useState(true);
 
   return (
-    <Flex flex="1" direction={'column'} justify={'flex-end'} gap={'34px'}>
+    <Flex h="100%" flex="1" direction={'column'} justify={'flex-end'} gap={'34px'}>
       {listOptions ? (
         <>
           <Flex mt="43px" direction="column" gap="7px" justifyContent="center" alignItems="center">
@@ -32,9 +32,10 @@ const BodySection = ({
               {testSamples?.map((single, index) => (
                 <Flex
                   boxSizing="content-box"
-                  padding="8px 16px"
+                  padding={index === 2 ? '19px 16px' : '8px 16px'}
                   border="1px #D0D5DD solid"
                   w={index === 0 ? '158px' : index === 1 ? '185px' : 'fit-content'}
+                  maxW={index === 3 || index === 5 ? '283px' : 'fit-content'}
                   borderRadius="4px"
                   fontSize="14px"
                   fontWeight={400}
@@ -51,7 +52,15 @@ const BodySection = ({
           </Box>
         </>
       ) : (
-        <Flex direction={'column'} justify={'flex-end'} w="full" pb="10px" gap={'18px'} mt="auto">
+        <Flex
+          direction={'column'}
+          justify={'flex-end'}
+          w="full"
+          pb="10px"
+          gap={'18px'}
+          mt="auto"
+          height={'100%'}
+        >
           {messages?.map((el, i) => (
             <>
               <Flex
