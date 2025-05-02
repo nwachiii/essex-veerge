@@ -11,8 +11,8 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import {useSmallerLaptopsBreakpoint} from 'ui-lib/ui-lib.hooks';
-import {ChevronLeftIcon, ChevronRightIcon, EditIcon, SmallAddIcon} from '@chakra-ui/icons';
+import {useSmallerLaptopsBreakpoint} from '/src/ui-lib/ui-lib.hooks/useSmallerLaptopsBreakpoint.js';
+import {ChevronLeftIcon} from '@chakra-ui/icons';
 // import {Button} from 'ui-lib/ui-lib.components';
 // import ralph from '../../../images/resident-profile/ralph.png';
 import calling from '../../../images/resident-profile/calling.svg';
