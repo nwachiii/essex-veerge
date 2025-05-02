@@ -15,6 +15,7 @@ import {MapViewDrawer} from './screens/mapViewDrawer';
 import UploadSubDoc from './screens/uploadSubDoc';
 import AddProjectBankAccount from './screens/addBankAccount';
 import {ListingDisplayPicture} from './screens/listingDisplayPicture';
+import { SendEmailDrawer } from './screens/sendEmail/sendEmail';
 
 export const ListingMoreOption = ({
   name,
@@ -166,6 +167,9 @@ export const ListingMoreOption = ({
         return <AddProjectBankAccount mainScreenNav={setScreen} />;
       case 'uploadSubDoc':
         return <UploadSubDoc listingDetails={listingDetail} handleMainScreen={setScreen} />;
+      case 'email':
+        return <SendEmailDrawer customScrollbarStyles={customScrollbarStyles} handleScreen={handleScreen} />
+      
       default:
         <ListOfDrawerOptions
           name={name}

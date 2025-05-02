@@ -23,6 +23,7 @@ import {
 export const ListOfDrawerOptions = ({
   listingDetail,
   customScrollbarStyles,
+  handleScreen,
 }) => {
 
   const List = [
@@ -42,6 +43,8 @@ export const ListOfDrawerOptions = ({
       icon: email.src,
       title: 'Send Email',
       message: 'Communicate directly with residents, board members, or staff using built-in email tools—perfect for notices, newsletters, or follow-ups.',
+      openListItem: handleScreen('email'),
+      
     },
     {
       icon: violation.src,
@@ -138,7 +141,7 @@ export const ListOfDrawerOptions = ({
                     cursor={'pointer'}
                     border="1px solid #E4E4E4"
                     padding="15px 11px"
-                    onClick={openList}
+                    onClick={data?.openListItem ? data?.openListItem : openList}
                     borderRadius="12px"
                     marginBottom="1rem"
                     justify="space-between"
