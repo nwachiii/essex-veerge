@@ -177,55 +177,51 @@ export const ResidentProfileDrawerOptions = ({}) => {
             </HStack>
           </HStack>
           <DrawerBody sx={customScrollbarStyles} paddingTop="1rem" mr="3px" w="400px">
-            {List.flatMap((data, index) =>
-              data
-                ? [
-                    <HStack
-                      cursor={'pointer'}
-                      border="1px solid #E4E4E4"
-                      padding="15px 11px"
-                      onClick={openList}
-                      borderRadius="12px"
-                      marginBottom="1rem"
-                      justify="space-between"
-                      key={index}
-                    >
-                      <VStack spacing="11px" alignItems="start">
-                        <HStack spacing="15px">
-                          {data?.iconComponent ? (
-                            data?.iconComponent
-                          ) : (
-                            <Image src={data.icon} alt="icons" />
-                          )}
-                          {data?.comingSoon ? (
-                            <HStack
-                              bg="rgba(255, 145, 3, 0.10)"
-                              borderRadius="8px"
-                              border=" 0.603px solid #FF9103"
-                              boxShadow="0px 4.80333px 28.81997px 0px rgba(0, 0, 0, 0.04)"
-                              p="6px"
-                            >
-                              <Image src={data.comingSoon.icon} alt="icons" />
-                              <Text fontWeight="500" color="#FF9103" fontSize="9.607px">
-                                Coming soon!
-                              </Text>
-                            </HStack>
-                          ) : null}
-                        </HStack>
-                        <Stack spacing="8px">
-                          <Text fontSize="0.8rem" fontWeight="600">
-                            {data.title}
-                          </Text>
-                          <Text fontWeight="400" color="#606060" fontSize="10px">
-                            {data.message}
-                          </Text>
-                        </Stack>
-                      </VStack>
-                      <Image src={rightArrow.src} alt="right icon" />
-                    </HStack>,
-                  ]
-                : []
-            )}
+            {List.flatMap((data, index) => (
+              <HStack
+                cursor={'not-allowed'}
+                border="1px solid #E4E4E4"
+                padding="15px 11px"
+                // onClick={openList}
+                borderRadius="12px"
+                marginBottom="1rem"
+                justify="space-between"
+                key={index}
+              >
+                <VStack spacing="11px" alignItems="start">
+                  <HStack spacing="15px">
+                    {data?.iconComponent ? (
+                      data?.iconComponent
+                    ) : (
+                      <Image src={data.icon} alt="icons" />
+                    )}
+                    {data?.comingSoon ? (
+                      <HStack
+                        bg="rgba(255, 145, 3, 0.10)"
+                        borderRadius="8px"
+                        border=" 0.603px solid #FF9103"
+                        boxShadow="0px 4.80333px 28.81997px 0px rgba(0, 0, 0, 0.04)"
+                        p="6px"
+                      >
+                        <Image src={data.comingSoon.icon} alt="icons" />
+                        <Text fontWeight="500" color="#FF9103" fontSize="9.607px">
+                          Coming soon!
+                        </Text>
+                      </HStack>
+                    ) : null}
+                  </HStack>
+                  <Stack spacing="8px">
+                    <Text fontSize="0.8rem" fontWeight="600">
+                      {data.title}
+                    </Text>
+                    <Text fontWeight="400" color="#606060" fontSize="10px">
+                      {data.message}
+                    </Text>
+                  </Stack>
+                </VStack>
+                <Image src={rightArrow.src} alt="right icon" />
+              </HStack>
+            ))}
           </DrawerBody>
         </DrawerContent>
       </Drawer>

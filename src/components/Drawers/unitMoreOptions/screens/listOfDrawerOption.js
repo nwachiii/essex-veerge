@@ -18,52 +18,13 @@ import {
   Stack,
   Text,
   VStack,
+  useDisclosure,
   useToast,
 } from '@chakra-ui/react';
+import NotesDrawer from '@/components/notesDrawer';
 
-export const ListOfDrawerOptions = ({listingDetail, customScrollbarStyles}) => {
-  const List = [
-    {
-      icon: receiptIcon.src,
-      title: 'Send Statement',
-      message:
-        'Generate and deliver detailed account statements to residents with a single click—includes all balances, fees, and payment history.',
-    },
-    {
-      icon: message.src,
-      title: 'Add Note',
-      message: `Attach private notes to a resident's profile or financial record—ideal for internal updates, reminders, or documentation of conversations.`,
-    },
-    {
-      icon: receipt.src,
-      title: 'Update Information',
-      message: 'Quickly edit or update information to ensure records stay accurate and up to date.',
-    },
-    {
-      icon: request.src,
-      title: 'Request Fee',
-      message:
-        'Easily initiate a fee request for any applicable charges, such as maintenance, violations, or special assessments. Track status and history in one place.',
-    },
-    {
-      icon: violation.src,
-      title: 'New Work Request',
-      message:
-        'Create  maintenance or repair requests for resident —track status, assign vendors, and close tickets with ease.',
-    },
-    {
-      icon: lease.src,
-      title: 'Lease Request',
-      message:
-        'Track and manage rental approvals within the community. Review applications, verify lease terms, and ensure compliance with HOA rental policies—all from one centralized dashboard.',
-    },
-    {
-      icon: info.src,
-      title: 'Transfer Ownership',
-      message:
-        'Easily update property records when a unit changes hands. Preserve past data while onboarding new owners with accurate, seamless transitions.',
-    },
-  ];
+export const ListOfDrawerOptions = ({customScrollbarStyles}) => {
+  const modalDisclosure = useDisclosure();
 
   const toast = useToast();
 
@@ -75,6 +36,62 @@ export const ListOfDrawerOptions = ({listingDetail, customScrollbarStyles}) => {
       duration: 5000,
     });
   };
+
+  const List = [
+    {
+      icon: receiptIcon.src,
+      // onClick: openList,
+      notAllowed: true,
+      title: 'Send Statement',
+      message:
+        'Generate and deliver detailed account statements to residents with a single click—includes all balances, fees, and payment history.',
+    },
+    {
+      icon: message.src,
+      onClick: () => modalDisclosure.onOpen(),
+      title: 'Add Note',
+      message: `Attach private notes to a resident's profile or financial record—ideal for internal updates, reminders, or documentation of conversations.`,
+    },
+    {
+      icon: receipt.src,
+      // onClick: openList,
+      notAllowed: true,
+      title: 'Update Information',
+      message: 'Quickly edit or update information to ensure records stay accurate and up to date.',
+    },
+    {
+      icon: request.src,
+      // onClick: openList,
+      notAllowed: true,
+      title: 'Request Fee',
+      message:
+        'Easily initiate a fee request for any applicable charges, such as maintenance, violations, or special assessments. Track status and history in one place.',
+    },
+    {
+      icon: violation.src,
+      // onClick: openList,
+      notAllowed: true,
+      title: 'New Work Request',
+      message:
+        'Create  maintenance or repair requests for resident —track status, assign vendors, and close tickets with ease.',
+    },
+    {
+      icon: lease.src,
+      // onClick: openList,
+      notAllowed: true,
+      title: 'Lease Request',
+      message:
+        'Track and manage rental approvals within the community. Review applications, verify lease terms, and ensure compliance with HOA rental policies—all from one centralized dashboard.',
+    },
+    {
+      icon: info.src,
+      // onClick: openList,
+      notAllowed: true,
+      title: 'Transfer Ownership',
+      message:
+        'Easily update property records when a unit changes hands. Preserve past data while onboarding new owners with accurate, seamless transitions.',
+    },
+  ];
 
   return (
     <>
@@ -133,10 +150,10 @@ export const ListOfDrawerOptions = ({listingDetail, customScrollbarStyles}) => {
             data
               ? [
                   <HStack
-                    cursor={'pointer'}
+                    cursor={data.notAllowed ? 'not-allowed' : 'pointer'}
                     border="1px solid #E4E4E4"
                     padding="15px 11px"
-                    onClick={openList}
+                    onClick={data.onClick}
                     borderRadius="12px"
                     marginBottom="1rem"
                     justify="space-between"
@@ -180,6 +197,8 @@ export const ListOfDrawerOptions = ({listingDetail, customScrollbarStyles}) => {
           )}
         </DrawerBody>
       </DrawerContent>
+
+      <NotesDrawer modalDisclosure={modalDisclosure} />
     </>
   );
 };
