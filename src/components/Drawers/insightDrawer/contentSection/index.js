@@ -20,7 +20,7 @@ const BodySection = ({
           <Flex mt="43px" direction="column" gap="7px" justifyContent="center" alignItems="center">
             <VeergeAI />
             <Text fontSize="24px" fontWeight={500} lineHeight={'20px'} color="#344054">
-              Welcome to Veerge AI
+              Welcome
             </Text>
             <Text fontSize={'14px'} lineHeight="22px" fontWeight={400} color={'#667085'}>
               Here’s something I can help you do

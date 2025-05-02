@@ -121,7 +121,7 @@ const InsightDrawer = ({modalDisclosure}) => {
             <Box display="flex" alignItems="center" gap="8px">
               <Image w="20px" h="20px" src={veerge_ai.src} alt="icon" />
               <Text fontSize="16px" fontWeight={500} color="#344054">
-                Veerge AI
+                AI Assistant
               </Text>
               <Box
                 px="14px"
