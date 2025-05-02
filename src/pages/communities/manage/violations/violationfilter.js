@@ -25,6 +25,7 @@ import {
   IconButton,
   Tooltip,
   StackDivider,
+  useToast,
 } from '@chakra-ui/react';
 import filter_icon from '/src/images/icons/filter-icon.svg';
 import React, {useState} from 'react';
@@ -43,6 +44,7 @@ import ViolationDateRange from '@/components/violations/dateRange';
 
 
 const ViolationFilter = ({forFilter}) => {
+  const toast = useToast();
   const {isOpen, onClose, onOpen} = useDisclosure();
   const [toBeFiltered, setToBeFiltered] = useState({});
   const router = useRouter();
@@ -110,7 +112,12 @@ const ViolationFilter = ({forFilter}) => {
   };
 
   const applyFilter = () => {
-    toast
+    toast({
+      position: 'top-right',
+      description: 'You are currently ineligible for this action',
+      status: 'info',
+      duration: 5000
+    })
   };
 
   const customScrollbarStyles = {
