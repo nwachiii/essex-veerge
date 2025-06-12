@@ -146,7 +146,7 @@ export default function CreateAccount() {
                 <u>Privacy policy</u>
               </a>{' '}
               and{' '}
-              <a target="_blank" href="https://doorhive.vercel.app/help/terms">
+              <a target="_blank" href="https://doorhive.vercel.app/help/tos">
                 <u>Terms of service</u>
               </a>
             </Text>
