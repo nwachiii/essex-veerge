@@ -142,11 +142,11 @@ export default function CreateAccount() {
             <Text textAlign={'left'} fontSize="12px">
               By creating an account, you assert that you represent a property development company
               and agree to adhere to our{' '}
-              <a target="_blank" href="https://veerge-support.myxellia.io/privacy">
+              <a target="_blank" href="https://doorhive.vercel.app/help/privacy">
                 <u>Privacy policy</u>
               </a>{' '}
               and{' '}
-              <a target="_blank" href="https://veerge-support.myxellia.io/terms">
+              <a target="_blank" href="https://doorhive.vercel.app/help/terms">
                 <u>Terms of service</u>
               </a>
             </Text>
