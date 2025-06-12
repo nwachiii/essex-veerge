@@ -322,7 +322,7 @@ export const VeergeFeatureMenu = ({openmanageApp, isPending}) => {
                   <Link
                     target="_blank"
                     rel="noreferrer"
-                    href={'https://veerge-support.myxellia.io/terms'}
+                    href={'https://doorhive.vercel.app/help/tos'}
                   >
                     <HStack gap="15px" {...typographyStyles}>
                       <PolicyIcon />
@@ -333,7 +333,7 @@ export const VeergeFeatureMenu = ({openmanageApp, isPending}) => {
                   <Link
                     target="_blank"
                     rel="noreferrer"
-                    href={'https://veerge-support.myxellia.io/privacy'}
+                    href={'https://doorhive.vercel.app/help/privacy'}
                   >
                     <HStack gap="15px" {...typographyStyles}>
                       <PolicyIcon />
@@ -344,7 +344,7 @@ export const VeergeFeatureMenu = ({openmanageApp, isPending}) => {
                   <Link
                     target="_blank"
                     rel="noreferrer"
-                    href={'https://veerge-support.myxellia.io/blog'}
+                    href={'https://doorhive.vercel.app/help/violation'}
                   >
                     <HStack gap="15px" {...typographyStyles}>
                       <BlogIcon />

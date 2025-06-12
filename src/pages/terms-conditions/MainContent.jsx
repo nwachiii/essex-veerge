@@ -52,10 +52,15 @@ const TermsConditionsMainContent = ({
           terms and conditions (the <b style={{fontWeight: '600'}}>{`"Terms of Service"`}</b>).
         </Text>
         <Text color="#000" fontSize="16px" fontStyle="normal" fontWeight="300">
-          {`As used in these Terms of Service, "`}<b style={{fontWeight: '600'}}>we,</b>{" "}
-          <b style={{fontWeight: '600'}}>us,</b>{" "}<b style={{fontWeight: '600'}}>our,</b>{`" and "`}
-          <b style={{fontWeight: '600'}}>Veerge</b>{`" refer to the applicable Veerge Contracting
-          Party (Myxellia Inc.), and "`}<b style={{fontWeight: '600'}}>you</b>{`" refers to the Veerge
+          {`As used in these Terms of Service, "`}
+          <b style={{fontWeight: '600'}}>we,</b> <b style={{fontWeight: '600'}}>us,</b>{' '}
+          <b style={{fontWeight: '600'}}>our,</b>
+          {`" and "`}
+          <b style={{fontWeight: '600'}}>Veerge</b>
+          {`" refer to the applicable Veerge Contracting
+          Party (Myxellia Inc.), and "`}
+          <b style={{fontWeight: '600'}}>you</b>
+          {`" refers to the Veerge
           User (if registering for or using a Veerge Service as an individual) or the business
           employing the Veerge User (if registering for or using a Veerge Service as a business) and
           any of its affiliates."`}
@@ -109,7 +114,8 @@ const TermsConditionsMainContent = ({
             fontWeight="300"
           >
             {' '}
-            <span>1.</span> {`To access and use the Services, you must register for a Veerge account
+            <span>1.</span>{' '}
+            {`To access and use the Services, you must register for a Veerge account
             ("Account"). To complete your Account registration, you must provide us with your full
             legal name, business address, phone number, a valid email address, and any other
             information indicated as required. Veerge reserves the right to reject your application
@@ -232,7 +238,8 @@ const TermsConditionsMainContent = ({
             fontStyle="normal"
             fontWeight="300"
           >
-            <span>10.</span> {`You understand that your Materials may be transferred unencrypted and
+            <span>10.</span>{' '}
+            {`You understand that your Materials may be transferred unencrypted and
             may involve (a) transmissions over various networks, and (b) changes to conform and
             adapt to technical requirements of connecting networks or devices. "Materials" refer to
             your trademarks, copyrighted content, any products or services you offer through the
@@ -558,7 +565,8 @@ const TermsConditionsMainContent = ({
             fontStyle="normal"
             fontWeight="300"
           >
-            <span>5.</span> {`You agree to use Veerge Checkout for any sales associated with your Web
+            <span>5.</span>{' '}
+            {`You agree to use Veerge Checkout for any sales associated with your Web
             application. "Veerge Checkout" refers to Veerge's checkout experience that allows
             customers to enter their payment details.`}
           </Text>
@@ -589,7 +597,8 @@ const TermsConditionsMainContent = ({
             fontWeight="300"
           >
             {' '}
-            <span>1.</span> {`We bill subscription fees and charge on a monthly basis. However, we may
+            <span>1.</span>{' '}
+            {`We bill subscription fees and charge on a monthly basis. However, we may
             bill you more frequently if we suspect fraudulent activity or a risk of non-payment. You
             are responsible for paying the applicable fees and charges for using the Services as
             described on the Veerge Site. Payments must be made using one of the payment methods
@@ -658,7 +667,8 @@ const TermsConditionsMainContent = ({
             fontWeight="300"
           >
             {' '}
-            <span>5.</span> {`You are responsible for all applicable taxes arising from your
+            <span>5.</span>{' '}
+            {`You are responsible for all applicable taxes arising from your
             subscription to or purchase of Veerge's products and services. If Veerge charges these
             taxes, they will be calculated based on the tax rates applicable to the billing address
             you provide. If you are exempt from such taxes, you must provide us with evidence of
@@ -1184,7 +1194,7 @@ const TermsConditionsMainContent = ({
             governed by our{' '}
             <a
               target="_blank"
-              href="https://veerge-support.myxellia.io/privacy"
+              href="https://doorhive.vercel.app/help/privacy"
               style={{color: '#4545FE', marginLeft: '5px'}}
             >
               Privacy Policy.

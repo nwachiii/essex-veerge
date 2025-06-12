@@ -34,22 +34,22 @@ const LayoutForRoleSignUp = ({children}) => {
       <HStack w="full" justify="space-between" px="78px" position="fixed" bottom="5.78vh">
         <HStack justify="20px">
           <Text color="#ffffff" fontSize="12px" fontWeight={400}>
-            <a target="_blank" href="https://veerge-support.myxellia.io/privacy">
+            <a target="_blank" href="https://doorhive.vercel.app/help/privacy">
               Privacy Policy
             </a>
           </Text>
           <Text color="#ffffff" fontSize="12px" fontWeight={400}>
-            <a target="_blank" href="https://veerge-support.myxellia.io/terms">
+            <a target="_blank" href="https://doorhive.vercel.app/help/tos">
               Terms of Use
             </a>
           </Text>
           <Text color="#ffffff" fontSize="12px" fontWeight={400}>
-            <a target="_blank" href="https://veerge-support.myxellia.io/">
+            <a target="_blank" href="https://doorhive.vercel.app/help/violation">
               Help Center
             </a>
           </Text>{' '}
           <Text color="#ffffff" fontSize="12px" fontWeight={400}>
-            <a target="_blank" href="https://veerge-support.myxellia.io/blog">
+            <a target="_blank" href="https://doorhive.vercel.app/help/violation">
               Blog
             </a>
           </Text>

@@ -11,7 +11,7 @@ export const TermsConditionsRightSideNav = () => {
   };
   return (
     <div className={styles.rightsidenav}>
-      <a target="_blank" href="https://veerge-support.myxellia.io/privacy">
+      <a target="_blank" href="https://doorhive.vercel.app/help/privacy">
         <Text
           color="#4545FE"
           fontSize="14px"

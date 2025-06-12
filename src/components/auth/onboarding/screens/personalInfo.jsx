@@ -151,7 +151,7 @@ const PersonalInfo = ({handleScreen, setFormSubmitted, isLoading, formik}) => {
             <Link
               textDecor="underline"
               color="#3d3d3d"
-              href="https://veerge-support.myxellia.io/privacy"
+              href="https://doorhive.vercel.app/help/privacy"
               isExternal
               display="inline-block"
             >
@@ -163,7 +163,7 @@ const PersonalInfo = ({handleScreen, setFormSubmitted, isLoading, formik}) => {
             <Link
               textDecor="underline"
               color="#3d3d3d"
-              href="https://veerge-support.myxellia.io/terms"
+              href="https://doorhive.vercel.app/help/tos"
               isExternal
               display="inline-block"
             >

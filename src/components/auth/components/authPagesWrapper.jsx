@@ -80,7 +80,7 @@ const AuthPageLayout = ({children}) => {
           </Text>
           <Flex gap="15px" fontSize="14px" color="#141414" fontWeight={500}>
             <ChakraLink
-              href="https://veerge-support.myxellia.io/privacy"
+              href="https://doorhive.vercel.app/help/privacy"
               display="flex"
               isExternal
               gap="8px"
@@ -91,7 +91,7 @@ const AuthPageLayout = ({children}) => {
             </ChakraLink>
 
             <ChakraLink
-              href="https://veerge-support.myxellia.io/terms"
+              href="https://doorhive.vercel.app/help/tos"
               display="flex"
               isExternal
               gap="8px"

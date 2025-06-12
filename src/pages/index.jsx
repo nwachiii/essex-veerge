@@ -66,11 +66,11 @@ const Index = () => {
               w="max-content"
             >
               <Text display={'flex'} gap="6px" fontSize="12px" fontWeight={400}>
-                <a target="_blank" href="https://veerge-support.myxellia.io/privacy">
+                <a target="_blank" href="https://doorhive.vercel.app/help/privacy">
                   <u>Privacy Policy</u>
                 </a>{' '}
                 &{' '}
-                <a target="_blank" href="https://veerge-support.myxellia.io/terms">
+                <a target="_blank" href="https://doorhive.vercel.app/help/tos">
                   <u>Terms of Use</u>
                 </a>
               </Text>
