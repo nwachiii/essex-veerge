@@ -1,4 +1,4 @@
-import {Box, Center, Flex, Image, Spinner, Stack, Text} from '@chakra-ui/react';
+import {Avatar, Box, Center, Flex, Image, Spinner, Stack, Text} from '@chakra-ui/react';
 import React, {useEffect, useState} from 'react';
 import {UploadProfilePicture} from 'ui-lib';
 import fallbackSrc from '/src/images/avatar.svg';
@@ -49,13 +49,27 @@ const ProfileMenuInfoCard = ({user, isLoading, refetch}) => {
   return (
     <Flex alignItems="center" gap="8px">
       <Box position="relative">
-        <Image
+        {/* <Image
           fill
           boxSize={'90px'}
           borderRadius={'full'}
           style={{objectFit: `cover`}}
           alt="Dylan_Frank"
           src={'https://randomuser.me/api/portraits/men/41.jpg'}
+        /> */}
+        <Avatar
+          src={''}
+          name={`Dylan Frank`}
+          w="full"
+          h="full"
+          boxSize={'90px'}
+          bg="#27272a"
+          sx={{
+            '.chakra-avatar__initials': {
+              fontSize: '24px',
+            },
+          }}
+          color="#ffffff"
         />
       </Box>
       <Stack h="full">

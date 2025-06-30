@@ -17,6 +17,7 @@ import {
   MenuButton,
   MenuDivider,
   useDisclosure,
+  Avatar,
 } from '@chakra-ui/react';
 import {ChevronUpIcon, ChevronDownIcon} from '@chakra-ui/icons';
 
@@ -45,7 +46,7 @@ import ProfileMenuInfoCard from './navbar/profileMenuInfoCard';
 import {UserSettingsDrawer} from '../Drawers/userSettingsDrawer';
 import {isRoleRestricted} from 'ui-lib/ui-lib.hooks/isRoleRestricted';
 import {HiChatBubbleLeftRight} from 'react-icons/hi2';
-
+import doorHiveLogo from '/src/images/doorHiveLogo.png';
 const NavLink = ({link, children}) => (
   <Link
     prefetch={false}
@@ -137,7 +138,8 @@ export const LayoutNavbar = ({activePage, openmanageApp}) => {
   return (
     <Stack position="fixed" zIndex={1800} w="100%">
       <Box
-        bg={'#18230F'}
+        bg={'#FFCD00'}
+        // bg={'#18230F'}
         px={{base: `32px`, xl: '78px'}}
         py={{base: `13px`, xl: '11px'}}
         pt={{base: '5px', xl: `5px`}}
@@ -152,11 +154,16 @@ export const LayoutNavbar = ({activePage, openmanageApp}) => {
           <HStack>
             <Link href="/account">
               <Image
-                fill
-                alt="Essex-Hoa"
-                width={'fit-content'}
-                style={{objectFit: `cover`}}
-                src={'https://d1x2tneac0i3nn.cloudfront.net/essex-logo.svg'}
+                // fill
+                alt="doorhive-Hoa"
+                // width={'fit-content'}
+                // style={{objectFit: `cover`}}
+                h={{base: '30px', xl: '48px'}}
+                objectFit="cover"
+                w="auto"
+                minW="48px"
+                src={doorHiveLogo.src}
+                // src={'https://d1x2tneac0i3nn.cloudfront.net/essex-logo.svg'}
               />
             </Link>
           </HStack>
@@ -164,7 +171,7 @@ export const LayoutNavbar = ({activePage, openmanageApp}) => {
             <HStack spacing={'24px'} alignItems={'center'} mx={{base: '0px', xl: `54px`}}>
               <LayoutNotifications />
               <Box pt={1}>
-                <HiChatBubbleLeftRight color="#FFFFFF" fontSize="34px" cursor={'not-allowed'} />
+                <HiChatBubbleLeftRight color="#27272a" fontSize="34px" cursor={'not-allowed'} />
               </Box>
               {/* <UserSettingsDrawer isPending={isPending} /> */}
               {isRoleRestricted('create customer and listing').check ? null : (
@@ -196,30 +203,44 @@ export const LayoutNavbar = ({activePage, openmanageApp}) => {
                   as={Button}
                   rounded={'full'}
                   variant={'link'}
+                  _hover={{textDor: 'none'}}
                   cursor={'pointer'}
                   iconSpacing="14px"
                   rightIcon={
                     MENU_DISCLOSURE.isOpen ? (
-                      <ChevronUpIcon color={'#FFFFFF'} fontSize="25px" />
+                      <ChevronUpIcon color={'#27272a'} fontSize="25px" />
                     ) : (
-                      <ChevronDownIcon color={'#FFFFFF'} fontSize="25px" />
+                      <ChevronDownIcon color={'#27272a'} fontSize="25px" />
                     )
                   }
                 >
-                  <HStack color={'#FFFFFF'} spacing="8px">
+                  <HStack color={'#27272a'} spacing="8px">
                     <Center
                       position="relative"
-                      h={{base: '25px', xl: '34px'}}
-                      w={{base: '25px', xl: '34px'}}
-                      minW={{base: '25px', xl: '34px'}}
+                      h={{base: '25px', xl: '40px'}}
+                      w={{base: '25px', xl: '40px'}}
+                      minW={{base: '25px', xl: '40px'}}
                       borderRadius="full"
                       overflow={`hidden`}
                     >
-                      <Image
+                      {/* <Image
                         fill
                         style={{objectFit: `cover`}}
                         alt="Dylan_Frank"
                         src={'https://randomuser.me/api/portraits/men/41.jpg'}
+                      /> */}
+                      <Avatar
+                        src={''}
+                        name={`Dylan Frank`}
+                        w="full"
+                        h="full"
+                        bg="#27272a"
+                        sx={{
+                          '.chakra-avatar__initials': {
+                            fontSize: '13px',
+                          },
+                        }}
+                        color="#ffffff"
                       />
                     </Center>
                     <Text
