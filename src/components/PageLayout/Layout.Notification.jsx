@@ -28,7 +28,7 @@ import {VeergeNotificationsIcon} from './navbar/svgs';
 import {keyframes} from '@emotion/react';
 import walletIcon from '/src/images/icons/wallet.svg';
 import defaultAvatar from '/src/images/default-avatar.png';
-import { CloseIcon } from '@chakra-ui/icons';
+import {CloseIcon} from '@chakra-ui/icons';
 
 const fadeIn = keyframes`
   0% { opacity: 0;scale:0 },
@@ -59,7 +59,6 @@ export const LayoutNotifications = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
 
-
   const mutation = useMutation(data => UpdateStatus(data), {
     onSuccess: async () => {
       queryClient.invalidateQueries(['notif']);
@@ -82,7 +81,6 @@ export const LayoutNotifications = () => {
     });
     setToggleMarkAsReadText('true');
   };
-
 
   const handleNotif = (notifonClose, click, notifIsOpen) => {
     if (error?.response?.status === 401) {
@@ -173,7 +171,8 @@ export const LayoutNotifications = () => {
 
               <VeergeNotificationsIcon
                 cursor="pointer"
-                color={isOpen ? 'gray' : '#FFFFFF'}
+                opacity={isOpen ? 0.8 : 1}
+                color={'#27272a'}
                 mt={'8px'}
               />
             </VStack>
@@ -206,22 +205,32 @@ export const LayoutNotifications = () => {
             // position={'absolute'}
             position="relative"
             // right={'-21.2rem'}
-            w={{base: '90%', md: '400px' }}
-            rounded='0'
+            w={{base: '90%', md: '400px'}}
+            rounded="0"
             borderColor={'#e4e4e4'}
             boxShadow={'xl'}
             sx={{transition: 'opacity 0.001s  ease, transform 0.1s ease'}}
           >
-            <Flex w='full' justify='space-between' align='center' p='16px 20px' bg='#FAFAFA' borderBottom='1px solid #E4E4E7' boxShadow='l'>
-              <Text fontSize='17px' fontWeight={600}>Notifications</Text>
-              <Flex align='center' gap='12px'>
-                <Text fontSize='14px' as="span" color="#4545FE">
+            <Flex
+              w="full"
+              justify="space-between"
+              align="center"
+              p="16px 20px"
+              bg="#FAFAFA"
+              borderBottom="1px solid #E4E4E7"
+              boxShadow="l"
+            >
+              <Text fontSize="17px" fontWeight={600}>
+                Notifications
+              </Text>
+              <Flex align="center" gap="12px">
+                <Text fontSize="14px" as="span" color="#4545FE">
                   Mark all as read
                 </Text>
-                <CloseIcon fontSize='12px' cursor='pointer' color='#71717A' onClick={onClose} />
+                <CloseIcon fontSize="12px" cursor="pointer" color="#71717A" onClick={onClose} />
               </Flex>
             </Flex>
-            <Box pt='16px' px="20px">
+            <Box pt="16px" px="20px">
               <Stack gap="16px" divider={<StackDivider borderColor="#E4E4E7" />}>
                 {listNotif.map((msg, idx) => {
                   const {before, bold, after} = parseMessage(msg.text);
@@ -306,7 +315,6 @@ const OldNotifList = styled(RecentNotifList)`
     padding: 0 0 15px;
   }
 `;
-
 
 const listNotif = [
   {
